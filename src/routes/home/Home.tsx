@@ -2,6 +2,9 @@ import Divider from "./components/Divider";
 import NewsCarousel from "./components/NewsCarousel";
 import MobileApp from "./components/MobileApp";
 import Footer from "./components/Footer";
+import PublicServices from "./components/PublicServices";
+import StatusUpdates from "./components/StatusUpdates";
+import CityHighlights from "./components/CityHighlights";
 
 const Home = () => {
   return (
@@ -23,7 +26,10 @@ const Home = () => {
         <NewsCarousel />
       </div>
       <Divider text="More news" />
+      <PublicServices />
       <MobileApp />
+      <StatusUpdates />
+      <CityHighlights />
       <Footer />
     </div>
   );

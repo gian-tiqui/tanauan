@@ -1,24 +1,31 @@
 import React from "react";
-import { Typography } from "@mui/material";
 import { News } from "./NewsCarousel";
 import { Link } from "react-router-dom";
+
+const cardWidth = "600px";
 
 const NewsCard: React.FC<News> = ({ header, date, link, imageURI }) => {
   return (
     <div
-      className="rounded-lg border shadow overflow-hidden flex justify-items-end"
+      className="rounded-lg border shadow overflow-hidden flex justify-items-end relative"
       style={{
         background: `url(${imageURI})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        height: "200px",
+        height: "230px",
+        width: cardWidth,
       }}
     >
-      <div className="p-4 bg-white mt-32">
-        <Typography variant="h6">{header}</Typography>
-        <Typography variant="body2">{date}</Typography>
-
-        <Link className="border p-3" to={link}>
+      <div className="p-2 bg-white mt-32" style={{ width: cardWidth }}>
+        <p className="font-bold">{header}</p>
+        <p className="text-xs">{date}</p>
+      </div>
+      <div className="absolute bottom-0 right-0 m-3">
+        <Link
+          className="border px-2 py-1 rounded-md text-white font-bold"
+          to={link}
+          style={{ backgroundColor: "#EC2626" }}
+        >
           Read more
         </Link>
       </div>

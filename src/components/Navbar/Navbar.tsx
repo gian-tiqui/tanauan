@@ -12,7 +12,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav>
+    <nav className="relative">
       <div className="flex justify-between py-2">
         <div className="flex">
           <img
@@ -48,7 +48,7 @@ const Navbar = () => {
         <div className="flex pr-5">
           <input
             type="text"
-            className="w-52 h-6 px-3 py-1 border rounded-sm my-auto"
+            className="w-52 h-7 px-3 border rounded-md my-auto"
             placeholder="Search..."
             style={{ borderColor: "#023F78" }}
             onChange={handleSearchTextChange}
