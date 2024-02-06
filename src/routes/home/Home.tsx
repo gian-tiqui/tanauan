@@ -1,4 +1,6 @@
+import { Container } from "@mui/material";
 import Divider from "./components/Divider";
+import NewsCarousel from "./components/NewsCarousel";
 
 const Home = () => {
   return (
@@ -8,6 +10,9 @@ const Home = () => {
       </video>
       <Divider text="News & Publication" />
       <div className="relative z-10"></div>
+      <Container>
+        <NewsCarousel />
+      </Container>
     </div>
   );
 };
