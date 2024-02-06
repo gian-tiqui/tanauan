@@ -1,16 +1,22 @@
+import { ChangeEvent, useState } from "react";
 import { Link } from "react-router-dom";
 
 const linkClass = "mx-5 my-auto text-lg hover:underline";
-const linkClass2 = "mx-3 my-auto text-lg hover:underline text-white";
+const linkClass2 = "mx-6 my-auto text-lg hover:underline text-white";
 
 const Navbar = () => {
+  const [searchTxt, setSearchTxt] = useState<string>("");
+  const handleSearchTextChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearchTxt(e.target.value);
+  };
+
   return (
     <nav>
       <div className="flex justify-between py-2">
         <div className="flex">
           <img
             src="../../../logo.png"
-            style={{ height: "70px", width: "130px" }}
+            style={{ height: "70px", width: "120px" }}
           />
           <h2 className="my-auto text-2xl font-bold">TANAUAN</h2>
         </div>
@@ -42,6 +48,8 @@ const Navbar = () => {
             className="w-64 h-10 px-4 border rounded-md my-auto"
             placeholder="Search..."
             style={{ borderColor: "#023F78" }}
+            onChange={handleSearchTextChange}
+            value={searchTxt}
           />
         </div>
       </div>
