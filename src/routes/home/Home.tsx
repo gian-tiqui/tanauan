@@ -1,4 +1,3 @@
-import { Container } from "@mui/material";
 import Divider from "./components/Divider";
 import NewsCarousel from "./components/NewsCarousel";
 import MobileApp from "./components/MobileApp";
