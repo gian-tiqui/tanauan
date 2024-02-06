@@ -40,7 +40,7 @@ const NewsCarousel = () => {
   }, [news]);
   return (
     <Container>
-      <div className="container flex justify-center mt-5 gap-4">
+      <div className="container flex justify-center mt-10 gap-4">
         {Array(3)
           .fill(0)
           .map(() => (

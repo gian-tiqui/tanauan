@@ -1,4 +1,4 @@
-import { Divider, Typography } from "@mui/material";
+import { Divider } from "@mui/material";
 import { Link } from "react-router-dom";
 
 const Footer = () => {

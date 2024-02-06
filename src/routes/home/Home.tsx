@@ -12,7 +12,7 @@ const Home = () => {
           muted
           loop
           className="w-full object-cover"
-          style={{ height: "480px" }}
+          style={{ height: "508px" }}
         >
           <source src="../../tanauan.mp4" type="video/mp4" />
         </video>

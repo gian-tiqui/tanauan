@@ -1,5 +1,6 @@
 import { ChangeEvent, useState } from "react";
 import { Link } from "react-router-dom";
+import OutlinedText from "../OutlinedText/OutlinedText";
 
 const linkClass = "mx-5 my-auto text-lg hover:underline text-sm";
 const linkClass2 = "mx-6 my-auto text-lg hover:underline text-white text-sm";
@@ -18,7 +19,9 @@ const Navbar = () => {
             src="../../../logo.png"
             style={{ height: "50px", width: "100px" }}
           />
-          <h2 className="my-auto text-xl font-bold">TANAUAN</h2>
+          <OutlinedText>
+            <h2 className="text-2xl">TANAUAN</h2>
+          </OutlinedText>
         </div>
         <div className="flex justify-between">
           <Link to={"/"} className={linkClass} style={{ color: "#786649" }}>
@@ -45,7 +48,7 @@ const Navbar = () => {
         <div className="flex pr-5">
           <input
             type="text"
-            className="w-64 h-8 px-4 border rounded-md my-auto"
+            className="w-52 h-6 px-3 py-1 border rounded-sm my-auto"
             placeholder="Search..."
             style={{ borderColor: "#023F78" }}
             onChange={handleSearchTextChange}
