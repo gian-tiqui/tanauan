@@ -1,8 +1,8 @@
 import { ChangeEvent, useState } from "react";
 import { Link } from "react-router-dom";
 
-const linkClass = "mx-5 my-auto text-lg hover:underline";
-const linkClass2 = "mx-6 my-auto text-lg hover:underline text-white";
+const linkClass = "mx-5 my-auto text-lg hover:underline text-sm";
+const linkClass2 = "mx-6 my-auto text-lg hover:underline text-white text-sm";
 
 const Navbar = () => {
   const [searchTxt, setSearchTxt] = useState<string>("");
@@ -16,9 +16,9 @@ const Navbar = () => {
         <div className="flex">
           <img
             src="../../../logo.png"
-            style={{ height: "70px", width: "120px" }}
+            style={{ height: "50px", width: "100px" }}
           />
-          <h2 className="my-auto text-2xl font-bold">TANAUAN</h2>
+          <h2 className="my-auto text-xl font-bold">TANAUAN</h2>
         </div>
         <div className="flex justify-between">
           <Link to={"/"} className={linkClass} style={{ color: "#786649" }}>
@@ -45,7 +45,7 @@ const Navbar = () => {
         <div className="flex pr-5">
           <input
             type="text"
-            className="w-64 h-10 px-4 border rounded-md my-auto"
+            className="w-64 h-8 px-4 border rounded-md my-auto"
             placeholder="Search..."
             style={{ borderColor: "#023F78" }}
             onChange={handleSearchTextChange}

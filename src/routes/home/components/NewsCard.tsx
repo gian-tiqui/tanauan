@@ -11,16 +11,16 @@ const NewsCard: React.FC<News> = ({ header, date, link, imageURI }) => {
         background: `url(${imageURI})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        height: "200px", // Set the desired height for the card
+        height: "200px",
       }}
     >
       <div className="p-4 bg-white bg-opacity-80">
         <Typography variant="h6">{header}</Typography>
         <Typography variant="body2">{date}</Typography>
-        <a href={link} target="_blank" rel="noopener noreferrer">
-          Read More
-        </a>
-        <Link
+
+        <Link className="border p-3" to={link}>
+          Read more
+        </Link>
       </div>
     </div>
   );
