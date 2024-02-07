@@ -113,7 +113,7 @@ const PublicServices = () => {
           citizens of Tanauan City a convenient one-stop solution platform for
           online services and information.
         </p>
-        <div className="container flex justify-center">
+        <div className="container flex justify-center mx-auto">
           <Stack marginTop={5}>
             <button
               className="rounded-md my-2 py-1 font-bold text-white w-40"

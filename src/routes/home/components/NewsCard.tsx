@@ -2,7 +2,7 @@ import React from "react";
 import { News } from "./NewsCarousel";
 import { Link } from "react-router-dom";
 
-const cardWidth = "600px";
+const cardWidth = "370px";
 
 const NewsCard: React.FC<News> = ({ header, date, link, imageURI }) => {
   return (

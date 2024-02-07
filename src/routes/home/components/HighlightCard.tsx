@@ -1,7 +1,7 @@
 import React from "react";
 import { News } from "./NewsCarousel";
 
-const cardWidth = "600px";
+const cardWidth = "370px";
 
 const HighlightCard: React.FC<News> = ({ header, date, link, imageURI }) => {
   return (

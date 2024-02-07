@@ -39,7 +39,7 @@ const NewsCarousel = () => {
     fetchData();
   }, [news]);
   return (
-    <Container>
+    <div className="container px-3 mx-auto">
       <div className="container flex justify-center mt-10 gap-4">
         {Array(3)
           .fill(0)
@@ -52,7 +52,7 @@ const NewsCarousel = () => {
             />
           ))}
       </div>
-    </Container>
+    </div>
   );
 };
 

@@ -5,6 +5,9 @@ import Footer from "./components/Footer";
 import PublicServices from "./components/PublicServices";
 import StatusUpdates from "./components/StatusUpdates";
 import CityHighlights from "./components/CityHighlights";
+import Mayor from "./components/Mayor";
+import LogoDivider from "./components/LogoDivider";
+import Cgtv from "./components/CGTV";
 
 const styles = {
   homeContainer: "static w-full h-full",
@@ -31,8 +34,13 @@ const Home = () => {
         <NewsCarousel />
       </div>
       <Divider text="More news" />
+      <Mayor />
       <PublicServices />
       <MobileApp />
+      <LogoDivider />
+      <Cgtv />
+
+      <LogoDivider />
       <StatusUpdates />
       <CityHighlights />
       <Footer />

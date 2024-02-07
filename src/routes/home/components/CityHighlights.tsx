@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Container } from "@mui/material";
 import HighlightCard from "./HighlightCard";
 
 export interface News {
@@ -39,7 +38,7 @@ const CityHighlights = () => {
     fetchData();
   }, [news]);
   return (
-    <Container>
+    <div className="container mx-auto px-3">
       <h1
         className="mt-40 text-2xl font-bold"
         style={{ textAlign: "center", color: "#023F78" }}
@@ -58,7 +57,7 @@ const CityHighlights = () => {
             />
           ))}
       </div>
-    </Container>
+    </div>
   );
 };
 
