@@ -11,18 +11,39 @@ const MobileApp = () => {
             className="bg-cover bg-center"
             style={{
               backgroundImage: imageURI,
-              width: "500px",
-              height: "250px",
+              width: "610px",
+              height: "300px",
             }}
           ></div>
           <div className="p-4">
+            <p>Tanauan 911 App: Tulong sa Emergencies!</p>
             <ul>
-              <li>meow</li>
-              <li>meow</li>
-              <li>meow</li>
-              <li>meow</li>
+              <li>
+                <p>
+                  - Report emergencies: Fire, medical, police, even disasters -
+                  all in one app.
+                </p>
+              </li>
+              <li>
+                <p>
+                  - Get help fast: Real-time location tracking means responders
+                  reach you quickly.
+                </p>
+              </li>
+              <li>
+                <p>
+                  - Share photos: Show what's happening with pictures and
+                  videos.
+                </p>
+              </li>
+              <li>
+                <p>- Stay informed: Get safety updates and weather alerts.</p>
+              </li>
             </ul>
-            <div className="flex justify-center">
+            <p>
+              Download the Tanauan 911 App (SENYAS) for free on Google Play!
+            </p>
+            <div className="flex justify-center pt-20">
               <button className={buttonClass}>Google Play</button>
               <button className={buttonClass}>Browse</button>
             </div>

@@ -12,7 +12,7 @@ const IdkCircle = (daProps: { daProps: IdkCircleProps }) => {
         alignItems: "center",
         width: "60px",
         height: "60px",
-        padding: 90,
+        padding: 80,
       }}
     >
       <div>
