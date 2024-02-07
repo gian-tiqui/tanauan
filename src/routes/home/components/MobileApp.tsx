@@ -56,4 +56,6 @@ const MobileApp = () => {
   );
 };
 
+const l = 1;
+
 export default MobileApp;
