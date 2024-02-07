@@ -1,4 +1,4 @@
-import { Container, Divider, Stack } from "@mui/material";
+import { Divider, Stack } from "@mui/material";
 import { useEffect, useState } from "react";
 
 interface Services {
@@ -52,8 +52,8 @@ const PublicServices = () => {
   }, []);
 
   return (
-    <div className="w-screen mt-10" style={{ backgroundColor: "#031525" }}>
-      <Container>
+    <div className="mt-10" style={{ backgroundColor: "#031525" }}>
+      <div className="container mx-auto px-3">
         <Stack
           direction="column"
           alignItems="center"
@@ -134,7 +134,7 @@ const PublicServices = () => {
             </button>
           </Stack>
         </div>
-      </Container>
+      </div>
     </div>
   );
 };
