@@ -9,7 +9,7 @@ import CityHighlights from "./components/CityHighlights";
 const Home = () => {
   return (
     <div className="static w-full h-full">
-      <div className="w-full">
+      <div className="w-full hover:animate-spin">
         <video
           autoPlay
           muted
