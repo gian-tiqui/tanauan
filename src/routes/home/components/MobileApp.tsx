@@ -1,5 +1,6 @@
 import { imageURI } from "../../../large-strings-folder/Strings";
 
+const l = 1;
 const buttonClass = "border rounded bg-black text-white px-3 py-1";
 
 const MobileApp = () => {
