@@ -6,15 +6,20 @@ import PublicServices from "./components/PublicServices";
 import StatusUpdates from "./components/StatusUpdates";
 import CityHighlights from "./components/CityHighlights";
 
+const styles = {
+  homeContainer: "static w-full h-full",
+  videoCover: "w-full object-cover",
+};
+
 const Home = () => {
   return (
-    <div className="static w-full h-full">
-      <div className="w-full hover:animate-spin">
+    <div className={styles.homeContainer}>
+      <div className="w-full">
         <video
           autoPlay
           muted
           loop
-          className="w-full object-cover"
+          className={styles.videoCover}
           style={{ height: "508px" }}
         >
           <source src="../../tanauan.mp4" type="video/mp4" />

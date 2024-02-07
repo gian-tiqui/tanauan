@@ -7,7 +7,7 @@ const cardWidth = "600px";
 const NewsCard: React.FC<News> = ({ header, date, link, imageURI }) => {
   return (
     <div
-      className="rounded-lg border shadow overflow-hidden flex justify-items-end relative hover:animate-ping"
+      className="rounded-lg border shadow overflow-hidden flex justify-items-end relative"
       style={{
         background: `url(${imageURI})`,
         backgroundSize: "cover",

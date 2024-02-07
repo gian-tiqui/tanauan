@@ -1,12 +1,9 @@
 import { imageURI } from "../../../large-strings-folder/Strings";
 
-const l = 1;
-const buttonClass = "border rounded bg-black text-white px-3 py-1";
-
 const MobileApp = () => {
   return (
     <div>
-      <div className="flex justify-center align-middle mt-7">
+      <div className="flex justify-center align-middle mt-32">
         <div className="border shadow grid grid-cols-2">
           <div
             className="bg-cover bg-center"
@@ -45,8 +42,12 @@ const MobileApp = () => {
               Download the Tanauan 911 App (SENYAS) for free on Google Play!
             </p>
             <div className="flex justify-center pt-20">
-              <button className={buttonClass}>Google Play</button>
-              <button className={buttonClass}>Browse</button>
+              <button className="border rounded bg-black text-white px-3 py-1">
+                Google Play
+              </button>
+              <button className="border rounded bg-black text-white px-3 py-1">
+                Browse
+              </button>
             </div>
           </div>
         </div>

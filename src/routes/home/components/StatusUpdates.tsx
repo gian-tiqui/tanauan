@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import IdkCircle from "./IdkCircle";
+import UpdatesDivider from "./UpdatesDivider";
 
 export interface IdkCircleProps {
   val: number;
@@ -57,18 +58,19 @@ const StatusUpdates = () => {
 
   return (
     <div
-      className="mt-10 pt-5 flex flex-col items-center justify-center text-center"
+      className="mt-32 pt-10 flex flex-col items-center justify-center text-center pb-20"
       style={{ backgroundColor: "#031525" }}
     >
-      <p className="text-white text-2xl font-bold mt-3">
-        Status Updates as of 2023
-      </p>
+      <p className="text-white text-2xl font-bold">Status Updates as of 2023</p>
 
       <div className="mt-16 text-white">
         <div className="flex justify-between text-white gap-5">
           <IdkCircle daProps={bussin} />
+          <UpdatesDivider />
           <IdkCircle daProps={household} />
+          <UpdatesDivider />
           <IdkCircle daProps={population} />
+          <UpdatesDivider />
           <IdkCircle daProps={landArea} />
         </div>
       </div>

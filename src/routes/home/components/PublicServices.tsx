@@ -73,7 +73,7 @@ const PublicServices = () => {
                 alignItems="center"
                 justifyContent="center"
                 spacing={1}
-                sx={{ textAlign: "center", maxWidth: "130px" }} // Added styling for text
+                sx={{ textAlign: "center", maxWidth: "130px" }}
               >
                 <img
                   src={service.imageURI}
@@ -87,7 +87,7 @@ const PublicServices = () => {
                     textOverflow: "ellipsis",
                     whiteSpace: "nowrap",
                     maxWidth: "130px",
-                    textAlign: "center", // Center the text
+                    textAlign: "center",
                   }}
                 >
                   {service.title}
@@ -99,7 +99,7 @@ const PublicServices = () => {
                     textOverflow: "ellipsis",
                     whiteSpace: "nowrap",
                     maxWidth: "130px",
-                    textAlign: "center", // Center the text
+                    textAlign: "center",
                   }}
                 >
                   {service.description}
