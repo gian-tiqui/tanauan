@@ -1,18 +1,27 @@
 import { useState } from "react";
 
+interface Video {
+  title: string;
+  src: string;
+  imageURI: string;
+}
+
 const VideoPlaylist = () => {
-  const videos = [
+  const videos: Video[] = [
     {
       title: "Video 1",
       src: "video2.mp4",
+      imageURI: "",
     },
     {
-      title: "Video 2",
+      title: "Tanauan City 2023",
       src: "../../../../tanauan.mp4",
+      imageURI: "",
     },
     {
       title: "Video 3",
       src: "video3.mp4",
+      imageURI: "",
     },
   ];
 
@@ -30,14 +39,14 @@ const VideoPlaylist = () => {
           muted
           loop
           className="w-full h-auto"
-          style={{ maxHeight: "508px" }}
+          style={{ maxHeight: "408px" }}
           controls
           src={videos[selectedVideoIndex].src}
         >
           Your browser does not support the video tag.
         </video>
       </div>
-      <div className="w-1/4 ml-4">
+      <div className="w-1/3 mx-4">
         <div className="space-y-2">
           {videos.map((video, index) => (
             <div
