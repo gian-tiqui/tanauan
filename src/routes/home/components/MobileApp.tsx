@@ -4,11 +4,12 @@ const MobileApp = () => {
   return (
     <div className="flex justify-center align-middle mt-32 mb-32">
       <div className="border shadow md:grid md:grid-cols-2 md:gap-4">
-        {/* On small screens, the layout will be stacked */}
         <div
-          className="md:w-72 md:h-72 bg-cover bg-center"
-          style={{ backgroundImage: imageURI }}
-        ></div>
+          className="md:w-72 md:h-auto h-72 bg-cover bg-center relative"
+          style={{ backgroundImage: `url(${imageURI})` }}
+        >
+          <div className="absolute inset-0 bg-black opacity-40"></div>
+        </div>
         <div className="p-4">
           <p className="text-xl font-bold mb-4">
             Tanauan 911 App: Tulong sa Emergencies!
