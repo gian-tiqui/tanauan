@@ -5,8 +5,6 @@ import City from "./routes/city/City";
 import Tourism from "./routes/tourism/Tourism";
 import Careers from "./routes/careers/Careers";
 
-const prodi = "prodi";
-
 function App() {
   return (
     <>
