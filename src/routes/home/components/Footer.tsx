@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div style={{ backgroundColor: "#031525" }}>
-      <div className="mt-32 flex">
+      <div className="mt-32 md:flex lg:flex">
         <div className="flex-1 pt-7 pl-7">
           <p className="text-md text-white font-bold">STAY CONNECTED</p>
         </div>
-        <div className="flex-1 pt-7">
+        <div className="flex-1 pt-7 pl-7">
           <p className="text-md text-white font-bold">LINKS</p>
           <div className="flex gap-24 mt-6">
             <ul className="text-white mt-5">
