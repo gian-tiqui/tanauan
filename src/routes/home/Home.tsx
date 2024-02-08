@@ -10,13 +10,16 @@ import LogoDivider from "./components/LogoDivider";
 import Cgtv from "./components/Cgtv";
 import VideoHeader from "./components/VideoHeader";
 
+const NEWS_STR: string = "News & Publication";
+const MORE_NEWS_FOR_BUTTON_BUT_STILL_STR: string = "More news";
+
 const Home = () => {
   return (
     <div className="static w-full h-full">
       <VideoHeader />
-      <Divider text="News & Publication" />
+      <Divider text={NEWS_STR} />
       <NewsCarousel />
-      <Divider text="More news" />
+      <Divider text={MORE_NEWS_FOR_BUTTON_BUT_STILL_STR} />
       <Mayor />
       <PublicServices />
       <MobileApp />
