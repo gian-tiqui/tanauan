@@ -1,4 +1,3 @@
-import { Divider } from "@mui/material";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -51,13 +50,13 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <Divider sx={{ backgroundColor: "white", marginTop: 4 }} />
+      <hr className="mt-12" />
       <div className="flex justify-center">
         <Link to="/" className="text-white my-1">
           Talisay - Tanauan Rd, Tanauan, 4232 Batangas | Maps
         </Link>
       </div>
-      <Divider sx={{ backgroundColor: "white", height: "1px" }} />
+      <hr />
       <div className="flex justify-center">
         <Link to="/" className="text-white my-3">
           TANAUAN CITY GOVERMENT© 2022 All Rights Reserved
