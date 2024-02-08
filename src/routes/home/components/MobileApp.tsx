@@ -6,7 +6,7 @@ const MobileApp = () => {
       <div className="border shadow md:grid md:grid-cols-2 md:gap-4">
         <div
           className="md:w-72 md:h-auto h-72 bg-cover bg-center relative"
-          style={{ backgroundImage: `url(${imageURI})` }}
+          style={{ backgroundImage: imageURI }}
         >
           <div className="absolute inset-0 bg-black opacity-40"></div>
         </div>
