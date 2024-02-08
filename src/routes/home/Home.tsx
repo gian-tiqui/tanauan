@@ -8,33 +8,20 @@ import CityHighlights from "./components/CityHighlights";
 import Mayor from "./components/Mayor";
 import LogoDivider from "./components/LogoDivider";
 import Cgtv from "./components/Cgtv";
+import VideoHeader from "./components/VideoHeader";
 
 const Home = () => {
   return (
     <div className="static w-full h-full">
-      <div className="w-full">
-        <video
-          autoPlay
-          muted
-          loop
-          className="w-full object-cover"
-          style={{ height: "508px" }}
-        >
-          <source src="../../tanauan.mp4" type="video/mp4" />
-        </video>
-      </div>
+      <VideoHeader />
       <Divider text="News & Publication" />
-      <div className="relative z-10"></div>
-      <div className="px-20">
-        <NewsCarousel />
-      </div>
+      <NewsCarousel />
       <Divider text="More news" />
       <Mayor />
       <PublicServices />
       <MobileApp />
       <LogoDivider />
       <Cgtv />
-
       <LogoDivider />
       <StatusUpdates />
       <CityHighlights />
