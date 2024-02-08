@@ -8,7 +8,6 @@ import Careers from "./routes/careers/Careers";
 /*
 
   MAKE THE NAVBAR RESPONSIVE LATER OKE
-  majshdkjasdjsa
 
 */
 
