@@ -9,11 +9,14 @@ import Mayor from "./components/Mayor";
 import LogoDivider from "./components/LogoDivider";
 import Cgtv from "./components/Cgtv";
 import VideoHeader from "./components/VideoHeader";
+import { useEffect } from "react";
 
 const NEWS_STR: string = "News & Publication";
 const MORE_NEWS_FOR_BUTTON_BUT_STILL_STR: string = "More news";
 
 const Home = () => {
+  useEffect(() => console.log(1), []);
+
   return (
     <div className="static w-full h-full">
       <VideoHeader />

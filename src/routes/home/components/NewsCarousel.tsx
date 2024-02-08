@@ -29,7 +29,6 @@ const NewsCarousel = () => {
         const data = promise.data;
 
         setNews(data);
-        console.log(news);
       } catch (error) {
         console.error(error);
       }
