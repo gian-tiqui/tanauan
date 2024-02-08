@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Container } from "@mui/material";
 import NewsCard from "./NewsCard";
 
 export interface News {
@@ -43,8 +42,9 @@ const NewsCarousel = () => {
       <div className="container flex justify-center mt-10 gap-4">
         {Array(3)
           .fill(0)
-          .map(() => (
+          .map((_, index) => (
             <NewsCard
+              key={index}
               header={sampleNews.header}
               date={sampleNews.date}
               link={sampleNews.link}

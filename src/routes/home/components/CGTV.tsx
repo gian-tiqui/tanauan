@@ -6,7 +6,7 @@ interface Video {
   imageURI: string;
 }
 
-const VideoPlaylist = () => {
+const Cgtv = () => {
   const videos: Video[] = [
     {
       title: "Video 1",
@@ -61,14 +61,6 @@ const VideoPlaylist = () => {
           ))}
         </div>
       </div>
-    </div>
-  );
-};
-
-const Cgtv = () => {
-  return (
-    <div className="container mx-auto px-3 my-12">
-      <VideoPlaylist />
     </div>
   );
 };

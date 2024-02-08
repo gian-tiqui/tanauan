@@ -29,7 +29,6 @@ const CityHighlights = () => {
         const data = promise.data;
 
         setNews(data);
-        console.log(news);
       } catch (error) {
         console.error(error);
       }
@@ -48,8 +47,9 @@ const CityHighlights = () => {
       <div className="container flex justify-center mt-10 gap-4">
         {Array(3)
           .fill(0)
-          .map(() => (
+          .map((_, index) => (
             <HighlightCard
+              key={index}
               header={sampleNews.header}
               date={sampleNews.date}
               link={sampleNews.link}
