@@ -9,20 +9,15 @@ import Mayor from "./components/Mayor";
 import LogoDivider from "./components/LogoDivider";
 import Cgtv from "./components/Cgtv";
 
-const styles = {
-  homeContainer: "static w-full h-full",
-  videoCover: "w-full object-cover",
-};
-
 const Home = () => {
   return (
-    <div className={styles.homeContainer}>
+    <div className="static w-full h-full">
       <div className="w-full">
         <video
           autoPlay
           muted
           loop
-          className={styles.videoCover}
+          className="w-full object-cover"
           style={{ height: "508px" }}
         >
           <source src="../../tanauan.mp4" type="video/mp4" />
