@@ -7,14 +7,12 @@ const MobileApp = () => {
         <div
           className="md:w-72 md:h-auto h-72 bg-cover bg-center relative"
           style={{
-            background: `url(${imageURI})`,
+            backgroundImage: imageURI,
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
           }}
-        >
-          <div className="absolute inset-0 bg-black opacity-40"></div>
-        </div>
+        ></div>
         <div className="p-4">
           <p className="text-xl font-bold mb-4">
             Tanauan 911 App: Tulong sa Emergencies!
