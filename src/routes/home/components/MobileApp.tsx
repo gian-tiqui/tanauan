@@ -2,7 +2,7 @@ import { imageURI } from "../../../large-strings-folder/Strings";
 
 const MobileApp = () => {
   return (
-    <div className="flex justify-center align-middle mt-32 mb-32">
+    <div className="flex justify-center align-middle mt-32 mb-32 mx-auto">
       <div className="border shadow md:grid md:grid-cols-2 md:gap-4">
         <div
           className="md:w-72 md:h-auto h-72 bg-cover bg-center relative"
