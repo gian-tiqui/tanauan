@@ -32,7 +32,7 @@ const Cgtv = () => {
   };
 
   return (
-    <div className="container mx-auto px-3 my-12 flex justify-between">
+    <div className="container mx-auto my-12 flex justify-between shadow-2xl rounded">
       <div className="w-3/4">
         <video
           autoPlay
@@ -42,16 +42,14 @@ const Cgtv = () => {
           style={{ maxHeight: "408px" }}
           controls
           src={videos[selectedVideoIndex].src}
-        >
-          Your browser does not support the video tag.
-        </video>
+        ></video>
       </div>
       <div className="w-1/3 mx-4">
         <div className="space-y-2">
           {videos.map((video, index) => (
             <div
               key={index}
-              className={`cursor-pointer p-2 ${
+              className={`cursor-pointer py-4 px-2 rounded-xl shadow-2xl border ${
                 selectedVideoIndex === index ? "bg-gray-300" : ""
               }`}
               onClick={() => selectVideo(index)}

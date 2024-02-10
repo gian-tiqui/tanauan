@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const NewsCard: React.FC<News> = ({ header, date, link, imageURI }) => {
   return (
-    <div className="rounded-lg border shadow-md overflow-hidden relative">
+    <div className="rounded-lg border overflow-hidden relative">
       <div
         className="bg-cover bg-center h-20 sm:h-32 md:h-40"
         style={{ backgroundImage: `url(${imageURI})` }}
