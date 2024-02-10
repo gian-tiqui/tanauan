@@ -1,20 +1,20 @@
 import { useEffect, useState } from "react";
 
-interface DaVid {
+interface Video {
   title: string;
   uri: string;
 }
 
 const City = () => {
-  const [daVid, setDaVid] = useState<DaVid | undefined>(undefined);
+  const [Video, setVideo] = useState<Video | undefined>(undefined);
 
   useEffect(() => {
-    setDaVid(undefined);
+    setVideo(undefined);
   }, []);
 
   useEffect(() => {
-    console.log(daVid);
-  }, [daVid]);
+    console.log(Video);
+  }, [Video]);
 
   return <div className="w-full"></div>;
 };
