@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import NewsCard from "./NewsCard";
 import { rawImageURI } from "../../../large-strings-folder/Strings";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import "swiper/css";
 
 export interface News {
   header: string;
@@ -38,19 +41,34 @@ const NewsCarousel = () => {
   }, [news]);
   return (
     <div className="container px-23 mx-auto">
-      <div className="container flex justify-center mt-10 gap-4">
-        {Array(3)
+      <Swiper
+        spaceBetween={1}
+        slidesPerView={3}
+        autoplay={{
+          delay: 2000,
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[Autoplay, Pagination, Navigation]}
+        loop={true}
+        className="mySwiper mt-10"
+      >
+        {Array(10)
           .fill(0)
           .map((_, index) => (
-            <NewsCard
-              key={index}
-              header={sampleNews.header}
-              date={sampleNews.date}
-              link={sampleNews.link}
-              imageURI={sampleNews.imageURI}
-            />
+            <SwiperSlide key={index}>
+              <NewsCard
+                header={sampleNews.header + " " + index}
+                date={sampleNews.date}
+                link={sampleNews.link}
+                imageURI={sampleNews.imageURI}
+              />
+            </SwiperSlide>
           ))}
-      </div>
+      </Swiper>
     </div>
   );
 };

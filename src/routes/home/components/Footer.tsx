@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div style={{ backgroundColor: "#031525" }}>
+    <div className="bg-slate-950">
       <div className="mt-32 md:flex lg:flex">
         <div className="flex-1 pt-7 pl-7">
           <p className="text-md text-white font-bold">STAY CONNECTED</p>

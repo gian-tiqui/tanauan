@@ -1,17 +1,17 @@
-// import MayorImage from "./MayorImage";
+import MayorImage from "./MayorImage";
 
 const Mayor = () => {
   return (
-    <div className="relative">
-      <div className="md:flex md:justify-end sm:my-20 md:my-44 my-14">
-        {/* <MayorImage /> */}
+    <div className="xs:container sm:relative md:relative lg:relative xl:relative">
+      <div className="md:flex md:justify-end sm:my-20 md:my-33 my-14">
+        <MayorImage />
 
         <div
           style={{ backgroundColor: "#023F78" }}
-          className="flex justify-center text-white w-3/4 h-full md:rounded-bl-3xl pt-20 pb-5"
+          className="flex text-white w-3/4 h-full md:rounded-bl-3xl pb-5"
         >
           <div className="w-full">
-            <div className="container mx-auto md:px-30 sm:px-14 lg:px-62 px-3">
+            <div className="container mx-auto md:px-20 sm:px-14 lg:px-62 px-3">
               <p className="text-start md:mt-24 sm:mt-12 font-bold sm:text-sm md:text-lg text-s">
                 "Bilang Ama ng bawat Tanaueno, nais kong pakinggan ang saloobin
                 ng ating mga kababayan, kaya ang karatulang ating ilalagay sa
