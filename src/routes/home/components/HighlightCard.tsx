@@ -1,23 +1,24 @@
 import React from "react";
-import { News } from "./NewsCarousel";
+import { City } from "./CityHighlights";
 
-const cardWidth = "370px";
-
-const HighlightCard: React.FC<News> = ({ header, date, link, imageURI }) => {
+const HighlightCard: React.FC<City> = ({ name, country, imageURI }) => {
   return (
     <div
-      className="rounded-lg border shadow overflow-hidden flex justify-items-end relative"
+      className="rounded-lg border shadow overflow-hidden relative"
       style={{
         background: `url(${imageURI})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        height: "230px",
-        width: cardWidth,
+        paddingBottom: "60%",
       }}
     >
-      <div className="p-2 mt-44 text-white" style={{ width: cardWidth }}>
-        <p className="font-bold">Name of place</p>
-        <p className="text-xs">Philippines</p>
+      <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-4">
+        <p className="text-white font-bold text-sm sm:text-lg md:text-xl lg:text-2xl">
+          {name}
+        </p>
+        <p className="text-xs text-white sm:text-sm md:text-md lg:text-lg">
+          {country}
+        </p>
       </div>
     </div>
   );
