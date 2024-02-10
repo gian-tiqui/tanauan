@@ -2,29 +2,21 @@ import React from "react";
 import { News } from "./NewsCarousel";
 import { Link } from "react-router-dom";
 
-const cardWidth = "370px";
-
 const NewsCard: React.FC<News> = ({ header, date, link, imageURI }) => {
   return (
-    <div
-      className="rounded-lg border shadow overflow-hidden flex justify-items-end relative"
-      style={{
-        background: `url(${imageURI})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        height: "230px",
-        width: cardWidth,
-      }}
-    >
-      <div className="p-2 bg-white mt-32" style={{ width: cardWidth }}>
-        <p className="font-bold">{header}</p>
-        <p className="text-xs">{date}</p>
-      </div>
-      <div className="absolute bottom-0 right-0 m-3">
+    <div className="rounded-lg border shadow-md overflow-hidden relative">
+      <div
+        className="bg-cover bg-center h-20 sm:h-32 md:h-40"
+        style={{ backgroundImage: `url(${imageURI})` }}
+      ></div>
+      <div className="p-4 bg-white flex flex-col">
+        <p className="font-bold text-xs sm:text-md md:text-lg lg:text-xl">
+          {header}
+        </p>
+        <p className="text-sm sm:text-base text-gray-600">{date}</p>
         <Link
-          className="border px-2 py-1 rounded-md text-white font-bold"
+          className="border py-1 mt-4 rounded-md text-white md:font-bold lg:font-bold bg-red-500 hover:bg-red-600 w-20 sm:w-16 md:w-24 lg:28 text-center self-end text-xs sm:text-xs md:text-sm lg:text-md"
           to={link}
-          style={{ backgroundColor: "#EC2626" }}
         >
           Read more
         </Link>

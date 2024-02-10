@@ -5,6 +5,7 @@ import { rawImageURI } from "../../../large-strings-folder/Strings";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
+import "swiper/css/bundle";
 
 export interface News {
   header: string;
@@ -39,22 +40,19 @@ const NewsCarousel = () => {
 
     fetchData();
   }, [news]);
+
   return (
-    <div className="container px-23 mx-auto">
+    <div className="container mx-auto px-4">
       <Swiper
-        spaceBetween={1}
+        spaceBetween={15}
         slidesPerView={3}
         autoplay={{
           delay: 2000,
           disableOnInteraction: false,
         }}
-        pagination={{
-          clickable: true,
-        }}
-        navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
         loop={true}
-        className="mySwiper mt-10"
+        className="mySwiper mt-10 sm:mx-5 md:mx-5 lg:mx-44"
       >
         {Array(10)
           .fill(0)
