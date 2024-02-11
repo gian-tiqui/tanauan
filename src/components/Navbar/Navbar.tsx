@@ -13,6 +13,8 @@ const Navbar = () => {
   };
 
   const handleToggleSidebar = () => {
+    console.log("hi");
+    console.log("m");
     setSidebarOpen(!sidebarOpen);
   };
 
@@ -112,10 +114,13 @@ const Navbar = () => {
               />
             </div>
           </div>
-          <div className="flex items-center justify-end flex-1">
+          <div
+            className="flex items-center justify-end flex-1"
+            onClick={handleToggleSidebar}
+          >
             <img
-              src="https://cdn-icons-png.flaticon.com/128/4254/4254068.png"
               onClick={handleToggleSidebar}
+              src="https://cdn-icons-png.flaticon.com/128/4254/4254068.png"
               className="w-10 h-8 px-2 py-1 mr-3 font-bold text-white border border-black rounded"
             ></img>
           </div>
