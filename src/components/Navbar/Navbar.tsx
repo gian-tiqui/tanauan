@@ -13,8 +13,6 @@ const Navbar = () => {
   };
 
   const handleToggleSidebar = () => {
-    console.log("hi");
-    console.log("m");
     setSidebarOpen(!sidebarOpen);
   };
 

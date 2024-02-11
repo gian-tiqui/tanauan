@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 
@@ -81,7 +81,6 @@ const Cgtv = () => {
     setSelectedVideoIndex(index);
   };
 
-  useEffect(() => {}, []);
   return (
     <div className="my-24 sm:my-24 md:my-14 lg:my-20">
       <div className="my-10">
