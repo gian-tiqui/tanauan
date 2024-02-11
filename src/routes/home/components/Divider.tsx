@@ -1,39 +1,27 @@
+import React from "react";
 import { Link } from "react-router-dom";
 
 interface DividerProps {
   text: string;
 }
 
-const dividerWidth = "100%";
-
-const Divider = ({ text }: DividerProps) => {
+const Divider: React.FC<DividerProps> = ({ text }) => {
   return (
-    <div className="flex align-middle justify-center gap-10 mt-10">
-      <div
-        className="border border-black my-auto ml-10"
-        style={{ height: "1px", width: dividerWidth, borderColor: "#023F78" }}
-      ></div>
+    <div className="flex items-center justify-center gap-4 mt-10">
+      <div className="border-b-2 border-blue-900 h-px w-full ml-2 sm:ml-4"></div>
       {text === "More news" ? (
         <Link
           to="/"
-          className="border px-5 py-2 rounded font-bold text-xl"
-          style={{ backgroundColor: "#023F78" }}
+          className="border border-blue-900 px-4 py-2 rounded font-bold text-xl bg-blue-800 text-white sm:px-5 sm:py-3 sm:text-2xl"
         >
-          <p className="text-sm text-white whitespace-nowrap">{text}</p>
+          <p className="text-sm whitespace-nowrap">{text}</p>
         </Link>
       ) : (
-        <p
-          className="font-bold text-xl mx-2 whitespace-nowrap"
-          style={{ color: "#023F78" }}
-        >
+        <p className="font-bold text-xl mx-2 whitespace-nowrap text-blue-900 sm:text-2xl">
           {text}
         </p>
       )}
-
-      <div
-        className="border border-black my-auto mr-10"
-        style={{ height: "1px", width: dividerWidth, borderColor: "#023F78" }}
-      ></div>
+      <div className="border-b-2 border-blue-900 h-px w-full mr-2 sm:mr-4"></div>
     </div>
   );
 };

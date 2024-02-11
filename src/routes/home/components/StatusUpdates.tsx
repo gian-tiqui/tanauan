@@ -9,51 +9,36 @@ export interface IdkCircleProps {
 }
 
 const StatusUpdates = () => {
-  const [bussin, setBussin] = useState<IdkCircleProps>({
-    title: "meow",
-    val: 1,
+  const [bussin] = useState<IdkCircleProps>({
+    title: "Registered Business",
+    val: 3667,
     unit: undefined,
   });
-  const [household, setHousehold] = useState<IdkCircleProps>({
-    title: "meow",
-    val: 1,
+  const [household] = useState<IdkCircleProps>({
+    title: "Household",
+    val: 60_000,
     unit: undefined,
   });
-  const [population, setPopulation] = useState<IdkCircleProps>({
-    title: "meow",
-    val: 1,
+  const [population] = useState<IdkCircleProps>({
+    title: "Population",
+    val: 193_936,
     unit: undefined,
   });
-  const [landArea, setLandArea] = useState<IdkCircleProps>({
-    title: "meow",
-    val: 1,
-    unit: undefined,
+  const [landArea] = useState<IdkCircleProps>({
+    title: "Land Area",
+    val: 10_987.43,
+    unit: "Hectares",
   });
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
   useEffect(() => {
-    setBussin({
-      title: "Registered Business",
-      val: 3667,
-      unit: undefined,
-    });
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
 
-    setHousehold({
-      title: "Household",
-      val: 60_000,
-      unit: undefined,
-    });
+    window.addEventListener("resize", handleResize);
 
-    setPopulation({
-      title: "Population",
-      val: 193_936,
-      unit: undefined,
-    });
-
-    setLandArea({
-      title: "Land Area",
-      val: 10_987.43,
-      unit: "Hectares",
-    });
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
@@ -61,15 +46,17 @@ const StatusUpdates = () => {
       <p className="text-white text-2xl font-bold">Status Updates as of 2023</p>
 
       <div className="mt-16 text-white">
-        <div className="flex justify-between text-white gap-5">
-          <IdkCircle daProps={bussin} />
-          <UpdatesDivider />
-          <IdkCircle daProps={household} />
-          <UpdatesDivider />
-          <IdkCircle daProps={population} />
-          <UpdatesDivider />
-          <IdkCircle daProps={landArea} />
-        </div>
+        {screenWidth > 1280 ? (
+          <div className="flex justify-between text-white gap-5">
+            <IdkCircle {...bussin} />
+            <UpdatesDivider />
+            <IdkCircle {...household} />
+            <UpdatesDivider />
+            <IdkCircle {...population} />
+            <UpdatesDivider />
+            <IdkCircle {...landArea} />
+          </div>
+        ) : null}
       </div>
     </div>
   );

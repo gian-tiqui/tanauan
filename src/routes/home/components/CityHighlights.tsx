@@ -41,12 +41,12 @@ const CityHighlights = () => {
   return (
     <div className="container mx-auto px-3">
       <h1
-        className="mt-40 sm:text-lg md:text-2xl lg:text-2xl font-bold text-center"
+        className="mt-12 sm:mt-20 md:mt-30 sm:text-lg md:text-2xl lg:text-2xl font-bold text-center"
         style={{ color: "#023F78" }}
       >
         City Highlights
       </h1>
-      <div className="container flex justify-center mt-10 gap-4">
+      <div className="container flex justify-center">
         <Swiper
           spaceBetween={15}
           slidesPerView={3}
@@ -56,7 +56,7 @@ const CityHighlights = () => {
           }}
           modules={[Autoplay, Pagination, Navigation]}
           loop={true}
-          className="mySwiper mt-10 sm:mx-5 md:mx-5 lg:mx-44"
+          className="mySwiper mt-10 mx-5 sm:mx-5 md:mx-5 lg:mx-44"
         >
           {Array(5)
             .fill(0)
