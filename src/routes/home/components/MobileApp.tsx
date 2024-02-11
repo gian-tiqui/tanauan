@@ -4,7 +4,7 @@ const MobileApp = () => {
   return (
     <div className="flex flex-col my-8 sm:my-16 lg:my-32">
       <div className="mx-auto">
-        <h1 className="mb-10 text-start font-bold text-slate-900 text-sm sm:text-lg md:text-xl lg:text-2xl">
+        <h1 className="mb-10 text-start font-bold text-slate-900 text-sm sm:text-lg md:text-xl lg:text-3xl">
           Emergency Alert System and Mobile Application
         </h1>
       </div>
@@ -53,7 +53,7 @@ const MobileApp = () => {
             </div>
             <div className="flex flex-col sm:flex-row justify-center mt-6">
               <a
-                href="#"
+                href="https://play.google.com/store/games?hl=en&gl=US"
                 className="border rounded bg-black text-xs sm:text-sm md:text-md text-white px-3 py-1 mb-2 sm:mr-2 sm:mb-0 flex items-center justify-center"
               >
                 <img
@@ -64,7 +64,7 @@ const MobileApp = () => {
                 Google Play
               </a>
               <a
-                href="#"
+                href="https://tanauancity.gov.ph/tanauan-911-app/"
                 className="border rounded bg-black text-xs sm:text-sm md:text-md text-white px-3 py-1 mb-2 sm:mb-0 flex items-center justify-center"
               >
                 <img
