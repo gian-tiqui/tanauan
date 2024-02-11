@@ -32,8 +32,8 @@ const Cgtv = () => {
   };
 
   return (
-    <div className="container mx-auto my-12 flex justify-between shadow-2xl rounded">
-      <div className="w-3/4">
+    <div className="container mx-auto my-12 flex flex-col md:flex-row justify-center md:items-stretch md:gap-4">
+      <div className="md:w-3/4">
         <video
           autoPlay
           muted
@@ -44,7 +44,7 @@ const Cgtv = () => {
           src={videos[selectedVideoIndex].src}
         ></video>
       </div>
-      <div className="w-1/3 mx-4">
+      <div className="md:w-1/3 mx-4 mt-4 md:mt-0">
         <div className="space-y-2">
           {videos.map((video, index) => (
             <div

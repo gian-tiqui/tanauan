@@ -2,27 +2,24 @@ import React from "react";
 import { UpdatesProps } from "./StatusUpdates";
 
 const SquareUpdates: React.FC<UpdatesProps> = ({ title, unit, val }) => {
+  const formattedValue = val.toLocaleString();
+
   return (
-    <>
-      <div className="rounded-xl border border-white p-5 md:p-8 lg:p-10 flex flex-col items-center justify-center gap-2">
+    <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 p-4">
+      <div className="w-full h-full rounded-xl border border-white p-10 flex flex-col items-center justify-center">
         <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-center leading-tight text-ellipsis overflow-hidden whitespace-nowrap">
-          {val}
+          {formattedValue}
         </p>
         {unit && (
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-center leading-tight text-ellipsis overflow-hidden whitespace-nowrap">
+          <p className="text-xs sm:text-sm md:text-md lg:text-lg xl:text-xl text-center leading-tight text-ellipsis overflow-hidden whitespace-nowrap">
             {unit}
           </p>
         )}
-        <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-center leading-relaxed">
-          {title.split(" ").map((line, index) => (
-            <span key={index}>
-              {line}
-              <br />
-            </span>
-          ))}
+        <p className="mt-5 text-xs sm:text-sm md:text-md lg:text-lg xl:text-xl text-center leading-relaxed text-nowrap">
+          {title}
         </p>
       </div>
-    </>
+    </div>
   );
 };
 

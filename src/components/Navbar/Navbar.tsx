@@ -19,9 +19,7 @@ const Navbar = () => {
             src="../../../logo.png"
             style={{ height: "50px", width: "100px" }}
           />
-          <OutlinedText>
-            <h2 className="text-2xl">TANAUAN</h2>
-          </OutlinedText>
+          <h2 className="text-2xl my-auto">TANAUAN</h2>
         </div>
         <div className="flex justify-between">
           <Link to={"/"} className={linkClass} style={{ color: "#786649" }}>
