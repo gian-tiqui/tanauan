@@ -145,8 +145,63 @@ const Cgtv = () => {
           </div>
         </div>
       </div>
-      {/* larger screens */}
-      <div className="block sm:hidden md:hidden lg:hidden">hi</div>
+      {/* mobile screens */}
+      <div className="block sm:hidden md:hidden lg:hidden">
+        <div className="my-10">
+          <h1 className="mb-6 text-sm font-bold text-center text-slate-900 sm:text-lg md:text-xl lg:text-3xl">
+            Videos
+          </h1>
+        </div>
+        <div className="container mx-auto">
+          <div className="relative w-full mb-4">
+            <iframe
+              className="w-full"
+              src={videos[selectedVideoIndex].src}
+              title={videos[selectedVideoIndex].title}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            />
+          </div>
+          <div className="w-full">
+            <Swiper
+              spaceBetween={1}
+              slidesPerView={1}
+              direction="vertical"
+              modules={[Pagination]}
+              className="mySwiper h-96"
+            >
+              {videos.map((video, index) => (
+                <SwiperSlide key={index}>
+                  <div
+                    key={index}
+                    className={`cursor-pointer rounded-lg shadow-md border mb-4 ${
+                      selectedVideoIndex === index ? "bg-gray-300" : ""
+                    }`}
+                    onClick={() => selectVideo(index)}
+                  >
+                    <div>
+                      <img
+                        className="w-full h-40 bg-cover rounded-t-md"
+                        src={video.thumbnail}
+                        alt={video.title}
+                      />
+                    </div>
+                    <p className="p-2 text-xs font-semibold truncate">
+                      {video.title}
+                    </p>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        </div>
+        <div className="mt-6 text-center">
+          <img
+            alt="cgtv"
+            className="mx-auto w-44"
+            src="https://tanauancity.gov.ph/wp-content/uploads/2023/01/FULL-1-e1673327794248-600x229.png"
+          />
+        </div>
+      </div>
     </div>
   );
 };

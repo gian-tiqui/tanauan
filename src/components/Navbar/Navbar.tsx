@@ -94,6 +94,8 @@ const Navbar = () => {
         </div>
       </div>
 
+      {/* mobile screen */}
+
       <div className="block sm:block md:hidden lg:hidden">
         <div className="flex justify-between flex-1 py-2">
           <div className="flex items-center flex-1">
@@ -104,9 +106,8 @@ const Navbar = () => {
             <div className="container mx-auto my-auto">
               <input
                 type="text"
-                className="h-6 max-w-xs px-3 my-auto ml-8 border rounded-md w-28"
+                className="h-6 max-w-xs px-3 my-auto ml-8 border border-black rounded-md w-28"
                 placeholder="Search..."
-                style={{ borderColor: "#023F78" }}
                 onChange={handleSearchTextChange}
                 value={searchTxt}
               />
@@ -119,7 +120,7 @@ const Navbar = () => {
             <img
               onClick={handleToggleSidebar}
               src="https://cdn-icons-png.flaticon.com/128/4254/4254068.png"
-              className="w-10 h-8 px-2 py-1 mr-3 font-bold text-white border border-black rounded"
+              className="w-10 h-8 px-2 py-1 mr-8 font-bold text-white border border-black rounded"
             ></img>
           </div>
         </div>
