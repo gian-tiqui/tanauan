@@ -1,24 +1,13 @@
 const MayorImage = () => {
   const mayorImgPath = "../../../tanauanmayor.png";
-  const pelepensPath = "../../../republikangpelepens.png";
-  const logoPath = "../../../logo.png";
 
   return (
-    <div className="relative left-24 bottom-10 md:w-72 lg:w-96">
-      <div className="absolute top-0 left-0">
-        <img
-          src={pelepensPath}
-          className="w-6 sm:w-24 md:w-15 lg:w-20"
-          alt="Republikang Pelepens Logo"
-        />
-        <img
-          src={logoPath}
-          className="w-6 sm:w-24 md:w-15 lg:w-20"
-          alt="Tanauan Logo"
-        />
-      </div>
-
-      <img src={mayorImgPath} className="w-full sm:w-auto" alt="Mayor Image" />
+    <div className="mx-auto md:relative absolute md:left-40 md:bottom-16 md:w-72 lg:w-96 flex justify-center">
+      <img
+        src={mayorImgPath}
+        className="w-44 h-44 sm:w-64 sm:h-64 md:w-80 md:h-80"
+        alt="Mayor Image"
+      />
     </div>
   );
 };

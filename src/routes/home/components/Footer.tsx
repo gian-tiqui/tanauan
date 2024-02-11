@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="flex-1 pt-7 pl-7">
           <p className="text-md text-white font-bold">LINKS</p>
           <div className="flex gap-24 mt-6">
-            <ul className="text-white mt-5">
+            <ul className="text-white mt-5 sm:text-sm md:text-lg">
               <li>
                 <Link to="/">Goverment</Link>
               </li>
@@ -30,7 +30,7 @@ const Footer = () => {
                 <Link to="/">Departments</Link>
               </li>
             </ul>
-            <ul className="text-white mt-5">
+            <ul className="text-white mt-5 sm:text-sm md:text-lg">
               <li>
                 <Link to="/">Departments</Link>
               </li>
@@ -52,13 +52,13 @@ const Footer = () => {
       </div>
       <hr className="mt-12" />
       <div className="flex justify-center">
-        <Link to="/" className="text-white my-1">
+        <Link to="/" className="text-white text-sm sm:text-sm md:text-lg my-1">
           Talisay - Tanauan Rd, Tanauan, 4232 Batangas | Maps
         </Link>
       </div>
       <hr />
       <div className="flex justify-center">
-        <Link to="/" className="text-white my-3">
+        <Link to="/" className="text-white text-sm sm:text-sm md:text-lg my-3">
           TANAUAN CITY GOVERMENT© 2022 All Rights Reserved
         </Link>
       </div>
