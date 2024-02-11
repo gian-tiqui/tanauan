@@ -45,8 +45,8 @@ const PublicServices = () => {
 
   return (
     <div className="mt-10 bg-slate-900">
-      <div className="container mx-auto px-3 pt-6 sm:pt-8 md:pt-10">
-        <p className="text-md sm:text-md md:text-lg font-bold text-white text-center mb-14">
+      <div className="container px-3 pt-6 mx-auto sm:pt-8 md:pt-10">
+        <p className="font-bold text-center text-white text-md sm:text-md md:text-lg mb-14">
           The City's Modern Public Services
         </p>
         <div className="flex justify-center gap-20 text-white">
@@ -67,12 +67,12 @@ const PublicServices = () => {
                   <img
                     src={service.imageURI}
                     alt={service.title}
-                    className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 mx-auto"
+                    className="w-20 h-20 mx-auto sm:w-24 sm:h-24 md:w-32 md:h-32"
                   />
-                  <p className="text-sm sm:text-xs md:text-sm truncate max-w-xs mx-auto text-center">
+                  <p className="max-w-xs mx-auto text-sm text-center truncate sm:text-xs md:text-sm">
                     {service.title}
                   </p>
-                  <p className="text-xs sm:text-xs md:text-sm truncate max-w-xs mx-auto text-center">
+                  <p className="max-w-xs mx-auto text-xs text-center truncate sm:text-xs md:text-sm">
                     {service.description}
                   </p>
                 </div>
@@ -80,17 +80,17 @@ const PublicServices = () => {
             ))}
           </Swiper>
         </div>
-        <p className="mt-5 sm:mt-10 md:mt-16 text-center text-sm sm:text-md md:text-lg text-white">
+        <p className="mt-5 text-sm text-center text-white sm:mt-10 md:mt-16 sm:text-md md:text-lg">
           The Official eService Portal of Tanauan City, created to provide
           citizens of Tanauan City a convenient one-stop solution platform for
           online services and information.
         </p>
         <div className="container flex justify-center mx-auto">
-          <div className="mt-3 sm:mt-5 md:mt-10 flex flex-col">
-            <button className="rounded-md mt-1 sm:my-1 md:my-2 py-1 font-bold text-white text-sm sm:text-md md:text-lg w-24 sm:w-32 md:w-40 bg-blue-500">
+          <div className="flex flex-col mt-3 sm:mt-5 md:mt-10">
+            <button className="w-24 py-1 mt-1 text-sm font-bold text-white bg-blue-500 rounded-md sm:my-1 md:my-2 sm:text-md md:text-lg sm:w-32 md:w-40">
               SIGN UP
             </button>
-            <button className="rounded-md mb-5 sm:mb-7 md:mb-10 my-1 sm:my-1 md:my-2 py-1 font-bold w-24  md:w-40 sm:w-32 border border-blue-500 text-blue-500 text-sm sm:text-md md:text-lg">
+            <button className="w-24 py-1 my-1 mb-5 text-sm font-bold text-blue-500 border border-blue-500 rounded-md sm:mb-7 md:mb-10 sm:my-1 md:my-2 md:w-40 sm:w-32 sm:text-md md:text-lg">
               SIGN IN
             </button>
           </div>

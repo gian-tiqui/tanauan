@@ -4,14 +4,14 @@ const MobileApp = () => {
   return (
     <div className="flex flex-col my-8 sm:my-16 lg:my-32">
       <div className="mx-auto">
-        <h1 className="mb-10 text-start font-bold text-slate-900 text-sm sm:text-lg md:text-xl lg:text-3xl">
+        <h1 className="mb-10 text-sm font-bold text-start text-slate-900 sm:text-lg md:text-xl lg:text-3xl">
           Emergency Alert System and Mobile Application
         </h1>
       </div>
       <div className="flex justify-center">
-        <div className="border shadow-lg md:grid md:grid-cols-2 bg-white rounded-lg overflow-hidden">
+        <div className="overflow-hidden bg-white border rounded-lg shadow-lg md:grid md:grid-cols-2">
           <div
-            className="md:w-full md:h-auto h-60 sm:h-72 bg-cover bg-center relative"
+            className="relative bg-center bg-cover md:w-full md:h-auto h-60 sm:h-72"
             style={{
               backgroundImage: imageURI,
               backgroundSize: "cover",
@@ -19,9 +19,9 @@ const MobileApp = () => {
               backgroundRepeat: "no-repeat",
             }}
           ></div>
-          <div className="p-4 md:p-6 flex flex-col justify-between">
+          <div className="flex flex-col justify-between p-4 md:p-6">
             <div>
-              <p className="text-lg md:text-xl font-bold mb-4">
+              <p className="mb-4 text-lg font-bold md:text-xl">
                 Tanauan 911 App: Tulong sa Emergencies!
               </p>
               <ul className="text-sm md:text-base">
@@ -51,10 +51,10 @@ const MobileApp = () => {
                 Download the Tanauan 911 App (SENYAS) for free on Google Play!
               </p>
             </div>
-            <div className="flex flex-col sm:flex-row justify-center mt-6">
+            <div className="flex flex-col justify-center mt-6 sm:flex-row">
               <a
                 href="https://play.google.com/store/games?hl=en&gl=US"
-                className="border rounded bg-black text-xs sm:text-sm md:text-md text-white px-3 py-1 mb-2 sm:mr-2 sm:mb-0 flex items-center justify-center"
+                className="flex items-center justify-center px-3 py-1 mb-2 text-xs text-white bg-black border rounded sm:text-sm md:text-md sm:mr-2 sm:mb-0"
               >
                 <img
                   src="https://cdn-icons-png.flaticon.com/128/6124/6124997.png"
@@ -65,7 +65,7 @@ const MobileApp = () => {
               </a>
               <a
                 href="https://tanauancity.gov.ph/tanauan-911-app/"
-                className="border rounded bg-black text-xs sm:text-sm md:text-md text-white px-3 py-1 mb-2 sm:mb-0 flex items-center justify-center"
+                className="flex items-center justify-center px-3 py-1 mb-2 text-xs text-white bg-black border rounded sm:text-sm md:text-md sm:mb-0"
               >
                 <img
                   src="https://cdn-icons-png.flaticon.com/128/888/888846.png"

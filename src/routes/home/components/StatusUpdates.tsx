@@ -30,8 +30,8 @@ const StatusUpdates = () => {
   });
 
   return (
-    <div className="mt-10 pt-5 sm:mt-20 sm:pt-7 md:mt-32 md:pt-10 flex flex-col items-center justify-center text-center pb-7 sm:pb-10 md:pb-20 bg-slate-950">
-      <p className="text-white text-lg sm:text-xl md:text-2xl font-bold">
+    <div className="flex flex-col items-center justify-center pt-5 mt-10 text-center sm:mt-20 sm:pt-7 md:mt-32 md:pt-10 pb-7 sm:pb-10 md:pb-20 bg-slate-950">
+      <p className="text-lg font-bold text-white sm:text-xl md:text-2xl">
         Status Updates as of 2023
       </p>
       <div className="mt-16 text-white">

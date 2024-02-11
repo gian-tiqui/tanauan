@@ -85,12 +85,12 @@ const Cgtv = () => {
   return (
     <div className="my-24 sm:my-24 md:my-14 lg:my-20">
       <div className="my-10">
-        <h1 className="mb-10 text-center font-bold text-slate-900 text-sm sm:text-lg md:text-xl lg:text-3xl">
+        <h1 className="mb-10 text-sm font-bold text-center text-slate-900 sm:text-lg md:text-xl lg:text-3xl">
           Videos
         </h1>
       </div>
-      <div className="container border shadow-2xl mx-auto flex flex-col md:flex-row justify-center md:items-stretch h-96">
-        <div className="md:w-3/4 relative">
+      <div className="container flex flex-col justify-center mx-auto border shadow-2xl md:flex-row md:items-stretch h-96">
+        <div className="relative md:w-3/4">
           <iframe
             className="inset-0 w-full h-full"
             src={videos[selectedVideoIndex].src}
@@ -99,8 +99,8 @@ const Cgtv = () => {
           />
         </div>
 
-        <div className="md:w-1/3 mx-4 mt-4 md:mt-auto relative rounded-e-lg">
-          <div className="space-y-2 mb-2">
+        <div className="relative mx-4 mt-4 md:w-1/3 md:mt-auto rounded-e-lg">
+          <div className="mb-2 space-y-2">
             <Swiper
               spaceBetween={1}
               slidesPerView={5}
@@ -119,12 +119,12 @@ const Cgtv = () => {
                   >
                     <div>
                       <img
-                        className="h-14 w-96 max-w-32 rounded-s-md bg-cover"
+                        className="bg-cover h-14 w-96 max-w-32 rounded-s-md"
                         src={video.thumbnail}
                         alt={video.title}
                       />
                     </div>
-                    <p className="font-semibold text-xs sm:text-sm md:text-md truncate px-5 my-auto">
+                    <p className="px-5 my-auto text-xs font-semibold truncate sm:text-sm md:text-md">
                       {video.title}
                     </p>
                   </div>
@@ -132,7 +132,7 @@ const Cgtv = () => {
               ))}
             </Swiper>
           </div>
-          <div className="absolute sm:bottom-0 sm:right-0 sm:transform sm:translate-x-14 sm:-translate-y-5 md:top-0 md:right-0 z-10 md:transform md:translate-x-20 md:-translate-y-32">
+          <div className="absolute z-10 sm:bottom-0 sm:right-0 sm:transform sm:translate-x-14 sm:-translate-y-5 md:top-0 md:right-0 md:transform md:translate-x-20 md:-translate-y-32">
             <img
               alt="cgtv"
               className="sm:h-20 sm:w-44 md:h-28 md:w-64"

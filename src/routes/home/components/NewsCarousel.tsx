@@ -91,7 +91,7 @@ const NewsCarousel = () => {
   ]);
 
   return (
-    <div className="container mx-auto px-4">
+    <div className="container px-4 mx-auto">
       <Swiper
         spaceBetween={15}
         slidesPerView={3}
@@ -101,7 +101,7 @@ const NewsCarousel = () => {
         }}
         modules={[Autoplay, Pagination, Navigation]}
         loop={true}
-        className="mySwiper mt-10 sm:mx-5 md:mx-5 lg:mx-44"
+        className="mt-10 mySwiper sm:mx-5 md:mx-5 lg:mx-44"
       >
         {news.map((ns, index) => (
           <SwiperSlide key={index}>

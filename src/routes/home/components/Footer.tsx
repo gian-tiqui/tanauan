@@ -5,12 +5,12 @@ const Footer = () => {
     <div className="bg-slate-950">
       <div className="mt-32 md:flex lg:flex">
         <div className="flex-1 pt-7 pl-7">
-          <p className="text-md text-white font-bold">STAY CONNECTED</p>
+          <p className="font-bold text-white text-md">STAY CONNECTED</p>
         </div>
         <div className="flex-1 pt-7 pl-7">
-          <p className="text-md text-white font-bold">LINKS</p>
+          <p className="font-bold text-white text-md">LINKS</p>
           <div className="flex gap-24 mt-6">
-            <ul className="text-white mt-5 sm:text-sm md:text-lg">
+            <ul className="mt-5 text-white sm:text-sm md:text-lg">
               <li>
                 <Link to="/">Goverment</Link>
               </li>
@@ -30,7 +30,7 @@ const Footer = () => {
                 <Link to="/">Departments</Link>
               </li>
             </ul>
-            <ul className="text-white mt-5 sm:text-sm md:text-lg">
+            <ul className="mt-5 text-white sm:text-sm md:text-lg">
               <li>
                 <Link to="/">Departments</Link>
               </li>
@@ -52,13 +52,13 @@ const Footer = () => {
       </div>
       <hr className="mt-12" />
       <div className="flex justify-center">
-        <Link to="/" className="text-white text-sm sm:text-sm md:text-lg my-1">
+        <Link to="/" className="my-1 text-sm text-white sm:text-sm md:text-lg">
           Talisay - Tanauan Rd, Tanauan, 4232 Batangas | Maps
         </Link>
       </div>
       <hr />
       <div className="flex justify-center">
-        <Link to="/" className="text-white text-sm sm:text-sm md:text-lg my-3">
+        <Link to="/" className="my-3 text-sm text-white sm:text-sm md:text-lg">
           TANAUAN CITY GOVERMENT© 2022 All Rights Reserved
         </Link>
       </div>

@@ -82,9 +82,9 @@ const CityHighlights = () => {
   ]);
 
   return (
-    <div className="container mx-auto px-3">
+    <div className="container px-3 mx-auto">
       <h1
-        className="mt-12 sm:mt-20 md:mt-30 sm:text-lg md:text-2xl lg:text-2xl font-bold text-center"
+        className="mt-12 font-bold text-center sm:mt-20 md:mt-30 sm:text-lg md:text-2xl lg:text-2xl"
         style={{ color: "#023F78" }}
       >
         City Highlights
@@ -99,7 +99,7 @@ const CityHighlights = () => {
           }}
           modules={[Autoplay, Pagination, Navigation]}
           loop={true}
-          className="mySwiper mt-10 mx-5 sm:mx-5 md:mx-5 lg:mx-44"
+          className="mx-5 mt-10 mySwiper sm:mx-5 md:mx-5 lg:mx-44"
         >
           {city.map((c, index) => (
             <SwiperSlide key={index}>

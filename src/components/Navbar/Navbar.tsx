@@ -25,7 +25,7 @@ const Navbar = () => {
               src="../../../logo.png"
               style={{ height: "50px", width: "100px" }}
             />
-            <h2 className="text-2xl my-auto">TANAUAN</h2>
+            <h2 className="my-auto text-2xl">TANAUAN</h2>
           </div>
           <div className="flex justify-between">
             <Link to={"/"} className={linkClass} style={{ color: "#786649" }}>
@@ -56,7 +56,7 @@ const Navbar = () => {
           <div className="flex pr-5">
             <input
               type="text"
-              className="w-52 h-7 px-3 border rounded-md my-auto"
+              className="px-3 my-auto border rounded-md w-52 h-7"
               placeholder="Search..."
               style={{ borderColor: "#023F78" }}
               onChange={handleSearchTextChange}
@@ -65,7 +65,7 @@ const Navbar = () => {
           </div>
         </div>
         <div
-          className="py-2 flex justify-center"
+          className="flex justify-center py-2"
           style={{ backgroundColor: "#023F78" }}
         >
           <div className="flex justify-between">
@@ -95,8 +95,8 @@ const Navbar = () => {
       </div>
 
       <div className="block sm:block md:hidden lg:hidden">
-        <div className="flex flex-1 justify-between py-2">
-          <div className="flex flex-1 items-center">
+        <div className="flex justify-between flex-1 py-2">
+          <div className="flex items-center flex-1">
             <img src="../../../logo.png" className="w-16 h-13" alt="Logo" />
             <h2 className="text-sm font-bold">TANAUAN</h2>
           </div>
@@ -104,7 +104,7 @@ const Navbar = () => {
             <div className="container mx-auto my-auto">
               <input
                 type="text"
-                className="ml-8 w-28 max-w-xs h-6 px-3 border rounded-md my-auto"
+                className="h-6 max-w-xs px-3 my-auto ml-8 border rounded-md w-28"
                 placeholder="Search..."
                 style={{ borderColor: "#023F78" }}
                 onChange={handleSearchTextChange}
@@ -112,11 +112,11 @@ const Navbar = () => {
               />
             </div>
           </div>
-          <div className="flex flex-1 items-center justify-end">
+          <div className="flex items-center justify-end flex-1">
             <img
               src="https://cdn-icons-png.flaticon.com/128/4254/4254068.png"
               onClick={handleToggleSidebar}
-              className="w-10 h-8 text-white font-bold py-1 px-2 rounded mr-3 border border-black"
+              className="w-10 h-8 px-2 py-1 mr-3 font-bold text-white border border-black rounded"
             ></img>
           </div>
         </div>
@@ -125,7 +125,7 @@ const Navbar = () => {
       {sidebarOpen && (
         <div className="fixed inset-y-0 left-0 z-50 w-36 bg-slate-900 md:hidden lg:hidden">
           <div className="flex flex-col justify-center gap-3">
-            <div className="flex items-center bg-white py-2">
+            <div className="flex items-center py-2 bg-white">
               <img src="../../../logo.png" className="w-16 h-13" alt="Logo" />
               <h2 className="text-sm font-bold">TANAUAN</h2>
             </div>
@@ -133,40 +133,40 @@ const Navbar = () => {
               className="flex justify-end mt-3"
               onClick={handleToggleSidebar}
             >
-              <p className="text-white font-bold mr-4 border px-2 rounded">x</p>
+              <p className="px-2 mr-4 font-bold text-white border rounded">x</p>
             </div>
-            <Link to={"/"} className="text-md mx-5 font-bold text-white">
+            <Link to={"/"} className="mx-5 font-bold text-white text-md">
               Home
             </Link>
-            <Link to={"/city"} className="text-md mx-5 font-bold text-white">
+            <Link to={"/city"} className="mx-5 font-bold text-white text-md">
               City
             </Link>
-            <Link to={"/tourism"} className="text-md mx-5 font-bold text-white">
+            <Link to={"/tourism"} className="mx-5 font-bold text-white text-md">
               Tourism
             </Link>
-            <Link to={"/careers"} className="text-md mx-5 font-bold text-white">
+            <Link to={"/careers"} className="mx-5 font-bold text-white text-md">
               Careers
             </Link>
-            <hr className="bg-white my-2 mx-3" />
-            <Link to={"/"} className="text-md mx-5 font-bold text-white">
+            <hr className="mx-3 my-2 bg-white" />
+            <Link to={"/"} className="mx-5 font-bold text-white text-md">
               Government
             </Link>
-            <Link to={"/"} className="text-md mx-5 font-bold text-white">
+            <Link to={"/"} className="mx-5 font-bold text-white text-md">
               City Transactions
             </Link>
-            <Link to={"/"} className="text-md mx-5 font-bold text-white">
+            <Link to={"/"} className="mx-5 font-bold text-white text-md">
               Business
             </Link>
-            <Link to={"/"} className="text-md mx-5 font-bold text-white">
+            <Link to={"/"} className="mx-5 font-bold text-white text-md">
               Transparency Report
             </Link>
-            <Link to={"/"} className="text-md mx-5 font-bold text-white">
+            <Link to={"/"} className="mx-5 font-bold text-white text-md">
               News & Events
             </Link>
-            <Link to={"/"} className="text-md mx-5 font-bold text-white">
+            <Link to={"/"} className="mx-5 font-bold text-white text-md">
               Departments
             </Link>
-            <Link to={"/"} className="text-md mx-5 font-bold text-white">
+            <Link to={"/"} className="mx-5 font-bold text-white text-md">
               Online Services
             </Link>
           </div>

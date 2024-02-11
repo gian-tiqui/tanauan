@@ -5,7 +5,7 @@ const VideoHeader = () => {
         autoPlay
         muted
         loop
-        className="w-full object-cover"
+        className="object-cover w-full"
         style={{ height: "508px" }}
       >
         <source src="../../../tanauan.mp4" type="video/mp4" />
