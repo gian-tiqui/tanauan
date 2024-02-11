@@ -2,14 +2,14 @@ import { imageURI } from "../../../large-strings-folder/Strings";
 
 const MobileApp = () => {
   return (
-    <div className="flex flex-col px-3 my-12 sm:my-16 md:px-0 lg:px-0 sm:px-0 lg:my-32">
+    <div className="flex flex-col px-3 my-12 sm:my-16 sm:mx-2 md:mx-3 lg:mx-3 md:px-0 lg:px-0 sm:px-0 lg:my-32">
       <div className="mx-auto">
         <h1 className="mb-10 font-bold text-md text-start text-slate-900 sm:text-lg md:text-xl lg:text-3xl">
           Emergency Alert System and Mobile Application
         </h1>
       </div>
       <div className="flex justify-center">
-        <div className="overflow-hidden bg-white border rounded-lg shadow-lg md:grid md:grid-cols-2">
+        <div className="overflow-hidden bg-white border rounded-lg shadow-lg md:grid md:grid-cols-2 sm:grid sm:grid-cols-2">
           <div
             className="relative bg-center bg-cover md:w-full md:h-auto h-60 sm:h-72"
             style={{

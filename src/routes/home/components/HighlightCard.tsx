@@ -4,7 +4,7 @@ import { City } from "./CityHighlights";
 const HighlightCard: React.FC<City> = ({ name, country, imageURI }) => {
   return (
     <div
-      className="relative overflow-hidden border rounded-lg shadow"
+      className="relative w-auto overflow-hidden border rounded-lg shadow h-52"
       style={{
         background: `url(${imageURI})`,
         backgroundSize: "cover",

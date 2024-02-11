@@ -82,64 +82,71 @@ const Cgtv = () => {
   };
 
   return (
-    <div className="my-24 sm:my-24 md:my-14 lg:my-20">
-      <div className="my-10">
-        <h1 className="mb-10 text-sm font-bold text-center text-slate-900 sm:text-lg md:text-xl lg:text-3xl">
-          Videos
-        </h1>
-      </div>
-      <div className="container flex flex-col justify-center mx-auto border shadow-2xl md:flex-row md:items-stretch h-96">
-        <div className="relative md:w-3/4">
-          <iframe
-            className="inset-0 w-full h-full"
-            src={videos[selectedVideoIndex].src}
-            title={videos[selectedVideoIndex].title}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          />
-        </div>
+    <div>
+      {/* larger screens */}
+      <div className="hidden sm:block md:block lg:block">
+        <div className="my-24 sm:my-24 md:my-14 lg:my-20 sm:mx-2 md:mx-3">
+          <div className="my-10">
+            <h1 className="mb-10 text-sm font-bold text-center text-slate-900 sm:text-lg md:text-xl lg:text-3xl">
+              Videos
+            </h1>
+          </div>
+          <div className="container flex flex-col justify-center mx-auto border shadow-2xl md:flex-row md:items-stretch h-96">
+            <div className="relative md:w-3/4">
+              <iframe
+                className="inset-0 w-full h-full"
+                src={videos[selectedVideoIndex].src}
+                title={videos[selectedVideoIndex].title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              />
+            </div>
 
-        <div className="relative mx-4 mt-4 md:w-1/3 md:mt-auto rounded-e-lg">
-          <div className="mb-2 space-y-2">
-            <Swiper
-              spaceBetween={1}
-              slidesPerView={5}
-              direction="vertical"
-              modules={[Pagination]}
-              className="mySwiper sm:h-44 md:h-80"
-            >
-              {videos.map((video, index) => (
-                <SwiperSlide key={index}>
-                  <div
-                    key={index}
-                    className={`cursor-pointer rounded-lg shadow-md border flex ${
-                      selectedVideoIndex === index ? "bg-gray-300" : ""
-                    }`}
-                    onClick={() => selectVideo(index)}
-                  >
-                    <div>
-                      <img
-                        className="bg-cover h-14 w-96 max-w-32 rounded-s-md"
-                        src={video.thumbnail}
-                        alt={video.title}
-                      />
-                    </div>
-                    <p className="px-5 my-auto text-xs font-semibold truncate sm:text-sm md:text-md">
-                      {video.title}
-                    </p>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-          <div className="absolute z-10 sm:bottom-0 sm:right-0 sm:transform sm:translate-x-14 sm:-translate-y-5 md:top-0 md:right-0 md:transform md:translate-x-20 md:-translate-y-32">
-            <img
-              alt="cgtv"
-              className="sm:h-20 sm:w-44 md:h-28 md:w-64"
-              src="https://tanauancity.gov.ph/wp-content/uploads/2023/01/FULL-1-e1673327794248-600x229.png"
-            />
+            <div className="relative mx-4 mt-4 md:w-1/3 md:mt-auto rounded-e-lg">
+              <div className="mb-2 space-y-2">
+                <Swiper
+                  spaceBetween={1}
+                  slidesPerView={5}
+                  direction="vertical"
+                  modules={[Pagination]}
+                  className="mySwiper sm:h-44 md:h-80"
+                >
+                  {videos.map((video, index) => (
+                    <SwiperSlide key={index}>
+                      <div
+                        key={index}
+                        className={`cursor-pointer rounded-lg shadow-md border flex ${
+                          selectedVideoIndex === index ? "bg-gray-300" : ""
+                        }`}
+                        onClick={() => selectVideo(index)}
+                      >
+                        <div>
+                          <img
+                            className="bg-cover h-14 w-96 max-w-32 rounded-s-md"
+                            src={video.thumbnail}
+                            alt={video.title}
+                          />
+                        </div>
+                        <p className="px-5 my-auto text-xs font-semibold truncate sm:text-sm md:text-md">
+                          {video.title}
+                        </p>
+                      </div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </div>
+              <div className="absolute z-10 sm:bottom-0 sm:right-0 sm:transform sm:translate-x-14 sm:-translate-y-5 md:top-0 md:right-0 md:transform md:translate-x-20 md:-translate-y-32">
+                <img
+                  alt="cgtv"
+                  className="sm:h-20 sm:w-44 md:h-28 md:w-64"
+                  src="https://tanauancity.gov.ph/wp-content/uploads/2023/01/FULL-1-e1673327794248-600x229.png"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
+      {/* larger screens */}
+      <div className="block sm:hidden md:hidden lg:hidden">hi</div>
     </div>
   );
 };

@@ -106,7 +106,7 @@ const NewsCarousel = () => {
         {news.map((ns, index) => (
           <SwiperSlide key={index}>
             <NewsCard
-              header={ns.header + " " + index}
+              header={ns.header}
               date={ns.date}
               link={ns.link}
               imageURI={ns.imageURI}
