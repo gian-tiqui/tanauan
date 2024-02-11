@@ -2,10 +2,12 @@ import { imageURI } from "../../../large-strings-folder/Strings";
 
 const MobileApp = () => {
   return (
-    <div className="mt-8 sm:mt-16 lg:mt-32">
-      <h1 className="text-start">
-        Emergency Alert System and Mobile Application
-      </h1>
+    <div className="flex flex-col my-8 sm:my-16 lg:my-32">
+      <div className="mx-auto">
+        <h1 className="mb-10 text-start font-bold text-slate-900 text-sm sm:text-lg md:text-xl lg:text-2xl">
+          Emergency Alert System and Mobile Application
+        </h1>
+      </div>
       <div className="flex justify-center">
         <div className="border shadow-lg md:grid md:grid-cols-2 bg-white rounded-lg overflow-hidden">
           <div

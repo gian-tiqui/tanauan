@@ -7,7 +7,7 @@ import StatusUpdates from "./components/StatusUpdates";
 import CityHighlights from "./components/CityHighlights";
 import Mayor from "./components/Mayor";
 import LogoDivider from "./components/LogoDivider";
-import Cgtv from "./components/CGTV";
+import Cgtv from "./components/Cgtv";
 import VideoHeader from "./components/VideoHeader";
 
 const NEWS_STR: string = "News & Publication";
