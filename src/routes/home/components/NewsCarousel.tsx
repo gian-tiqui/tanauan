@@ -92,28 +92,55 @@ const NewsCarousel = () => {
 
   return (
     <div className="container px-4 mx-auto">
-      <Swiper
-        spaceBetween={15}
-        slidesPerView={3}
-        autoplay={{
-          delay: 2000,
-          disableOnInteraction: false,
-        }}
-        modules={[Autoplay, Pagination, Navigation]}
-        loop={true}
-        className="mt-10 mySwiper sm:mx-5 md:mx-5 lg:mx-44"
-      >
-        {news.map((ns, index) => (
-          <SwiperSlide key={index}>
-            <NewsCard
-              header={ns.header}
-              date={ns.date}
-              link={ns.link}
-              imageURI={ns.imageURI}
-            />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      {/* large screens */}
+      <div className="hidden sm:hidden md:block lg:block">
+        <Swiper
+          spaceBetween={15}
+          slidesPerView={3}
+          autoplay={{
+            delay: 2000,
+            disableOnInteraction: false,
+          }}
+          modules={[Autoplay, Pagination, Navigation]}
+          loop={true}
+          className="mt-10 mySwiper sm:mx-5 md:mx-5 lg:mx-44"
+        >
+          {news.map((ns, index) => (
+            <SwiperSlide key={index}>
+              <NewsCard
+                header={ns.header}
+                date={ns.date}
+                link={ns.link}
+                imageURI={ns.imageURI}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+      <div className="block sm:block md:hidden lg:hidden">
+        <Swiper
+          spaceBetween={15}
+          slidesPerView={1}
+          autoplay={{
+            delay: 1400,
+            disableOnInteraction: false,
+          }}
+          modules={[Autoplay, Pagination, Navigation]}
+          loop={true}
+          className="mx-3 mt-10 mySwiper sm:mx-5 md:mx-5 lg:mx-44"
+        >
+          {news.map((ns, index) => (
+            <SwiperSlide key={index}>
+              <NewsCard
+                header={ns.header}
+                date={ns.date}
+                link={ns.link}
+                imageURI={ns.imageURI}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </div>
   );
 };

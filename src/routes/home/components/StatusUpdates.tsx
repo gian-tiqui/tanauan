@@ -36,8 +36,8 @@ const StatusUpdates = () => {
         Status Updates as of 2023
       </p>
       <div className="flex flex-wrap mt-16 text-white sm:flex-wrap">
-        {updates.map((update) => (
-          <SquareUpdates {...update} />
+        {updates.map((update, index) => (
+          <SquareUpdates {...update} key={index} />
         ))}
       </div>
     </div>

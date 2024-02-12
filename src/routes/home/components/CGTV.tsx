@@ -146,16 +146,16 @@ const Cgtv = () => {
         </div>
       </div>
       {/* mobile screens */}
-      <div className="block sm:hidden md:hidden lg:hidden">
+      <div className="block mx-3 sm:hidden md:hidden lg:hidden">
         <div className="my-10">
-          <h1 className="mb-6 text-sm font-bold text-center text-slate-900 sm:text-lg md:text-xl lg:text-3xl">
+          <h1 className="mb-6 font-bold text-center text-md text-slate-900 sm:text-lg md:text-xl lg:text-3xl">
             Videos
           </h1>
         </div>
-        <div className="container mx-auto">
+        <div className="container mx-auto border rounded-md shadow-xl">
           <div className="relative w-full mb-4">
             <iframe
-              className="w-full"
+              className="w-full h-52 rounded-t-md"
               src={videos[selectedVideoIndex].src}
               title={videos[selectedVideoIndex].title}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -163,29 +163,28 @@ const Cgtv = () => {
           </div>
           <div className="w-full">
             <Swiper
-              spaceBetween={1}
-              slidesPerView={1}
+              slidesPerView={2}
               direction="vertical"
               modules={[Pagination]}
-              className="mySwiper h-96"
+              className="h-32 px-3 mySwipe"
             >
               {videos.map((video, index) => (
                 <SwiperSlide key={index}>
                   <div
                     key={index}
-                    className={`cursor-pointer rounded-lg shadow-md border mb-4 ${
+                    className={`cursor-pointer rounded-lg shadow-md border flex ${
                       selectedVideoIndex === index ? "bg-gray-300" : ""
                     }`}
                     onClick={() => selectVideo(index)}
                   >
                     <div>
                       <img
-                        className="w-full h-40 bg-cover rounded-t-md"
+                        className="w-32 bg-cover h-11 max-w-24 rounded-s-md"
                         src={video.thumbnail}
                         alt={video.title}
                       />
                     </div>
-                    <p className="p-2 text-xs font-semibold truncate">
+                    <p className="px-5 my-auto text-xs font-semibold truncate sm:text-sm md:text-md">
                       {video.title}
                     </p>
                   </div>

@@ -6,7 +6,7 @@ const NewsCard: React.FC<News> = ({ header, date, link, imageURI }) => {
   return (
     <div className="relative overflow-hidden border rounded-lg">
       <div
-        className="h-20 bg-center bg-cover sm:h-32 md:h-40"
+        className="h-32 bg-center bg-cover sm:h-32 md:h-40"
         style={{ backgroundImage: `url(${imageURI})` }}
       ></div>
       <div className="flex flex-col p-4 bg-white">
