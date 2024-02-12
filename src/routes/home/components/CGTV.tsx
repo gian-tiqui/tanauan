@@ -161,7 +161,7 @@ const Cgtv = () => {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             />
           </div>
-          <div className="w-full">
+          <div className="w-full pb-5">
             <Swiper
               slidesPerView={2}
               direction="vertical"
@@ -196,7 +196,7 @@ const Cgtv = () => {
         <div className="mt-6 text-center">
           <img
             alt="cgtv"
-            className="mx-auto w-44"
+            className="relative mx-auto bottom-14 left-28 w-44"
             src="https://tanauancity.gov.ph/wp-content/uploads/2023/01/FULL-1-e1673327794248-600x229.png"
           />
         </div>
