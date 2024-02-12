@@ -6,6 +6,41 @@ const Footer = () => {
       <div className="mt-32 md:flex lg:flex">
         <div className="flex-1 pt-7 pl-7">
           <p className="font-bold text-white text-md">STAY CONNECTED</p>
+
+          <div className="flex gap-24 mt-6">
+            <ul className="mt-5 text-white text-sm sm:text-base md:text-lg">
+              <li className="mb-2">
+                <a
+                  href="https://www.facebook.com/TanauanCityGovernment/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-blue-500"
+                >
+                  Facebook: https://www.facebook.com/TanauanCityGovernment
+                </a>
+              </li>
+              <li className="mb-2">
+                <a href="/" className="underline hover:text-blue-500">
+                  Twitter:
+                </a>
+              </li>
+              <li className="mb-2">
+                <a href="/" className="underline hover:text-blue-500">
+                  Instagram:
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.youtube.com/@CityGovernmentofTanauan"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-blue-500"
+                >
+                  Youtube: https://www.youtube.com/@CityGovernmentofTanauan
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
         <div className="flex-1 pt-7 pl-7">
           <p className="font-bold text-white text-md">LINKS</p>
