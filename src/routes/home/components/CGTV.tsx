@@ -91,10 +91,10 @@ const Cgtv = () => {
               Videos
             </h1>
           </div>
-          <div className="container flex flex-col justify-center mx-auto border shadow-2xl md:flex-row md:items-stretch h-96">
-            <div className="relative md:w-3/4">
+          <div className="container flex flex-col justify-center mx-auto border rounded-lg shadow-2xl md:flex-row md:items-stretch h-96">
+            <div className="relative md:w-2/3">
               <iframe
-                className="inset-0 w-full h-full"
+                className="inset-0 w-full h-full rounded-s-lg"
                 src={videos[selectedVideoIndex].src}
                 title={videos[selectedVideoIndex].title}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
