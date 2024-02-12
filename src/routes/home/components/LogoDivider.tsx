@@ -1,17 +1,9 @@
-const dividerWidth = "100%";
-
 const LogoDivider = () => {
   return (
-    <div className="flex justify-center gap-24 mt-10 mb-10">
-      <div
-        className="my-auto ml-10 border border-black"
-        style={{ height: "1px", width: dividerWidth, borderColor: "#023F78" }}
-      ></div>
+    <div className="flex justify-center mt-10 mb-10">
+      <div className="w-full h-0 my-auto ml-10 border border-blue-950"></div>
       <img src="../../../logo.png" className="sm:h-14 md:h-20 h-14" />
-      <div
-        className="my-auto mr-10 border border-black"
-        style={{ height: "1px", width: dividerWidth, borderColor: "#023F78" }}
-      ></div>
+      <div className="w-full h-0 my-auto mr-10 border border-blue-950"></div>
     </div>
   );
 };

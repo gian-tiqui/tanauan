@@ -4,7 +4,7 @@ const MobileApp = () => {
   return (
     <div className="flex flex-col px-3 my-12 sm:my-16 sm:mx-2 md:mx-3 lg:mx-3 md:px-0 lg:px-0 sm:px-0 lg:my-32">
       <div className="mx-auto">
-        <h1 className="mb-10 font-bold text-md text-start text-slate-900 sm:text-lg md:text-xl lg:text-3xl">
+        <h1 className="mb-10 font-bold text-md text-start text-slate-900 sm:text-lg md:text-xl lg:text-2xl">
           Emergency Alert System and Mobile Application
         </h1>
       </div>

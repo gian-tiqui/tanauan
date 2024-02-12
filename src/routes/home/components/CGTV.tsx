@@ -84,10 +84,10 @@ const Cgtv = () => {
   return (
     <div>
       {/* larger screens */}
-      <div className="hidden sm:block md:block lg:block">
+      <div className="hidden sm:block md:block lg:block sm:px-14 md:px-24 lg:px-40">
         <div className="my-24 sm:my-24 md:my-14 lg:my-20 sm:mx-2 md:mx-3">
           <div className="my-10">
-            <h1 className="mb-10 text-sm font-bold text-center text-slate-900 sm:text-lg md:text-xl lg:text-3xl">
+            <h1 className="mb-10 text-sm font-bold text-center text-slate-900 sm:text-lg md:text-xl lg:text-2xl">
               Videos
             </h1>
           </div>
