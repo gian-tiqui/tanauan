@@ -1,5 +1,6 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { PreventContextMenu } from "../../App";
 
 const linkClass = "mx-5 my-auto text-lg hover:underline text-sm text-white";
 const linkClass2 = "mx-5 my-auto text-lg hover:underline text-white text-sm";
@@ -7,6 +8,7 @@ const linkClass2 = "mx-5 my-auto text-lg hover:underline text-white text-sm";
 const Navbar = () => {
   const [searchTxt, setSearchTxt] = useState<string>("");
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const preventContextMenu = useContext(PreventContextMenu);
 
   const handleSearchTextChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchTxt(e.target.value);
@@ -24,6 +26,9 @@ const Navbar = () => {
             <img
               src="../../../logo.png"
               style={{ height: "50px", width: "100px" }}
+              onContextMenu={preventContextMenu}
+              draggable="false" // Prevent dragging
+              alt="Logo"
             />
             <h2 className="my-auto text-2xl">TANAUAN</h2>
           </div>

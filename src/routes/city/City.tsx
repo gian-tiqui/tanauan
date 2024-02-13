@@ -1,33 +1,20 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useSpring, animated } from "@react-spring/web";
 
-interface User {
-  id: string;
-  name: string;
-  username: string;
-  email: string;
-}
-
-const USERS_URI = "https://jsonplaceholder.typicode.com/users";
-
-const City = () => {
-  const [users, setUsers] = useState<User[] | undefined>(undefined);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await axios.get(USERS_URI);
-
-      setUsers(data.data);
-    };
-
-    fetchData();
-  }, []);
+export default function MyComponent() {
+  const springs = useSpring({
+    from: { x: 0 },
+    to: { x: 100 },
+  });
 
   return (
-    <div className="w-full">
-      <pre>{JSON.stringify(users, null, 2)}</pre>
-    </div>
+    <animated.div
+      style={{
+        width: 80,
+        height: 80,
+        background: "#ff6d6d",
+        borderRadius: 8,
+        ...springs,
+      }}
+    />
   );
-};
-
-export default City;
+}

@@ -4,7 +4,6 @@ const VideoHeader = () => {
       <video
         autoPlay
         muted
-        loop
         className="object-cover w-full"
         style={{ height: "508px" }}
       >
