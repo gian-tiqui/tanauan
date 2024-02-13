@@ -4,11 +4,10 @@ const VideoHeader = () => {
       <video
         autoPlay
         muted
-        loop
         className="object-cover w-full"
         style={{ height: "508px" }}
       >
-        <source src="../../../tanauan.mp4" type="video/mp4" />
+        <source src="../../../video24.mp4" type="video/mp4" />
       </video>
     </div>
   );

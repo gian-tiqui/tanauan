@@ -127,7 +127,7 @@ const NewsCarousel = () => {
           }}
           modules={[Autoplay, Pagination, Navigation]}
           loop={true}
-          className="mx-3 mt-10 mySwiper sm:mx-5 md:mx-5 lg:mx-44"
+          className="p-5 mx-3 mt-10 mySwiper sm:mx-5 md:mx-5 lg:mx-44"
         >
           {news.map((ns, index) => (
             <SwiperSlide key={index}>
