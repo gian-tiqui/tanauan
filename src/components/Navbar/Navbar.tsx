@@ -132,12 +132,7 @@ const Navbar = () => {
       </div>
 
       {sidebarOpen && (
-        <div
-          className={`fixed inset-y-0 left-0 z-50 w-36 bg-slate-900 md:hidden lg:hidden transition-transform duration-300 transform ${
-            sidebarOpen ? "translate-x-0" : "-translate-x-full"
-          }`}
-        >
-          {/* Your sidebar content */}
+        <div className="fixed inset-y-0 left-0 z-50 w-36 bg-slate-900 md:hidden lg:hidden">
           <div className="flex flex-col justify-center gap-3">
             <div className="flex items-center py-2 bg-white">
               <img src="../../../logo.png" className="w-16 h-13" alt="Logo" />
