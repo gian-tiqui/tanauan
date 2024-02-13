@@ -1,6 +1,7 @@
 import { ChangeEvent, useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { PreventContextMenu } from "../../App";
+import { useSpring, animated } from "@react-spring/web";
 
 const linkClass = "mx-5 my-auto text-lg hover:underline text-sm text-white";
 const linkClass2 = "mx-5 my-auto text-lg hover:underline text-white text-sm";
@@ -17,6 +18,10 @@ const Navbar = () => {
   const handleToggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
+
+  const sidebarAnimation = useSpring({
+    transform: sidebarOpen ? "translateX(0)" : "translateX(-100%)",
+  });
 
   return (
     <nav>
@@ -132,7 +137,10 @@ const Navbar = () => {
       </div>
 
       {sidebarOpen && (
-        <div className="fixed inset-y-0 left-0 z-50 w-36 bg-slate-900 md:hidden lg:hidden">
+        <animated.div
+          className="fixed inset-y-0 left-0 z-50 w-36 bg-slate-900 md:hidden lg:hidden"
+          style={sidebarAnimation}
+        >
           <div className="flex flex-col justify-center gap-3">
             <div className="flex items-center py-2 bg-white">
               <img src="../../../logo.png" className="w-16 h-13" alt="Logo" />
@@ -179,12 +187,12 @@ const Navbar = () => {
               Online Services
             </Link>
           </div>
-        </div>
+        </animated.div>
       )}
 
       {sidebarOpen && (
         <div
-          className="fixed inset-0 z-40 bg-black opacity-50 md:hidden lg:hidden"
+          className="fixed inset-0 z-40 w-screen h-screen bg-black opacity-70"
           onClick={handleToggleSidebar}
         ></div>
       )}
