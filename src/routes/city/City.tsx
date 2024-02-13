@@ -1,22 +1,33 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 
-interface Video {
-  title: string;
-  uri: string;
+interface User {
+  id: string;
+  name: string;
+  username: string;
+  email: string;
 }
 
+const USERS_URI = "https://jsonplaceholder.typicode.com/users";
+
 const City = () => {
-  const [Video, setVideo] = useState<Video | undefined>(undefined);
+  const [users, setUsers] = useState<User[] | undefined>(undefined);
 
   useEffect(() => {
-    setVideo(undefined);
+    const fetchData = async () => {
+      const data = await axios.get(USERS_URI);
+
+      setUsers(data.data);
+    };
+
+    fetchData();
   }, []);
 
-  useEffect(() => {
-    console.log(Video);
-  }, [Video]);
-
-  return <div className="w-full"></div>;
+  return (
+    <div className="w-full">
+      <pre>{JSON.stringify(users, null, 2)}</pre>
+    </div>
+  );
 };
 
 export default City;
