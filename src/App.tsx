@@ -4,20 +4,20 @@ import Home from "./routes/home/Home";
 import City from "./routes/city/City";
 import Tourism from "./routes/tourism/Tourism";
 import Careers from "./routes/careers/Careers";
-import { ChangeEvent, ReactNode, createContext } from "react";
+import { MouseEventHandler, ReactNode, createContext } from "react";
 
 interface RouteMapping {
   path: string;
   element: ReactNode;
 }
 
-export const PreventContextMenu = createContext<(event: ChangeEvent) => void>(
-  () => {}
-);
+export const PreventContextMenu = createContext<
+  MouseEventHandler<HTMLImageElement> | undefined
+>(undefined);
 
 function App() {
-  const preventContextMenu = (event: ChangeEvent) => {
-    event.preventDefault();
+  const preventContextMenu: MouseEventHandler<HTMLImageElement> = (e) => {
+    e.preventDefault();
   };
 
   const routeMaps: RouteMapping[] = [

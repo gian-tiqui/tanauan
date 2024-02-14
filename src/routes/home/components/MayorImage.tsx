@@ -1,5 +1,9 @@
+import { useContext } from "react";
+import { PreventContextMenu } from "../../../App";
+
 const MayorImage = () => {
   const mayorImgPath = "../../../tanauanmayor.png";
+  const preventMenu = useContext(PreventContextMenu);
 
   return (
     <div>
@@ -7,6 +11,7 @@ const MayorImage = () => {
       <div className="hidden sm:relative md:relative lg:relative sm:hidden md:block lg:block">
         <div className="relative flex justify-center md:relative md:left-32 md:bottom-20 md:w-72 lg:w-96">
           <img
+            onContextMenu={preventMenu}
             src={mayorImgPath}
             className="w-44 h-44 sm:w-64 sm:h-64 md:w-80 md:h-80"
             alt="Mayor Image"

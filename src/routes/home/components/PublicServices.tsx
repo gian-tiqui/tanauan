@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
+import { PreventContextMenu } from "../../../App";
 
 interface Services {
   title: string;
@@ -43,6 +44,8 @@ const PublicServices = () => {
     },
   ]);
 
+  const preventMenu = useContext(PreventContextMenu);
+
   return (
     <div className="mt-10 bg-slate-900">
       <div className="container px-3 pt-6 mx-auto sm:pt-8 md:pt-10">
@@ -68,6 +71,7 @@ const PublicServices = () => {
                     src={service.imageURI}
                     alt={service.title}
                     className="w-20 h-20 mx-auto sm:w-24 sm:h-24 md:w-32 md:h-32"
+                    onContextMenu={preventMenu}
                   />
                   <p className="max-w-xs mx-auto mt-5 text-sm font-bold text-center truncate sm:text-xs md:text-7">
                     {service.title}
