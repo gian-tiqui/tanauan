@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 
@@ -75,6 +75,8 @@ const Cgtv = () => {
     setSelectedVideoIndex(index);
   };
 
+  const cgtvRef = useRef(videos);
+
   return (
     <div>
       {/* larger screens */}
@@ -89,8 +91,8 @@ const Cgtv = () => {
             <div className="relative md:w-2/3">
               <iframe
                 className="inset-0 w-full h-full rounded-s-lg"
-                src={videos[selectedVideoIndex].src}
-                title={videos[selectedVideoIndex].title}
+                src={cgtvRef.current[selectedVideoIndex].src}
+                title={cgtvRef.current[selectedVideoIndex].title}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               />
             </div>
@@ -104,7 +106,7 @@ const Cgtv = () => {
                   modules={[Pagination]}
                   className="mySwiper sm:h-44 md:h-80"
                 >
-                  {videos.map((video, index) => (
+                  {cgtvRef.current.map((video, index) => (
                     <SwiperSlide key={index}>
                       <div
                         key={index}
@@ -154,8 +156,8 @@ const Cgtv = () => {
           <div className="relative w-full mb-4">
             <iframe
               className="w-full h-52 rounded-t-md"
-              src={videos[selectedVideoIndex].src}
-              title={videos[selectedVideoIndex].title}
+              src={cgtvRef.current[selectedVideoIndex].src}
+              title={cgtvRef.current[selectedVideoIndex].title}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             />
           </div>
@@ -166,7 +168,7 @@ const Cgtv = () => {
               modules={[Pagination]}
               className="h-32 px-3 mySwipe"
             >
-              {videos.map((video, index) => (
+              {cgtvRef.current.map((video, index) => (
                 <SwiperSlide key={index}>
                   <div
                     key={index}

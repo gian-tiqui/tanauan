@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import HighlightCard from "./HighlightCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
@@ -81,6 +81,8 @@ const CityHighlights = () => {
     },
   ]);
 
+  const citiesRef = useRef(city);
+
   return (
     <div className="container px-3 mx-auto">
       <h1 className="mt-12 font-bold text-center sm:mt-20 md:mt-30 sm:text-lg md:text-2xl lg:text-2xl text-slate-900">
@@ -100,7 +102,7 @@ const CityHighlights = () => {
             loop={true}
             className="mx-5 mt-10 mySwiper sm:mx-5 md:mx-5 lg:mx-44"
           >
-            {city.map((c, index) => (
+            {citiesRef.current.map((c, index) => (
               <SwiperSlide key={index}>
                 <HighlightCard
                   name={c.name}
@@ -124,7 +126,7 @@ const CityHighlights = () => {
             loop={true}
             className="mx-5 mt-10 mySwiper sm:mx-5 md:mx-5 lg:mx-44"
           >
-            {city.map((c, index) => (
+            {citiesRef.current.map((c, index) => (
               <SwiperSlide key={index}>
                 <HighlightCard
                   name={c.name}

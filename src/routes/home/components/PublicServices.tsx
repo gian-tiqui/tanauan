@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
@@ -44,6 +44,8 @@ const PublicServices = () => {
     },
   ]);
 
+  const servicesRef = useRef(services);
+
   const preventMenu = useContext(PreventContextMenu);
 
   return (
@@ -64,7 +66,7 @@ const PublicServices = () => {
             loop={true}
             className="mySwiper"
           >
-            {services?.map((service, index) => (
+            {servicesRef.current?.map((service, index) => (
               <SwiperSlide key={index}>
                 <div>
                   <img

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import NewsCard from "./NewsCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
@@ -90,6 +90,8 @@ const NewsCarousel = () => {
     },
   ]);
 
+  const newsRef = useRef(news);
+
   return (
     <div className="container px-4 mx-auto">
       {/* large screens */}
@@ -129,7 +131,7 @@ const NewsCarousel = () => {
           loop={true}
           className="p-5 mx-3 mt-10 mySwiper sm:mx-5 md:mx-5 lg:mx-44"
         >
-          {news.map((ns, index) => (
+          {newsRef.current.map((ns, index) => (
             <SwiperSlide key={index}>
               <NewsCard
                 header={ns.header}
