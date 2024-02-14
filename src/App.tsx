@@ -4,22 +4,16 @@ import Home from "./routes/home/Home";
 import City from "./routes/city/City";
 import Tourism from "./routes/tourism/Tourism";
 import Careers from "./routes/careers/Careers";
-import {
-  ChangeEvent,
-  Dispatch,
-  ReactNode,
-  SetStateAction,
-  createContext,
-} from "react";
+import { ChangeEvent, ReactNode, createContext } from "react";
 
 interface RouteMapping {
   path: string;
   element: ReactNode;
 }
 
-export const PreventContextMenu = createContext<
-  Dispatch<SetStateAction<void>> | undefined
->(undefined);
+export const PreventContextMenu = createContext<(event: ChangeEvent) => void>(
+  () => {}
+);
 
 function App() {
   const preventContextMenu = (event: ChangeEvent) => {
