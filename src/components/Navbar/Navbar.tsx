@@ -1,4 +1,4 @@
-import { ChangeEvent, useContext, useState } from "react";
+import { ChangeEvent, useContext, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { PreventContextMenu } from "../../App";
 import { useSpring, animated } from "@react-spring/web";
@@ -6,10 +6,44 @@ import { useSpring, animated } from "@react-spring/web";
 const linkClass = "mx-5 my-auto text-lg hover:underline text-sm text-white";
 const linkClass2 = "mx-5 my-auto text-lg hover:underline text-white text-sm";
 
+interface ComponentNavs {
+  componentId: string;
+  componentTitle: string;
+}
+
+const componentIds: ComponentNavs[] = [
+  {
+    componentId: "#news-carousel",
+    componentTitle: "News",
+  },
+  {
+    componentId: "#public-services",
+    componentTitle: "Public Services",
+  },
+  {
+    componentId: "#mobile-app",
+    componentTitle: "Mobile Application",
+  },
+  {
+    componentId: "#cgtv",
+    componentTitle: "CGTV",
+  },
+  {
+    componentId: "#status-updates",
+    componentTitle: "Status Updates",
+  },
+  {
+    componentId: "#city-highlights",
+    componentTitle: "City Highlights",
+  },
+];
+
 const Navbar = () => {
   const [searchTxt, setSearchTxt] = useState<string>("");
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
+  const [showSuggestion, setShowSuggestion] = useState<boolean>(false);
   const preventContextMenu = useContext(PreventContextMenu);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const handleSearchTextChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchTxt(e.target.value);
@@ -22,6 +56,27 @@ const Navbar = () => {
   const sidebarAnimation = useSpring({
     transform: sidebarOpen ? "translateX(0)" : "translateX(-100%)",
   });
+
+  const showSuggestions = () => {
+    setShowSuggestion(!showSuggestion);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        inputRef.current &&
+        !inputRef.current.contains(event.target as Node)
+      ) {
+        setShowSuggestion(false);
+      }
+    };
+
+    document.body.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.body.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
 
   return (
     <nav>
@@ -62,8 +117,15 @@ const Navbar = () => {
             >
               CAREERS
             </Link>
+            <Link
+              to={"/dashboard"}
+              className={linkClass}
+              style={{ color: "#786649" }}
+            >
+              DASHBOARD
+            </Link>
           </div>
-          <div className="flex pr-5">
+          <div className="pr-5" ref={inputRef}>
             <input
               type="text"
               className="px-3 my-auto border rounded-md w-52 h-7"
@@ -71,7 +133,22 @@ const Navbar = () => {
               style={{ borderColor: "#023F78" }}
               onChange={handleSearchTextChange}
               value={searchTxt}
+              onClick={showSuggestions}
             />
+
+            {showSuggestion && (
+              <div className="absolute flex flex-col">
+                {componentIds.map((obj, index) => (
+                  <a
+                    className="bg-white border rounded-sm border-dark"
+                    key={index}
+                    href={obj.componentId}
+                  >
+                    {obj.componentTitle}
+                  </a>
+                ))}
+              </div>
+            )}
           </div>
         </div>
         <div

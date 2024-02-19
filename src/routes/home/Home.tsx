@@ -10,25 +10,45 @@ import LogoDivider from "./components/LogoDivider";
 import Cgtv from "./components/CGTV";
 import VideoHeader from "./components/VideoHeader";
 
-const NEWS_STR: string = "News & Publication";
-const MORE_NEWS_FOR_BUTTON_BUT_STILL_STR: string = "More news";
-
 const Home = () => {
   return (
     <div className="static w-full h-full">
-      <VideoHeader />
-      <Divider text={NEWS_STR} />
-      <NewsCarousel />
-      <Divider text={MORE_NEWS_FOR_BUTTON_BUT_STILL_STR} />
-      <Mayor />
-      <PublicServices />
-      <MobileApp />
-      <LogoDivider />
-      <Cgtv />
-      <LogoDivider />
-      <StatusUpdates />
-      <CityHighlights />
-      <Footer />
+      <div id="video-header">
+        <VideoHeader />
+      </div>
+      <div id="divider-news">
+        <Divider text="News & Publication" />
+      </div>
+      <div id="news-carousel">
+        <NewsCarousel />
+      </div>
+      <div id="divider-more-news">
+        <Divider text="More news" />
+      </div>
+      <div id="mayor">
+        <Mayor />
+      </div>
+      <div id="public-services">
+        <PublicServices />
+      </div>
+      <div id="mobile-app">
+        <MobileApp />
+      </div>
+      <div id="logo-divider">
+        <LogoDivider />
+      </div>
+      <div id="cgtv">
+        <Cgtv />
+      </div>
+      <div id="status-updates">
+        <StatusUpdates />
+      </div>
+      <div id="city-highlights">
+        <CityHighlights />
+      </div>
+      <div id="footer">
+        <Footer />
+      </div>
     </div>
   );
 };
