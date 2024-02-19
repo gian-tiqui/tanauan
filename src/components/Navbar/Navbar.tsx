@@ -128,7 +128,7 @@ const Navbar = () => {
           <div className="pr-5" ref={inputRef}>
             <input
               type="text"
-              className="px-3 my-auto border rounded-md w-52 h-7"
+              className="h-6 max-w-xs px-3 my-auto border rounded-md"
               placeholder="Search..."
               style={{ borderColor: "#023F78" }}
               onChange={handleSearchTextChange}
@@ -137,10 +137,10 @@ const Navbar = () => {
             />
 
             {showSuggestion && (
-              <div className="absolute flex flex-col">
+              <div className="absolute z-50 flex flex-col border rounded">
                 {componentIds.map((obj, index) => (
                   <a
-                    className="bg-white border rounded-sm border-dark"
+                    className="w-48 px-3 bg-white border-dark"
                     key={index}
                     href={obj.componentId}
                   >
