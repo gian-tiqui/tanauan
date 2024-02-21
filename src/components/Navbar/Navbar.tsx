@@ -44,6 +44,7 @@ const Navbar = () => {
   const [showSuggestion, setShowSuggestion] = useState<boolean>(false);
   const preventContextMenu = useContext(PreventContextMenu);
   const inputRef = useRef<HTMLInputElement>(null);
+  const [searchClass, setSearchClass] = useState<boolean>(true);
 
   const handleSearchTextChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchTxt(e.target.value);
@@ -59,6 +60,12 @@ const Navbar = () => {
 
   const showSuggestions = () => {
     setShowSuggestion(!showSuggestion);
+    setSearchClass(!searchClass);
+  };
+
+  const handleMoveTo = (componentId: string) => {
+    window.location.href = componentId;
+    setShowSuggestion(!showSuggestion);
   };
 
   useEffect(() => {
@@ -68,6 +75,7 @@ const Navbar = () => {
         !inputRef.current.contains(event.target as Node)
       ) {
         setShowSuggestion(false);
+        setSearchClass(true);
       }
     };
 
@@ -125,10 +133,14 @@ const Navbar = () => {
               DASHBOARD
             </Link>
           </div>
-          <div className="pr-5" ref={inputRef}>
+          <div className="pr-5 my-auto" ref={inputRef}>
             <input
               type="text"
-              className="h-6 max-w-xs px-3 my-auto border rounded-md"
+              className={
+                searchClass
+                  ? "h-6 max-w-xs px-3 my-auto border rounded-md"
+                  : "h-6 max-w-xs px-3 my-auto border rounded-t-md"
+              }
               placeholder="Search..."
               style={{ borderColor: "#023F78" }}
               onChange={handleSearchTextChange}
@@ -137,12 +149,12 @@ const Navbar = () => {
             />
 
             {showSuggestion && (
-              <div className="absolute z-50 flex flex-col border rounded">
+              <div className="absolute z-50 flex flex-col border border-black">
                 {componentIds.map((obj, index) => (
                   <a
                     className="w-48 px-3 bg-white border-dark"
                     key={index}
-                    href={obj.componentId}
+                    onClick={() => handleMoveTo(obj.componentId)}
                   >
                     {obj.componentTitle}
                   </a>

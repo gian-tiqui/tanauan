@@ -5,7 +5,6 @@ import Footer from "./components/Footer";
 import PublicServices from "./components/PublicServices";
 import StatusUpdates from "./components/StatusUpdates";
 import CityHighlights from "./components/CityHighlights";
-import Mayor from "./components/Mayor";
 import LogoDivider from "./components/LogoDivider";
 import Cgtv from "./components/CGTV";
 import VideoHeader from "./components/VideoHeader";
@@ -24,9 +23,6 @@ const Home = () => {
       </div>
       <div id="divider-more-news">
         <Divider text="More news" />
-      </div>
-      <div id="mayor">
-        <Mayor />
       </div>
       <div id="public-services">
         <PublicServices />
