@@ -95,7 +95,7 @@ const Navbar = () => {
               src="../../../logo.png"
               style={{ height: "50px", width: "100px" }}
               onContextMenu={preventContextMenu}
-              draggable="false" // Prevent dragging
+              draggable="false"
               alt="Logo"
             />
             <h2 className="my-auto text-2xl">TANAUAN</h2>
