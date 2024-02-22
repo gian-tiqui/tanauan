@@ -125,13 +125,6 @@ const Navbar = () => {
             >
               CAREERS
             </Link>
-            <Link
-              to={"/dashboard"}
-              className={linkClass}
-              style={{ color: "#786649" }}
-            >
-              DASHBOARD
-            </Link>
           </div>
           <div className="pr-5 my-auto" ref={inputRef}>
             <input
