@@ -1,7 +1,6 @@
 import Divider from "./components/Divider";
 import NewsCarousel from "./components/NewsCarousel";
 import MobileApp from "./components/MobileApp";
-import Footer from "./components/Footer";
 import PublicServices from "./components/PublicServices";
 import StatusUpdates from "./components/StatusUpdates";
 import CityHighlights from "./components/CityHighlights";
@@ -41,9 +40,6 @@ const Home = () => {
       </div>
       <div id="city-highlights">
         <CityHighlights />
-      </div>
-      <div id="footer">
-        <Footer />
       </div>
     </div>
   );

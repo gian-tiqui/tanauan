@@ -5,6 +5,7 @@ import City from "./routes/city/City";
 import Tourism from "./routes/tourism/Tourism";
 import Careers from "./routes/careers/Careers";
 import { MouseEventHandler, ReactNode, createContext } from "react";
+import Footer from "./routes/home/components/Footer";
 
 interface RouteMapping {
   path: string;
@@ -53,6 +54,7 @@ function App() {
               />
             ))}
           </Routes>
+          <Footer />
         </Router>
       </PreventContextMenu.Provider>
     </>
