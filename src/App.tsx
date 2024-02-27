@@ -15,6 +15,8 @@ import TransparencyReports from "./routes/transparency-reports/TransparencyRepor
 import NewsEvents from "./routes/news-events/NewsEvents";
 import Departments from "./routes/departments/Departments";
 import OnlineServices from "./routes/online-services/OnlineServices";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 interface RouteMapping {
   path: string;
@@ -82,11 +84,16 @@ function App() {
     },
   ];
 
+  const toastIt = () => {
+    toast("hi", { type: "info" });
+  };
+
   return (
     <>
       <PreventContextMenu.Provider value={preventContextMenu}>
         <Router>
           <Navbar />
+          <ToastContainer />
           <div className="relative">
             <Routes>
               {routeMaps.map((routeMap, index) => (
@@ -97,7 +104,11 @@ function App() {
                 />
               ))}
             </Routes>
-            <div className="fixed bottom-2 right-2" style={lottie}>
+            <div
+              onClick={toastIt}
+              className="fixed bottom-2 right-2"
+              style={lottie}
+            >
               <Lottie animationData={profile} />
             </div>
           </div>
