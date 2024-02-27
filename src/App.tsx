@@ -12,7 +12,6 @@ import Government from "./routes/government/Government";
 import CityTransactions from "./routes/city-transactions/CityTransactions";
 import Business from "./routes/business/Business";
 import TransparencyReports from "./routes/transparency-reports/TransparencyReports";
-import NewsEvents from "./routes/news-events/NewsEvents";
 import Departments from "./routes/departments/Departments";
 import OnlineServices from "./routes/online-services/OnlineServices";
 import { toast, ToastContainer } from "react-toastify";
@@ -69,10 +68,6 @@ function App() {
     {
       path: "/transparency-reports",
       element: <TransparencyReports />,
-    },
-    {
-      path: "/news-events",
-      element: <NewsEvents />,
     },
     {
       path: "/departments",

@@ -173,9 +173,6 @@ const Navbar = () => {
             <Link to={"/transparency-reports"} className={linkClass2}>
               Transparency Report
             </Link>
-            <Link to={"/news-events"} className={linkClass2}>
-              News & Events
-            </Link>
             <Link to={"/departments"} className={linkClass2}>
               Departments
             </Link>
@@ -270,12 +267,6 @@ const Navbar = () => {
               className="mx-5 font-bold text-white text-md"
             >
               Transparency Report
-            </Link>
-            <Link
-              to={"/news-events"}
-              className="mx-5 font-bold text-white text-md"
-            >
-              News & Events
             </Link>
             <Link
               to={"/departments"}
