@@ -8,6 +8,13 @@ import { MouseEventHandler, ReactNode, createContext } from "react";
 import Footer from "./routes/home/components/Footer";
 import Lottie from "lottie-react";
 import profile from "./assets/profile.json";
+import Government from "./routes/government/Government";
+import CityTransactions from "./routes/city-transactions/CityTransactions";
+import Business from "./routes/business/Business";
+import TransparencyReports from "./routes/transparency-reports/TransparencyReports";
+import NewsEvents from "./routes/news-events/NewsEvents";
+import Departments from "./routes/departments/Departments";
+import OnlineServices from "./routes/online-services/OnlineServices";
 
 interface RouteMapping {
   path: string;
@@ -44,6 +51,34 @@ function App() {
     {
       path: "/careers",
       element: <Careers />,
+    },
+    {
+      path: "/government",
+      element: <Government />,
+    },
+    {
+      path: "/city-transactions",
+      element: <CityTransactions />,
+    },
+    {
+      path: "/business",
+      element: <Business />,
+    },
+    {
+      path: "/transparency-reports",
+      element: <TransparencyReports />,
+    },
+    {
+      path: "/news-events",
+      element: <NewsEvents />,
+    },
+    {
+      path: "/departments",
+      element: <Departments />,
+    },
+    {
+      path: "/online-services",
+      element: <OnlineServices />,
     },
   ];
 

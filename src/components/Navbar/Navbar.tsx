@@ -161,25 +161,25 @@ const Navbar = () => {
           style={{ backgroundColor: "#023F78" }}
         >
           <div className="flex justify-between">
-            <Link to={"/"} className={linkClass2}>
+            <Link to={"/government"} className={linkClass2}>
               Government
             </Link>
-            <Link to={"/"} className={linkClass2}>
+            <Link to={"/city-transactions"} className={linkClass2}>
               City Transactions
             </Link>
-            <Link to={"/"} className={linkClass2}>
+            <Link to={"/business"} className={linkClass2}>
               Business
             </Link>
-            <Link to={"/"} className={linkClass2}>
+            <Link to={"/transparency-reports"} className={linkClass2}>
               Transparency Report
             </Link>
-            <Link to={"/"} className={linkClass2}>
+            <Link to={"/news-events"} className={linkClass2}>
               News & Events
             </Link>
-            <Link to={"/"} className={linkClass2}>
+            <Link to={"/departments"} className={linkClass2}>
               Departments
             </Link>
-            <Link to={"/"} className={linkClass2}>
+            <Link to={"/online-services"} className={linkClass2}>
               Online Services
             </Link>
           </div>
@@ -247,25 +247,46 @@ const Navbar = () => {
               Careers
             </Link>
             <hr className="mx-3 my-2 bg-white" />
-            <Link to={"/"} className="mx-5 font-bold text-white text-md">
+            <Link
+              to={"/government"}
+              className="mx-5 font-bold text-white text-md"
+            >
               Government
             </Link>
-            <Link to={"/"} className="mx-5 font-bold text-white text-md">
+            <Link
+              to={"/city-transactions"}
+              className="mx-5 font-bold text-white text-md"
+            >
               City Transactions
             </Link>
-            <Link to={"/"} className="mx-5 font-bold text-white text-md">
+            <Link
+              to={"/business"}
+              className="mx-5 font-bold text-white text-md"
+            >
               Business
             </Link>
-            <Link to={"/"} className="mx-5 font-bold text-white text-md">
+            <Link
+              to={"/transparency-reports"}
+              className="mx-5 font-bold text-white text-md"
+            >
               Transparency Report
             </Link>
-            <Link to={"/"} className="mx-5 font-bold text-white text-md">
+            <Link
+              to={"/news-events"}
+              className="mx-5 font-bold text-white text-md"
+            >
               News & Events
             </Link>
-            <Link to={"/"} className="mx-5 font-bold text-white text-md">
+            <Link
+              to={"/departments"}
+              className="mx-5 font-bold text-white text-md"
+            >
               Departments
             </Link>
-            <Link to={"/"} className="mx-5 font-bold text-white text-md">
+            <Link
+              to={"/online-services"}
+              className="mx-5 font-bold text-white text-md"
+            >
               Online Services
             </Link>
           </div>
