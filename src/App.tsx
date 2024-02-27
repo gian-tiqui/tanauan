@@ -6,6 +6,8 @@ import Tourism from "./routes/tourism/Tourism";
 import Careers from "./routes/careers/Careers";
 import { MouseEventHandler, ReactNode, createContext } from "react";
 import Footer from "./routes/home/components/Footer";
+import Lottie from "lottie-react";
+import profile from "./assets/profile.json";
 
 interface RouteMapping {
   path: string;
@@ -17,6 +19,11 @@ export const PreventContextMenu = createContext<
 >(undefined);
 
 function App() {
+  const lottie = {
+    width: 150,
+    height: 150,
+  };
+
   const preventContextMenu: MouseEventHandler<HTMLImageElement> = (e) => {
     e.preventDefault();
   };
@@ -45,15 +52,20 @@ function App() {
       <PreventContextMenu.Provider value={preventContextMenu}>
         <Router>
           <Navbar />
-          <Routes>
-            {routeMaps.map((routeMap, index) => (
-              <Route
-                key={index}
-                path={routeMap.path}
-                element={routeMap.element}
-              />
-            ))}
-          </Routes>
+          <div className="relative">
+            <Routes>
+              {routeMaps.map((routeMap, index) => (
+                <Route
+                  key={index}
+                  path={routeMap.path}
+                  element={routeMap.element}
+                />
+              ))}
+            </Routes>
+            <div className="fixed bottom-2 right-2" style={lottie}>
+              <Lottie animationData={profile} />
+            </div>
+          </div>
           <Footer />
         </Router>
       </PreventContextMenu.Provider>

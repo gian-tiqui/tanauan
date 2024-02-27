@@ -10,8 +10,7 @@ import VideoHeader from "./components/VideoHeader";
 
 const Home = () => {
   return (
-    <div className="static w-full h-full">
-      <div className="absolute top-52">this is the chatbot</div>
+    <div className="relative w-full h-full">
       <div id="video-header">
         <VideoHeader />
       </div>
