@@ -8,7 +8,7 @@ const Footer = () => {
           <p className="font-bold text-white text-md">STAY CONNECTED</p>
 
           <div className="flex gap-24 mt-6">
-            <ul className="mt-5 text-white text-sm sm:text-base md:text-lg">
+            <ul className="mt-5 text-sm text-white sm:text-base md:text-lg">
               <li className="mb-2">
                 <a
                   href="https://www.facebook.com/TanauanCityGovernment/"
@@ -16,17 +16,26 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="underline hover:text-blue-500"
                 >
-                  Facebook: https://www.facebook.com/TanauanCityGovernment
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/128/145/145802.png"
+                    style={{ height: 50, width: 50 }}
+                  />
                 </a>
               </li>
               <li className="mb-2">
                 <a href="/" className="underline hover:text-blue-500">
-                  Twitter:
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/128/3670/3670151.png"
+                    style={{ height: 50, width: 50 }}
+                  />
                 </a>
               </li>
               <li className="mb-2">
                 <a href="/" className="underline hover:text-blue-500">
-                  Instagram:
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/128/3955/3955024.png"
+                    style={{ height: 50, width: 50 }}
+                  />
                 </a>
               </li>
               <li>
@@ -36,7 +45,10 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="underline hover:text-blue-500"
                 >
-                  Youtube: https://www.youtube.com/@CityGovernmentofTanauan
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/128/3670/3670147.png"
+                    style={{ height: 50, width: 50 }}
+                  />
                 </a>
               </li>
             </ul>
