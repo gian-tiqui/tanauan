@@ -87,7 +87,7 @@ const PublicServices = () => {
           </Swiper>
         </div>
         <div className="container px-8 mx-auto mt-16 sm:mt-24 sm:px-0">
-          <p className="text-sm font-bold text-center text-white md:text-base lg:text-lg">
+          <p className="text-sm font-bold text-center text-white md:text-base lg:text-lg mx-96">
             The Official eService Portal of Tanauan City, created to provide
             citizens of Tanauan City a convenient one-stop solution platform for
             online services and information.
