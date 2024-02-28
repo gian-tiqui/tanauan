@@ -16,6 +16,7 @@ import Departments from "./routes/departments/Departments";
 import OnlineServices from "./routes/online-services/OnlineServices";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import News from "./routes/news/News";
 
 interface RouteMapping {
   path: string;
@@ -76,6 +77,10 @@ function App() {
     {
       path: "/online-services",
       element: <OnlineServices />,
+    },
+    {
+      path: "/news",
+      element: <News />,
     },
   ];
 
