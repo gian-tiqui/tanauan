@@ -1,18 +1,12 @@
+import MissionVision from "./mission-vision/MissionVision";
+
 const Government = () => {
   return (
     <div className="container px-3 mx-auto">
       <div className="flex pt-10">
-        <div className="flex-1 text-center">
-          <h1>akdsnlkadsnkdsakndsaknkns</h1>
-          <p>ansidsanidsanjnadsnsdandsa</p>
-        </div>
-        <div className="flex-1 text-center">
-          <h1>akdsnlkadsnkdsakndsaknkns</h1>
-          <p>ansidsanidsanjnadsnsdandsa</p>
-        </div>
+        <MissionVision />
       </div>
       <div className="grid justify-center mt-24 text-center grid-col h-52">
-        <div>Mayor</div>
         <div>dis is a swiper below oke</div>
 
         <div className="flex">
