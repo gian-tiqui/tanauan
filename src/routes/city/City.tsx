@@ -52,6 +52,7 @@ const barangays: string[] = [
 const City = () => {
   return (
     <div className="flex flex-wrap gap-10 p-5">
+      <h1>hi</h1>
       {barangays.map((barangay, index) => (
         <div
           className="h-32 pt-5 font-bold text-center border w-52"
