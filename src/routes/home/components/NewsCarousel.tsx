@@ -6,6 +6,7 @@ import "swiper/css";
 import "swiper/css/bundle";
 import axios, { AxiosResponse } from "axios";
 import News from "../../news/News";
+import CardSkeleton from "./CardSkeleton";
 
 export interface News {
   title: { rendered: string };
@@ -14,7 +15,6 @@ export interface News {
   content: { rendered: string };
   featuredMedia: string;
 }
-
 const MAX_PAGE_NUMS = 1;
 
 const NewsCarousel = () => {
@@ -54,8 +54,23 @@ const NewsCarousel = () => {
 
   return (
     <div className="container px-4 mx-auto">
-      {/* large screens */}
-      {!loading && news.length > 0 && (
+      {loading ? (
+        <Swiper
+          spaceBetween={15}
+          slidesPerView={3}
+          className="p-10 mt-10 mySwiper sm:mx-5 md:mx-5 lg:mx-44"
+        >
+          <SwiperSlide>
+            <CardSkeleton />
+          </SwiperSlide>
+          <SwiperSlide>
+            <CardSkeleton />
+          </SwiperSlide>
+          <SwiperSlide>
+            <CardSkeleton />
+          </SwiperSlide>
+        </Swiper>
+      ) : (
         <>
           <div className="hidden sm:hidden md:block lg:block">
             <Swiper
@@ -110,7 +125,6 @@ const NewsCarousel = () => {
           </div>
         </>
       )}
-      {loading && <p>Loading...</p>}
     </div>
   );
 };
