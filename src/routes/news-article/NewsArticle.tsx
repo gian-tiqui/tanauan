@@ -1,10 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { News } from "../home/components/NewsCarousel";
 
 const NewsArticle = () => {
   const { id } = useParams();
-  const [newsData, setNewsData] = useState(null);
+  const [newsData, setNewsData] = useState<News | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
