@@ -5,7 +5,7 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/bundle";
 import axios, { AxiosResponse } from "axios";
-import News from "../../news/News";
+import News from "../../news-article/NewsArticle";
 import CardSkeleton from "./CardSkeleton";
 
 export interface News {
@@ -15,6 +15,7 @@ export interface News {
   content: { rendered: string };
   featuredMedia: string;
 }
+
 const MAX_PAGE_NUMS = 1;
 
 const NewsCarousel = () => {
@@ -33,10 +34,10 @@ const NewsCarousel = () => {
           allData = allData.concat(response.data);
         }
 
-        const modifiedNews = allData.map((item: any) => ({
+        const modifiedNews: News[] = allData.map((item: any) => ({
           title: item.title,
           date: item.date,
-          link: item.link,
+          link: `/news/${item.id}`,
           content: item.content,
           featuredMedia: item._links["wp:featuredmedia"][0].href,
         }));
