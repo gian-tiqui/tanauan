@@ -24,6 +24,8 @@ const NewsArticle = () => {
         const data = response.data;
         const extractedContent = extractStrings(data.content.rendered);
         setExtractedStrings(extractedContent);
+
+        console.log(data);
         setNewsData(data);
       } catch (error) {
         console.log(error);
