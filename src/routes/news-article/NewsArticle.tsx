@@ -10,7 +10,7 @@ interface Post {
 }
 
 const NewsArticle = () => {
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>(); // Ensure id is always a string
   const [newsData, setNewsData] = useState<Post | null>(null);
   const [loading, setLoading] = useState(true);
   const [image, setImage] = useState<string | null>(null);
@@ -18,7 +18,7 @@ const NewsArticle = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const response = await axios.get(
+        const response = await axios.get<Post>(
           `https://tanauancity.gov.ph/wp-json/wp/v2/posts/${id}`
         );
 
@@ -42,7 +42,7 @@ const NewsArticle = () => {
     fetchNews();
   }, [id]);
 
-  if (loading) {
+  if (loading || !newsData) {
     return <p>Loading...</p>;
   }
 
@@ -63,20 +63,20 @@ const NewsArticle = () => {
             <div className="mb-6">
               <img
                 src={image}
-                alt={newsData?.title.rendered}
+                alt={newsData.title.rendered}
                 className="w-full h-auto rounded-md"
               />
             </div>
           )}
           <h2 className="mb-2 text-2xl font-semibold">
-            {newsData?.title.rendered}
+            {newsData.title.rendered}
           </h2>
           <p className="mb-4 text-sm text-gray-600">
-            Published on {formatDate(newsData?.date)}
+            Published on {formatDate(newsData.date)}
           </p>
           <div
             className="prose"
-            dangerouslySetInnerHTML={{ __html: newsData?.content.rendered }}
+            dangerouslySetInnerHTML={{ __html: newsData.content.rendered }}
           />
         </div>
       </div>
