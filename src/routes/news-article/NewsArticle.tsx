@@ -13,7 +13,7 @@ const NewsArticle = () => {
   const { id } = useParams();
   const [newsData, setNewsData] = useState<Post | null>(null);
   const [loading, setLoading] = useState(true);
-  const [image, setImage] = useState<string | undefined>(undefined);
+  const [image, setImage] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchNews = async () => {
