@@ -1,6 +1,44 @@
+import { useState } from "react";
 import Divider from "../home/components/Divider";
 
+const Fcategory = () => {
+  return <div>category 1</div>;
+};
+
+const Scategory = () => {
+  return <div>category 2</div>;
+};
+
+const Tcategory = () => {
+  return <div>category 3</div>;
+};
+
 const News = () => {
+  const categories = ["Category 1", "Category 2", "Category 3"];
+  const [showCat1, setShowCat1] = useState<boolean>(false);
+  const [showCat2, setShowCat2] = useState<boolean>(false);
+  const [showCat3, setShowCat3] = useState<boolean>(false);
+
+  const handleChangeCategory = (category: string) => {
+    switch (category) {
+      case "Category 1":
+        setShowCat1(true);
+        setShowCat2(false);
+        setShowCat3(false);
+        break;
+      case "Category 2":
+        setShowCat1(false);
+        setShowCat2(true);
+        setShowCat3(false);
+        break;
+      case "Category 3":
+        setShowCat1(false);
+        setShowCat2(false);
+        setShowCat3(true);
+        break;
+    }
+  };
+
   return (
     <>
       <Divider text="News" />
@@ -9,9 +47,19 @@ const News = () => {
           <div className="col-span-2">
             <div className="h-screen border-r-2 border-black">
               <div className="flex justify-start gap-10 pl-2 border-b-2 border-black">
-                <button>hi</button>
-                <button>hi</button>
-                <button>hi</button>
+                {categories.map((category, index) => (
+                  <button
+                    key={index}
+                    onClick={() => handleChangeCategory(category)}
+                  >
+                    {category}
+                  </button>
+                ))}
+              </div>
+              <div className="p-2">
+                {showCat1 && <Fcategory />}
+                {showCat2 && <Scategory />}
+                {showCat3 && <Tcategory />}
               </div>
             </div>
           </div>
