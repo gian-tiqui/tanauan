@@ -3,7 +3,7 @@ import { News } from "./NewsCarousel";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-const NewsCard: React.FC<News> = ({ title, date, link, featuredMedia }) => {
+const NewsCard: React.FC<News> = ({ title, date, link, featured_media }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [image, setImage] = useState<string | undefined>(undefined);
   const [formattedDate, setFormattedDate] = useState<string>("");
@@ -11,7 +11,8 @@ const NewsCard: React.FC<News> = ({ title, date, link, featuredMedia }) => {
   useEffect(() => {
     const getImage = async () => {
       try {
-        const res = await axios.get(featuredMedia);
+        const URI = `https://tanauancity.gov.ph/wp-json/wp/v2/media/${featured_media}`;
+        const res = await axios.get(URI);
         const data = res.data;
         setImage(data.guid.rendered);
       } catch (error) {
@@ -19,10 +20,10 @@ const NewsCard: React.FC<News> = ({ title, date, link, featuredMedia }) => {
       }
     };
 
-    if (featuredMedia) {
+    if (featured_media) {
       getImage();
     }
-  }, [featuredMedia]);
+  }, [featured_media]);
 
   useEffect(() => {
     const formattedDate = formatDate(date);

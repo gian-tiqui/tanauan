@@ -5,16 +5,18 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/bundle";
 import axios, { AxiosResponse } from "axios";
-import News from "../../news/News";
+import News from "../../news-article/NewsArticle";
 import CardSkeleton from "./CardSkeleton";
 
 export interface News {
+  id: number;
   title: { rendered: string };
   date: string;
   link: string;
   content: { rendered: string };
-  featuredMedia: string;
+  featured_media: number;
 }
+
 const MAX_PAGE_NUMS = 1;
 
 const NewsCarousel = () => {
@@ -33,12 +35,13 @@ const NewsCarousel = () => {
           allData = allData.concat(response.data);
         }
 
-        const modifiedNews = allData.map((item: any) => ({
+        const modifiedNews: News[] = allData.map((item: News) => ({
           title: item.title,
           date: item.date,
-          link: item.link,
+          link: `/news/${item.id}`,
           content: item.content,
-          featuredMedia: item._links["wp:featuredmedia"][0].href,
+          featured_media: item.featured_media,
+          id: item.id,
         }));
 
         setNews(modifiedNews);
@@ -89,8 +92,9 @@ const NewsCarousel = () => {
                     title={ns.title}
                     date={ns.date}
                     link={ns.link}
-                    featuredMedia={ns.featuredMedia}
+                    featured_media={ns.featured_media}
                     content={{ rendered: ns.content.rendered }}
+                    id={ns.id}
                   />
                 </SwiperSlide>
               ))}
@@ -115,8 +119,9 @@ const NewsCarousel = () => {
                     title={ns.title}
                     date={ns.date}
                     link={ns.link}
-                    featuredMedia={ns.featuredMedia}
+                    featured_media={ns.featured_media}
                     content={{ rendered: ns.content.rendered }}
+                    id={ns.id}
                   />
                 </SwiperSlide>
               ))}
