@@ -47,7 +47,7 @@ const NewsCarousel = () => {
             id: item.id,
           }));
 
-          console.log("I was modified");
+          console.log("News modified");
 
           setNews(modifiedNews);
         }
@@ -58,7 +58,7 @@ const NewsCarousel = () => {
     };
 
     fetchData();
-  }, []);
+  }, [news.length, setNews]);
 
   return (
     <div className="container px-4 mx-auto">
