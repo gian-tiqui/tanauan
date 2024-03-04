@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import Divider from "../home/components/Divider";
 
 const News = () => {
@@ -10,9 +9,9 @@ const News = () => {
           <div className="col-span-2">
             <div className="h-screen border-r-2 border-black">
               <div className="flex justify-start gap-10 pl-2 border-b-2 border-black">
-                <Link to={""}>hi</Link>
-                <Link to={""}>hi</Link>
-                <Link to={""}>hi</Link>
+                <button>hi</button>
+                <button>hi</button>
+                <button>hi</button>
               </div>
             </div>
           </div>
