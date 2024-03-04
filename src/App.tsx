@@ -38,8 +38,8 @@ export const PreventContextMenu = createContext<
 
 export const NewsContext = createContext<NewsInterface[]>([]);
 export const SetNewsContext = createContext<
-  Dispatch<SetStateAction<NewsInterface[]>> | undefined
->(undefined);
+  Dispatch<SetStateAction<NewsInterface[]>>
+>(() => {});
 
 function App() {
   const [news, setNews] = useState<NewsInterface[]>([]);
