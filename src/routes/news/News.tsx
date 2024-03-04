@@ -2,20 +2,26 @@ import { useState } from "react";
 import Divider from "../home/components/Divider";
 
 const Fcategory = () => {
-  return <div>category 1</div>;
+  return (
+    <div className="flex items-center justify-center h-screen">category 1</div>
+  );
 };
 
 const Scategory = () => {
-  return <div>category 2</div>;
+  return (
+    <div className="flex items-center justify-center h-screen">category 2</div>
+  );
 };
 
 const Tcategory = () => {
-  return <div>category 3</div>;
+  return (
+    <div className="flex items-center justify-center h-screen">category 3</div>
+  );
 };
 
 const News = () => {
   const categories = ["Category 1", "Category 2", "Category 3"];
-  const [showCat1, setShowCat1] = useState<boolean>(false);
+  const [showCat1, setShowCat1] = useState<boolean>(true);
   const [showCat2, setShowCat2] = useState<boolean>(false);
   const [showCat3, setShowCat3] = useState<boolean>(false);
 
