@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import NewsCard from "./NewsCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
@@ -7,6 +7,7 @@ import "swiper/css/bundle";
 import axios, { AxiosResponse } from "axios";
 import News from "../../news-article/NewsArticle";
 import CardSkeleton from "./CardSkeleton";
+import { NewsContext, SetNewsContext } from "../../../App";
 
 export interface News {
   id: number;
@@ -20,31 +21,36 @@ export interface News {
 const MAX_PAGE_NUMS = 1;
 
 const NewsCarousel = () => {
-  const [news, setNews] = useState<News[]>([]);
   const [loading, setLoading] = useState(true);
+  const news = useContext(NewsContext);
+  const setNews = useContext(SetNewsContext);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let allData: News[] = [];
+        if (news.length === 0) {
+          let allData: News[] = [];
 
-        for (let pageNum = 1; pageNum <= MAX_PAGE_NUMS; pageNum++) {
-          const response: AxiosResponse<News[]> = await axios.get(
-            `https://tanauancity.gov.ph/wp-json/wp/v2/posts?page=${pageNum}`
-          );
-          allData = allData.concat(response.data);
+          for (let pageNum = 1; pageNum <= MAX_PAGE_NUMS; pageNum++) {
+            const response: AxiosResponse<News[]> = await axios.get(
+              `https://tanauancity.gov.ph/wp-json/wp/v2/posts?page=${pageNum}`
+            );
+            allData = allData.concat(response.data);
+          }
+
+          const modifiedNews: News[] = allData.map((item: News) => ({
+            title: item.title,
+            date: item.date,
+            link: `/news/${item.id}`,
+            content: item.content,
+            featured_media: item.featured_media,
+            id: item.id,
+          }));
+
+          console.log("News modified");
+
+          setNews(modifiedNews);
         }
-
-        const modifiedNews: News[] = allData.map((item: News) => ({
-          title: item.title,
-          date: item.date,
-          link: `/news/${item.id}`,
-          content: item.content,
-          featured_media: item.featured_media,
-          id: item.id,
-        }));
-
-        setNews(modifiedNews);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -52,7 +58,7 @@ const NewsCarousel = () => {
     };
 
     fetchData();
-  }, []);
+  }, [news.length, setNews]);
 
   return (
     <div className="container px-4 mx-auto">
