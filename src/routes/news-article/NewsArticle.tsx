@@ -10,7 +10,7 @@ interface Post {
 }
 
 const NewsArticle = () => {
-  const { id } = useParams<{ id: string }>(); // Ensure id is always a string
+  const { id } = useParams<{ id: string }>();
   const [newsData, setNewsData] = useState<Post | null>(null);
   const [loading, setLoading] = useState(true);
   const [image, setImage] = useState<string | null>(null);
@@ -41,6 +41,19 @@ const NewsArticle = () => {
 
     fetchNews();
   }, [id]);
+
+  const extractStrings = (htmlContent: string): string[] => {
+    const divElements = new DOMParser()
+      .parseFromString(htmlContent, "text/html")
+      .querySelectorAll(".x11i5rnm div");
+    const strings: string[] = [];
+    divElements.forEach((element) => {
+      if (element.textContent) {
+        strings.push(element.textContent.trim());
+      }
+    });
+    return strings;
+  };
 
   if (loading || !newsData) {
     return <p>Loading...</p>;
@@ -74,10 +87,17 @@ const NewsArticle = () => {
           <p className="mb-4 text-sm text-gray-600">
             Published on {formatDate(newsData.date)}
           </p>
-          <div
-            className="prose"
-            dangerouslySetInnerHTML={{ __html: newsData.content.rendered }}
-          />
+          <div className="text-base text-gray-700">
+            <div>
+              {extractStrings(newsData.content.rendered).map(
+                (string: string, index: number) => (
+                  <p key={index} className="text-sm text-gray-800">
+                    {string}
+                  </p>
+                )
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </div>
