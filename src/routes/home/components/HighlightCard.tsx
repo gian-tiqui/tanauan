@@ -2,18 +2,9 @@ import React, { useEffect, useState } from "react";
 import { City } from "./CityHighlights";
 import axios from "axios";
 
-const HighlightCard: React.FC<City> = ({
-  content,
-  date,
-  featured_media,
-  id,
-  link,
-  title,
-}) => {
+const HighlightCard: React.FC<City> = ({ featured_media, title }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageURI, setImageURI] = useState<string | undefined>(undefined);
-
-  console.log({ content, id, link, date });
 
   useEffect(() => {
     const getImage = async () => {
