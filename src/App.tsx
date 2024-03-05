@@ -25,6 +25,7 @@ import "react-toastify/dist/ReactToastify.css";
 import NewsArticle from "./routes/news-article/NewsArticle";
 import News from "./routes/news/News";
 import { News as NewsInterface } from "./routes/home/components/NewsCarousel";
+import { City as CityInterface } from "./routes/home/components/CityHighlights";
 
 interface RouteMapping {
   path: string;
@@ -40,8 +41,14 @@ export const SetNewsContext = createContext<
   Dispatch<SetStateAction<NewsInterface[]>>
 >(() => {});
 
+export const CityContext = createContext<CityInterface[]>([]);
+export const SetCityContext = createContext<
+  Dispatch<SetStateAction<CityInterface[]>>
+>(() => {});
+
 function App() {
   const [news, setNews] = useState<NewsInterface[]>([]);
+  const [cities, setCities] = useState<CityInterface[]>([]);
 
   const lottie = {
     width: 150,
@@ -109,34 +116,38 @@ function App() {
 
   return (
     <>
-      <SetNewsContext.Provider value={setNews}>
-        <NewsContext.Provider value={news}>
-          <PreventContextMenu.Provider value={preventContextMenu}>
-            <Router>
-              <Navbar />
-              <ToastContainer />
-              <div className="relative">
-                <Routes>
-                  {routeMaps.map((routeMap, index) => (
-                    <Route
-                      key={index}
-                      path={routeMap.path}
-                      element={routeMap.element}
-                    />
-                  ))}
-                </Routes>
-                <div
-                  onClick={toastIt}
-                  className="fixed bottom-2 right-2"
-                  style={lottie}
-                >
-                  <Lottie animationData={profile} />
-                </div>
-              </div>
-            </Router>
-          </PreventContextMenu.Provider>
-        </NewsContext.Provider>
-      </SetNewsContext.Provider>
+      <SetCityContext.Provider value={setCities}>
+        <CityContext.Provider value={cities}>
+          <SetNewsContext.Provider value={setNews}>
+            <NewsContext.Provider value={news}>
+              <PreventContextMenu.Provider value={preventContextMenu}>
+                <Router>
+                  <Navbar />
+                  <ToastContainer />
+                  <div className="relative">
+                    <Routes>
+                      {routeMaps.map((routeMap, index) => (
+                        <Route
+                          key={index}
+                          path={routeMap.path}
+                          element={routeMap.element}
+                        />
+                      ))}
+                    </Routes>
+                    <div
+                      onClick={toastIt}
+                      className="fixed bottom-2 right-2"
+                      style={lottie}
+                    >
+                      <Lottie animationData={profile} />
+                    </div>
+                  </div>
+                </Router>
+              </PreventContextMenu.Provider>
+            </NewsContext.Provider>
+          </SetNewsContext.Provider>
+        </CityContext.Provider>
+      </SetCityContext.Provider>
     </>
   );
 }

@@ -3,7 +3,6 @@ import MayorImage from "./MayorImage";
 const Mayor = () => {
   return (
     <div className="my-5 sm:relative md:relative lg:relative xl:relative sm:my-24 md:my-44 lg:my-44">
-      {/* larger screens */}
       <div className="hidden sm:relative md:relative lg:relative sm:hidden md:block lg:block">
         <div className="flex kistof sm:flex sm:justify-end md:flex md:justify-end lg:flex lg:justify-end sm:my-20 md:my-33 my-14">
           <MayorImage />
@@ -28,7 +27,6 @@ const Mayor = () => {
           </div>
         </div>
       </div>
-      {/* mobile screens */}
       <div className="block sm:block md:hidden lg:hidden">
         <div className="sm:flex sm:justify-center md:flex md:justify-end sm:my-20 md:my-33 mb-14">
           <MayorImage />

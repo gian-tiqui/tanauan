@@ -79,7 +79,6 @@ const Cgtv = () => {
 
   return (
     <div>
-      {/* larger screens */}
       <div className="hidden sm:hidden md:block lg:block sm:px-14 md:px-24 lg:px-40">
         <div className="my-24 sm:my-24 md:my-14 lg:my-20 sm:mx-2 md:mx-3">
           <div className="my-10">
@@ -145,7 +144,6 @@ const Cgtv = () => {
           </div>
         </div>
       </div>
-      {/* mobile screens */}
       <div className="block mx-3 sm:block md:hidden lg:hidden">
         <div className="my-10">
           <h1 className="mb-6 font-bold text-center text-md text-slate-900 sm:text-lg md:text-xl lg:text-3xl">

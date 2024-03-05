@@ -8,7 +8,6 @@ const MayorImage = () => {
 
   return (
     <div>
-      {/* larger screens */}
       <div className="hidden sm:relative md:relative lg:relative sm:hidden md:block lg:block">
         <div className="relative flex justify-center md:relative md:left-32 md:bottom-20 md:w-72 lg:w-96">
           <img
@@ -19,7 +18,6 @@ const MayorImage = () => {
           />
         </div>
       </div>
-      {/* mobile screens */}
       <div className="block sm:block md:hidden lg:hidden">
         <div className="relative flex justify-center top-20 mlx-auto md:relative md:left-40 md:bottom-44 md:w-72 lg:w-96">
           <img
