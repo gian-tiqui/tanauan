@@ -3,48 +3,14 @@ import { Link } from "react-router-dom";
 import { PreventContextMenu } from "../../App";
 import { useSpring, animated } from "@react-spring/web";
 
-const linkClass = "mx-5 my-auto text-lg hover:underline text-sm text-white";
-const linkClass2 = "mx-5 my-auto text-lg hover:underline text-white text-sm";
-
-interface ComponentNavs {
-  componentId: string;
-  componentTitle: string;
-}
-
-const componentIds: ComponentNavs[] = [
-  {
-    componentId: "#news-carousel",
-    componentTitle: "News",
-  },
-  {
-    componentId: "#public-services",
-    componentTitle: "Public Services",
-  },
-  {
-    componentId: "#mobile-app",
-    componentTitle: "Mobile Application",
-  },
-  {
-    componentId: "#cgtv",
-    componentTitle: "CGTV",
-  },
-  {
-    componentId: "#status-updates",
-    componentTitle: "Status Updates",
-  },
-  {
-    componentId: "#city-highlights",
-    componentTitle: "City Highlights",
-  },
-];
+const linkClass2 =
+  "mx-5 my-auto text-lg hover:underline text-white font-bold text-sm";
 
 const Navbar = () => {
   const [searchTxt, setSearchTxt] = useState<string>("");
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
-  const [showSuggestion, setShowSuggestion] = useState<boolean>(false);
   const preventContextMenu = useContext(PreventContextMenu);
   const inputRef = useRef<HTMLInputElement>(null);
-  const [searchClass, setSearchClass] = useState<boolean>(true);
 
   const handleSearchTextChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchTxt(e.target.value);
@@ -58,24 +24,13 @@ const Navbar = () => {
     transform: sidebarOpen ? "translateX(0)" : "translateX(-100%)",
   });
 
-  const showSuggestions = () => {
-    setShowSuggestion(!showSuggestion);
-    setSearchClass(!searchClass);
-  };
-
-  const handleMoveTo = (componentId: string) => {
-    window.location.href = componentId;
-    setShowSuggestion(!showSuggestion);
-  };
-
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
         inputRef.current &&
         !inputRef.current.contains(event.target as Node)
       ) {
-        setShowSuggestion(false);
-        setSearchClass(true);
+        console.log("?");
       }
     };
 
@@ -89,95 +44,54 @@ const Navbar = () => {
   return (
     <nav>
       <div className="hidden sm:relative md:relative lg:relative sm:hidden md:block lg:block">
-        <div className="flex justify-between py-2">
-          <div className="flex">
+        <div className="flex justify-center py-2 mt-16">
+          <div>
             <img
               src="../../../logo.png"
-              style={{ height: "50px", width: "100px" }}
+              className="h-24 mx-auto w-36"
               onContextMenu={preventContextMenu}
               draggable="false"
               alt="Logo"
             />
-            <h2 className="my-auto text-2xl">TANAUAN</h2>
-          </div>
-          <div className="flex justify-between">
-            <Link to={"/"} className={linkClass} style={{ color: "#786649" }}>
-              HOME
-            </Link>
-            <Link
-              to={"/city"}
-              className={linkClass}
-              style={{ color: "#786649" }}
-            >
-              THE CITY
-            </Link>
-            <Link
-              to={"/tourism"}
-              className={linkClass}
-              style={{ color: "#786649" }}
-            >
-              TOURISM
-            </Link>
-            <Link
-              to={"/careers"}
-              className={linkClass}
-              style={{ color: "#786649" }}
-            >
-              CAREERS
-            </Link>
-          </div>
-          <div className="pr-5 my-auto" ref={inputRef}>
-            <input
-              type="text"
-              className={
-                searchClass
-                  ? "h-6 max-w-xs px-3 my-auto border rounded-md"
-                  : "h-6 max-w-xs px-3 my-auto border rounded-t-md"
-              }
-              placeholder="Search..."
-              style={{ borderColor: "#023F78" }}
-              onChange={handleSearchTextChange}
-              value={searchTxt}
-              onClick={showSuggestions}
-            />
-
-            {showSuggestion && (
-              <div className="absolute z-50 flex flex-col border border-black">
-                {componentIds.map((obj, index) => (
-                  <a
-                    className="w-48 px-3 bg-white border-dark"
-                    key={index}
-                    onClick={() => handleMoveTo(obj.componentId)}
-                  >
-                    {obj.componentTitle}
-                  </a>
-                ))}
-              </div>
-            )}
+            <h2 className="my-auto text-2xl font-bold text-center">
+              CITY GOVERNMENT OF TANAUAN
+            </h2>
+            <p className="my-auto text-center text-md">
+              Talisay - Tanauan Rd, Tanauan, 4232 Batangas
+            </p>
           </div>
         </div>
-        <div
-          className="flex justify-center py-2"
-          style={{ backgroundColor: "#023F78" }}
-        >
+        <div className="flex justify-center py-3 bg-blue-900">
           <div className="flex justify-between">
+            <Link to={"/"} className={linkClass2}>
+              HOME
+            </Link>
+            <Link to={"/city"} className={linkClass2}>
+              THE CITY
+            </Link>
+            <Link to={"/tourism"} className={linkClass2}>
+              TOURISM
+            </Link>
+            <Link to={"/careers"} className={linkClass2}>
+              CAREERS
+            </Link>
             <Link to={"/government"} className={linkClass2}>
-              Government
+              GOVERNMENT
             </Link>
             <Link to={"/city-transactions"} className={linkClass2}>
-              City Transactions
+              CITY TRANSACTIONS
             </Link>
             <Link to={"/business"} className={linkClass2}>
-              Business
+              BUSINESS
             </Link>
             <Link to={"/transparency-reports"} className={linkClass2}>
-              Transparency Report
+              TRANSPARENCY REPORT
             </Link>
             <Link to={"/departments"} className={linkClass2}>
-              Departments
+              DEPARTMENT
             </Link>
             <Link to={"/online-services"} className={linkClass2}>
-              Online Services
+              ONLINE SERVICES
             </Link>
           </div>
         </div>
