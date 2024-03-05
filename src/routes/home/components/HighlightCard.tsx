@@ -13,12 +13,15 @@ const HighlightCard: React.FC<City> = ({
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageURI, setImageURI] = useState<string | undefined>(undefined);
 
+  console.log({ content, id, link, date });
+
   useEffect(() => {
     const getImage = async () => {
       try {
         const URI = `https://tanauancity.gov.ph/wp-json/wp/v2/media/${featured_media}`;
         const res = await axios.get(URI);
         const data = res.data;
+
         setImageURI(data.guid.rendered);
       } catch (error) {
         console.error("Error fetching image:", error);
