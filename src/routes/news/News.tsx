@@ -1,9 +1,17 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Divider from "../home/components/Divider";
+import { NewsContext } from "../../App";
+import NewsCard from "../home/components/NewsCard";
 
 const Fcategory = () => {
+  const news = useContext(NewsContext);
+
   return (
-    <div className="flex items-center justify-center h-screen">category 1</div>
+    <div className="grid grid-cols-3 grid-rows-3 gap-4">
+      {news.map((ns, newsI) => (
+        <NewsCard key={newsI} {...ns} />
+      ))}
+    </div>
   );
 };
 

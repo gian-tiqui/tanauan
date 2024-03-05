@@ -7,6 +7,7 @@ import CityHighlights from "./components/CityHighlights";
 import LogoDivider from "./components/LogoDivider";
 import Cgtv from "./components/CGTV";
 import VideoHeader from "./components/VideoHeader";
+import Footer from "./components/Footer";
 
 const Home = () => {
   return (
@@ -41,6 +42,7 @@ const Home = () => {
       <div id="city-highlights">
         <CityHighlights />
       </div>
+      <Footer />
     </div>
   );
 };

@@ -12,7 +12,6 @@ import {
   createContext,
   useState,
 } from "react";
-import Footer from "./routes/home/components/Footer";
 import Lottie from "lottie-react";
 import profile from "./assets/profile.json";
 import Government from "./routes/government/Government";
@@ -134,7 +133,6 @@ function App() {
                   <Lottie animationData={profile} />
                 </div>
               </div>
-              <Footer />
             </Router>
           </PreventContextMenu.Provider>
         </NewsContext.Provider>
