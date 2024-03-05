@@ -7,8 +7,15 @@ import CityHighlights from "./components/CityHighlights";
 import LogoDivider from "./components/LogoDivider";
 import Cgtv from "./components/CGTV";
 import VideoHeader from "./components/VideoHeader";
+import Footer from "./components/Footer";
+import { useEffect } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const Home = () => {
+  useEffect(() => {
+    Aos.init();
+  }, []);
   return (
     <div className="relative w-full h-full">
       <div id="video-header">
@@ -41,6 +48,7 @@ const Home = () => {
       <div id="city-highlights">
         <CityHighlights />
       </div>
+      <Footer />
     </div>
   );
 };

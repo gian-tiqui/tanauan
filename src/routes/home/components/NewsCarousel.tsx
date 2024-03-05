@@ -6,7 +6,7 @@ import "swiper/css";
 import "swiper/css/bundle";
 import axios, { AxiosResponse } from "axios";
 import News from "../../news-article/NewsArticle";
-import CardSkeleton from "./CardSkeleton";
+import CardSkeleton from "./NewsCardSkeleton";
 import { NewsContext, SetNewsContext } from "../../../App";
 
 export interface News {
@@ -63,21 +63,36 @@ const NewsCarousel = () => {
   return (
     <div className="container px-4 mx-auto">
       {loading ? (
-        <Swiper
-          spaceBetween={15}
-          slidesPerView={3}
-          className="p-10 mt-10 mySwiper sm:mx-5 md:mx-5 lg:mx-44"
-        >
-          <SwiperSlide>
-            <CardSkeleton />
-          </SwiperSlide>
-          <SwiperSlide>
-            <CardSkeleton />
-          </SwiperSlide>
-          <SwiperSlide>
-            <CardSkeleton />
-          </SwiperSlide>
-        </Swiper>
+        <div>
+          <div className="hidden sm:hidden md:block lg:block">
+            <Swiper
+              spaceBetween={15}
+              slidesPerView={3}
+              className="p-10 mt-10 mySwiper sm:mx-5 md:mx-5 lg:mx-44"
+            >
+              <SwiperSlide>
+                <CardSkeleton />
+              </SwiperSlide>
+              <SwiperSlide>
+                <CardSkeleton />
+              </SwiperSlide>
+              <SwiperSlide>
+                <CardSkeleton />
+              </SwiperSlide>
+            </Swiper>
+          </div>
+          <div className="block sm:block md:hidden lg:hidden">
+            <Swiper
+              spaceBetween={15}
+              slidesPerView={1}
+              className="p-10 mt-10 mySwiper sm:mx-5 md:mx-5 lg:mx-44"
+            >
+              <SwiperSlide>
+                <CardSkeleton />
+              </SwiperSlide>
+            </Swiper>
+          </div>
+        </div>
       ) : (
         <>
           <div className="hidden sm:hidden md:block lg:block">
@@ -106,7 +121,6 @@ const NewsCarousel = () => {
               ))}
             </Swiper>
           </div>
-
           <div className="block sm:block md:hidden lg:hidden">
             <Swiper
               spaceBetween={15}
