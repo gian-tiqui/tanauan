@@ -26,6 +26,7 @@ import NewsArticle from "./routes/news-article/NewsArticle";
 import News from "./routes/news/News";
 import { News as NewsInterface } from "./routes/home/components/NewsCarousel";
 import { City as CityInterface } from "./routes/home/components/CityHighlights";
+import "aos/dist/aos.css";
 
 interface RouteMapping {
   path: string;
