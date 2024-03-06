@@ -8,44 +8,38 @@ import LogoDivider from "./components/LogoDivider";
 import Cgtv from "./components/CGTV";
 import VideoHeader from "./components/VideoHeader";
 import Footer from "./components/Footer";
-import { useEffect } from "react";
-import Aos from "aos";
-import "aos/dist/aos.css";
 
 const Home = () => {
-  useEffect(() => {
-    Aos.init();
-  }, []);
   return (
     <div className="relative w-full h-full">
       <div id="video-header">
         <VideoHeader />
       </div>
-      <div id="divider-news">
+      <div data-aos="fade-right" id="divider-news">
         <Divider text="News & Publication" />
       </div>
-      <div id="news-carousel">
+      <div data-aos="fade-left" id="news-carousel">
         <NewsCarousel />
       </div>
-      <div id="divider-more-news">
+      <div data-aos="fade-up-right" id="divider-more-news">
         <Divider text="More news" />
       </div>
-      <div id="public-services">
+      <div data-aos="fade-up-left" id="public-services">
         <PublicServices />
       </div>
-      <div id="mobile-app">
+      <div data-aos="fade-down-right" id="mobile-app">
         <MobileApp />
       </div>
-      <div id="logo-divider">
+      <div data-aos="fade-down-left" id="logo-divider">
         <LogoDivider />
       </div>
-      <div id="cgtv">
+      <div data-aos="fade-right" id="cgtv">
         <Cgtv />
       </div>
-      <div id="status-updates">
+      <div data-aos="fade-left" id="status-updates">
         <StatusUpdates />
       </div>
-      <div id="city-highlights">
+      <div data-aos="fade-up-right" id="city-highlights">
         <CityHighlights />
       </div>
       <Footer />

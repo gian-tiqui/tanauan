@@ -1,13 +1,15 @@
-import MissionVision from "./mission-vision/MissionVision";
+import Mission from "./components/Mission";
+import Vision from "./components/Vision";
 
 const Government = () => {
   return (
     <div className="container px-3 mx-auto">
-      <div className="flex pt-10">
-        <MissionVision />
+      <div className="flex justify-center pt-10">
+        <Mission />
+        <Vision />
       </div>
       <div className="grid justify-center mt-24 text-center grid-col h-52">
-        <div>dis is a swiper below oke</div>
+        <div>Mayor here</div>
 
         <div className="flex">
           <div>official 1</div>
@@ -16,6 +18,7 @@ const Government = () => {
           <div>official 4</div>
         </div>
       </div>
+      <div>Departments</div>
     </div>
   );
 };

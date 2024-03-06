@@ -2,49 +2,14 @@ import { ChangeEvent, useContext, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { PreventContextMenu } from "../../App";
 import { useSpring, animated } from "@react-spring/web";
-
-const linkClass = "mx-5 my-auto text-lg hover:underline text-sm text-white";
-const linkClass2 = "mx-5 my-auto text-lg hover:underline text-white text-sm";
-
-interface ComponentNavs {
-  componentId: string;
-  componentTitle: string;
-}
-
-const componentIds: ComponentNavs[] = [
-  {
-    componentId: "#news-carousel",
-    componentTitle: "News",
-  },
-  {
-    componentId: "#public-services",
-    componentTitle: "Public Services",
-  },
-  {
-    componentId: "#mobile-app",
-    componentTitle: "Mobile Application",
-  },
-  {
-    componentId: "#cgtv",
-    componentTitle: "CGTV",
-  },
-  {
-    componentId: "#status-updates",
-    componentTitle: "Status Updates",
-  },
-  {
-    componentId: "#city-highlights",
-    componentTitle: "City Highlights",
-  },
-];
+import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 
 const Navbar = () => {
   const [searchTxt, setSearchTxt] = useState<string>("");
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
-  const [showSuggestion, setShowSuggestion] = useState<boolean>(false);
+  const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
   const preventContextMenu = useContext(PreventContextMenu);
   const inputRef = useRef<HTMLInputElement>(null);
-  const [searchClass, setSearchClass] = useState<boolean>(true);
 
   const handleSearchTextChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchTxt(e.target.value);
@@ -54,19 +19,17 @@ const Navbar = () => {
     setSidebarOpen(!sidebarOpen);
   };
 
+  const handleToggleDropdown = (dropdownId: string) => {
+    setDropdownOpen((prev) => (prev === dropdownId ? null : dropdownId));
+  };
+
+  const handleCloseDropdown = () => {
+    setDropdownOpen(null);
+  };
+
   const sidebarAnimation = useSpring({
     transform: sidebarOpen ? "translateX(0)" : "translateX(-100%)",
   });
-
-  const showSuggestions = () => {
-    setShowSuggestion(!showSuggestion);
-    setSearchClass(!searchClass);
-  };
-
-  const handleMoveTo = (componentId: string) => {
-    window.location.href = componentId;
-    setShowSuggestion(!showSuggestion);
-  };
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -74,8 +37,7 @@ const Navbar = () => {
         inputRef.current &&
         !inputRef.current.contains(event.target as Node)
       ) {
-        setShowSuggestion(false);
-        setSearchClass(true);
+        console.log("?");
       }
     };
 
@@ -89,95 +51,193 @@ const Navbar = () => {
   return (
     <nav>
       <div className="hidden sm:relative md:relative lg:relative sm:hidden md:block lg:block">
-        <div className="flex justify-between py-2">
-          <div className="flex">
+        <div className="flex justify-center py-2 mt-16">
+          <div>
             <img
               src="../../../logo.png"
-              style={{ height: "50px", width: "100px" }}
+              className="h-24 mx-auto w-36"
               onContextMenu={preventContextMenu}
               draggable="false"
               alt="Logo"
             />
-            <h2 className="my-auto text-2xl">TANAUAN</h2>
-          </div>
-          <div className="flex justify-between">
-            <Link to={"/"} className={linkClass} style={{ color: "#786649" }}>
-              HOME
-            </Link>
-            <Link
-              to={"/city"}
-              className={linkClass}
-              style={{ color: "#786649" }}
-            >
-              THE CITY
-            </Link>
-            <Link
-              to={"/tourism"}
-              className={linkClass}
-              style={{ color: "#786649" }}
-            >
-              TOURISM
-            </Link>
-            <Link
-              to={"/careers"}
-              className={linkClass}
-              style={{ color: "#786649" }}
-            >
-              CAREERS
-            </Link>
-          </div>
-          <div className="pr-5 my-auto" ref={inputRef}>
-            <input
-              type="text"
-              className={
-                searchClass
-                  ? "h-6 max-w-xs px-3 my-auto border rounded-md"
-                  : "h-6 max-w-xs px-3 my-auto border rounded-t-md"
-              }
-              placeholder="Search..."
-              style={{ borderColor: "#023F78" }}
-              onChange={handleSearchTextChange}
-              value={searchTxt}
-              onClick={showSuggestions}
-            />
-
-            {showSuggestion && (
-              <div className="absolute z-50 flex flex-col border border-black">
-                {componentIds.map((obj, index) => (
-                  <a
-                    className="w-48 px-3 bg-white border-dark"
-                    key={index}
-                    onClick={() => handleMoveTo(obj.componentId)}
-                  >
-                    {obj.componentTitle}
-                  </a>
-                ))}
-              </div>
-            )}
+            <h2 className="my-auto text-2xl font-bold text-center">
+              CITY GOVERNMENT OF TANAUAN
+            </h2>
+            <p className="my-auto text-center text-md">
+              Talisay - Tanauan Rd, Tanauan, 4232 Batangas
+            </p>
           </div>
         </div>
-        <div
-          className="flex justify-center py-2"
-          style={{ backgroundColor: "#023F78" }}
-        >
+        <div className="flex justify-center py-3 bg-blue-900">
           <div className="flex justify-between">
-            <Link to={"/government"} className={linkClass2}>
-              Government
+            <Link
+              to={"/"}
+              className="flex items-center mx-5 my-auto text-sm font-bold text-white hover:text-yellow-500"
+            >
+              HOME
             </Link>
-            <Link to={"/city-transactions"} className={linkClass2}>
-              City Transactions
-            </Link>
-            <Link to={"/business"} className={linkClass2}>
-              Business
-            </Link>
-            <Link to={"/transparency-reports"} className={linkClass2}>
-              Transparency Report
-            </Link>
-            <Link to={"/departments"} className={linkClass2}>
-              Departments
-            </Link>
-            <Link to={"/online-services"} className={linkClass2}>
-              Online Services
+            <div className="relative">
+              <button
+                className="flex items-center mx-5 my-auto text-sm font-bold text-white hover:text-yellow-500"
+                onClick={() => handleToggleDropdown("cityDropdown")}
+              >
+                THE CITY
+                <MdOutlineKeyboardArrowDown className="ml-1" />
+              </button>
+              {dropdownOpen === "cityDropdown" && (
+                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-36">
+                  <Link
+                    to={"/news"}
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    onClick={handleCloseDropdown}
+                  >
+                    News
+                  </Link>
+                </div>
+              )}
+            </div>
+            <div className="relative">
+              <button
+                className="flex items-center mx-5 my-auto text-sm font-bold text-white hover:text-yellow-500"
+                onClick={() => handleToggleDropdown("governmentDropdown")}
+              >
+                GOVERNMENT
+                <MdOutlineKeyboardArrowDown className="ml-1" />
+              </button>
+              {dropdownOpen === "governmentDropdown" && (
+                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-36">
+                  <Link
+                    to={"/"}
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    onClick={handleCloseDropdown}
+                  >
+                    Item 1
+                  </Link>
+                  <Link
+                    to={"/"}
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    onClick={handleCloseDropdown}
+                  >
+                    Item 2
+                  </Link>
+                </div>
+              )}
+            </div>
+            <div className="relative">
+              <button
+                className="flex items-center mx-5 my-auto text-sm font-bold text-white hover:text-yellow-500"
+                onClick={() => handleToggleDropdown("cityTransactionsDropdown")}
+              >
+                CITY TRANSACTIONS
+                <MdOutlineKeyboardArrowDown className="ml-1" />
+              </button>
+              {dropdownOpen === "cityTransactionsDropdown" && (
+                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-36">
+                  <Link
+                    to={"/"}
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    onClick={handleCloseDropdown}
+                  >
+                    Item 1
+                  </Link>
+                  <Link
+                    to={"/"}
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    onClick={handleCloseDropdown}
+                  >
+                    Item 2
+                  </Link>
+                </div>
+              )}
+            </div>
+            <div className="relative">
+              <button
+                className="flex items-center mx-5 my-auto text-sm font-bold text-white hover:text-yellow-500"
+                onClick={() => handleToggleDropdown("businessDropdown")}
+              >
+                BUSINESS
+                <MdOutlineKeyboardArrowDown className="ml-1" />
+              </button>
+              {dropdownOpen === "businessDropdown" && (
+                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-36">
+                  <Link
+                    to={"/"}
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    onClick={handleCloseDropdown}
+                  >
+                    Item 1
+                  </Link>
+                  <Link
+                    to={"/"}
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    onClick={handleCloseDropdown}
+                  >
+                    Item 2
+                  </Link>
+                </div>
+              )}
+            </div>
+            <div className="relative">
+              <button
+                className="flex items-center mx-5 my-auto text-sm font-bold text-white hover:text-yellow-500"
+                onClick={() =>
+                  handleToggleDropdown("transparencyReportDropdown")
+                }
+              >
+                TRANSPARENCY REPORT
+                <MdOutlineKeyboardArrowDown className="ml-1" />
+              </button>
+              {dropdownOpen === "transparencyReportDropdown" && (
+                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-36">
+                  <Link
+                    to={"/"}
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    onClick={handleCloseDropdown}
+                  >
+                    Item 1
+                  </Link>
+                  <Link
+                    to={"/"}
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    onClick={handleCloseDropdown}
+                  >
+                    Item 2
+                  </Link>
+                </div>
+              )}
+            </div>
+            <div className="relative">
+              <button
+                className="flex items-center mx-5 my-auto text-sm font-bold text-white hover:text-yellow-500"
+                onClick={() => handleToggleDropdown("careersDropdown")}
+              >
+                CAREERS
+                <MdOutlineKeyboardArrowDown className="ml-1" />
+              </button>
+              {dropdownOpen === "careersDropdown" && (
+                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-36">
+                  <Link
+                    to={"/"}
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    onClick={handleCloseDropdown}
+                  >
+                    Item 1
+                  </Link>
+                  <Link
+                    to={"/"}
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    onClick={handleCloseDropdown}
+                  >
+                    Item 2
+                  </Link>
+                </div>
+              )}
+            </div>
+            <Link
+              to={"/tourism"}
+              className="flex items-center mx-5 my-auto text-sm font-bold text-white hover:text-yellow-500"
+            >
+              TOURISM
             </Link>
           </div>
         </div>
@@ -231,54 +291,164 @@ const Navbar = () => {
             >
               <p className="px-2 mr-4 font-bold text-white border rounded">x</p>
             </div>
-            <Link to={"/"} className="mx-5 font-bold text-white text-md">
+            <Link to={"/"} className="ml-5 font-bold text-white text-md">
               Home
             </Link>
-            <Link to={"/city"} className="mx-5 font-bold text-white text-md">
-              City
-            </Link>
-            <Link to={"/tourism"} className="mx-5 font-bold text-white text-md">
+            <div className="relative">
+              <button
+                className="ml-5 font-bold text-white text-md"
+                onClick={() => handleToggleDropdown("cityDropdownMobile")}
+              >
+                City
+              </button>
+              {dropdownOpen === "cityDropdownMobile" && (
+                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-36">
+                  <Link
+                    to={"/news"}
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    onClick={handleCloseDropdown}
+                  >
+                    News
+                  </Link>
+                </div>
+              )}
+            </div>
+            <div className="relative">
+              <button
+                className="ml-5 font-bold text-white text-md"
+                onClick={() => handleToggleDropdown("governmentDropdownMobile")}
+              >
+                Government
+              </button>
+              {dropdownOpen === "governmentDropdownMobile" && (
+                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-36">
+                  <Link
+                    to={"/"}
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    onClick={handleCloseDropdown}
+                  >
+                    Item 1
+                  </Link>
+                  <Link
+                    to={"/"}
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    onClick={handleCloseDropdown}
+                  >
+                    Item 2
+                  </Link>
+                </div>
+              )}
+            </div>
+            <div className="relative">
+              <button
+                className="ml-5 font-bold text-white text-md"
+                onClick={() =>
+                  handleToggleDropdown("cityTransactionsDropdownMobile")
+                }
+              >
+                City Transactions
+              </button>
+              {dropdownOpen === "cityTransactionsDropdownMobile" && (
+                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-36">
+                  <Link
+                    to={"/"}
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    onClick={handleCloseDropdown}
+                  >
+                    Item 1
+                  </Link>
+                  <Link
+                    to={"/"}
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    onClick={handleCloseDropdown}
+                  >
+                    Item 2
+                  </Link>
+                </div>
+              )}
+            </div>
+            <div className="relative">
+              <button
+                className="ml-5 font-bold text-white text-md"
+                onClick={() => handleToggleDropdown("businessDropdownMobile")}
+              >
+                Business
+              </button>
+              {dropdownOpen === "businessDropdownMobile" && (
+                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-36">
+                  <Link
+                    to={"/"}
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    onClick={handleCloseDropdown}
+                  >
+                    Item 1
+                  </Link>
+                  <Link
+                    to={"/"}
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    onClick={handleCloseDropdown}
+                  >
+                    Item 2
+                  </Link>
+                </div>
+              )}
+            </div>
+            <div className="relative">
+              <button
+                className="font-bold text-white text-md"
+                onClick={() =>
+                  handleToggleDropdown("transparencyReportDropdownMobile")
+                }
+              >
+                Transparency Report
+              </button>
+              {dropdownOpen === "transparencyReportDropdownMobile" && (
+                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-36">
+                  <Link
+                    to={"/"}
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    onClick={handleCloseDropdown}
+                  >
+                    Item 1
+                  </Link>
+                  <Link
+                    to={"/"}
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    onClick={handleCloseDropdown}
+                  >
+                    Item 2
+                  </Link>
+                </div>
+              )}
+            </div>
+            <div className="relative">
+              <button
+                className="ml-5 font-bold text-white text-md"
+                onClick={() => handleToggleDropdown("careersDropdownMobile")}
+              >
+                Careers
+              </button>
+              {dropdownOpen === "careersDropdownMobile" && (
+                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-36">
+                  <Link
+                    to={"/"}
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    onClick={handleCloseDropdown}
+                  >
+                    Item 1
+                  </Link>
+                  <Link
+                    to={"/"}
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    onClick={handleCloseDropdown}
+                  >
+                    Item 2
+                  </Link>
+                </div>
+              )}
+            </div>
+            <Link to={"/tourism"} className="ml-5 font-bold text-white text-md">
               Tourism
-            </Link>
-            <Link to={"/careers"} className="mx-5 font-bold text-white text-md">
-              Careers
-            </Link>
-            <hr className="mx-3 my-2 bg-white" />
-            <Link
-              to={"/government"}
-              className="mx-5 font-bold text-white text-md"
-            >
-              Government
-            </Link>
-            <Link
-              to={"/city-transactions"}
-              className="mx-5 font-bold text-white text-md"
-            >
-              City Transactions
-            </Link>
-            <Link
-              to={"/business"}
-              className="mx-5 font-bold text-white text-md"
-            >
-              Business
-            </Link>
-            <Link
-              to={"/transparency-reports"}
-              className="mx-5 font-bold text-white text-md"
-            >
-              Transparency Report
-            </Link>
-            <Link
-              to={"/departments"}
-              className="mx-5 font-bold text-white text-md"
-            >
-              Departments
-            </Link>
-            <Link
-              to={"/online-services"}
-              className="mx-5 font-bold text-white text-md"
-            >
-              Online Services
             </Link>
           </div>
         </animated.div>

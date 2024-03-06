@@ -11,6 +11,7 @@ import {
   SetStateAction,
   createContext,
   useState,
+  useEffect,
 } from "react";
 import Lottie from "lottie-react";
 import profile from "./assets/profile.json";
@@ -26,6 +27,7 @@ import NewsArticle from "./routes/news-article/NewsArticle";
 import News from "./routes/news/News";
 import { News as NewsInterface } from "./routes/home/components/NewsCarousel";
 import { City as CityInterface } from "./routes/home/components/CityHighlights";
+import Aos from "aos";
 import "aos/dist/aos.css";
 
 interface RouteMapping {
@@ -50,6 +52,10 @@ export const SetCityContext = createContext<
 function App() {
   const [news, setNews] = useState<NewsInterface[]>([]);
   const [cities, setCities] = useState<CityInterface[]>([]);
+
+  useEffect(() => {
+    Aos.init();
+  }, []);
 
   const lottie = {
     width: 150,
