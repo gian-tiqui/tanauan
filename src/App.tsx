@@ -1,7 +1,6 @@
 import Navbar from "./components/Navbar/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./routes/home/Home";
-import City from "./routes/city/City";
 import Tourism from "./routes/tourism/Tourism";
 import Careers from "./routes/careers/Careers";
 import {
@@ -11,7 +10,6 @@ import {
   SetStateAction,
   createContext,
   useState,
-  useEffect,
 } from "react";
 import Lottie from "lottie-react";
 import profile from "./assets/profile.json";
@@ -27,8 +25,7 @@ import NewsArticle from "./routes/news-article/NewsArticle";
 import News from "./routes/news/News";
 import { News as NewsInterface } from "./routes/home/components/NewsCarousel";
 import { City as CityInterface } from "./routes/home/components/CityHighlights";
-import Aos from "aos";
-import "aos/dist/aos.css";
+import Barangays from "./routes/city/Barangays";
 
 interface RouteMapping {
   path: string;
@@ -53,10 +50,6 @@ function App() {
   const [news, setNews] = useState<NewsInterface[]>([]);
   const [cities, setCities] = useState<CityInterface[]>([]);
 
-  useEffect(() => {
-    Aos.init();
-  }, []);
-
   const lottie = {
     width: 150,
     height: 150,
@@ -72,8 +65,8 @@ function App() {
       element: <Home />,
     },
     {
-      path: "/city",
-      element: <City />,
+      path: "/barangays",
+      element: <Barangays />,
     },
     {
       path: "/tourism",

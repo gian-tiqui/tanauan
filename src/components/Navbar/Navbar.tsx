@@ -86,13 +86,20 @@ const Navbar = () => {
                 <MdOutlineKeyboardArrowDown className="ml-1" />
               </button>
               {dropdownOpen === "cityDropdown" && (
-                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-36">
+                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44">
                   <Link
                     to={"/news"}
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     onClick={handleCloseDropdown}
                   >
-                    News
+                    News & Publication
+                  </Link>
+                  <Link
+                    to={"/barangays"}
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    onClick={handleCloseDropdown}
+                  >
+                    Barangays
                   </Link>
                 </div>
               )}
@@ -106,20 +113,27 @@ const Navbar = () => {
                 <MdOutlineKeyboardArrowDown className="ml-1" />
               </button>
               {dropdownOpen === "governmentDropdown" && (
-                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-36">
+                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44">
                   <Link
-                    to={"/"}
+                    to={"/mission-vision"}
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     onClick={handleCloseDropdown}
                   >
-                    Item 1
+                    Mission / Vision
                   </Link>
                   <Link
-                    to={"/"}
+                    to={"/city-officials"}
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     onClick={handleCloseDropdown}
                   >
-                    Item 2
+                    City Officials
+                  </Link>
+                  <Link
+                    to={"/departments"}
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    onClick={handleCloseDropdown}
+                  >
+                    Departments
                   </Link>
                 </div>
               )}
@@ -133,7 +147,7 @@ const Navbar = () => {
                 <MdOutlineKeyboardArrowDown className="ml-1" />
               </button>
               {dropdownOpen === "cityTransactionsDropdown" && (
-                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-36">
+                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44">
                   <Link
                     to={"/"}
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
@@ -160,7 +174,7 @@ const Navbar = () => {
                 <MdOutlineKeyboardArrowDown className="ml-1" />
               </button>
               {dropdownOpen === "businessDropdown" && (
-                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-36">
+                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44">
                   <Link
                     to={"/"}
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
@@ -189,7 +203,7 @@ const Navbar = () => {
                 <MdOutlineKeyboardArrowDown className="ml-1" />
               </button>
               {dropdownOpen === "transparencyReportDropdown" && (
-                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-36">
+                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44">
                   <Link
                     to={"/"}
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
@@ -216,7 +230,7 @@ const Navbar = () => {
                 <MdOutlineKeyboardArrowDown className="ml-1" />
               </button>
               {dropdownOpen === "careersDropdown" && (
-                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-36">
+                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44">
                   <Link
                     to={"/"}
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
@@ -278,7 +292,7 @@ const Navbar = () => {
 
       {sidebarOpen && (
         <animated.div
-          className="fixed inset-y-0 left-0 z-50 w-36 bg-slate-900 md:hidden lg:hidden"
+          className="fixed inset-y-0 left-0 z-50 w-44 bg-slate-900 md:hidden lg:hidden"
           style={sidebarAnimation}
         >
           <div className="flex flex-col justify-center gap-3">
@@ -303,7 +317,7 @@ const Navbar = () => {
                 City
               </button>
               {dropdownOpen === "cityDropdownMobile" && (
-                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-36">
+                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44">
                   <Link
                     to={"/news"}
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
@@ -322,7 +336,7 @@ const Navbar = () => {
                 Government
               </button>
               {dropdownOpen === "governmentDropdownMobile" && (
-                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-36">
+                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44">
                   <Link
                     to={"/"}
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
@@ -350,7 +364,7 @@ const Navbar = () => {
                 City Transactions
               </button>
               {dropdownOpen === "cityTransactionsDropdownMobile" && (
-                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-36">
+                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44">
                   <Link
                     to={"/"}
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
@@ -376,7 +390,7 @@ const Navbar = () => {
                 Business
               </button>
               {dropdownOpen === "businessDropdownMobile" && (
-                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-36">
+                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44">
                   <Link
                     to={"/"}
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
@@ -404,7 +418,7 @@ const Navbar = () => {
                 Transparency Report
               </button>
               {dropdownOpen === "transparencyReportDropdownMobile" && (
-                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-36">
+                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44">
                   <Link
                     to={"/"}
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
@@ -430,7 +444,7 @@ const Navbar = () => {
                 Careers
               </button>
               {dropdownOpen === "careersDropdownMobile" && (
-                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-36">
+                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44">
                   <Link
                     to={"/"}
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
