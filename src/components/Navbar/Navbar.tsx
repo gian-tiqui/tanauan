@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { PreventContextMenu } from "../../App";
 import { useSpring, animated } from "@react-spring/web";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import logo from "../../assets/tanauan_logo.png";
 
 const Navbar = () => {
   const [searchTxt, setSearchTxt] = useState<string>("");
@@ -54,21 +55,21 @@ const Navbar = () => {
         <div className="flex justify-center py-2 mt-16">
           <div>
             <img
-              src="../../../logo.png"
-              className="h-24 mx-auto w-36"
+              src={logo}
+              className="mx-auto h-80 w-80"
               onContextMenu={preventContextMenu}
               draggable="false"
               alt="Logo"
             />
-            <h2 className="my-auto text-2xl font-bold text-center">
+            <h2 className="text-2xl font-bold text-center text-red-600 ">
               CITY GOVERNMENT OF TANAUAN
             </h2>
-            <p className="my-auto text-center text-md">
+            <p className="mb-8 text-center text-md">
               Talisay - Tanauan Rd, Tanauan, 4232 Batangas
             </p>
           </div>
         </div>
-        <div className="flex justify-center py-3 bg-blue-900">
+        <div className="flex justify-center py-3 bg-red-600">
           <div className="flex justify-between">
             <Link
               to={"/"}
