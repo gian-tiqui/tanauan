@@ -66,6 +66,8 @@ const Tourism = () => {
     fetchCities();
   }, [cities.length, setCities]);
 
+  console.log(loading);
+
   useEffect(() => {
     Aos.init();
   }, []);
