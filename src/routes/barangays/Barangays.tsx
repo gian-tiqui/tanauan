@@ -1,11 +1,11 @@
 import Divider from "../home/components/Divider";
 
-interface CityType {
+interface BarangayInterface {
   name: string;
   description: string;
 }
 
-const barangays: CityType[] = [
+const barangays: BarangayInterface[] = [
   { name: "Altura Bata", description: "Description for Altura Bata" },
   { name: "Altura Matanda", description: "Description for Altura Matanda" },
   { name: "Altura-South", description: "Description for Altura-South" },
@@ -89,7 +89,7 @@ const barangays: CityType[] = [
   { name: "Wawa", description: "Description for Wawa" },
 ];
 
-const City = () => {
+const Barangays = () => {
   return (
     <div className="container px-20 mx-auto">
       <Divider text="Cities in Tanauan" />
@@ -120,4 +120,4 @@ const City = () => {
   );
 };
 
-export default City;
+export default Barangays;

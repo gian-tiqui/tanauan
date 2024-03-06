@@ -15,31 +15,31 @@ const Home = () => {
       <div id="video-header">
         <VideoHeader />
       </div>
-      <div data-aos="fade-right" id="divider-news">
+      <div id="divider-news">
         <Divider text="News & Publication" />
       </div>
-      <div data-aos="fade-left" id="news-carousel">
+      <div id="news-carousel">
         <NewsCarousel />
       </div>
-      <div data-aos="fade-up-right" id="divider-more-news">
+      <div id="divider-more-news">
         <Divider text="More news" />
       </div>
-      <div data-aos="fade-up-left" id="public-services">
+      <div id="public-services">
         <PublicServices />
       </div>
-      <div data-aos="fade-down-right" id="mobile-app">
+      <div id="mobile-app">
         <MobileApp />
       </div>
-      <div data-aos="fade-down-left" id="logo-divider">
+      <div id="logo-divider">
         <LogoDivider />
       </div>
-      <div data-aos="fade-right" id="cgtv">
+      <div id="cgtv">
         <Cgtv />
       </div>
-      <div data-aos="fade-left" id="status-updates">
+      <div id="status-updates">
         <StatusUpdates />
       </div>
-      <div data-aos="fade-up-right" id="city-highlights">
+      <div id="city-highlights">
         <CityHighlights />
       </div>
       <Footer />

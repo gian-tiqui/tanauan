@@ -17,7 +17,8 @@ export interface City {
   featured_media: number;
 }
 
-const CITIES_ENDPOINT = "https://tanauancity.gov.ph/wp-json/wp/v2/ova_por";
+export const CITIES_ENDPOINT =
+  "https://tanauancity.gov.ph/wp-json/wp/v2/ova_por";
 
 const CityHighlights = () => {
   const cities = useContext(CityContext);

@@ -1,3 +1,12 @@
+import { useContext, useEffect, useState } from "react";
+import { CityContext, SetCityContext } from "../../App";
+import { CITIES_ENDPOINT } from "../home/components/CityHighlights";
+import axios from "axios";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import TourismCard from "./components/TourismCard";
+import TourismInfo from "./components/TourismInfo";
+
 interface Info {
   title: string;
   content: { heading: string; details: string[] }[];
@@ -34,13 +43,46 @@ const tourismInfos: Info[] = [
 ];
 
 const Tourism = () => {
+  const cities = useContext(CityContext);
+  const setCities = useContext(SetCityContext);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    const fetchCities = async () => {
+      try {
+        if (cities.length === 0) {
+          const response = await axios.get(CITIES_ENDPOINT);
+
+          const data = response.data;
+
+          setCities(data);
+        }
+        setLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchCities();
+  }, [cities.length, setCities]);
+
+  console.log(loading);
+
+  useEffect(() => {
+    Aos.init();
+  }, []);
+
   return (
     <div className="container p-3 mx-auto">
       {tourismInfos.map((info, index) => (
         <div key={index}>
           <p className="text-xl font-bold">{info.title}</p>
           {info.content.map((section, secIndex) => (
-            <div key={secIndex}>
+            <div
+              data-aos="fade"
+              className="p-3 border border-black rounded-lg"
+              key={secIndex}
+            >
               <p className="text-lg font-semibold">{section.heading}</p>
               {section.details.map((detail, detailIndex) => (
                 <p key={detailIndex}>{detail}</p>
@@ -49,6 +91,31 @@ const Tourism = () => {
           ))}
         </div>
       ))}
+      <div>
+        <div className="grid">
+          {cities.map((city, cIndex) =>
+            cIndex % 2 === 0 ? (
+              <div key={cIndex} className="grid sm:grid md:flex lg:flex">
+                <div data-aos="fade-down" className="flex-1 p-5">
+                  <TourismCard {...city} />
+                </div>
+                <div data-aos="fade-up" className="flex-1 p-5">
+                  <TourismInfo {...city} />
+                </div>
+              </div>
+            ) : (
+              <div key={cIndex} className="grid sm:grid md:flex lg:flex">
+                <div data-aos="fade-up" className="flex-1 p-5">
+                  <TourismInfo {...city} />
+                </div>
+                <div data-aos="fade-down" className="flex-1 p-5">
+                  <TourismCard {...city} />
+                </div>
+              </div>
+            )
+          )}
+        </div>
+      </div>
     </div>
   );
 };
