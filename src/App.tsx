@@ -2,7 +2,6 @@ import Navbar from "./components/Navbar/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./routes/home/Home";
 import Tourism from "./routes/tourism/Tourism";
-import Careers from "./routes/careers/Careers";
 import {
   Dispatch,
   MouseEventHandler,
@@ -13,19 +12,24 @@ import {
 } from "react";
 import Lottie from "lottie-react";
 import profile from "./assets/profile.json";
-import Government from "./routes/government/Government";
-import CityTransactions from "./routes/city-transactions/CityTransactions";
-import Business from "./routes/business/Business";
-import TransparencyReports from "./routes/transparency-reports/TransparencyReports";
-import Departments from "./routes/departments/Departments";
-import OnlineServices from "./routes/online-services/OnlineServices";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import NewsArticle from "./routes/news-article/NewsArticle";
 import News from "./routes/news/News";
 import { News as NewsInterface } from "./routes/home/components/NewsCarousel";
 import { City as CityInterface } from "./routes/home/components/CityHighlights";
-import Barangays from "./routes/city/Barangays";
+import Barangays from "./routes/barangays/Barangays";
+import CityOfficials from "./routes/government/city-officials/CityOfficials";
+import MissionVision from "./routes/government/mission-vision/MissionVision";
+import Departments from "./routes/government/departments/Departments";
+import CSDWServices from "./routes/city-transactions/csdw-services/CSDWServices";
+import SeniorCitizenIdAndBenefits from "./routes/city-transactions/senior-citizen-id-and-benefits/SeniorCitizenIdAndBenefits";
+import PwdIdAndServices from "./routes/city-transactions/pwd-id-and-services/PwdIdAndServices";
+import TanauanEServices from "./routes/business/tanauan-e-services/TanauanEServices";
+import BidsAndAwards from "./routes/transparency-reports/bids-and-awards/BidsAndAwards";
+import Assesors from "./routes/transparency-reports/assesors/Assesors";
+import FullDisclosureReport from "./routes/transparency-reports/full-disclosure-report/FullDisclosureReport";
+import JobFair from "./routes/careers/job-fair/JobFair";
 
 interface RouteMapping {
   path: string;
@@ -73,40 +77,56 @@ function App() {
       element: <Tourism />,
     },
     {
-      path: "/careers",
-      element: <Careers />,
-    },
-    {
-      path: "/government",
-      element: <Government />,
-    },
-    {
-      path: "/city-transactions",
-      element: <CityTransactions />,
-    },
-    {
-      path: "/business",
-      element: <Business />,
-    },
-    {
-      path: "/transparency-reports",
-      element: <TransparencyReports />,
-    },
-    {
-      path: "/departments",
-      element: <Departments />,
-    },
-    {
-      path: "/online-services",
-      element: <OnlineServices />,
-    },
-    {
       path: "/news",
       element: <News />,
     },
     {
       path: "/news/:id",
       element: <NewsArticle />,
+    },
+    {
+      path: "/city-officials",
+      element: <CityOfficials />,
+    },
+    {
+      path: "/mission-vision",
+      element: <MissionVision />,
+    },
+    {
+      path: "/departments",
+      element: <Departments />,
+    },
+    {
+      path: "/csdw-services",
+      element: <CSDWServices />,
+    },
+    {
+      path: "/senior-citizen-id-and-benefits",
+      element: <SeniorCitizenIdAndBenefits />,
+    },
+    {
+      path: "/pwd-id-and-services",
+      element: <PwdIdAndServices />,
+    },
+    {
+      path: "/tanauan-e-services",
+      element: <TanauanEServices />,
+    },
+    {
+      path: "/bids-and-awards",
+      element: <BidsAndAwards />,
+    },
+    {
+      path: "/assesors",
+      element: <Assesors />,
+    },
+    {
+      path: "/full-disclosure-report",
+      element: <FullDisclosureReport />,
+    },
+    {
+      path: "/job-fair",
+      element: <JobFair />,
     },
   ];
 
