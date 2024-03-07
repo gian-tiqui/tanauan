@@ -96,10 +96,10 @@ const PublicServices = () => {
 
         <div className="container flex justify-center mx-auto">
           <div className="flex flex-col mt-3 sm:mt-5 md:mt-10">
-            <button className="w-24 py-1 my-1 text-sm font-bold text-white bg-blue-500 rounded-md sm:my-1 md:my-2 sm:text-md md:text-lg sm:w-32 md:w-40">
+            <button className="w-24 py-1 my-1 text-xs font-bold text-white bg-blue-500 rounded-md sm:my-1 md:my-2 sm:text-sm md:text-md sm:w-32 md:w-40">
               SIGN UP
             </button>
-            <button className="w-24 py-1 my-1 mb-5 text-sm font-bold text-blue-500 border border-blue-500 rounded-md sm:mb-7 md:mb-10 sm:my-1 md:my-2 md:w-40 sm:w-32 sm:text-md md:text-lg">
+            <button className="w-24 py-1 my-1 mb-5 text-xs font-bold text-blue-500 border border-blue-500 rounded-md sm:mb-7 md:mb-10 sm:my-1 md:my-2 md:w-40 sm:w-32 sm:text-sm md:text-md">
               SIGN IN
             </button>
           </div>

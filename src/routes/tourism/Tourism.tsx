@@ -2,8 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import { CityContext, SetCityContext } from "../../App";
 import { CITIES_ENDPOINT } from "../home/components/CityHighlights";
 import axios from "axios";
-import Aos from "aos";
-import "aos/dist/aos.css";
 import TourismCard from "./components/TourismCard";
 import TourismInfo from "./components/TourismInfo";
 
@@ -67,10 +65,6 @@ const Tourism = () => {
   }, [cities.length, setCities]);
 
   console.log(loading);
-
-  useEffect(() => {
-    Aos.init();
-  }, []);
 
   return (
     <div className="container p-3 mx-auto">

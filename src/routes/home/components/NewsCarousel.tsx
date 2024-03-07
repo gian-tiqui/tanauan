@@ -18,7 +18,7 @@ export interface News {
   featured_media: number;
 }
 
-const MAX_PAGE_NUMS = 1;
+export const MAX_PAGE_NUMS = 1;
 
 const NewsCarousel = () => {
   const [loading, setLoading] = useState(true);

@@ -11,12 +11,9 @@ const MobileApp = () => {
       <div className="flex justify-center">
         <div className="overflow-hidden bg-white border rounded-lg shadow-lg md:grid md:grid-cols-2 sm:grid sm:grid-cols-2">
           <div
-            className="relative bg-center bg-cover md:w-full md:h-auto h-60 sm:h-72"
+            className="relative bg-center bg-cover md:w-auto md:h-full h-60 sm:h-72"
             style={{
               backgroundImage: imageURI,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
             }}
           ></div>
           <div className="flex flex-col justify-between p-4 md:p-6">

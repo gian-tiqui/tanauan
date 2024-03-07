@@ -86,7 +86,7 @@ const Cgtv = () => {
               Videos
             </h1>
           </div>
-          <div className="container flex flex-col justify-center mx-auto border rounded-lg shadow-2xl md:flex-row md:items-stretch h-96">
+          <div className="container flex flex-col justify-center mx-auto border rounded-lg md:flex-row md:items-stretch h-96">
             <div className="relative md:w-2/3">
               <iframe
                 className="inset-0 w-full h-full rounded-s-lg"
@@ -150,7 +150,7 @@ const Cgtv = () => {
             Videos
           </h1>
         </div>
-        <div className="container mx-auto border rounded-md shadow-xl">
+        <div className="container mx-auto border rounded-md">
           <div className="relative w-full mb-4">
             <iframe
               className="w-full h-52 rounded-t-md"
@@ -170,7 +170,7 @@ const Cgtv = () => {
                 <SwiperSlide key={index}>
                   <div
                     key={index}
-                    className={`cursor-pointer rounded-lg shadow-md border flex ${
+                    className={`cursor-pointer rounded-lg border flex ${
                       selectedVideoIndex === index ? "bg-gray-300" : ""
                     }`}
                     onClick={() => selectVideo(index)}
