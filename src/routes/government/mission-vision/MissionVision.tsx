@@ -9,7 +9,7 @@ const Card = ({ children }: { children: ReactNode }) => {
 
 const MissionVision = () => {
   return (
-    <>
+    <div className="pt-10">
       <LogoDivider />
       <div className="flex flex-col justify-center gap-10 px-6 pb-20 pt-52 lg:flex-row lg:px-20 lg:pt-10">
         <Card>
@@ -24,7 +24,7 @@ const MissionVision = () => {
 
           <div
             data-aos="fade-up"
-            className="px-5 py-2 bg-gray-200 rounded-b-md"
+            className="px-5 py-2 bg-gray-200 rounded-b-md h-96"
           >
             <p className="mb-6 text-lg text-center lg:text-left">
               Steered by a transparent and collective governance, it is the
@@ -60,7 +60,7 @@ const MissionVision = () => {
             <div className="py-2 mb-6 bg-gray-200 rounded-t-md">
               <h1 className="text-3xl font-bold lg:text-5xl">Vision</h1>
             </div>
-            <div className="px-5 py-2 bg-gray-200 rounded-b-md">
+            <div className="px-5 py-2 bg-gray-200 rounded-b-md h-96">
               <p className="mb-6 text-lg py-auto">
                 TANAUAN CITY 2025: A Progressive and Ecologically Balanced City
               </p>
@@ -69,7 +69,7 @@ const MissionVision = () => {
         </Card>
       </div>
       <LogoDivider />
-    </>
+    </div>
   );
 };
 

@@ -180,9 +180,7 @@ function App() {
                           <Lottie animationData={profile} />
                         </div>
                       </div>
-                      <div data-aos="fade-up">
-                        <Footer />
-                      </div>
+                      <Footer />
                     </Router>
                   </PreventContextMenu.Provider>
                 </NewsContext.Provider>

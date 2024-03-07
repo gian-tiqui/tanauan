@@ -52,17 +52,20 @@ const CityOfficials = () => {
   return (
     <div>
       <Divider text="City Officials" />
-      <div className="flex justify-center">
-        <div>
+      <div
+        data-aos="fade-up"
+        className="grid grid-cols-1 mt-20 md:flex md:justify-center md:mt-10 lg:flex lg:justify-center lg:mt-10"
+      >
+        <div className="mx-auto md:mx-0 lg:mx-0">
           <img
             src={MAYOR_IMAGE_URI}
-            className="h-auto w-80 rounded-s-lg"
+            className="w-64 h-auto md:shadow-xl lg:shadow-xl md:w-80 lg:w-80 sm:rounded-s-lg md:rounded-s-lg lg:rounded-s-lg"
             onContextMenu={preventContextMenu}
             draggable="false"
             alt="Logo"
           />
         </div>
-        <div className="p-4 max-w-40 rounded-e-lg">
+        <div className="p-4 mx-auto shadow-xl max-w-64 md:rounded-e-lg lg:rounded-e-lg md:mx-0 lg:mx-0">
           <h2>Title</h2>
           <p>
             Bilang Ama ng bawat Tanaueno, nais kong pakingan ang saloobin ng
@@ -74,8 +77,12 @@ const CityOfficials = () => {
         </div>
       </div>
 
-      <LogoDivider />
+      <div data-aos="fade-up">
+        <LogoDivider />
+      </div>
+
       <Swiper
+        data-aos="fade-up"
         spaceBetween={15}
         slidesPerView={3}
         autoplay={{

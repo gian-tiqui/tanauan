@@ -39,7 +39,7 @@ const CityOfficialCard: React.FC<CityOfficialInterface> = ({
           <img
             src={image}
             alt={title.rendered}
-            className={`w-full h-full object-cover ${
+            className={`w-full h-full  object-cover ${
               imageLoaded ? "block" : "hidden"
             }`}
             onLoad={handleImageLoad}
