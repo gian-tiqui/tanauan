@@ -1,20 +1,7 @@
-import { DepartmentsInterface } from "../Departments";
-
-interface SorterProps {
-  type: string;
-  departments: DepartmentsInterface[];
-}
-
-const Sorter = ({ type, departments }: SorterProps) => {
+const Sorter = () => {
   return (
     <div>
-      <ul>
-        {departments
-          .filter((department) => department.type === type)
-          .map((department, index) => (
-            <li key={index}>{department.name}</li>
-          ))}
-      </ul>
+      <ul></ul>
     </div>
   );
 };
