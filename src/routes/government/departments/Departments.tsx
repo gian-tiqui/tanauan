@@ -25,7 +25,7 @@ const Departments = () => {
 
           for (let pageNum = 1; pageNum <= MAX_PAGE_NUMS; pageNum++) {
             const response = await axios.get(
-              `https://tanauancity.gov.ph/wp-json/wp/v2/ova_dep${pageNum}`
+              `https://tanauancity.gov.ph/wp-json/wp/v2/ova_dep?page=${pageNum}`
             );
             allData = allData.concat(response.data);
           }
