@@ -24,7 +24,9 @@ import CityOfficials, {
   CityOfficialInterface,
 } from "./routes/government/city-officials/CityOfficials";
 import MissionVision from "./routes/government/mission-vision/MissionVision";
-import Departments from "./routes/government/departments/Departments";
+import Departments, {
+  DepartmentsInterface,
+} from "./routes/government/departments/Departments";
 import CSDWServices from "./routes/city-transactions/csdw-services/CSDWServices";
 import SeniorCitizenIdAndBenefits from "./routes/city-transactions/senior-citizen-id-and-benefits/SeniorCitizenIdAndBenefits";
 import PwdIdAndServices from "./routes/city-transactions/pwd-id-and-services/PwdIdAndServices";
@@ -61,10 +63,16 @@ export const SetCityCityOfficialContext = createContext<
   Dispatch<SetStateAction<CityOfficialInterface[]>>
 >(() => {});
 
+export const DepartmentContext = createContext<DepartmentsInterface[]>([]);
+export const SetDepartmentContext = createContext<
+  Dispatch<SetStateAction<DepartmentsInterface[]>>
+>(() => {});
+
 function App() {
   const [news, setNews] = useState<NewsInterface[]>([]);
   const [cities, setCities] = useState<CityInterface[]>([]);
   const [cityOfficial, setCityOfficial] = useState<CityOfficialInterface[]>([]);
+  const [departments, setDepartments] = useState<DepartmentsInterface[]>([]);
 
   const lottie = {
     width: 150,
@@ -152,43 +160,47 @@ function App() {
 
   return (
     <>
-      <SetCityCityOfficialContext.Provider value={setCityOfficial}>
-        <CityOfficialContext.Provider value={cityOfficial}>
-          <SetCityContext.Provider value={setCities}>
-            <CityContext.Provider value={cities}>
-              <SetNewsContext.Provider value={setNews}>
-                <NewsContext.Provider value={news}>
-                  <PreventContextMenu.Provider value={preventContextMenu}>
-                    <Router>
-                      <Navbar />
-                      <ToastContainer />
-                      <div className="relative">
-                        <Routes>
-                          {routeMaps.map((routeMap, index) => (
-                            <Route
-                              key={index}
-                              path={routeMap.path}
-                              element={routeMap.element}
-                            />
-                          ))}
-                        </Routes>
-                        <div
-                          onClick={toastIt}
-                          className="fixed bottom-2 right-2"
-                          style={lottie}
-                        >
-                          <Lottie animationData={profile} />
-                        </div>
-                      </div>
-                      <Footer />
-                    </Router>
-                  </PreventContextMenu.Provider>
-                </NewsContext.Provider>
-              </SetNewsContext.Provider>
-            </CityContext.Provider>
-          </SetCityContext.Provider>
-        </CityOfficialContext.Provider>
-      </SetCityCityOfficialContext.Provider>
+      <SetDepartmentContext.Provider value={setDepartments}>
+        <DepartmentContext.Provider value={departments}>
+          <SetCityCityOfficialContext.Provider value={setCityOfficial}>
+            <CityOfficialContext.Provider value={cityOfficial}>
+              <SetCityContext.Provider value={setCities}>
+                <CityContext.Provider value={cities}>
+                  <SetNewsContext.Provider value={setNews}>
+                    <NewsContext.Provider value={news}>
+                      <PreventContextMenu.Provider value={preventContextMenu}>
+                        <Router>
+                          <Navbar />
+                          <ToastContainer />
+                          <div className="relative">
+                            <Routes>
+                              {routeMaps.map((routeMap, index) => (
+                                <Route
+                                  key={index}
+                                  path={routeMap.path}
+                                  element={routeMap.element}
+                                />
+                              ))}
+                            </Routes>
+                            <div
+                              onClick={toastIt}
+                              className="fixed bottom-2 right-2"
+                              style={lottie}
+                            >
+                              <Lottie animationData={profile} />
+                            </div>
+                          </div>
+                          <Footer />
+                        </Router>
+                      </PreventContextMenu.Provider>
+                    </NewsContext.Provider>
+                  </SetNewsContext.Provider>
+                </CityContext.Provider>
+              </SetCityContext.Provider>
+            </CityOfficialContext.Provider>
+          </SetCityCityOfficialContext.Provider>
+        </DepartmentContext.Provider>
+      </SetDepartmentContext.Provider>
     </>
   );
 }

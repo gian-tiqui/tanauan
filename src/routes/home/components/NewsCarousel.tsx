@@ -47,8 +47,6 @@ const NewsCarousel = () => {
             id: item.id,
           }));
 
-          console.log("News modified");
-
           setNews(modifiedNews);
         }
         setLoading(false);
