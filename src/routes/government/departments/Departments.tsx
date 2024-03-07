@@ -1,75 +1,57 @@
-import Sorter from "./components/Sorter";
+import { useContext, useEffect } from "react";
+import { DepartmentContext, SetDepartmentContext } from "../../../App";
+import axios from "axios";
 
 export interface DepartmentsInterface {
-  name: string;
-  url: string;
-  type: string;
+  id: number;
+  title: { rendered: string };
+  date: string;
+  link: string;
+  content: { rendered: string };
+  featured_media: number;
 }
 
-const STATIC_DEPARTMENTS: DepartmentsInterface[] = [
-  {
-    name: "Mayor's Office",
-    url: "/",
-    type: "institutional",
-  },
-  {
-    name: "Gender and Developnent Office (GAD)",
-    url: "/",
-    type: "institutional",
-  },
-  {
-    name: "Business Permit and Licensing Office (BPLO)",
-    url: "/",
-    type: "institutional",
-  },
-  {
-    name: "Human Resource Management and Developnent Office (HRDMO)",
-    url: "/",
-    type: "institutional",
-  },
-  {
-    name: "City Social Welfare and Development Office (CSWD)",
-    url: "/",
-    type: "institutional",
-  },
-  {
-    name: "Office of the Public Market (OPM)",
-    url: "/",
-    type: "institutional",
-  },
-  {
-    name: "Management Information Office (MIS)",
-    url: "/",
-    type: "institutional",
-  },
-  {
-    name: "Traffice Management Office (TMO)",
-    url: "/",
-    type: "social",
-  },
-  {
-    name: "Sports Development Office (SDO)",
-    url: "/",
-    type: "social",
-  },
-  {
-    name: "City Engineering Office",
-    url: "/",
-    type: "infrastructure",
-  },
-  {
-    name: "Office of the Building Official (OBO)",
-    url: "/",
-    type: "infrastructure",
-  },
-];
+export const MAX_PAGE_NUMS = 2;
 
 const Departments = () => {
-  return (
-    <div className="container px-3 mx-auto">
-      <Sorter departments={STATIC_DEPARTMENTS} type="institutional" />
-    </div>
-  );
+  const departments = useContext(DepartmentContext);
+  const setDepartments = useContext(SetDepartmentContext);
+
+  useEffect(() => {
+    const fetchDepartments = async () => {
+      try {
+        if (departments.length === 0) {
+          let allData: DepartmentsInterface[] = [];
+
+          for (let pageNum = 1; pageNum <= MAX_PAGE_NUMS; pageNum++) {
+            const response = await axios.get(
+              `https://tanauancity.gov.ph/wp-json/wp/v2/ova_dep${pageNum}`
+            );
+            allData = allData.concat(response.data);
+          }
+
+          const modifiedDeps: DepartmentsInterface[] = allData.map(
+            (item: DepartmentsInterface) => ({
+              title: item.title,
+              date: item.date,
+              link: `/departments/${item.id}`,
+              content: item.content,
+              featured_media: item.featured_media,
+              id: item.id,
+            })
+          );
+
+          console.log(modifiedDeps);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchDepartments();
+  }, [departments.length, setDepartments]);
+
+  return <div className="container px-3 mx-auto"></div>;
 };
 
 export default Departments;
