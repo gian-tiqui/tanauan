@@ -46,10 +46,10 @@ const Navbar = () => {
 
   return (
     <nav>
-      <div className="hidden sm:relative md:relative lg:relative sm:hidden md:block lg:block">
+      <div className="hidden sm:relative md:relative lg:relative sm:hidden md:hidden lg:block">
         <div className="flex justify-center">
           <div>
-            <div className="flex justify-between">
+            <div className="flex justify-center">
               <div>
                 <img
                   src={logo}
@@ -59,7 +59,6 @@ const Navbar = () => {
                   alt="Logo"
                 />
               </div>
-              <div className="bg-black">hi</div>
             </div>
 
             <h2 className="text-2xl font-bold text-center text-red-600 ">
@@ -259,7 +258,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className="block sm:block md:hidden lg:hidden">
+      <div className="block sm:block md:block lg:hidden">
         <div className="flex justify-between flex-1 py-2">
           <div className="flex items-center flex-1">
             <img src="../../../logo.png" className="w-16 h-13" alt="Logo" />
