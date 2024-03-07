@@ -13,7 +13,7 @@ const useOnScreen = (ref: React.RefObject<HTMLDivElement>) => {
       {
         root: null,
         rootMargin: "0px",
-        threshold: 0.5, // Change this threshold as needed
+        threshold: 0.5,
       }
     );
     if (ref.current) {
@@ -39,9 +39,9 @@ const SquareUpdates: React.FC<Updates> = (
     >
       <div className="flex flex-col items-center justify-center w-full h-full p-10 border border-white rounded-xl">
         <CountUp
-          start={0}
+          start={0.3}
           end={isVisible ? val : 0}
-          duration={2}
+          duration={1}
           separator=","
           className="overflow-hidden text-lg leading-tight text-center sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-ellipsis whitespace-nowrap"
         />

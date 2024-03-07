@@ -49,13 +49,19 @@ const Navbar = () => {
       <div className="hidden sm:relative md:relative lg:relative sm:hidden md:block lg:block">
         <div className="flex justify-center">
           <div>
-            <img
-              src={logo}
-              className="mx-auto h-80 w-80"
-              onContextMenu={preventContextMenu}
-              draggable="false"
-              alt="Logo"
-            />
+            <div className="flex justify-between">
+              <div>
+                <img
+                  src={logo}
+                  className="h-80 w-80"
+                  onContextMenu={preventContextMenu}
+                  draggable="false"
+                  alt="Logo"
+                />
+              </div>
+              <div className="bg-black">hi</div>
+            </div>
+
             <h2 className="text-2xl font-bold text-center text-red-600 ">
               CITY GOVERNMENT OF TANAUAN
             </h2>

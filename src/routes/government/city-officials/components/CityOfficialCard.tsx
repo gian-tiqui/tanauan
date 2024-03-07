@@ -35,7 +35,7 @@ const CityOfficialCard: React.FC<CityOfficialInterface> = ({
   return (
     <div className="relative overflow-hidden border rounded-lg shadow-xl border-2xl">
       {(image || image === "") && (
-        <div className="h-32 bg-center bg-contain sm:h-32 md:h-40">
+        <div className="h-full bg-center bg-contain">
           <img
             src={image}
             alt={title.rendered}
@@ -56,7 +56,7 @@ const CityOfficialCard: React.FC<CityOfficialInterface> = ({
           {title.rendered}
         </p>
         <Link
-          className="self-end w-20 py-1 mt-4 text-xs text-center text-white bg-red-500 border rounded-md sm:px-1 sm:truncate md:font-bold lg:font-bold hover:bg-red-600 sm:w-16 md:w-24 lg:28 sm:text-xs md:text-sm lg:text-md"
+          className="self-start w-20 py-1 mt-4 text-xs text-center text-white bg-red-500 border rounded-md sm:px-1 sm:truncate md:font-bold lg:font-bold hover:bg-red-600 sm:w-16 md:w-24 lg:28 sm:text-xs md:text-sm lg:text-md"
           to={link}
         >
           Read more

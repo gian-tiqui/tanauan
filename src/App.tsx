@@ -35,6 +35,7 @@ import FullDisclosureReport from "./routes/transparency-reports/full-disclosure-
 import JobFair from "./routes/careers/job-fair/JobFair";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import Footer from "./routes/home/components/Footer";
 
 interface RouteMapping {
   path: string;
@@ -178,6 +179,9 @@ function App() {
                         >
                           <Lottie animationData={profile} />
                         </div>
+                      </div>
+                      <div data-aos="fade-up">
+                        <Footer />
                       </div>
                     </Router>
                   </PreventContextMenu.Provider>
