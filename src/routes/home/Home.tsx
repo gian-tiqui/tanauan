@@ -7,7 +7,6 @@ import CityHighlights from "./components/CityHighlights";
 import LogoDivider from "./components/LogoDivider";
 import Cgtv from "./components/CGTV";
 import VideoHeader from "./components/VideoHeader";
-import Footer from "./components/Footer";
 
 const Home = () => {
   return (
@@ -15,34 +14,33 @@ const Home = () => {
       <div id="video-header">
         <VideoHeader />
       </div>
-      <div id="divider-news">
+      <div data-aos="fade-up" id="divider-news">
         <Divider text="News & Publication" />
       </div>
-      <div id="news-carousel">
+      <div data-aos="fade-up" id="news-carousel">
         <NewsCarousel />
       </div>
-      <div id="divider-more-news">
+      <div data-aos="fade-up" id="divider-more-news">
         <Divider text="More news" />
       </div>
-      <div id="public-services">
+      <div data-aos="fade-up" id="public-services">
         <PublicServices />
       </div>
-      <div id="mobile-app">
+      <div data-aos="fade-up" id="mobile-app">
         <MobileApp />
       </div>
-      <div id="logo-divider">
+      <div data-aos="fade-up" id="logo-divider">
         <LogoDivider />
       </div>
-      <div id="cgtv">
+      <div data-aos="fade-up" id="cgtv">
         <Cgtv />
       </div>
-      <div id="status-updates">
+      <div data-aos="fade-up" id="status-updates">
         <StatusUpdates />
       </div>
-      <div id="city-highlights">
+      <div data-aos="fade-up" id="city-highlights">
         <CityHighlights />
       </div>
-      <Footer />
     </div>
   );
 };
