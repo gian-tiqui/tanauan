@@ -1,4 +1,4 @@
-import { ChangeEvent, useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { PreventContextMenu } from "../../App";
 import { useSpring, animated } from "@react-spring/web";
@@ -6,15 +6,10 @@ import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import logo from "../../assets/tanauan_logo.png";
 
 const Navbar = () => {
-  const [searchTxt, setSearchTxt] = useState<string>("");
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
   const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
   const preventContextMenu = useContext(PreventContextMenu);
   const inputRef = useRef<HTMLInputElement>(null);
-
-  const handleSearchTextChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setSearchTxt(e.target.value);
-  };
 
   const handleToggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -258,25 +253,13 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* mobile screen */}
-
       <div className="block sm:block md:hidden lg:hidden">
         <div className="flex justify-between flex-1 py-2">
           <div className="flex items-center flex-1">
             <img src="../../../logo.png" className="w-16 h-13" alt="Logo" />
             <h2 className="text-sm font-bold">TANAUAN</h2>
           </div>
-          <div className="flex justify-center">
-            <div className="container mx-auto my-auto">
-              <input
-                type="text"
-                className="h-6 max-w-xs px-3 my-auto ml-8 border border-black rounded-md w-28"
-                placeholder="Search..."
-                onChange={handleSearchTextChange}
-                value={searchTxt}
-              />
-            </div>
-          </div>
+
           <div
             className="flex items-center justify-end flex-1"
             onClick={handleToggleSidebar}
