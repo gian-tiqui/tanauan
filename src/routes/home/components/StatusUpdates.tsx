@@ -1,4 +1,5 @@
 import SquareUpdates from "./SquareUpdates";
+import statusBg from "../../../assets/status-bg.png";
 
 export interface Updates {
   val: number;
@@ -31,11 +32,16 @@ const StatusUpdates = () => {
   ];
 
   return (
-    <div className="flex flex-col items-center justify-center pt-5 mt-10 text-center sm:mt-20 sm:pt-7 md:mt-32 md:pt-10 pb-7 sm:pb-10 md:pb-20 bg-slate-950">
-      <p className="text-lg font-bold text-white sm:text-xl md:text-2xl">
+    <div
+      className="flex flex-col items-center justify-center pt-5 mt-10 text-center bg-center bg-no-repeat bg-cover sm:mt-20 sm:pt-7 md:mt-32 md:pt-10 pb-7 sm:pb-10 md:pb-20"
+      style={{
+        backgroundImage: `url(${statusBg})`,
+      }}
+    >
+      <p className="text-lg font-bold text-red-800 sm:text-xl md:text-2xl">
         Status Updates as of 2023
       </p>
-      <div className="flex flex-wrap mt-16 text-white sm:flex-wrap">
+      <div className="flex flex-wrap mt-16 text-red-800 sm:flex-wrap">
         {updates.map((update, index) => (
           <SquareUpdates {...update} key={index} />
         ))}

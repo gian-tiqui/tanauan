@@ -66,7 +66,7 @@ const NewsCarousel = () => {
             <Swiper
               spaceBetween={15}
               slidesPerView={3}
-              className="p-10 mt-10 mySwiper sm:mx-5 md:mx-5 lg:mx-44"
+              className="p-10 mt-10 sm:mx-5 md:mx-5 lg:mx-44"
             >
               <SwiperSlide>
                 <CardSkeleton />
@@ -83,7 +83,7 @@ const NewsCarousel = () => {
             <Swiper
               spaceBetween={15}
               slidesPerView={1}
-              className="p-10 mt-10 mySwiper sm:mx-5 md:mx-5 lg:mx-44"
+              className="p-10 mt-10 sm:mx-5 md:mx-5 lg:mx-44"
             >
               <SwiperSlide>
                 <CardSkeleton />
@@ -103,7 +103,7 @@ const NewsCarousel = () => {
               }}
               modules={[Autoplay, Pagination, Navigation]}
               loop={true}
-              className="p-10 mt-10 mySwiper sm:mx-5 md:mx-5 lg:mx-44"
+              className="p-10 mt-10 sm:mx-5 md:mx-5 lg:mx-44"
             >
               {news.map((ns, index) => (
                 <SwiperSlide key={index}>
@@ -129,7 +129,7 @@ const NewsCarousel = () => {
               }}
               modules={[Autoplay, Pagination, Navigation]}
               loop={true}
-              className="p-5 mx-3 mt-10 mySwiper sm:mx-5 md:mx-5 lg:mx-44"
+              className="p-5 mx-3 mt-10 sm:mx-5 md:mx-5 lg:mx-44"
             >
               {news.map((ns, index) => (
                 <SwiperSlide key={index}>
