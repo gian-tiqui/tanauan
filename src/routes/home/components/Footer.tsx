@@ -2,10 +2,11 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="bg-slate-950">
-      <div className="mt-32 md:flex lg:flex">
+    <div>
+      <div className="h-8 mt-32 bg-red-700"></div>
+      <div className="md:flex lg:flex">
         <div className="flex-1 pt-7 pl-7">
-          <p className="font-bold text-white text-md">STAY CONNECTED</p>
+          <p className="font-bold text-black text-md">STAY CONNECTED</p>
 
           <div className="flex gap-24 mt-6">
             <ul className="mt-5 text-sm text-white sm:text-base md:text-lg">
@@ -55,9 +56,9 @@ const Footer = () => {
           </div>
         </div>
         <div className="flex-1 pt-7 pl-7">
-          <p className="font-bold text-white text-md">LINKS</p>
+          <p className="font-bold text-black text-md">LINKS</p>
           <div className="flex gap-24 mt-6">
-            <ul className="mt-5 text-white sm:text-sm md:text-lg">
+            <ul className="mt-5 text-black sm:text-sm md:text-lg">
               <li>
                 <Link to="/">Goverment</Link>
               </li>
@@ -77,7 +78,7 @@ const Footer = () => {
                 <Link to="/">Departments</Link>
               </li>
             </ul>
-            <ul className="mt-5 text-white sm:text-sm md:text-lg">
+            <ul className="mt-5 text-black sm:text-sm md:text-lg">
               <li>
                 <Link to="/">Departments</Link>
               </li>
@@ -98,14 +99,14 @@ const Footer = () => {
         </div>
       </div>
       <hr className="mt-12" />
-      <div className="flex justify-center">
+      <div className="flex justify-center bg-red-700">
         <Link to="/" className="my-1 text-sm text-white sm:text-sm md:text-lg">
           Talisay - Tanauan Rd, Tanauan, 4232 Batangas | Maps
         </Link>
       </div>
       <hr />
       <div className="flex justify-center">
-        <Link to="/" className="my-3 text-sm text-white sm:text-sm md:text-lg">
+        <Link to="/" className="my-3 text-sm text-black sm:text-sm md:text-lg">
           TANAUAN CITY GOVERMENT© 2022 All Rights Reserved
         </Link>
       </div>

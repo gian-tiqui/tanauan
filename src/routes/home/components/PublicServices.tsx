@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import { PreventContextMenu } from "../../../App";
+import servicesBg from "../../../assets/services-bg.png";
 
 interface Services {
   title: string;
@@ -49,9 +50,17 @@ const PublicServices = () => {
   const preventMenu = useContext(PreventContextMenu);
 
   return (
-    <div className="mt-10 bg-slate-900">
+    <div
+      className="mt-20"
+      style={{
+        backgroundImage: `url(${servicesBg})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+      }}
+    >
       <div className="container px-3 pt-6 mx-auto sm:pt-8 md:pt-10">
-        <p className="font-bold text-center text-white text-md sm:text-md md:text-lg lg:text-2xl mb-14">
+        <p className="font-bold text-center text-white text-md sm:text-md md:text-lg mb-14">
           The City's Modern Public Services
         </p>
         <div className="flex justify-center gap-20 text-white">
@@ -75,10 +84,10 @@ const PublicServices = () => {
                     className="w-20 h-20 mx-auto sm:w-24 sm:h-24 md:w-32 md:h-32"
                     onContextMenu={preventMenu}
                   />
-                  <p className="max-w-xs mx-auto mt-5 text-sm font-bold text-center truncate sm:text-xs md:text-7">
+                  <p className="max-w-xs mx-auto mt-5 text-sm font-bold text-center text-black truncate sm:text-xs md:text-lg">
                     {service.title}
                   </p>
-                  <p className="max-w-xs mx-auto text-xs text-center truncate sm:text-xs md:text-sm">
+                  <p className="max-w-xs mx-auto text-xs text-center text-black truncate sm:text-sm md:text-md lg:text-lg">
                     {service.description}
                   </p>
                 </div>
@@ -87,7 +96,7 @@ const PublicServices = () => {
           </Swiper>
         </div>
         <div className="container px-8 mx-auto mt-16 sm:mt-24 sm:px-0">
-          <p className="text-sm font-bold text-center text-white md:text-base lg:text-lg">
+          <p className="text-sm font-bold text-center text-black md:text-base lg:text-lg">
             The Official eService Portal of Tanauan City, created to provide
             citizens of Tanauan City a convenient one-stop solution platform for
             online services and information.
@@ -96,10 +105,10 @@ const PublicServices = () => {
 
         <div className="container flex justify-center mx-auto">
           <div className="flex flex-col mt-3 sm:mt-5 md:mt-10">
-            <button className="w-24 py-1 my-1 text-xs font-bold text-white bg-blue-500 rounded-md sm:my-1 md:my-2 sm:text-sm md:text-md sm:w-32 md:w-40">
+            <button className="w-24 py-1 my-1 text-xs font-bold text-white bg-blue-900 rounded-md sm:my-1 md:my-2 sm:text-sm md:text-md sm:w-32 md:w-40">
               SIGN UP
             </button>
-            <button className="w-24 py-1 my-1 mb-5 text-xs font-bold text-blue-500 border border-blue-500 rounded-md sm:mb-7 md:mb-10 sm:my-1 md:my-2 md:w-40 sm:w-32 sm:text-sm md:text-md">
+            <button className="w-24 py-1 my-1 mb-5 text-xs font-bold text-blue-900 border border-blue-900 rounded-md sm:mb-7 md:mb-10 sm:my-1 md:my-2 md:w-40 sm:w-32 sm:text-sm md:text-md">
               SIGN IN
             </button>
           </div>

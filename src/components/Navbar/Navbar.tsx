@@ -61,7 +61,7 @@ const Navbar = () => {
               </div>
             </div>
 
-            <h2 className="text-2xl font-bold text-center text-red-600 ">
+            <h2 className="text-2xl font-bold text-center text-red-700">
               CITY GOVERNMENT OF TANAUAN
             </h2>
             <p className="mb-8 text-center text-md">
@@ -69,7 +69,7 @@ const Navbar = () => {
             </p>
           </div>
         </div>
-        <div className="flex justify-center py-3 bg-red-600">
+        <div className="flex justify-center py-3 bg-red-700">
           <div className="flex justify-between">
             <Link
               to={"/"}
