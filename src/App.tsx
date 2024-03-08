@@ -39,11 +39,12 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import Footer from "./routes/home/components/Footer";
 
+//kahit ano
+
 interface RouteMapping {
   path: string;
   element: ReactNode;
 }
-//kahit ano
 export const PreventContextMenu = createContext<
   MouseEventHandler<HTMLImageElement> | undefined
 >(undefined);
