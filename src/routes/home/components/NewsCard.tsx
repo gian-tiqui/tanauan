@@ -68,7 +68,7 @@ const NewsCard: React.FC<News> = ({ title, date, link, featured_media }) => {
         </p>
         <p className="text-xs text-gray-600 sm:text-sm">{formattedDate}</p>
         <Link
-          className="self-end w-20 py-1 mt-4 text-xs text-center text-white bg-red-500 border rounded-md sm:px-1 sm:truncate md:font-bold lg:font-bold hover:bg-red-600 sm:w-16 md:w-24 lg:28 sm:text-xs md:text-sm lg:text-md"
+          className="self-end w-20 py-1 mt-4 text-xs text-center text-white bg-red-700 border rounded-md sm:px-1 sm:truncate md:font-bold lg:font-bold hover:bg-red-600 sm:w-16 md:w-24 lg:28 sm:text-xs md:text-sm lg:text-md"
           to={link}
         >
           Read more
