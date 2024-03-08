@@ -1,12 +1,14 @@
 import { useContext, useEffect, useState } from "react";
 import Divider from "../home/components/Divider";
-import { NewsContext, SetNewsContext } from "../../App";
 import NewsCard from "../home/components/NewsCard";
-import {
-  MAX_PAGE_NUMS,
-  News as NewsInterface,
-} from "../home/components/NewsCarousel";
+import { News as NewsInterface } from "../home/components/NewsCarousel";
 import axios, { AxiosResponse } from "axios";
+import {
+  NewsContext,
+  SetNewsContext,
+} from "../../context-container/ContextContainer";
+
+const DATA_PER_PAGE = 20;
 
 const Fcategory = () => {
   const [loading, setLoading] = useState(true);
@@ -17,29 +19,15 @@ const Fcategory = () => {
     const fetchData = async () => {
       try {
         if (news.length === 0) {
-          let allData: NewsInterface[] = [];
-
-          for (let pageNum = 1; pageNum <= MAX_PAGE_NUMS; pageNum++) {
-            const response: AxiosResponse<NewsInterface[]> = await axios.get(
-              `https://tanauancity.gov.ph/wp-json/wp/v2/posts?page=${pageNum}`
-            );
-            allData = allData.concat(response.data);
-          }
-
-          const modifiedNews: NewsInterface[] = allData.map(
-            (item: NewsInterface) => ({
-              title: item.title,
-              date: item.date,
-              link: `/news/${item.id}`,
-              content: item.content,
-              featured_media: item.featured_media,
-              id: item.id,
-            })
+          const response: AxiosResponse<NewsInterface[]> = await axios.get(
+            `https://tanauancity.gov.ph/wp-json/wp/v2/posts?per_page=${DATA_PER_PAGE}`
           );
 
-          console.log("News modified");
+          const data = response.data;
 
-          setNews(modifiedNews);
+          setNews(data);
+
+          console.log("News modified");
         }
         setLoading(false);
       } catch (error) {

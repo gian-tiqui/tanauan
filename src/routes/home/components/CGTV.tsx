@@ -197,7 +197,7 @@ const Cgtv = () => {
           <img
             onContextMenu={preventMenu}
             alt="cgtv"
-            className="relative mx-auto bottom-14 left-28 w-44"
+            className="relative mx-auto bottom-14 w-44"
             src="https://tanauancity.gov.ph/wp-content/uploads/2023/01/FULL-1-e1673327794248-600x229.png"
           />
         </div>

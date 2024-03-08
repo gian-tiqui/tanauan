@@ -7,7 +7,10 @@ import "swiper/css/bundle";
 import axios, { AxiosResponse } from "axios";
 import News from "../../news-article/NewsArticle";
 import CardSkeleton from "./NewsCardSkeleton";
-import { NewsContext, SetNewsContext } from "../../../App";
+import {
+  NewsContext,
+  SetNewsContext,
+} from "../../../context-container/ContextContainer";
 
 export interface News {
   id: number;
@@ -18,7 +21,7 @@ export interface News {
   featured_media: number;
 }
 
-export const MAX_PAGE_NUMS = 1;
+const DATA_PER_PAGE = 20;
 
 const NewsCarousel = () => {
   const [loading, setLoading] = useState(true);
@@ -28,26 +31,16 @@ const NewsCarousel = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        const NEWS_ENDPOINT = `https://tanauancity.gov.ph/wp-json/wp/v2/posts?per_page=${DATA_PER_PAGE}`;
+
         if (news.length === 0) {
-          let allData: News[] = [];
+          const response: AxiosResponse<News[]> = await axios.get(
+            NEWS_ENDPOINT
+          );
 
-          for (let pageNum = 1; pageNum <= MAX_PAGE_NUMS; pageNum++) {
-            const response: AxiosResponse<News[]> = await axios.get(
-              `https://tanauancity.gov.ph/wp-json/wp/v2/posts?page=${pageNum}`
-            );
-            allData = allData.concat(response.data);
-          }
+          const data = response.data;
 
-          const modifiedNews: News[] = allData.map((item: News) => ({
-            title: item.title,
-            date: item.date,
-            link: `/news/${item.id}`,
-            content: item.content,
-            featured_media: item.featured_media,
-            id: item.id,
-          }));
-
-          setNews(modifiedNews);
+          setNews(data);
         }
         setLoading(false);
       } catch (error) {
