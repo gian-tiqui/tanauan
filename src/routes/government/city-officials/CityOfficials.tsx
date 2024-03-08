@@ -1,9 +1,5 @@
 import { useContext, useEffect } from "react";
-import {
-  CityOfficialContext,
-  PreventContextMenu,
-  SetCityCityOfficialContext,
-} from "../../../App";
+import { PreventContextMenu } from "../../../App";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
@@ -12,6 +8,10 @@ import axios from "axios";
 import CityOfficialCard from "./components/CityOfficialCard";
 import Divider from "../../home/components/Divider";
 import LogoDivider from "../../home/components/LogoDivider";
+import {
+  CityOfficialContext,
+  SetCityCityOfficialContext,
+} from "../../../context-container/ContextContainer";
 
 export interface CityOfficialInterface {
   id: number;

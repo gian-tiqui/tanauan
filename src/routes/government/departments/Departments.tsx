@@ -1,6 +1,9 @@
 import { useContext, useEffect } from "react";
-import { DepartmentContext, SetDepartmentContext } from "../../../App";
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
+import {
+  DepartmentContext,
+  SetDepartmentContext,
+} from "../../../context-container/ContextContainer";
 
 export interface DepartmentsInterface {
   id: number;
@@ -11,7 +14,7 @@ export interface DepartmentsInterface {
   featured_media: number;
 }
 
-export const MAX_PAGE_NUMS = 2;
+export const DATA_PER_PAGE = 11;
 
 const Departments = () => {
   const departments = useContext(DepartmentContext);
@@ -21,27 +24,14 @@ const Departments = () => {
     const fetchDepartments = async () => {
       try {
         if (departments.length === 0) {
-          let allData: DepartmentsInterface[] = [];
+          const DEPS_ENDPOINT = `https://tanauancity.gov.ph/wp-json/wp/v2/ova_dep?per_page=${DATA_PER_PAGE}`;
 
-          for (let pageNum = 1; pageNum <= MAX_PAGE_NUMS; pageNum++) {
-            const response = await axios.get(
-              `https://tanauancity.gov.ph/wp-json/wp/v2/ova_dep?page=${pageNum}`
-            );
-            allData = allData.concat(response.data);
-          }
+          const response: AxiosResponse<DepartmentsInterface[]> =
+            await axios.get(DEPS_ENDPOINT);
 
-          const modifiedDeps: DepartmentsInterface[] = allData.map(
-            (item: DepartmentsInterface) => ({
-              title: item.title,
-              date: item.date,
-              link: `/departments/${item.id}`,
-              content: item.content,
-              featured_media: item.featured_media,
-              id: item.id,
-            })
-          );
+          const data = response.data;
 
-          console.log(modifiedDeps);
+          console.log(data);
         }
       } catch (error) {
         console.log(error);

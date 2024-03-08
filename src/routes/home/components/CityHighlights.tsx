@@ -5,8 +5,11 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/bundle";
 import axios from "axios";
-import { CityContext, SetCityContext } from "../../../App";
 import CityCardSkeleton from "./CityCardSkeleton";
+import {
+  CityContext,
+  SetCityContext,
+} from "../../../context-container/ContextContainer";
 
 export interface City {
   id: number;

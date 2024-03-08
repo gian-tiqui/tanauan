@@ -1,9 +1,12 @@
 import { useContext, useEffect, useState } from "react";
-import { CityContext, SetCityContext } from "../../App";
 import { CITIES_ENDPOINT } from "../home/components/CityHighlights";
 import axios from "axios";
 import TourismCard from "./components/TourismCard";
 import TourismInfo from "./components/TourismInfo";
+import {
+  CityContext,
+  SetCityContext,
+} from "../../context-container/ContextContainer";
 
 interface Info {
   title: string;
