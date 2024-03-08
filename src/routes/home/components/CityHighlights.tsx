@@ -56,7 +56,7 @@ const CityHighlights = () => {
               <Swiper
                 spaceBetween={15}
                 slidesPerView={3}
-                className="p-10 mt-10 mySwiper sm:mx-5 md:mx-5 lg:mx-44"
+                className="p-10 mt-10 sm:mx-5 md:mx-5 lg:mx-44"
               >
                 <SwiperSlide>
                   <CityCardSkeleton />
@@ -73,7 +73,7 @@ const CityHighlights = () => {
               <Swiper
                 spaceBetween={15}
                 slidesPerView={1}
-                className="p-10 mt-10 mySwiper sm:mx-5 md:mx-5 lg:mx-44"
+                className="p-10 mt-10 sm:mx-5 md:mx-5 lg:mx-44"
               >
                 <SwiperSlide>
                   <CityCardSkeleton />
@@ -93,7 +93,7 @@ const CityHighlights = () => {
                 }}
                 modules={[Autoplay, Pagination, Navigation]}
                 loop={true}
-                className="mx-5 mt-10 mySwiper sm:mx-5 md:mx-5 lg:mx-44"
+                className="mx-5 mt-10 sm:mx-5 md:mx-5 lg:mx-44"
               >
                 {cities.map((c, index) => (
                   <SwiperSlide key={index}>
@@ -112,7 +112,7 @@ const CityHighlights = () => {
                 }}
                 modules={[Autoplay, Pagination, Navigation]}
                 loop={true}
-                className="mx-5 mt-10 mySwiper sm:mx-5 md:mx-5 lg:mx-44"
+                className="mx-5 mt-10 sm:mx-5 md:mx-5 lg:mx-44"
               >
                 {cities.map((c, index) => (
                   <SwiperSlide key={index}>

@@ -37,10 +37,10 @@ const SquareUpdates: React.FC<Updates> = (
       key={key}
       ref={countUpRef}
     >
-      <div className="flex flex-col items-center justify-center w-full h-full p-10 border border-white rounded-xl">
+      <div className="flex flex-col items-center justify-center w-full h-full p-10 border border-red-800 rounded-xl">
         <CountUp
           start={0.3}
-          end={isVisible ? val : 0}
+          end={isVisible ? val : val / 10}
           duration={1}
           separator=","
           className="overflow-hidden text-lg leading-tight text-center sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-ellipsis whitespace-nowrap"

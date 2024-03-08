@@ -51,12 +51,9 @@ const PublicServices = () => {
 
   return (
     <div
-      className="mt-20"
+      className="mt-20 bg-center bg-no-repeat bg-cover"
       style={{
         backgroundImage: `url(${servicesBg})`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
       }}
     >
       <div className="container px-3 pt-6 mx-auto sm:pt-8 md:pt-10">
@@ -65,7 +62,7 @@ const PublicServices = () => {
         </p>
         <div className="flex justify-center gap-20 text-white">
           <Swiper
-            spaceBetween={30}
+            spaceBetween={1}
             slidesPerView={3}
             autoplay={{
               delay: 2000,
@@ -73,7 +70,6 @@ const PublicServices = () => {
             }}
             modules={[Autoplay, Pagination, Navigation]}
             loop={true}
-            className="mySwiper"
           >
             {servicesRef.current?.map((service, index) => (
               <SwiperSlide key={index}>
@@ -108,7 +104,7 @@ const PublicServices = () => {
             <button className="w-24 py-1 my-1 text-xs font-bold text-white bg-blue-900 rounded-md sm:my-1 md:my-2 sm:text-sm md:text-md sm:w-32 md:w-40">
               SIGN UP
             </button>
-            <button className="w-24 py-1 my-1 mb-5 text-xs font-bold text-blue-900 border border-blue-900 rounded-md sm:mb-7 md:mb-10 sm:my-1 md:my-2 md:w-40 sm:w-32 sm:text-sm md:text-md">
+            <button className="w-24 py-1 my-1 mb-5 text-xs font-bold text-blue-900 bg-white border border-blue-900 rounded-md sm:mb-7 md:mb-10 sm:my-1 md:my-2 md:w-40 sm:w-32 sm:text-sm md:text-md">
               SIGN IN
             </button>
           </div>
