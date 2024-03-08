@@ -43,7 +43,7 @@ interface RouteMapping {
   path: string;
   element: ReactNode;
 }
-
+//kahit ano
 export const PreventContextMenu = createContext<
   MouseEventHandler<HTMLImageElement> | undefined
 >(undefined);
