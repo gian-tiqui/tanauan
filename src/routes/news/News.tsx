@@ -1,122 +1,33 @@
-import { useContext, useEffect, useState } from "react";
 import Divider from "../home/components/Divider";
-import NewsCard from "../home/components/NewsCard";
-import { News as NewsInterface } from "../home/components/NewsCarousel";
-import axios, { AxiosResponse } from "axios";
-import {
-  NewsContext,
-  SetNewsContext,
-} from "../../context-container/ContextContainer";
-
-const DATA_PER_PAGE = 20;
-
-const Fcategory = () => {
-  const [loading, setLoading] = useState(true);
-  const news = useContext(NewsContext);
-  const setNews = useContext(SetNewsContext);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        if (news.length === 0) {
-          const response: AxiosResponse<NewsInterface[]> = await axios.get(
-            `https://tanauancity.gov.ph/wp-json/wp/v2/posts?per_page=${DATA_PER_PAGE}`
-          );
-
-          const data = response.data;
-
-          setNews(data);
-
-          console.log("News modified");
-        }
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
-  }, [news.length, setNews]);
-
-  console.log(loading);
-
-  return (
-    <div className="grid grid-cols-3 grid-rows-3 gap-4">
-      {news.map((ns, newsI) => (
-        <NewsCard key={newsI} {...ns} />
-      ))}
-    </div>
-  );
-};
-
-const Scategory = () => {
-  return (
-    <div className="flex items-center justify-center h-screen">category 2</div>
-  );
-};
-
-const Tcategory = () => {
-  return (
-    <div className="flex items-center justify-center h-screen">category 3</div>
-  );
-};
+import LatestNewsContainer from "./components/LatestNewsContainer";
 
 const News = () => {
-  const categories = ["Category 1", "Category 2", "Category 3"];
-  const [showCat1, setShowCat1] = useState<boolean>(true);
-  const [showCat2, setShowCat2] = useState<boolean>(false);
-  const [showCat3, setShowCat3] = useState<boolean>(false);
-
-  const handleChangeCategory = (category: string) => {
-    switch (category) {
-      case "Category 1":
-        setShowCat1(true);
-        setShowCat2(false);
-        setShowCat3(false);
-        break;
-      case "Category 2":
-        setShowCat1(false);
-        setShowCat2(true);
-        setShowCat3(false);
-        break;
-      case "Category 3":
-        setShowCat1(false);
-        setShowCat2(false);
-        setShowCat3(true);
-        break;
-    }
-  };
-
   return (
     <>
       <Divider text="News" />
       <div className="container px-3 mx-auto mt-10 sm:px-5 md:px-7 lg:px-32">
-        <div className="grid grid-cols-3 border-t-2 border-black">
-          <div className="col-span-2">
+        <div className="grid md:grid-cols-3 lg:grid-cols-3">
+          <div className="border-t-2 border-black md:col-span-2 lg:col-span-2">
             <div className="h-screen border-r-2 border-black">
               <div className="flex justify-start gap-10 pl-2 border-b-2 border-black">
-                {categories.map((category, index) => (
-                  <button
-                    key={index}
-                    onClick={() => handleChangeCategory(category)}
-                  >
-                    {category}
-                  </button>
-                ))}
+                {Array(3)
+                  .fill(3)
+                  .map((_, i) => (
+                    <p key={i}>hi</p>
+                  ))}
               </div>
-              <div className="p-2">
-                {showCat1 && <Fcategory />}
-                {showCat2 && <Scategory />}
-                {showCat3 && <Tcategory />}
-              </div>
+              <div className="p-2"></div>
             </div>
           </div>
-          <div className="col-span-1 px-4 pt-4">
+          <div className="hidden col-span-1 px-4 pt-4 border-t-2 border-black sm:block md:block lg:block">
             <div className="grid gap-4 grid-cols">
-              <div className="p-4 shadow-lg rounded-2xl h-52">
-                alknalknsdanklskldn
+              <div className="p-4 shadow-lg rounded-2xl">
+                <p className="mb-3 text-lg font-bold">Latest News</p>
+                <LatestNewsContainer />
               </div>
-              <div className="p-4 shadow-lg rounded-2xl h-52">aksdbjnjksaj</div>
+              <div className="p-4 shadow-lg rounded-2xl h-52">
+                aksdbjnjkasdasssaj
+              </div>
             </div>
           </div>
         </div>
