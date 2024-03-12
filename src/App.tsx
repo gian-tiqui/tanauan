@@ -17,7 +17,6 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import NewsArticle from "./routes/news-article/NewsArticle";
 import News from "./routes/news/News";
-
 import Barangays from "./routes/barangays/Barangays";
 import CityOfficials from "./routes/government/city-officials/CityOfficials";
 import MissionVision from "./routes/government/mission-vision/MissionVision";
@@ -37,6 +36,7 @@ import ContextContainer from "./context-container/ContextContainer";
 import footerBg from "./assets/footer-bg.png";
 import SignIn from "./routes/auth/sign-in/SignIn";
 import SignUp from "./routes/auth/sign-up/SignUp";
+import ScrollToTop from "./components/ScrollToTop";
 
 interface RouteMapping {
   path: string;
@@ -55,6 +55,81 @@ export const PreventContextMenu = createContext<
   MouseEventHandler<HTMLImageElement> | undefined
 >(undefined);
 
+const routeMaps: RouteMapping[] = [
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/barangays",
+    element: <Barangays />,
+  },
+  {
+    path: "/tourism",
+    element: <Tourism />,
+  },
+  {
+    path: "/news",
+    element: <News />,
+  },
+  {
+    path: "/news/:id",
+    element: <NewsArticle />,
+  },
+  {
+    path: "/city-officials",
+    element: <CityOfficials />,
+  },
+  {
+    path: "/mission-vision",
+    element: <MissionVision />,
+  },
+  {
+    path: "/departments",
+    element: <Departments />,
+  },
+  {
+    path: "/csdw-services",
+    element: <CSDWServices />,
+  },
+  {
+    path: "/senior-citizen-id-and-benefits",
+    element: <SeniorCitizenIdAndBenefits />,
+  },
+  {
+    path: "/pwd-id-and-services",
+    element: <PwdIdAndServices />,
+  },
+  {
+    path: "/tanauan-e-services",
+    element: <TanauanEServices />,
+  },
+  {
+    path: "/bids-and-awards",
+    element: <BidsAndAwards />,
+  },
+  {
+    path: "/assesors",
+    element: <Assesors />,
+  },
+  {
+    path: "/full-disclosure-report",
+    element: <FullDisclosureReport />,
+  },
+  {
+    path: "/job-fair",
+    element: <JobFair />,
+  },
+  {
+    path: "/sign-in",
+    element: <SignIn />,
+  },
+  {
+    path: "/sign-up",
+    element: <SignUp />,
+  },
+];
+
 function App() {
   const lottie = {
     width: 150,
@@ -72,81 +147,6 @@ function App() {
     e.preventDefault();
   };
 
-  const routeMaps: RouteMapping[] = [
-    {
-      path: "/",
-      element: <Home />,
-    },
-    {
-      path: "/barangays",
-      element: <Barangays />,
-    },
-    {
-      path: "/tourism",
-      element: <Tourism />,
-    },
-    {
-      path: "/news",
-      element: <News />,
-    },
-    {
-      path: "/news/:id",
-      element: <NewsArticle />,
-    },
-    {
-      path: "/city-officials",
-      element: <CityOfficials />,
-    },
-    {
-      path: "/mission-vision",
-      element: <MissionVision />,
-    },
-    {
-      path: "/departments",
-      element: <Departments />,
-    },
-    {
-      path: "/csdw-services",
-      element: <CSDWServices />,
-    },
-    {
-      path: "/senior-citizen-id-and-benefits",
-      element: <SeniorCitizenIdAndBenefits />,
-    },
-    {
-      path: "/pwd-id-and-services",
-      element: <PwdIdAndServices />,
-    },
-    {
-      path: "/tanauan-e-services",
-      element: <TanauanEServices />,
-    },
-    {
-      path: "/bids-and-awards",
-      element: <BidsAndAwards />,
-    },
-    {
-      path: "/assesors",
-      element: <Assesors />,
-    },
-    {
-      path: "/full-disclosure-report",
-      element: <FullDisclosureReport />,
-    },
-    {
-      path: "/job-fair",
-      element: <JobFair />,
-    },
-    {
-      path: "/sign-in",
-      element: <SignIn />,
-    },
-    {
-      path: "/sign-up",
-      element: <SignUp />,
-    },
-  ];
-
   const toastIt = () => {
     toast("hi", { type: "info" });
   };
@@ -161,6 +161,8 @@ function App() {
           <SetShowFooterContext.Provider value={setShowFooter}>
             <PreventContextMenu.Provider value={preventContextMenu}>
               <Router>
+                <ScrollToTop />
+
                 {showHeader && <Navbar />}
                 <ToastContainer />
                 <div className="relative">
