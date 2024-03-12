@@ -126,9 +126,12 @@ const News = () => {
                   </div>
                 )}
               </div>
-              <div className="p-2">
-                {selectedTag && <p>Selected Category: {selectedTag.name}</p>}
-                {selectedTag && <NewsContainer id={selectedTag.id} />}
+              <div className="p-2 overflow-y-auto max-h-[600px]">
+                {selectedTag && (
+                  <NewsContainer
+                    id={selectedTag !== null ? selectedTag.id : tags[0].id}
+                  />
+                )}
               </div>
             </div>
           </div>
