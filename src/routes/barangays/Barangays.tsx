@@ -1,4 +1,5 @@
 import Divider from "../home/components/Divider";
+import brgyLogo from "../../assets/barangaylogos.jpg";
 
 interface BarangayInterface {
   name: string;
@@ -93,25 +94,16 @@ const Barangays = () => {
   return (
     <div className="container px-20 mx-auto">
       <Divider text="Cities in Tanauan" />
-      <div className="flex flex-wrap justify-center gap-10 p-5 mx-auto">
+      <img src={brgyLogo} alt="Baranggay Logo" className="h-screen mx-auto" />
+      <div className="flex flex-wrap justify-center gap-4 p-5 mx-auto">
         {barangays.map((city, index) => (
           <div
             className="flex items-center p-4 border rounded-lg shadow-md w-80"
             key={index}
           >
-            <div className="flex-shrink-0 mr-4">
-              <img
-                src="/path/to/your/image.jpg"
-                alt="City Image"
-                className="object-cover w-16 h-16 rounded-full"
-              />
-            </div>
             <div>
               <h2 className="text-lg font-semibold">{city.name}</h2>
               <p className="text-sm text-gray-600">{city.description}</p>
-              <button className="px-4 py-2 mt-2 font-semibold text-white bg-blue-500 rounded hover:bg-blue-600">
-                Read More
-              </button>
             </div>
           </div>
         ))}
