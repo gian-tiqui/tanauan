@@ -6,7 +6,8 @@ import {
   SetTagsContext,
   TagsContext,
 } from "../../context-container/ContextContainer";
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
+import NewsContainer from "./components/NewsContainer";
 
 const TAGS_ENDPOINT =
   "https://tanauancity.gov.ph/wp-json/wp/v2/tagss?per_page=100";
@@ -48,9 +49,13 @@ const News = () => {
     const fetchTags = async () => {
       try {
         if (tags.length === 0) {
-          const response = await axios.get(TAGS_ENDPOINT);
+          const response: AxiosResponse<TagsInterface[]> = await axios.get(
+            TAGS_ENDPOINT
+          );
 
           const data = response.data;
+
+          data.sort((a: TagsInterface, b: TagsInterface) => b.count - a.count);
 
           setTags(data);
         }
@@ -65,11 +70,11 @@ const News = () => {
   const handleTagsClicked = (tag: TagsInterface) => {
     setSelectedTag(tag);
 
-    const categorizedNews = news.filter((ns) => {
+    const modifiedNews = news.filter((ns) => {
       return ns.tagss.includes(tag.id);
     });
 
-    console.log(categorizedNews);
+    console.log(modifiedNews);
   };
 
   const toggleDropdown = () => {
@@ -123,6 +128,7 @@ const News = () => {
               </div>
               <div className="p-2">
                 {selectedTag && <p>Selected Category: {selectedTag.name}</p>}
+                {selectedTag && <NewsContainer id={selectedTag.id} />}
               </div>
             </div>
           </div>
