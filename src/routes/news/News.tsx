@@ -61,8 +61,6 @@ const News = () => {
           data.sort((a: TagsInterface, b: TagsInterface) => b.count - a.count);
 
           setTags(data);
-        } else {
-          setSelectedTag(tags[0]);
         }
       } catch (error) {
         console.log(error);
@@ -115,7 +113,7 @@ const News = () => {
                   <div className="relative">
                     <button
                       onClick={toggleDropdown}
-                      className="px-3 py-2 bg-gray-200 rounded-md hover:bg-gray-300"
+                      className="px-10 py-2 bg-gray-200 rounded-md hover:bg-gray-300"
                     >
                       {showDropdown ? "Hide" : "Show More"}
                     </button>
@@ -125,7 +123,7 @@ const News = () => {
                           <button
                             onClick={() => handleTagsClicked(tag)}
                             key={tag.id}
-                            className="block w-full px-3 py-2 bg-gray-200 rounded-md hover:bg-gray-300"
+                            className="block w-full px-3 py-2 my-1 bg-gray-200 rounded-md hover:bg-gray-300"
                           >
                             {tag.name}
                           </button>
