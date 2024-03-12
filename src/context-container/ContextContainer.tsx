@@ -6,7 +6,7 @@ import {
   useState,
 } from "react";
 import { News } from "../routes/home/components/NewsCarousel";
-import { City } from "../routes/home/components/CityHighlights";
+import { CityInterface } from "../routes/home/components/CityHighlights";
 import { CityOfficialInterface } from "../routes/government/city-officials/CityOfficials";
 import { DepartmentsInterface } from "../routes/government/departments/Departments";
 import { CategoryInterface, TagsInterface } from "../routes/news/News";
@@ -20,10 +20,10 @@ export const SetNewsContext = createContext<Dispatch<SetStateAction<News[]>>>(
   () => {}
 );
 
-export const CityContext = createContext<City[]>([]);
-export const SetCityContext = createContext<Dispatch<SetStateAction<City[]>>>(
-  () => {}
-);
+export const CityContext = createContext<CityInterface[]>([]);
+export const SetCityContext = createContext<
+  Dispatch<SetStateAction<CityInterface[]>>
+>(() => {});
 
 export const CityOfficialContext = createContext<CityOfficialInterface[]>([]);
 export const SetCityCityOfficialContext = createContext<
@@ -47,7 +47,7 @@ export const SetTagsContext = createContext<
 
 const ContextContainer = ({ children }: ContextContainerProps) => {
   const [news, setNews] = useState<News[]>([]);
-  const [cities, setCities] = useState<City[]>([]);
+  const [cities, setCities] = useState<CityInterface[]>([]);
   const [cityOfficial, setCityOfficial] = useState<CityOfficialInterface[]>([]);
   const [departments, setDepartments] = useState<DepartmentsInterface[]>([]);
   const [categories, setCategories] = useState<CategoryInterface[]>([]);

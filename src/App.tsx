@@ -37,6 +37,7 @@ import footerBg from "./assets/footer-bg.png";
 import SignIn from "./routes/auth/sign-in/SignIn";
 import SignUp from "./routes/auth/sign-up/SignUp";
 import ScrollToTop from "./components/ScrollToTop";
+import CityHighlight from "./routes/city-highlight/CityHighlight";
 
 interface RouteMapping {
   path: string;
@@ -128,14 +129,13 @@ const routeMaps: RouteMapping[] = [
     path: "/sign-up",
     element: <SignUp />,
   },
+  {
+    path: "/city-highlight/:id",
+    element: <CityHighlight />,
+  },
 ];
 
 function App() {
-  const lottie = {
-    width: 150,
-    height: 150,
-  };
-
   const [showFooter, setShowFooter] = useState<boolean>(true);
   const [showHeader, setShowHeader] = useState<boolean>(true);
 
@@ -177,8 +177,7 @@ function App() {
                   </Routes>
                   <div
                     onClick={toastIt}
-                    className="fixed bottom-2 right-2"
-                    style={lottie}
+                    className="fixed w-40 h-40 bottom-2 right-2"
                   >
                     <Lottie animationData={profile} />
                   </div>

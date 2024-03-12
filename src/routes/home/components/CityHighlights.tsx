@@ -11,7 +11,7 @@ import {
   SetCityContext,
 } from "../../../context-container/ContextContainer";
 
-export interface City {
+export interface CityInterface {
   id: number;
   title: { rendered: string };
   date: string;
