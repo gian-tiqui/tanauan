@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { City } from "../../home/components/CityHighlights";
+import { CityInterface } from "../../home/components/CityHighlights";
 import axios from "axios";
 
-const TourismCard: React.FC<City> = ({ featured_media, title }) => {
+const TourismCard: React.FC<CityInterface> = ({ featured_media, title }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageURI, setImageURI] = useState<string | undefined>(undefined);
 
