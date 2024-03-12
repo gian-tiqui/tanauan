@@ -4,6 +4,7 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import { PreventContextMenu } from "../../../App";
 import servicesBg from "../../../assets/services-bg.png";
+import { Link } from "react-router-dom";
 
 interface Services {
   title: string;
@@ -101,12 +102,18 @@ const PublicServices = () => {
 
         <div className="container flex justify-center mx-auto">
           <div className="flex flex-col mt-3 sm:mt-5 md:mt-10">
-            <button className="w-24 py-1 my-1 text-xs font-bold text-white bg-blue-900 rounded-md sm:my-1 md:my-2 sm:text-sm md:text-md sm:w-32 md:w-40">
+            <Link
+              to={"/sign-up"}
+              className="w-24 py-1 my-1 text-xs font-bold text-center text-white bg-blue-900 rounded-md sm:my-1 md:my-2 sm:text-sm md:text-md sm:w-32 md:w-40"
+            >
               SIGN UP
-            </button>
-            <button className="w-24 py-1 my-1 mb-5 text-xs font-bold text-blue-900 bg-white border border-blue-900 rounded-md sm:mb-7 md:mb-10 sm:my-1 md:my-2 md:w-40 sm:w-32 sm:text-sm md:text-md">
+            </Link>
+            <Link
+              to={"/sign-in"}
+              className="w-24 py-1 my-1 mb-5 text-xs font-bold text-center text-blue-900 bg-white border border-blue-900 rounded-md sm:mb-7 md:mb-10 sm:my-1 md:my-2 md:w-40 sm:w-32 sm:text-sm md:text-md"
+            >
               SIGN IN
-            </button>
+            </Link>
           </div>
         </div>
       </div>

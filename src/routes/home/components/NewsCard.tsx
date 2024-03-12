@@ -49,7 +49,7 @@ const NewsCard: React.FC<News> = ({ title, date, link, featured_media }) => {
         <div className="h-32 bg-center bg-cover sm:h-32 md:h-40">
           <img
             src={image}
-            alt={title.rendered}
+            alt={title.rendered === null ? "Image Loading" : title.rendered}
             className={`w-full h-full object-cover ${
               imageLoaded ? "block" : "hidden"
             }`}
