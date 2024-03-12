@@ -19,9 +19,11 @@ export interface News {
   link: string;
   content: { rendered: string };
   featured_media: number;
+  categories: number[];
+  tagss: number[];
 }
 
-const DATA_PER_PAGE = 20;
+const DATA_PER_PAGE = 100;
 
 const NewsCarousel = () => {
   const [loading, setLoading] = useState(true);
@@ -107,6 +109,8 @@ const NewsCarousel = () => {
                     featured_media={ns.featured_media}
                     content={{ rendered: ns.content.rendered }}
                     id={ns.id}
+                    tagss={ns.tagss}
+                    categories={ns.categories}
                   />
                 </SwiperSlide>
               ))}
@@ -133,6 +137,8 @@ const NewsCarousel = () => {
                     featured_media={ns.featured_media}
                     content={{ rendered: ns.content.rendered }}
                     id={ns.id}
+                    tagss={ns.tagss}
+                    categories={ns.categories}
                   />
                 </SwiperSlide>
               ))}
