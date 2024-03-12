@@ -12,7 +12,7 @@ const SignUp = () => {
     };
   }, [setShowHeader]);
 
-  return <div>sign up</div>;
+  return <div className="container px-3 mx-auto">hi</div>;
 };
 
 export default SignUp;
