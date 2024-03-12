@@ -2,7 +2,15 @@ import Navbar from "./components/Navbar/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./routes/home/Home";
 import Tourism from "./routes/tourism/Tourism";
-import { MouseEventHandler, ReactNode, createContext, useEffect } from "react";
+import {
+  Dispatch,
+  MouseEventHandler,
+  ReactNode,
+  SetStateAction,
+  createContext,
+  useEffect,
+  useState,
+} from "react";
 import Lottie from "lottie-react";
 import profile from "./assets/profile.json";
 import { toast, ToastContainer } from "react-toastify";
@@ -26,11 +34,16 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import Footer from "./routes/home/components/Footer";
 import ContextContainer from "./context-container/ContextContainer";
+import footerBg from "./assets/footer-bg.png";
 
 interface RouteMapping {
   path: string;
   element: ReactNode;
 }
+
+export const SetShowFooterContext = createContext<
+  Dispatch<SetStateAction<boolean>>
+>(() => {});
 
 export const PreventContextMenu = createContext<
   MouseEventHandler<HTMLImageElement> | undefined
@@ -41,6 +54,8 @@ function App() {
     width: 150,
     height: 150,
   };
+
+  const [showFooter, setShowFooter] = useState<boolean>(true);
 
   useEffect(() => {
     Aos.init();
@@ -122,35 +137,41 @@ function App() {
   };
 
   return (
-    <>
+    <div
+      className="bg-center bg-no-repeat bg-cover"
+      style={{ backgroundImage: `url(${footerBg})` }}
+    >
       <ContextContainer>
-        <PreventContextMenu.Provider value={preventContextMenu}>
-          <Router>
-            <Navbar />
-            <ToastContainer />
-            <div className="relative">
-              <Routes>
-                {routeMaps.map((routeMap, index) => (
-                  <Route
-                    key={index}
-                    path={routeMap.path}
-                    element={routeMap.element}
-                  />
-                ))}
-              </Routes>
-              <div
-                onClick={toastIt}
-                className="fixed bottom-2 right-2"
-                style={lottie}
-              >
-                <Lottie animationData={profile} />
+        <SetShowFooterContext.Provider value={setShowFooter}>
+          <PreventContextMenu.Provider value={preventContextMenu}>
+            <Router>
+              <Navbar />
+              <ToastContainer />
+              <div className="relative">
+                <Routes>
+                  {routeMaps.map((routeMap, index) => (
+                    <Route
+                      key={index}
+                      path={routeMap.path}
+                      element={routeMap.element}
+                    />
+                  ))}
+                </Routes>
+                <div
+                  onClick={toastIt}
+                  className="fixed bottom-2 right-2"
+                  style={lottie}
+                >
+                  <Lottie animationData={profile} />
+                </div>
               </div>
-            </div>
-            <Footer />
-          </Router>
-        </PreventContextMenu.Provider>
+
+              {showFooter && <Footer />}
+            </Router>
+          </PreventContextMenu.Provider>
+        </SetShowFooterContext.Provider>
       </ContextContainer>
-    </>
+    </div>
   );
 }
 

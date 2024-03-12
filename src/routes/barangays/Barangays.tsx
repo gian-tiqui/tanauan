@@ -92,13 +92,13 @@ const barangays: BarangayInterface[] = [
 
 const Barangays = () => {
   return (
-    <div className="container px-20 mx-auto">
+    <div className="container max-h-full px-20 mx-auto">
       <Divider text="Cities in Tanauan" />
       <img src={brgyLogo} alt="Baranggay Logo" className="h-screen mx-auto" />
       <div className="flex flex-wrap justify-center gap-4 p-5 mx-auto">
         {barangays.map((city, index) => (
           <div
-            className="flex items-center p-4 border rounded-lg shadow-md w-80"
+            className="flex items-center p-4 bg-white border rounded-lg shadow-md w-80"
             key={index}
           >
             <div>

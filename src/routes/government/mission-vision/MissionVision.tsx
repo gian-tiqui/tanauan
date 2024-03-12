@@ -1,75 +1,54 @@
-import { ReactNode } from "react";
-import LogoDivider from "../../home/components/LogoDivider";
-
-const Card = ({ children }: { children: ReactNode }) => {
-  return (
-    <div className="flex-1 p-6 bg-white rounded-lg shadow-2xl">{children}</div>
-  );
-};
+import servicesBg from "../../../assets/services-bg.png";
 
 const MissionVision = () => {
   return (
-    <div className="pt-10">
-      <LogoDivider />
-      <div className="flex flex-col justify-center gap-10 px-6 pb-20 pt-52 lg:flex-row lg:px-20 lg:pt-10">
-        <Card>
-          <div
-            data-aos="fade-up"
-            className="py-2 mb-6 bg-gray-200 rounded-t-md"
-          >
-            <h1 className="text-3xl font-bold text-center lg:text-5xl">
-              Mission
-            </h1>
-          </div>
-
-          <div
-            data-aos="fade-up"
-            className="px-5 py-2 bg-gray-200 rounded-b-md h-96"
-          >
-            <p className="mb-6 text-lg text-center lg:text-left">
+    <>
+      <div className="grid h-full gap-20 pt-20 pb-20">
+        <div
+          className="gap-20 p-10 mx-auto bg-center bg-no-repeat bg-cover rounded-md shadow-xl"
+          style={{
+            backgroundImage: `url(${servicesBg})`,
+          }}
+        >
+          <div className="max-w-lg mx-auto">
+            <p className="text-3xl font-extrabold text-center">MISSION</p>
+            <p className="mt-10 text-lg font-bold">
               Steered by a transparent and collective governance, it is the
               Mission of the City of Tanauan to improve the quality of life of
               our people through:
             </p>
-            <ul className="mb-6 text-lg text-center lg:text-left">
+            <ul className="text-lg font-bold">
               <li>
-                1. Adequate, quality and accessible health and social services
+                1. Adequate, quality and accessible health and social services;
               </li>
-              <li>2. Quality education and academic excellence</li>
+              <li>2. Quality education and academic excellence;</li>
               <li>
                 3. Livelihood and job opportunities for all with strengthened
-                cooperative
+                cooperative;
               </li>
               <li>
-                4. Sustainable economy with advanced infrastructure facilities
+                4. Sustainable economy with advanced infrastructure facilities;
               </li>
-              <li>5. Protected environment in a vibrant tourism industry</li>
+              <li>5. Protected environment in a vibrant tourism industry;</li>
               <li>
                 6. Youth and sports development and enriched culture, arts and
-                heritage
+                heritage; and
               </li>
               <li>
                 7. Safe, peaceful, gender-responsive and disaster-resilient
-                community
+                community.
               </li>
             </ul>
           </div>
-        </Card>
-        <Card>
-          <div data-aos="fade-up" className="text-center">
-            <div className="py-2 mb-6 bg-gray-200 rounded-t-md">
-              <h1 className="text-3xl font-bold lg:text-5xl">Vision</h1>
-            </div>
-            <div className="px-5 py-2 bg-gray-200 rounded-b-md h-96">
-              <p className="mb-6 text-lg py-auto">
-                TANAUAN CITY 2025: A Progressive and Ecologically Balanced City
-              </p>
-            </div>
+          <div className="max-w-lg mx-auto mt-20 mb-20">
+            <p className="text-3xl font-extrabold text-center">VISION</p>
+            <p className="mt-10 text-lg font-bold">
+              TANAUAN CITY 2025: A Progressive and Ecologically Balanced City
+            </p>
           </div>
-        </Card>
+        </div>
       </div>
-      <LogoDivider />
-    </div>
+    </>
   );
 };
 

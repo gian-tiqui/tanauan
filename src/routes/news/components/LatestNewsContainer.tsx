@@ -57,7 +57,7 @@ const LatestNewsContainer = () => {
 
   return (
     <>
-      {mLatestNews.map((latestNews) => (
+      {mLatestNews.slice(0, 5).map((latestNews) => (
         <LatestNewsCard {...latestNews} key={latestNews.id} />
       ))}
     </>
