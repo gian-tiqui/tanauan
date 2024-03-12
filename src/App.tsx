@@ -35,6 +35,8 @@ import "aos/dist/aos.css";
 import Footer from "./routes/home/components/Footer";
 import ContextContainer from "./context-container/ContextContainer";
 import footerBg from "./assets/footer-bg.png";
+import SignIn from "./routes/auth/sign-in/SignIn";
+import SignUp from "./routes/auth/sign-up/SignUp";
 
 interface RouteMapping {
   path: string;
@@ -42,6 +44,10 @@ interface RouteMapping {
 }
 
 export const SetShowFooterContext = createContext<
+  Dispatch<SetStateAction<boolean>>
+>(() => {});
+
+export const SetShowHeaderContext = createContext<
   Dispatch<SetStateAction<boolean>>
 >(() => {});
 
@@ -56,6 +62,7 @@ function App() {
   };
 
   const [showFooter, setShowFooter] = useState<boolean>(true);
+  const [showHeader, setShowHeader] = useState<boolean>(true);
 
   useEffect(() => {
     Aos.init();
@@ -130,6 +137,14 @@ function App() {
       path: "/job-fair",
       element: <JobFair />,
     },
+    {
+      path: "/sign-in",
+      element: <SignIn />,
+    },
+    {
+      path: "/sign-up",
+      element: <SignUp />,
+    },
   ];
 
   const toastIt = () => {
@@ -142,34 +157,36 @@ function App() {
       style={{ backgroundImage: `url(${footerBg})` }}
     >
       <ContextContainer>
-        <SetShowFooterContext.Provider value={setShowFooter}>
-          <PreventContextMenu.Provider value={preventContextMenu}>
-            <Router>
-              <Navbar />
-              <ToastContainer />
-              <div className="relative">
-                <Routes>
-                  {routeMaps.map((routeMap, index) => (
-                    <Route
-                      key={index}
-                      path={routeMap.path}
-                      element={routeMap.element}
-                    />
-                  ))}
-                </Routes>
-                <div
-                  onClick={toastIt}
-                  className="fixed bottom-2 right-2"
-                  style={lottie}
-                >
-                  <Lottie animationData={profile} />
+        <SetShowHeaderContext.Provider value={setShowHeader}>
+          <SetShowFooterContext.Provider value={setShowFooter}>
+            <PreventContextMenu.Provider value={preventContextMenu}>
+              <Router>
+                {showHeader && <Navbar />}
+                <ToastContainer />
+                <div className="relative">
+                  <Routes>
+                    {routeMaps.map((routeMap, index) => (
+                      <Route
+                        key={index}
+                        path={routeMap.path}
+                        element={routeMap.element}
+                      />
+                    ))}
+                  </Routes>
+                  <div
+                    onClick={toastIt}
+                    className="fixed bottom-2 right-2"
+                    style={lottie}
+                  >
+                    <Lottie animationData={profile} />
+                  </div>
                 </div>
-              </div>
 
-              {showFooter && <Footer />}
-            </Router>
-          </PreventContextMenu.Provider>
-        </SetShowFooterContext.Provider>
+                {showFooter && <Footer />}
+              </Router>
+            </PreventContextMenu.Provider>
+          </SetShowFooterContext.Provider>
+        </SetShowHeaderContext.Provider>
       </ContextContainer>
     </div>
   );
