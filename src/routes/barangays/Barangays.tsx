@@ -1,5 +1,5 @@
 import Divider from "../home/components/Divider";
-import brgyLogo from "../../assets/barangaylogos.jpg";
+import brgyLogo from "../../assets/brgy-logos.png";
 
 interface BarangayInterface {
   name: string;
