@@ -9,6 +9,7 @@ import {
 import axios, { AxiosResponse } from "axios";
 import NewsContainer from "./components/NewsContainer";
 import TrendsForYou from "./components/TrendsForYou";
+import { SetShowFooterContext } from "../../App";
 
 const TAGS_ENDPOINT =
   "https://tanauancity.gov.ph/wp-json/wp/v2/tagss?per_page=100";
@@ -42,10 +43,12 @@ const News = () => {
   const setTags = useContext(SetTagsContext);
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedTag, setSelectedTag] = useState<TagsInterface>(tags[0]);
+  const setShowFooter = useContext(SetShowFooterContext);
 
   const news = useContext(NewsContext);
 
   useEffect(() => {
+    setShowFooter(false);
     const fetchTags = async () => {
       try {
         if (tags.length === 0) {
@@ -58,6 +61,8 @@ const News = () => {
           data.sort((a: TagsInterface, b: TagsInterface) => b.count - a.count);
 
           setTags(data);
+        } else {
+          setSelectedTag(tags[0]);
         }
       } catch (error) {
         console.log(error);
@@ -65,6 +70,10 @@ const News = () => {
     };
 
     fetchTags();
+
+    return () => {
+      setShowFooter(true);
+    };
   });
 
   const handleTagsClicked = (tag: TagsInterface) => {
@@ -82,12 +91,12 @@ const News = () => {
   };
 
   return (
-    <div className="mb-20">
+    <div>
       <Divider text="News" />
       <div className="container px-3 mx-auto mt-10 sm:px-5 md:px-7 lg:px-32">
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3">
           <div className="md:col-span-2 lg:col-span-2">
-            <div className="h-screen border border-black">
+            <div className="h-full border-t border-l border-r border-l-black border-t-black border-r-black">
               <div className="flex flex-wrap justify-start gap-2 p-2 border-b border-black">
                 {tags.length !== 0 ? (
                   tags.slice(0, 3).map((tag) => (
@@ -126,7 +135,7 @@ const News = () => {
                   </div>
                 )}
               </div>
-              <div className="p-2 overflow-y-auto max-h-[600px]">
+              <div className="p-2 overflow-y-auto max-h-[1000px]">
                 {selectedTag && <NewsContainer id={selectedTag.id} />}
               </div>
             </div>
