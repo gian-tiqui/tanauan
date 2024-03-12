@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { CityInterface } from "./CityHighlights";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const HighlightCard: React.FC<CityInterface> = ({ featured_media, title }) => {
+const HighlightCard: React.FC<CityInterface> = ({
+  featured_media,
+  title,
+  id,
+}) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageURI, setImageURI] = useState<string | undefined>(undefined);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getImage = async () => {
@@ -28,6 +34,10 @@ const HighlightCard: React.FC<CityInterface> = ({ featured_media, title }) => {
     setImageLoaded(true);
   };
 
+  const handleCardClicked = () => {
+    navigate(`/city-highlight/${id}`);
+  };
+
   return (
     <div
       className="relative w-auto overflow-hidden border rounded-lg shadow h-52"
@@ -37,6 +47,7 @@ const HighlightCard: React.FC<CityInterface> = ({ featured_media, title }) => {
         backgroundPosition: "center",
         paddingBottom: "60%",
       }}
+      onClick={handleCardClicked}
     >
       {imageURI && (
         <img

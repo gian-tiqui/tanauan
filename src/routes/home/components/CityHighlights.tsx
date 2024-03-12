@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/bundle";
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import CityCardSkeleton from "./CityCardSkeleton";
 import {
   CityContext,
@@ -32,9 +32,18 @@ const CityHighlights = () => {
     const fetchCities = async () => {
       try {
         if (cities.length === 0) {
-          const response = await axios.get(CITIES_ENDPOINT);
+          const response: AxiosResponse<CityInterface[]> = await axios.get(
+            CITIES_ENDPOINT
+          );
 
-          const data = response.data;
+          const data: CityInterface[] = response.data.map((item) => ({
+            title: item.title,
+            content: item.content,
+            date: item.date,
+            featured_media: item.featured_media,
+            id: item.id,
+            link: `/city-highlight/${item.id}`,
+          }));
 
           setCities(data);
         }
