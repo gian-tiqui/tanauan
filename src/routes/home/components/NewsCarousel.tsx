@@ -23,7 +23,7 @@ export interface News {
   tagss: number[];
 }
 
-const DATA_PER_PAGE = 100;
+const DATA_PER_PAGE = 50;
 
 const NewsCarousel = () => {
   const [loading, setLoading] = useState(true);
