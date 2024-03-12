@@ -42,7 +42,18 @@ const NewsCarousel = () => {
 
           const data = response.data;
 
-          setNews(data);
+          const modifiedData: News[] = data.map((ns) => ({
+            categories: ns.categories,
+            content: ns.content,
+            date: ns.date,
+            featured_media: ns.featured_media,
+            id: ns.id,
+            link: `/news/${ns.id}`,
+            tagss: ns.tagss,
+            title: ns.title,
+          }));
+
+          setNews(modifiedData);
         }
         setLoading(false);
       } catch (error) {

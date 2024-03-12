@@ -4,7 +4,6 @@ import footerBg from "../../../assets/footer-bg.png";
 const Footer = () => {
   return (
     <div
-      className="mt-20"
       style={{
         backgroundImage: `url(${footerBg})`,
         backgroundSize: "cover",
@@ -12,7 +11,7 @@ const Footer = () => {
         backgroundPosition: "center",
       }}
     >
-      <div className="h-8 mt-32 bg-red-700 "></div>
+      <div className="h-8 bg-red-700 "></div>
       <div className="md:flex lg:flex">
         <div className="flex-1 pt-7 pl-7">
           <p className="font-bold text-black text-md">STAY CONNECTED</p>

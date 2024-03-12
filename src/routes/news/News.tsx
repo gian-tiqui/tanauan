@@ -8,6 +8,7 @@ import {
 } from "../../context-container/ContextContainer";
 import axios, { AxiosResponse } from "axios";
 import NewsContainer from "./components/NewsContainer";
+import TrendsForYou from "./components/TrendsForYou";
 
 const TAGS_ENDPOINT =
   "https://tanauancity.gov.ph/wp-json/wp/v2/tagss?per_page=100";
@@ -37,11 +38,10 @@ export interface TagsInterface {
 }
 
 const News = () => {
-  const [showDropdown, setShowDropdown] = useState(false);
-  const [selectedTag, setSelectedTag] = useState<TagsInterface | null>(null);
-
   const tags = useContext(TagsContext);
   const setTags = useContext(SetTagsContext);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [selectedTag, setSelectedTag] = useState<TagsInterface>(tags[0]);
 
   const news = useContext(NewsContext);
 
@@ -82,7 +82,7 @@ const News = () => {
   };
 
   return (
-    <>
+    <div className="mb-20">
       <Divider text="News" />
       <div className="container px-3 mx-auto mt-10 sm:px-5 md:px-7 lg:px-32">
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3">
@@ -111,7 +111,7 @@ const News = () => {
                       {showDropdown ? "Hide" : "Show More"}
                     </button>
                     {showDropdown && (
-                      <div className="absolute left-0 z-10 p-2 mt-2 bg-white shadow-md">
+                      <div className="absolute left-0 z-10 p-2 mt-2 overflow-y-auto bg-white shadow-md max-h-48">
                         {tags.slice(3).map((tag) => (
                           <button
                             onClick={() => handleTagsClicked(tag)}
@@ -127,28 +127,25 @@ const News = () => {
                 )}
               </div>
               <div className="p-2 overflow-y-auto max-h-[600px]">
-                {selectedTag && (
-                  <NewsContainer
-                    id={selectedTag !== null ? selectedTag.id : tags[0].id}
-                  />
-                )}
+                {selectedTag && <NewsContainer id={selectedTag.id} />}
               </div>
             </div>
           </div>
           <div className="hidden col-span-1 px-4 pt-4 border-t border-black sm:block md:block lg:block">
             <div className="grid gap-4">
-              <div className="p-4 shadow-lg rounded-2xl">
+              <div className="p-4 bg-white shadow-lg rounded-2xl">
                 <p className="mb-3 text-lg font-bold">Latest News</p>
                 <LatestNewsContainer />
               </div>
-              <div className="p-4 shadow-lg rounded-2xl">
+              <div className="p-4 bg-white shadow-lg rounded-2xl">
                 <p className="mb-3 text-lg font-bold">Trends for you</p>
+                <TrendsForYou tags={tags} setSelectedTag={setSelectedTag} />
               </div>
             </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

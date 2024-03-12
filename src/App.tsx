@@ -26,6 +26,7 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import Footer from "./routes/home/components/Footer";
 import ContextContainer from "./context-container/ContextContainer";
+import footerBg from "./assets/footer-bg.png";
 
 interface RouteMapping {
   path: string;
@@ -122,7 +123,10 @@ function App() {
   };
 
   return (
-    <>
+    <div
+      className="bg-center bg-no-repeat bg-cover"
+      style={{ backgroundImage: `url(${footerBg})` }}
+    >
       <ContextContainer>
         <PreventContextMenu.Provider value={preventContextMenu}>
           <Router>
@@ -150,7 +154,7 @@ function App() {
           </Router>
         </PreventContextMenu.Provider>
       </ContextContainer>
-    </>
+    </div>
   );
 }
 
