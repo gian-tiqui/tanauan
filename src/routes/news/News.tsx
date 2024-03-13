@@ -1,24 +1,17 @@
 import { useContext, useEffect, useState } from "react";
-import Divider from "../home/components/Divider";
 import LatestNewsContainer from "./components/LatestNewsContainer";
 import {
-  NewsContext,
   SetTagsContext,
   TagsContext,
 } from "../../context-container/ContextContainer";
 import axios, { AxiosResponse } from "axios";
 import NewsContainer from "./components/NewsContainer";
 import TrendsForYou from "./components/TrendsForYou";
-import { SetShowFooterContext } from "../../App";
+import { SetShowFooterContext, SetShowHeaderContext } from "../../App";
+import { Link } from "react-router-dom";
 
 const TAGS_ENDPOINT =
   "https://tanauancity.gov.ph/wp-json/wp/v2/tagss?per_page=100";
-
-// const EXAMPLE_GLOBAL_PARAMS: string[] = [
-//   "https://tanauancity.gov.ph/wp-json/wp/v2/posts?categories=3&tags=315",
-//   "https://tanauancity.gov.ph/wp-json/wp/v2/posts?categories=3",
-//   "https://tanauancity.gov.ph/wp-json/wp/v2/posts?tags=315",
-// ];
 
 export interface CategoryInterface {
   id: number;
@@ -44,8 +37,19 @@ const News = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedTag, setSelectedTag] = useState<TagsInterface>(tags[0]);
   const setShowFooter = useContext(SetShowFooterContext);
+  const setShowHeader = useContext(SetShowHeaderContext);
 
-  const news = useContext(NewsContext);
+  useEffect(() => {
+    setShowHeader(false);
+
+    return () => {
+      setShowHeader(true);
+    };
+  }, [setShowHeader]);
+
+  useEffect(() => {
+    setSelectedTag(tags[0]);
+  }, [tags]);
 
   useEffect(() => {
     setShowFooter(false);
@@ -72,16 +76,10 @@ const News = () => {
     return () => {
       setShowFooter(true);
     };
-  });
+  }, [setShowFooter, setTags, tags.length]);
 
   const handleTagsClicked = (tag: TagsInterface) => {
     setSelectedTag(tag);
-
-    const modifiedNews = news.filter((ns) => {
-      return ns.tagss.includes(tag.id);
-    });
-
-    console.log(modifiedNews);
   };
 
   const toggleDropdown = () => {
@@ -89,13 +87,12 @@ const News = () => {
   };
 
   return (
-    <div>
-      <Divider text="News" />
-      <div className="container px-3 mx-auto mt-10 sm:px-5 md:px-7 lg:px-32">
+    <div className="h-screen">
+      <div className="container px-3 mx-auto sm:px-5 md:px-7 lg:px-32">
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3">
           <div className="md:col-span-2 lg:col-span-2">
             <div className="h-full border-t border-l border-r border-l-black border-t-black border-r-black">
-              <div className="flex flex-wrap justify-start gap-2 p-2 border-b border-black">
+              <div className="fixed flex flex-wrap justify-start gap-2 p-2 border-b border-black lg:w-[841px] bg-white opacity-95">
                 {tags.length !== 0 ? (
                   tags.slice(0, 3).map((tag) => (
                     <button
@@ -133,18 +130,26 @@ const News = () => {
                   </div>
                 )}
               </div>
-              <div className="p-2 overflow-y-auto max-h-[1000px]">
+              <div className="p-2">
                 {selectedTag && <NewsContainer id={selectedTag.id} />}
               </div>
             </div>
           </div>
-          <div className="hidden col-span-1 px-4 pt-4 border-t border-black sm:block md:block lg:block">
-            <div className="grid gap-4">
-              <div className="p-4 bg-white shadow-lg rounded-2xl">
+          <div className="hidden col-span-1 px-4 pt-4 border-t border-black sm:hidden md:block lg:block">
+            <div className="fixed grid gap-2">
+              <div className="p-2 bg-white shadow-lg sm:w-64 md:w-72 lg:w-96 rounded-2xl">
+                <Link
+                  to={"/"}
+                  className="px-5 py-1 text-white bg-red-800 rounded-lg"
+                >
+                  Home
+                </Link>
+              </div>
+              <div className="p-4 bg-white shadow-lg sm:w-64 md:w-72 lg:w-96 rounded-2xl">
                 <p className="mb-3 text-lg font-bold">Latest News</p>
                 <LatestNewsContainer />
               </div>
-              <div className="p-4 bg-white shadow-lg rounded-2xl">
+              <div className="p-4 bg-white shadow-lg sm:w-64 md:w-72 lg:w-96 rounded-2xl">
                 <p className="mb-3 text-lg font-bold">Trends for you</p>
                 <TrendsForYou tags={tags} setSelectedTag={setSelectedTag} />
               </div>

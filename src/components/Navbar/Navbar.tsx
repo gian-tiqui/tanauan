@@ -172,26 +172,7 @@ const Navbar = () => {
                 </div>
               )}
             </div>
-            <div className="relative">
-              <button
-                className="flex items-center mx-5 my-auto text-sm font-bold text-white hover:text-yellow-500"
-                onClick={() => handleToggleDropdown("businessDropdown")}
-              >
-                BUSINESS
-                <MdOutlineKeyboardArrowDown className="ml-1" />
-              </button>
-              {dropdownOpen === "businessDropdown" && (
-                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44">
-                  <Link
-                    to={"/tanauan-e-services"}
-                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-                    onClick={handleCloseDropdown}
-                  >
-                    Tanauan E-Services
-                  </Link>
-                </div>
-              )}
-            </div>
+
             <div className="relative">
               <button
                 className="flex items-center mx-5 my-auto text-sm font-bold text-white hover:text-yellow-500"

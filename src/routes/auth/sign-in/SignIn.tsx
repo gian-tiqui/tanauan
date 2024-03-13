@@ -1,9 +1,12 @@
 import { useContext, useEffect } from "react";
 import { SetShowHeaderContext } from "../../../App";
 import townBg from "../../../assets/services-bg.png";
+import { Link, useNavigate } from "react-router-dom";
+import { BiExit } from "react-icons/bi";
 
 const SignIn = () => {
   const setShowHeader = useContext(SetShowHeaderContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setShowHeader(false);
@@ -13,13 +16,22 @@ const SignIn = () => {
     };
   }, [setShowHeader]);
 
+  const handleSignUpClicked = () => {
+    navigate("/sign-up");
+  };
+
   return (
     <div className="flex items-center justify-center h-screen">
       <div
         className="p-8 bg-center bg-no-repeat bg-cover rounded-lg shadow-lg px-14"
         style={{ backgroundImage: `url(${townBg})` }}
       >
-        <h2 className="mb-4 text-2xl font-semibold">Sign In</h2>
+        <div className="flex justify-between">
+          <h2 className="mb-4 text-2xl font-semibold">Sign In</h2>
+          <Link to={"/"}>
+            <BiExit style={{ height: 30, width: 30 }} />
+          </Link>
+        </div>
         <form>
           <div className="mb-4">
             <label
@@ -62,7 +74,7 @@ const SignIn = () => {
           </button>
 
           <button
-            type="submit"
+            onClick={handleSignUpClicked}
             className="w-full px-4 py-2 mt-2 font-bold text-blue-800 transition duration-300 bg-white border border-blue-800 rounded-lg"
           >
             Sign Up
