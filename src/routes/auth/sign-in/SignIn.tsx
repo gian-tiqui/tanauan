@@ -28,7 +28,7 @@ const SignIn = () => {
       >
         <div className="flex justify-between">
           <h2 className="mb-4 text-2xl font-semibold">Sign In</h2>
-          <Link to={"/"}>
+          <Link to={"/tanauan-e-services"}>
             <BiExit style={{ height: 30, width: 30 }} className="rotate-180" />
           </Link>
         </div>

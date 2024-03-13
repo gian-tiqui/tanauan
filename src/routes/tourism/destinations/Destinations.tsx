@@ -70,7 +70,7 @@ const Destinations = () => {
                 {city ? (
                   <TourismCard {...city} />
                 ) : (
-                  <p>No matching city found.</p>
+                  <TourismCard {...cities[0]} />
                 )}
               </div>
 
@@ -78,7 +78,7 @@ const Destinations = () => {
                 {city ? (
                   <TourismInfo {...city} />
                 ) : (
-                  <p>No matching city found.</p>
+                  <TourismInfo {...cities[0]} />
                 )}
               </div>
             </div>

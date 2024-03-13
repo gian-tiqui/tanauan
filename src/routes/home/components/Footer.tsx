@@ -67,44 +67,77 @@ const Footer = () => {
           <div className="flex gap-24 mt-6">
             <ul className="mt-5 text-black sm:text-sm md:text-lg">
               <li>
-                <Link to="/barangays">Barangays</Link>
+                <Link to="/" className="hover:text-red-800">
+                  Home
+                </Link>
               </li>
               <li>
-                <Link to="/tanauan-e-services">Tanauan E-Services</Link>
+                <Link to="/barangays" className="hover:text-red-800">
+                  Barangays
+                </Link>
               </li>
               <li>
-                <Link to="/csdw-services">CSDW Services</Link>
+                <Link to="/tanauan-e-services" className="hover:text-red-800">
+                  Tanauan E-Services
+                </Link>
               </li>
               <li>
-                <Link to="/pwd-id-and-services">PWD ID and Services</Link>
+                <Link to="/csdw-services" className="hover:text-red-800">
+                  CSDW Services
+                </Link>
               </li>
               <li>
-                <Link to="/senior-citizen-id-and-benefits">
+                <Link to="/pwd-id-and-services" className="hover:text-red-800">
+                  PWD ID and Services
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/senior-citizen-id-and-benefits"
+                  className="hover:text-red-800"
+                >
                   Senior Citizen ID and Benefits
                 </Link>
               </li>
               <li>
-                <Link to="/city-officials">City Officials</Link>
+                <Link to="/city-officials" className="hover:text-red-800">
+                  City Officials
+                </Link>
               </li>
             </ul>
             <ul className="mt-5 text-black sm:text-sm md:text-lg">
               <li>
-                <Link to="/departments">Departments</Link>
+                <Link to="/departments" className="hover:text-red-800">
+                  Departments
+                </Link>
               </li>
               <li>
-                <Link to="/mission-vision">Mission Vision</Link>
+                <Link to="/mission-vision" className="hover:text-red-800">
+                  Mission Vision
+                </Link>
               </li>
               <li>
-                <Link to="/news">News</Link>
+                <Link to="/news" className="hover:text-red-800">
+                  News
+                </Link>
               </li>
               <li>
-                <Link to="/assesors">Assesors</Link>
+                <Link to="/assesors" className="hover:text-red-800">
+                  Assesors
+                </Link>
               </li>
               <li>
-                <Link to="/bids-and-awards">Bids and Awards</Link>
+                <Link to="/bids-and-awards" className="hover:text-red-800">
+                  Bids and Awards
+                </Link>
               </li>
               <li>
-                <Link to="/full-disclosure-report">Full Disclosure Report</Link>
+                <Link
+                  to="/full-disclosure-report"
+                  className="hover:text-red-800"
+                >
+                  Full Disclosure Report
+                </Link>
               </li>
             </ul>
           </div>

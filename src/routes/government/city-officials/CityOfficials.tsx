@@ -7,7 +7,6 @@ import "swiper/css/bundle";
 import axios from "axios";
 import CityOfficialCard from "./components/CityOfficialCard";
 import Divider from "../../home/components/Divider";
-import LogoDivider from "../../home/components/LogoDivider";
 import {
   CityOfficialContext,
   SetCityCityOfficialContext,
@@ -80,10 +79,6 @@ const CityOfficials = () => {
         </div>
       </div>
 
-      <div data-aos="fade-up">
-        <LogoDivider />
-      </div>
-
       <Swiper
         data-aos="fade-up"
         spaceBetween={15}
@@ -93,7 +88,6 @@ const CityOfficials = () => {
           disableOnInteraction: false,
         }}
         modules={[Autoplay, Pagination, Navigation]}
-        loop={true}
         className="hidden p-10 mt-10 sm:hidden md:block lg:block mySwiper sm:mx-5 md:mx-5 lg:mx-44"
       >
         {cityOfficials.map((cityOfficial, cIndex) => (
@@ -111,7 +105,6 @@ const CityOfficials = () => {
           disableOnInteraction: false,
         }}
         modules={[Autoplay, Pagination, Navigation]}
-        loop={true}
         className="block p-10 mt-10 sm:block md:hidden lg:hidden mySwiper sm:mx-5 md:mx-5 lg:mx-44"
       >
         {cityOfficials.map((cityOfficial, cIndex) => (

@@ -4,6 +4,7 @@ import { PreventContextMenu } from "../../App";
 import { useSpring, animated } from "@react-spring/web";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import logo from "../../assets/tanauan_logo.png";
+import { BiExit } from "react-icons/bi";
 
 const Navbar = () => {
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
@@ -46,7 +47,7 @@ const Navbar = () => {
 
   return (
     <nav className="bg-white">
-      <div className="hidden sm:relative md:relative lg:relative sm:hidden md:hidden lg:block">
+      <div className="hidden sm:relative md:relative lg:relative sm:hidden md:block lg:block">
         <div className="flex justify-center">
           <div>
             <div className="flex justify-center">
@@ -80,13 +81,19 @@ const Navbar = () => {
             <div className="relative">
               <button
                 className="flex items-center mx-5 my-auto text-sm font-bold text-white hover:text-yellow-500"
-                onClick={() => handleToggleDropdown("cityDropdown")}
+                onMouseEnter={() => handleToggleDropdown("cityDropdown")}
+                onMouseLeave={handleCloseDropdown}
               >
                 THE CITY
                 <MdOutlineKeyboardArrowDown className="ml-1" />
               </button>
               {dropdownOpen === "cityDropdown" && (
-                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44">
+                <div
+                  data-aos="flip-down"
+                  className="absolute z-10 py-2 bg-white rounded-md shadow-md w-44"
+                  onMouseEnter={() => handleToggleDropdown("cityDropdown")}
+                  onMouseLeave={handleCloseDropdown}
+                >
                   <Link
                     to={"/news"}
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
@@ -107,13 +114,21 @@ const Navbar = () => {
             <div className="relative">
               <button
                 className="flex items-center mx-5 my-auto text-sm font-bold text-white hover:text-yellow-500"
-                onClick={() => handleToggleDropdown("governmentDropdown")}
+                onMouseEnter={() => handleToggleDropdown("governmentDropdown")}
+                onMouseLeave={handleCloseDropdown}
               >
                 GOVERNMENT
                 <MdOutlineKeyboardArrowDown className="ml-1" />
               </button>
               {dropdownOpen === "governmentDropdown" && (
-                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44">
+                <div
+                  data-aos="flip-down"
+                  className="absolute z-10 py-2 bg-white rounded-md shadow-md w-44"
+                  onMouseEnter={() =>
+                    handleToggleDropdown("governmentDropdown")
+                  }
+                  onMouseLeave={handleCloseDropdown}
+                >
                   <Link
                     to={"/mission-vision"}
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
@@ -141,13 +156,26 @@ const Navbar = () => {
             <div className="relative">
               <button
                 className="flex items-center mx-5 my-auto text-sm font-bold text-white hover:text-yellow-500"
-                onClick={() => handleToggleDropdown("cityTransactionsDropdown")}
+                onMouseEnter={() => handleToggleDropdown("servicesDropdown")}
+                onMouseLeave={handleCloseDropdown}
               >
-                CITY TRANSACTIONS
+                SERVICES
                 <MdOutlineKeyboardArrowDown className="ml-1" />
               </button>
-              {dropdownOpen === "cityTransactionsDropdown" && (
-                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-60">
+              {dropdownOpen === "servicesDropdown" && (
+                <div
+                  data-aos="flip-down"
+                  className="absolute z-10 py-2 bg-white rounded-md shadow-md w-60"
+                  onMouseEnter={() => handleToggleDropdown("servicesDropdown")}
+                  onMouseLeave={handleCloseDropdown}
+                >
+                  <Link
+                    to={"/tanauan-e-services"}
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    onClick={handleCloseDropdown}
+                  >
+                    E-Services
+                  </Link>
                   <Link
                     to={"/csdw-services"}
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
@@ -172,40 +200,26 @@ const Navbar = () => {
                 </div>
               )}
             </div>
-
             <div className="relative">
               <button
                 className="flex items-center mx-5 my-auto text-sm font-bold text-white hover:text-yellow-500"
-                onClick={() => handleToggleDropdown("businessDropdown")}
-              >
-                BUSINESS
-                <MdOutlineKeyboardArrowDown className="ml-1" />
-              </button>
-              {dropdownOpen === "businessDropdown" && (
-                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44">
-                  <Link
-                    to={"/tanauan-e-services"}
-                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-                    onClick={handleCloseDropdown}
-                  >
-                    E-Services
-                  </Link>
-                </div>
-              )}
-            </div>
-
-            <div className="relative">
-              <button
-                className="flex items-center mx-5 my-auto text-sm font-bold text-white hover:text-yellow-500"
-                onClick={() =>
+                onMouseEnter={() =>
                   handleToggleDropdown("transparencyReportDropdown")
                 }
+                onMouseLeave={handleCloseDropdown}
               >
                 TRANSPARENCY REPORT
                 <MdOutlineKeyboardArrowDown className="ml-1" />
               </button>
               {dropdownOpen === "transparencyReportDropdown" && (
-                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-54">
+                <div
+                  data-aos="flip-down"
+                  className="absolute z-10 py-2 bg-white rounded-md shadow-md w-54"
+                  onMouseEnter={() =>
+                    handleToggleDropdown("transparencyReportDropdown")
+                  }
+                  onMouseLeave={handleCloseDropdown}
+                >
                   <Link
                     to={"/bids-and-awards"}
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
@@ -233,13 +247,19 @@ const Navbar = () => {
             <div className="relative">
               <button
                 className="flex items-center mx-5 my-auto text-sm font-bold text-white hover:text-yellow-500"
-                onClick={() => handleToggleDropdown("careersDropdown")}
+                onMouseEnter={() => handleToggleDropdown("careersDropdown")}
+                onMouseLeave={handleCloseDropdown}
               >
                 CAREERS
                 <MdOutlineKeyboardArrowDown className="ml-1" />
               </button>
               {dropdownOpen === "careersDropdown" && (
-                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44">
+                <div
+                  data-aos="flip-down"
+                  className="absolute z-10 py-2 bg-white rounded-md shadow-md w-44"
+                  onMouseEnter={() => handleToggleDropdown("careersDropdown")}
+                  onMouseLeave={handleCloseDropdown}
+                >
                   <Link
                     to={"/job-fair"}
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
@@ -250,17 +270,22 @@ const Navbar = () => {
                 </div>
               )}
             </div>
-
             <div className="relative">
               <button
                 className="flex items-center mx-5 my-auto text-sm font-bold text-white hover:text-yellow-500"
-                onClick={() => handleToggleDropdown("tourismDropdown")}
+                onMouseEnter={() => handleToggleDropdown("tourismDropdown")}
+                onMouseLeave={handleCloseDropdown}
               >
                 TOURISM
                 <MdOutlineKeyboardArrowDown className="ml-1" />
               </button>
               {dropdownOpen === "tourismDropdown" && (
-                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44">
+                <div
+                  data-aos="flip-down"
+                  className="absolute z-10 py-2 bg-white rounded-md shadow-md w-44"
+                  onMouseEnter={() => handleToggleDropdown("tourismDropdown")}
+                  onMouseLeave={handleCloseDropdown}
+                >
                   <Link
                     to={"/history"}
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
@@ -282,10 +307,10 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className="block sm:block md:block lg:hidden">
+      <div className="block sm:block md:hidden lg:hidden">
         <div className="flex justify-between flex-1 py-2">
           <div className="flex items-center flex-1">
-            <img src="../../../logo.png" className="w-16 h-13" alt="Logo" />
+            <img src={logo} className="w-16 h-13" alt="Logo" />
             <h2 className="text-sm font-bold">TANAUAN</h2>
           </div>
 
@@ -309,15 +334,15 @@ const Navbar = () => {
         >
           <div className="flex flex-col justify-center gap-3">
             <div className="flex items-center py-2 bg-white">
-              <img src="../../../logo.png" className="w-16 h-13" alt="Logo" />
+              <img src={logo} className="w-16 h-13" alt="Logo" />
               <h2 className="text-sm font-bold">TANAUAN</h2>
             </div>
             <div
               className="flex justify-end mt-3"
               onClick={handleToggleSidebar}
             >
-              <p className="px-2 mr-4 font-bold text-red-800 border rounded">
-                x
+              <p className="w-auto px-2 mr-4">
+                <BiExit className="w-auto h-6 text-red-800 rotate-180" />
               </p>
             </div>
             <Link to={"/"} className="ml-5 font-bold text-red-800 text-md">
@@ -387,15 +412,20 @@ const Navbar = () => {
             <div className="relative">
               <button
                 className="flex items-center ml-5 font-bold text-red-800 text-md"
-                onClick={() =>
-                  handleToggleDropdown("cityTransactionsDropdownMobile")
-                }
+                onClick={() => handleToggleDropdown("servicesDropdownMobile")}
               >
-                City Transactions
+                Services
                 <MdOutlineKeyboardArrowDown className="ml-1" />
               </button>
-              {dropdownOpen === "cityTransactionsDropdownMobile" && (
+              {dropdownOpen === "servicesDropdownMobile" && (
                 <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44">
+                  <Link
+                    to={"/tanauan-e-services"}
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    onClick={handleCloseDropdown}
+                  >
+                    Tanauan E-Services
+                  </Link>
                   <Link
                     to={"/csdw-services"}
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
@@ -416,26 +446,6 @@ const Navbar = () => {
                     onClick={handleCloseDropdown}
                   >
                     PWD ID and Services
-                  </Link>
-                </div>
-              )}
-            </div>
-            <div className="relative">
-              <button
-                className="flex items-center ml-5 font-bold text-red-800 text-md"
-                onClick={() => handleToggleDropdown("businessDropdownMobile")}
-              >
-                Business
-                <MdOutlineKeyboardArrowDown className="ml-1" />
-              </button>
-              {dropdownOpen === "businessDropdownMobile" && (
-                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44">
-                  <Link
-                    to={"/tanauan-e-services"}
-                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-                    onClick={handleCloseDropdown}
-                  >
-                    Tanauan E-Services
                   </Link>
                 </div>
               )}
@@ -496,12 +506,33 @@ const Navbar = () => {
                 </div>
               )}
             </div>
-            <Link
-              to={"/tourism"}
-              className="ml-5 font-bold text-red-800 text-md"
-            >
-              Tourism
-            </Link>
+            <div className="relative">
+              <button
+                className="flex items-center mx-5 my-auto text-sm font-bold text-red-800 hover:text-yellow-500"
+                onClick={() => handleToggleDropdown("tourismDropdownMobile")}
+              >
+                Tourism
+                <MdOutlineKeyboardArrowDown className="ml-1" />
+              </button>
+              {dropdownOpen === "tourismDropdownMobile" && (
+                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44">
+                  <Link
+                    to={"/history"}
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    onClick={handleCloseDropdown}
+                  >
+                    History
+                  </Link>
+                  <Link
+                    to={"/destinations"}
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    onClick={handleCloseDropdown}
+                  >
+                    Destination
+                  </Link>
+                </div>
+              )}
+            </div>
           </div>
         </animated.div>
       )}

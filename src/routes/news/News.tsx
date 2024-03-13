@@ -143,12 +143,12 @@ const News = () => {
                   Home
                 </Link>
               </div>
-              <div className="p-4 bg-white shadow-lg sm:w-64 md:w-72 lg:w-96 rounded-2xl">
-                <p className="mb-3 text-lg font-bold">Latest News</p>
+              <div className="py-4 bg-white shadow-lg sm:w-64 md:w-72 lg:w-96 rounded-2xl">
+                <p className="mb-3 ml-4 text-lg font-bold">Latest News</p>
                 <LatestNewsContainer />
               </div>
-              <div className="p-4 bg-white shadow-lg sm:w-64 md:w-72 lg:w-96 rounded-2xl">
-                <p className="mb-3 text-lg font-bold">Trends for you</p>
+              <div className="py-4 bg-white shadow-lg sm:w-64 md:w-72 lg:w-96 rounded-2xl">
+                <p className="pl-4 mb-3 text-lg font-bold">Trends for you</p>
                 <TrendsForYou tags={tags} setSelectedTag={setSelectedTag} />
               </div>
             </div>

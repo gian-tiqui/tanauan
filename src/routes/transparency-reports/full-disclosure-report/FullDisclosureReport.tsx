@@ -1,4 +1,8 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { FaFilePdf } from "react-icons/fa";
+import { SetShowFooterContext, SetShowHeaderContext } from "../../../App";
+import { Link } from "react-router-dom";
+import logo from "../../../assets/logo.png";
 
 interface FileInterface {
   name: string;
@@ -16,42 +20,42 @@ const FullDisclosureReport = () => {
       quarter: "FIRST",
       files: [
         {
-          name: "• 20% Component of the IRA Utilization (IRAU)",
+          name: "20% Component of the IRA Utilization (IRAU)",
           files:
             "https://tanauancity.gov.ph/wp-content/uploads/2022/10/20-Component-of-the-IRA-Utilization-IRAU-4.pdf",
         },
         {
-          name: "• 70 % LDRRM Utilization Fund (LDRRMFU)",
+          name: "70 % LDRRM Utilization Fund (LDRRMFU)",
           files:
             "https://tanauancity.gov.ph/wp-content/uploads/2022/10/70-LDRRM-Utilization-Fund-LDRRMFU-4.pdf",
         },
         {
-          name: "• Bid Results on Civil Works, Goods & Services, Consulting Services",
+          name: "Bid Results on Civil Works, Goods & Services, Consulting Services",
           files:
             "https://tanauancity.gov.ph/wp-content/uploads/2022/10/Bid-Results-on-Civil-Works-Goods-Services-Consulting-Services-2.pdf",
         },
         {
-          name: "• Human Resource Complement (ManCom)",
+          name: "Human Resource Complement (ManCom)",
           files:
             "https://tanauancity.gov.ph/wp-content/uploads/2022/10/Human-Resource-Complement-ManCom-4.pdf",
         },
         {
-          name: "• Quarterly Statement of Cash Flow (QSCF)",
+          name: "Quarterly Statement of Cash Flow (QSCF)",
           files:
             "https://tanauancity.gov.ph/wp-content/uploads/2022/10/Quarterly-Statement-of-Cash-Flow-QSCF-4.pdf",
         },
         {
-          name: "• SEF Utilization Fund (SEF)",
+          name: "SEF Utilization Fund (SEF)",
           files:
             "https://tanauancity.gov.ph/wp-content/uploads/2022/10/SEF-Utilization-Fund-SEF-4.pdf",
         },
         {
-          name: "• Trust Fund Utilization (PDAF)",
+          name: "Trust Fund Utilization (PDAF)",
           files:
             "https://tanauancity.gov.ph/wp-content/uploads/2022/10/Trust-Fund-Utilization-PDAF-4.pdf",
         },
         {
-          name: "• Unliquidated Cash Advances (UCA)",
+          name: "Unliquidated Cash Advances (UCA)",
           files:
             "https://tanauancity.gov.ph/wp-content/uploads/2022/10/Unliquidated-Cash-Advances-UCA-4.pdf",
         },
@@ -61,42 +65,42 @@ const FullDisclosureReport = () => {
       quarter: "SECOND",
       files: [
         {
-          name: "• 20% Component of the IRA Utilization (IRAU)",
+          name: "20% Component of the IRA Utilization (IRAU)",
           files:
             "https://tanauancity.gov.ph/wp-content/uploads/2022/10/20-Component-of-the-IRA-Utilization-IRAU-4.pdf",
         },
         {
-          name: "• 70 % LDRRM Utilization Fund (LDRRMFU)",
+          name: "70 % LDRRM Utilization Fund (LDRRMFU)",
           files:
             "https://tanauancity.gov.ph/wp-content/uploads/2022/10/70-LDRRM-Utilization-Fund-LDRRMFU-4.pdf",
         },
         {
-          name: "• Bid Results on Civil Works, Goods & Services, Consulting Services",
+          name: "Bid Results on Civil Works, Goods & Services, Consulting Services",
           files:
             "https://tanauancity.gov.ph/wp-content/uploads/2022/10/Bid-Results-on-Civil-Works-Goods-Services-Consulting-Services-2.pdf",
         },
         {
-          name: "• Human Resource Complement (ManCom)",
+          name: "Human Resource Complement (ManCom)",
           files:
             "https://tanauancity.gov.ph/wp-content/uploads/2022/10/Human-Resource-Complement-ManCom-4.pdf",
         },
         {
-          name: "• Quarterly Statement of Cash Flow (QSCF)",
+          name: "Quarterly Statement of Cash Flow (QSCF)",
           files:
             "https://tanauancity.gov.ph/wp-content/uploads/2022/10/Quarterly-Statement-of-Cash-Flow-QSCF-4.pdf",
         },
         {
-          name: "• SEF Utilization Fund (SEF)",
+          name: "SEF Utilization Fund (SEF)",
           files:
             "https://tanauancity.gov.ph/wp-content/uploads/2022/10/SEF-Utilization-Fund-SEF-4.pdf",
         },
         {
-          name: "• Trust Fund Utilization (PDAF)",
+          name: "Trust Fund Utilization (PDAF)",
           files:
             "https://tanauancity.gov.ph/wp-content/uploads/2022/10/Trust-Fund-Utilization-PDAF-4.pdf",
         },
         {
-          name: "• Unliquidated Cash Advances (UCA)",
+          name: "Unliquidated Cash Advances (UCA)",
           files:
             "https://tanauancity.gov.ph/wp-content/uploads/2022/10/Unliquidated-Cash-Advances-UCA-4.pdf",
         },
@@ -106,42 +110,42 @@ const FullDisclosureReport = () => {
       quarter: "THIRD",
       files: [
         {
-          name: "• 20% Component of the IRA Utilization (IRAU)",
+          name: "20% Component of the IRA Utilization (IRAU)",
           files:
             "https://tanauancity.gov.ph/wp-content/uploads/2022/10/20-Component-of-the-IRA-Utilization-IRAU-4.pdf",
         },
         {
-          name: "• LDRRM Utilization Fund (LDRRMFU)",
+          name: "LDRRM Utilization Fund (LDRRMFU)",
           files:
             "https://tanauancity.gov.ph/wp-content/uploads/2022/10/70-LDRRM-Utilization-Fund-LDRRMFU-4.pdf",
         },
         {
-          name: "• Bid Results on Civil Works, Goods & Services, Consulting Services",
+          name: "Bid Results on Civil Works, Goods & Services, Consulting Services",
           files:
             "https://tanauancity.gov.ph/wp-content/uploads/2022/10/Bid-Results-on-Civil-Works-Goods-Services-Consulting-Services-2.pdf",
         },
         {
-          name: "• Human Resource Complement (ManCom)",
+          name: "Human Resource Complement (ManCom)",
           files:
             "https://tanauancity.gov.ph/wp-content/uploads/2022/10/Human-Resource-Complement-ManCom-4.pdf",
         },
         {
-          name: "• Quarterly Statement of Cash Flow (QSCF)",
+          name: "Quarterly Statement of Cash Flow (QSCF)",
           files:
             "https://tanauancity.gov.ph/wp-content/uploads/2022/10/Quarterly-Statement-of-Cash-Flow-QSCF-4.pdf",
         },
         {
-          name: "• SEF Utilization Fund (SEF)",
+          name: "SEF Utilization Fund (SEF)",
           files:
             "https://tanauancity.gov.ph/wp-content/uploads/2022/10/SEF-Utilization-Fund-SEF-4.pdf",
         },
         {
-          name: "• Trust Fund Utilization (PDAF)",
+          name: "Trust Fund Utilization (PDAF)",
           files:
             "https://tanauancity.gov.ph/wp-content/uploads/2022/10/Trust-Fund-Utilization-PDAF-4.pdf",
         },
         {
-          name: "• Unliquidated Cash Advances (UCA)",
+          name: "Unliquidated Cash Advances (UCA)",
           files:
             "https://tanauancity.gov.ph/wp-content/uploads/2022/10/Unliquidated-Cash-Advances-UCA-4.pdf",
         },
@@ -151,72 +155,72 @@ const FullDisclosureReport = () => {
       quarter: "FOURTH",
       files: [
         {
-          name: "• 20% Component of the IRA Utilization (IRAU)",
+          name: "20% Component of the IRA Utilization (IRAU)",
           files:
             "https://tanauancity.gov.ph/wp-content/uploads/2022/10/20-Component-of-the-IRA-Utilization-IRAU-4.pdf",
         },
         {
-          name: "• LDRRM Utilization Fund (LDRRMFU)",
+          name: "LDRRM Utilization Fund (LDRRMFU)",
           files:
             "https://tanauancity.gov.ph/wp-content/uploads/2022/10/70-LDRRM-Utilization-Fund-LDRRMFU-4.pdf",
         },
         {
-          name: "• Bid Results on Civil Works, Goods & Services, Consulting Services",
+          name: "Bid Results on Civil Works, Goods & Services, Consulting Services",
           files:
             "https://tanauancity.gov.ph/wp-content/uploads/2022/10/Bid-Results-on-Civil-Works-Goods-Services-Consulting-Services-2.pdf",
         },
         {
-          name: "• Human Resource Complement (ManCom)",
+          name: "Human Resource Complement (ManCom)",
           files:
             "https://tanauancity.gov.ph/wp-content/uploads/2022/10/Human-Resource-Complement-ManCom-4.pdf",
         },
         {
-          name: "• Quarterly Statement of Cash Flow (QSCF)",
+          name: "Quarterly Statement of Cash Flow (QSCF)",
           files:
             "https://tanauancity.gov.ph/wp-content/uploads/2022/10/Quarterly-Statement-of-Cash-Flow-QSCF-4.pdf",
         },
         {
-          name: "• SEF Utilization Fund (SEF)",
+          name: "SEF Utilization Fund (SEF)",
           files:
             "https://tanauancity.gov.ph/wp-content/uploads/2022/10/SEF-Utilization-Fund-SEF-4.pdf",
         },
         {
-          name: "• Trust Fund Utilization (PDAF)",
+          name: "Trust Fund Utilization (PDAF)",
           files:
             "https://tanauancity.gov.ph/wp-content/uploads/2022/10/Trust-Fund-Utilization-PDAF-4.pdf",
         },
         {
-          name: "• Unliquidated Cash Advances (UCA)",
+          name: "Unliquidated Cash Advances (UCA)",
           files:
             "https://tanauancity.gov.ph/wp-content/uploads/2022/10/Unliquidated-Cash-Advances-UCA-4.pdf",
         },
         {
-          name: "• Annual Procurement Plan 2023",
+          name: "Annual Procurement Plan 2023",
           files:
             "https://tanauancity.gov.ph/wp-content/uploads/2020/07/APP-2023.pdf",
         },
         {
-          name: "• Annual Budget Report 2023",
+          name: "Annual Budget Report 2023",
           files:
             "https://tanauancity.gov.ph/wp-content/uploads/2020/07/Annual-Budget-Report-2023.pdf",
         },
         {
-          name: "• Bid results 4Q 2022",
+          name: "Bid results 4Q 2022",
           files:
             "https://tanauancity.gov.ph/wp-content/uploads/2020/07/Bid-results-4Q-2022.pdf",
         },
         {
-          name: "• Annual Statement of Indebtedness, Payments and Balances (SIPB)",
+          name: "Annual Statement of Indebtedness, Payments and Balances (SIPB)",
           files:
             "https://tanauancity.gov.ph/wp-content/uploads/2020/07/Debt-Service-2023.pdf",
         },
         {
-          name: "• Final-Consolidated-2022-GAD-Accomplishment-Report",
+          name: "Final-Consolidated-2022-GAD-Accomplishment-Report",
           files:
             "https://tanauancity.gov.ph/wp-content/uploads/2020/07/Final-Consolidated-2022-GAD-Accomplishment-Report.pdf",
         },
         {
-          name: "• STATEMENT OF RECEIPTS AND EXPENDITURES CY 2022",
+          name: "STATEMENT OF RECEIPTS AND EXPENDITURES CY 2022",
           files:
             "https://tanauancity.gov.ph/wp-content/uploads/2020/07/SRE-2022.pdf",
         },
@@ -224,58 +228,61 @@ const FullDisclosureReport = () => {
     },
   ];
 
-  const [selectedQuarter, setSelectedQuarter] = useState("");
+  const setShowHeader = useContext(SetShowHeaderContext);
+  const setShowFooter = useContext(SetShowFooterContext);
 
-  const handleQuarterChange = (quarter: string) => {
-    setSelectedQuarter((prevQuarter) =>
-      prevQuarter === quarter ? "" : quarter
-    );
-  };
+  useEffect(() => {
+    setShowHeader(false);
+    setShowFooter(false);
+
+    return () => {
+      setShowHeader(true);
+      setShowFooter(true);
+    };
+  }, [setShowHeader, setShowFooter]);
+
+  const [selectedQuarter, setSelectedQuarter] =
+    useState<FullDisclosureReportInterface>(data[0]);
 
   return (
-    <section className="py-8 bg-gray-100">
-      <div className="container px-4 mx-auto">
-        <div className="mx-auto overflow-hidden bg-white rounded-lg shadow max-w-[700px]">
-          <div className="p-4">
-            <div className="flex items-center justify-between mb-4">
-              <div className="text-lg font-bold">Full Disclosure Report</div>
-            </div>
-            <div className="border-t border-gray-200">
-              <ul className="divide-y divide-gray-200">
-                {data.map((item, index) => (
-                  <li key={index} className="flex justify-between py-1">
-                    <div
-                      className="px-4 pr-0 font-bold text-blue-600 cursor-pointer"
-                      onClick={() => handleQuarterChange(item.quarter)}
-                    >
-                      {item.quarter} QUARTER
-                    </div>
-                    {selectedQuarter === item.quarter && (
-                      <div className="px-4 ml-auto">
-                        <div>
-                          {item.files.map((file, index) => (
-                            <>
-                              <a
-                                key={index}
-                                href={file.files}
-                                className=" hover:underline"
-                              >
-                                {file.name}
-                              </a>
-                              <br />
-                            </>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+    <div className="container">
+      <div className="grid grid-cols-5">
+        <div className="col-span-1">
+          <Link to={"/"}>
+            <img src={logo} alt="Tanauan" className="w-auto h-16" />
+          </Link>
+          <ul>
+            {data.map((item, index) => (
+              <li
+                key={index}
+                onClick={() => setSelectedQuarter(item)}
+                className="cursor-pointer"
+              >
+                {item.quarter} QUARTER
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="grid h-screen col-span-3 gap-4 p-4 overflow-auto bg-gray-100 rounded-t-xl">
+          {selectedQuarter.files.map((file, index) => (
+            <a
+              key={index}
+              href={file.files}
+              className="flex items-center gap-4 p-4 transition-colors bg-white rounded-lg shadow-md hover:bg-gray-100"
+            >
+              <FaFilePdf className="text-red-500" />
+              <div>
+                <h2 className="text-lg font-semibold">{file.name}</h2>
+                <p className="text-gray-600">PDF Document</p>
+              </div>
+            </a>
+          ))}
+        </div>
+        <div className="grid col-span-1 gap-4 p-4 overflow-auto">
+          <Link to={"/"}>go home pls</Link>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

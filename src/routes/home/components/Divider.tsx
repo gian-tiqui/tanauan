@@ -12,7 +12,7 @@ const Divider: React.FC<DividerProps> = ({ text }) => {
       {text === "More news" ? (
         <Link
           to="/news"
-          className="px-4 py-2 text-xl font-bold text-white bg-blue-800 border border-blue-900 rounded sm:px-5 sm:py-3 sm:text-2xl"
+          className="px-4 py-2 text-xl font-bold text-white bg-blue-800 border rounded sm:px-5 sm:py-3 sm:text-2xl hover:bg-blue-700"
         >
           <p className="text-sm whitespace-nowrap">{text}</p>
         </Link>

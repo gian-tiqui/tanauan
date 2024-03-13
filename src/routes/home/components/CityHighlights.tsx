@@ -100,11 +100,10 @@ const CityHighlights = () => {
                 spaceBetween={15}
                 slidesPerView={3}
                 autoplay={{
-                  delay: 2000,
+                  delay: 3500,
                   disableOnInteraction: false,
                 }}
                 modules={[Autoplay, Pagination, Navigation]}
-                loop={true}
                 className="mx-5 mt-10 sm:mx-5 md:mx-5 lg:mx-44"
               >
                 {cities.map((c, index) => (
@@ -123,7 +122,6 @@ const CityHighlights = () => {
                   disableOnInteraction: false,
                 }}
                 modules={[Autoplay, Pagination, Navigation]}
-                loop={true}
                 className="mx-5 mt-10 sm:mx-5 md:mx-5 lg:mx-44"
               >
                 {cities.map((c, index) => (
