@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { CityInterface } from "./CityHighlights";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { SetDestinationIDContext } from "../../../context-container/ContextContainer";
 
 const HighlightCard: React.FC<CityInterface> = ({
   featured_media,
@@ -10,6 +11,7 @@ const HighlightCard: React.FC<CityInterface> = ({
 }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageURI, setImageURI] = useState<string | undefined>(undefined);
+  const setDestinationID = useContext(SetDestinationIDContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -35,7 +37,8 @@ const HighlightCard: React.FC<CityInterface> = ({
   };
 
   const handleCardClicked = () => {
-    navigate(`/city-highlight/${id}`);
+    setDestinationID(id);
+    navigate("/destinations");
   };
 
   return (

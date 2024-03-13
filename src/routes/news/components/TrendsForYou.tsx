@@ -9,7 +9,7 @@ interface TrendsProps {
 const TrendsForYou = ({ tags, setSelectedTag }: TrendsProps) => {
   return (
     <div className="grid gap-1 px-2 text-sm text-black">
-      {tags.slice(0, 5).map((tag) => (
+      {tags.slice(0, 4).map((tag) => (
         <div
           key={tag.id}
           onClick={() => setSelectedTag(tag)}

@@ -1,3 +1,4 @@
+import dabg from "../../../assets/status-bg.png";
 interface Info {
   title: string;
   content: { heading: string; details: string[] }[];
@@ -35,22 +36,30 @@ const tourismInfos: Info[] = [
 
 const History = () => {
   return (
-    <div>
-      {tourismInfos.map((info, index) => (
-        <div key={index}>
-          <p className="text-3xl font-bold text-center my-14">{info.title}</p>
-          {info.content.map((section, secIndex) => (
-            <div className="max-w-2xl mx-auto text-center my-14" key={secIndex}>
-              <p className="text-lg font-semibold">{section.heading}</p>
-              {section.details.map((detail, detailIndex) => (
-                <p key={detailIndex} className="text-center">
-                  {detail}
-                </p>
-              ))}
-            </div>
-          ))}
-        </div>
-      ))}
+    <div className="flex items-center justify-center p-10">
+      <div
+        className="bg-no-repeat bg-cover rounded-lg shadow-2xl p-7"
+        style={{ backgroundImage: `url(${dabg})` }}
+      >
+        {tourismInfos.map((info, index) => (
+          <div key={index}>
+            <p className="text-3xl font-bold text-center my-14">{info.title}</p>
+            {info.content.map((section, secIndex) => (
+              <div
+                className="max-w-2xl mx-auto text-center my-14"
+                key={secIndex}
+              >
+                <p className="text-lg font-extrabold">{section.heading}</p>
+                {section.details.map((detail, detailIndex) => (
+                  <p key={detailIndex} className="mt-3 font-bold text-center">
+                    {detail}
+                  </p>
+                ))}
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

@@ -36,7 +36,6 @@ import footerBg from "./assets/footer-bg.png";
 import SignIn from "./routes/auth/sign-in/SignIn";
 import SignUp from "./routes/auth/sign-up/SignUp";
 import ScrollToTop from "./components/ScrollToTop";
-import CityHighlight from "./routes/city-highlight/CityHighlight";
 import Destinations from "./routes/tourism/destinations/Destinations";
 import History from "./routes/tourism/history/History";
 
@@ -129,10 +128,6 @@ const routeMaps: RouteMapping[] = [
   {
     path: "/sign-up",
     element: <SignUp />,
-  },
-  {
-    path: "/city-highlight/:id",
-    element: <CityHighlight />,
   },
   {
     path: "/history",

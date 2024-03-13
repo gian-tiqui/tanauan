@@ -29,7 +29,7 @@ const SignUp = () => {
         <div className="flex justify-between">
           <h2 className="mb-4 text-2xl font-semibold">Sign Up</h2>
           <Link to={"/"}>
-            <BiExit style={{ height: 30, width: 30 }} />
+            <BiExit style={{ height: 30, width: 30 }} className="rotate-180" />
           </Link>
         </div>
         <form>
