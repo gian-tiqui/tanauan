@@ -272,7 +272,7 @@ const Navbar = () => {
             <img
               onClick={handleToggleSidebar}
               src="https://cdn-icons-png.flaticon.com/128/4254/4254068.png"
-              className="w-10 h-8 px-2 py-1 mr-8 font-bold text-white border border-black rounded"
+              className="w-10 h-8 px-2 py-1 mr-8 font-bold text-red-800 border border-black rounded"
             ></img>
           </div>
         </div>
@@ -280,7 +280,7 @@ const Navbar = () => {
 
       {sidebarOpen && (
         <animated.div
-          className="fixed inset-y-0 left-0 z-50 w-44 bg-slate-900 md:hidden lg:hidden"
+          className="fixed inset-y-0 left-0 z-50 bg-white w-44 md:hidden lg:hidden"
           style={sidebarAnimation}
         >
           <div className="flex flex-col justify-center gap-3">
@@ -292,17 +292,20 @@ const Navbar = () => {
               className="flex justify-end mt-3"
               onClick={handleToggleSidebar}
             >
-              <p className="px-2 mr-4 font-bold text-white border rounded">x</p>
+              <p className="px-2 mr-4 font-bold text-red-800 border rounded">
+                x
+              </p>
             </div>
-            <Link to={"/"} className="ml-5 font-bold text-white text-md">
+            <Link to={"/"} className="ml-5 font-bold text-red-800 text-md">
               Home
             </Link>
             <div className="relative">
               <button
-                className="ml-5 font-bold text-white text-md"
+                className="flex items-center ml-5 font-bold text-red-800 text-md"
                 onClick={() => handleToggleDropdown("cityDropdownMobile")}
               >
                 City
+                <MdOutlineKeyboardArrowDown className="ml-1" />
               </button>
               {dropdownOpen === "cityDropdownMobile" && (
                 <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44">
@@ -311,94 +314,111 @@ const Navbar = () => {
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     onClick={handleCloseDropdown}
                   >
-                    News
+                    News & Publication
+                  </Link>
+                  <Link
+                    to={"/barangays"}
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    onClick={handleCloseDropdown}
+                  >
+                    Barangays
                   </Link>
                 </div>
               )}
             </div>
             <div className="relative">
               <button
-                className="ml-5 font-bold text-white text-md"
+                className="flex items-center ml-5 font-bold text-red-800 text-md"
                 onClick={() => handleToggleDropdown("governmentDropdownMobile")}
               >
                 Government
+                <MdOutlineKeyboardArrowDown className="ml-1" />
               </button>
               {dropdownOpen === "governmentDropdownMobile" && (
                 <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44">
                   <Link
-                    to={"/"}
+                    to={"/mission-vision"}
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     onClick={handleCloseDropdown}
                   >
-                    Item 1
+                    Mission / Vision
                   </Link>
                   <Link
-                    to={"/"}
+                    to={"/city-officials"}
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     onClick={handleCloseDropdown}
                   >
-                    Item 2
+                    City Officials
+                  </Link>
+                  <Link
+                    to={"/departments"}
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    onClick={handleCloseDropdown}
+                  >
+                    Departments
                   </Link>
                 </div>
               )}
             </div>
             <div className="relative">
               <button
-                className="ml-5 font-bold text-white text-md"
+                className="flex items-center ml-5 font-bold text-red-800 text-md"
                 onClick={() =>
                   handleToggleDropdown("cityTransactionsDropdownMobile")
                 }
               >
                 City Transactions
+                <MdOutlineKeyboardArrowDown className="ml-1" />
               </button>
               {dropdownOpen === "cityTransactionsDropdownMobile" && (
                 <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44">
                   <Link
-                    to={"/"}
+                    to={"/csdw-services"}
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     onClick={handleCloseDropdown}
                   >
-                    Item 1
+                    CSDW Services
                   </Link>
                   <Link
-                    to={"/"}
+                    to={"/senior-citizen-id-and-benefits"}
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     onClick={handleCloseDropdown}
                   >
-                    Item 2
+                    Senior Citizen ID and Benefits
+                  </Link>
+                  <Link
+                    to={"/pwd-id-and-services"}
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    onClick={handleCloseDropdown}
+                  >
+                    PWD ID and Services
                   </Link>
                 </div>
               )}
             </div>
             <div className="relative">
               <button
-                className="ml-5 font-bold text-white text-md"
+                className="flex items-center ml-5 font-bold text-red-800 text-md"
                 onClick={() => handleToggleDropdown("businessDropdownMobile")}
               >
                 Business
+                <MdOutlineKeyboardArrowDown className="ml-1" />
               </button>
               {dropdownOpen === "businessDropdownMobile" && (
                 <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44">
                   <Link
-                    to={"/"}
+                    to={"/tanauan-e-services"}
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     onClick={handleCloseDropdown}
                   >
-                    Item 1
-                  </Link>
-                  <Link
-                    to={"/"}
-                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-                    onClick={handleCloseDropdown}
-                  >
-                    Item 2
+                    Tanauan E-Services
                   </Link>
                 </div>
               )}
             </div>
             <div className="relative">
               <button
-                className="font-bold text-white text-md"
+                className="flex items-center ml-5 font-bold text-red-800 text-md"
                 onClick={() =>
                   handleToggleDropdown("transparencyReportDropdownMobile")
                 }
@@ -408,49 +428,53 @@ const Navbar = () => {
               {dropdownOpen === "transparencyReportDropdownMobile" && (
                 <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44">
                   <Link
-                    to={"/"}
+                    to={"/bids-and-awards"}
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     onClick={handleCloseDropdown}
                   >
-                    Item 1
+                    BIDS and Awards
                   </Link>
                   <Link
-                    to={"/"}
+                    to={"/assesors"}
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     onClick={handleCloseDropdown}
                   >
-                    Item 2
+                    Assesor's
+                  </Link>
+                  <Link
+                    to={"/full-disclosure-report"}
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    onClick={handleCloseDropdown}
+                  >
+                    Full Disclosure Report
                   </Link>
                 </div>
               )}
             </div>
             <div className="relative">
               <button
-                className="ml-5 font-bold text-white text-md"
+                className="flex items-center ml-5 font-bold text-red-800 text-md"
                 onClick={() => handleToggleDropdown("careersDropdownMobile")}
               >
                 Careers
+                <MdOutlineKeyboardArrowDown className="ml-1" />
               </button>
               {dropdownOpen === "careersDropdownMobile" && (
                 <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44">
                   <Link
-                    to={"/"}
+                    to={"/job-fair"}
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     onClick={handleCloseDropdown}
                   >
-                    Item 1
-                  </Link>
-                  <Link
-                    to={"/"}
-                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-                    onClick={handleCloseDropdown}
-                  >
-                    Item 2
+                    Job Fair
                   </Link>
                 </div>
               )}
             </div>
-            <Link to={"/tourism"} className="ml-5 font-bold text-white text-md">
+            <Link
+              to={"/tourism"}
+              className="ml-5 font-bold text-red-800 text-md"
+            >
               Tourism
             </Link>
           </div>

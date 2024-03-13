@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import { CityOfficialInterface } from "../CityOfficials";
 
 const CityOfficialCard: React.FC<CityOfficialInterface> = ({
   title,
-  link,
   featured_media,
 }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -39,7 +37,7 @@ const CityOfficialCard: React.FC<CityOfficialInterface> = ({
           <img
             src={image}
             alt={title.rendered}
-            className={`w-full h-full  object-cover ${
+            className={`w-full h-full object-cover ${
               imageLoaded ? "block" : "hidden"
             }`}
             onLoad={handleImageLoad}
@@ -51,17 +49,6 @@ const CityOfficialCard: React.FC<CityOfficialInterface> = ({
           )}
         </div>
       )}
-      <div className="flex flex-col p-4 bg-white">
-        <p className="text-xs font-bold truncate sm:text-md md:text-lg lg:text-xl">
-          {title.rendered}
-        </p>
-        <Link
-          className="self-start w-20 py-1 mt-4 text-xs text-center text-white bg-red-500 border rounded-md sm:px-1 sm:truncate md:font-bold lg:font-bold hover:bg-red-600 sm:w-16 md:w-24 lg:28 sm:text-xs md:text-sm lg:text-md"
-          to={link}
-        >
-          Read more
-        </Link>
-      </div>
     </div>
   );
 };
