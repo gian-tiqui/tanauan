@@ -63,7 +63,7 @@ const NewsCard: React.FC<News> = ({ title, date, link, featured_media }) => {
         </div>
       )}
       <div className="flex flex-col p-4 bg-white">
-        <p className="text-xs font-bold truncate sm:text-md md:text-lg lg:text-xl">
+        <p className="text-xs font-bold truncate sm:text-md md:text-lg lg:text-xlz">
           {title.rendered}
         </p>
         <p className="text-xs text-gray-600 sm:text-sm">{formattedDate}</p>

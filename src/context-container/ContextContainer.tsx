@@ -45,6 +45,11 @@ export const SetTagsContext = createContext<
   Dispatch<SetStateAction<TagsInterface[]>>
 >(() => {});
 
+export const DestinationIDContext = createContext<number>(0);
+export const SetDestinationIDContext = createContext<
+  Dispatch<SetStateAction<number>>
+>(() => {});
+
 const ContextContainer = ({ children }: ContextContainerProps) => {
   const [news, setNews] = useState<News[]>([]);
   const [cities, setCities] = useState<CityInterface[]>([]);
@@ -52,33 +57,40 @@ const ContextContainer = ({ children }: ContextContainerProps) => {
   const [departments, setDepartments] = useState<DepartmentsInterface[]>([]);
   const [categories, setCategories] = useState<CategoryInterface[]>([]);
   const [tags, setTags] = useState<TagsInterface[]>([]);
+  const [destinationID, setDestinationID] = useState<number>(0);
 
   return (
-    <SetTagsContext.Provider value={setTags}>
-      <TagsContext.Provider value={tags}>
-        <SetCategoryContext.Provider value={setCategories}>
-          <CategoriesContext.Provider value={categories}>
-            <SetDepartmentContext.Provider value={setDepartments}>
-              <DepartmentContext.Provider value={departments}>
-                <SetCityCityOfficialContext.Provider value={setCityOfficial}>
-                  <CityOfficialContext.Provider value={cityOfficial}>
-                    <SetCityContext.Provider value={setCities}>
-                      <CityContext.Provider value={cities}>
-                        <SetNewsContext.Provider value={setNews}>
-                          <NewsContext.Provider value={news}>
-                            {children}
-                          </NewsContext.Provider>
-                        </SetNewsContext.Provider>
-                      </CityContext.Provider>
-                    </SetCityContext.Provider>
-                  </CityOfficialContext.Provider>
-                </SetCityCityOfficialContext.Provider>
-              </DepartmentContext.Provider>
-            </SetDepartmentContext.Provider>
-          </CategoriesContext.Provider>
-        </SetCategoryContext.Provider>
-      </TagsContext.Provider>
-    </SetTagsContext.Provider>
+    <SetDestinationIDContext.Provider value={setDestinationID}>
+      <DestinationIDContext.Provider value={destinationID}>
+        <SetTagsContext.Provider value={setTags}>
+          <TagsContext.Provider value={tags}>
+            <SetCategoryContext.Provider value={setCategories}>
+              <CategoriesContext.Provider value={categories}>
+                <SetDepartmentContext.Provider value={setDepartments}>
+                  <DepartmentContext.Provider value={departments}>
+                    <SetCityCityOfficialContext.Provider
+                      value={setCityOfficial}
+                    >
+                      <CityOfficialContext.Provider value={cityOfficial}>
+                        <SetCityContext.Provider value={setCities}>
+                          <CityContext.Provider value={cities}>
+                            <SetNewsContext.Provider value={setNews}>
+                              <NewsContext.Provider value={news}>
+                                {children}
+                              </NewsContext.Provider>
+                            </SetNewsContext.Provider>
+                          </CityContext.Provider>
+                        </SetCityContext.Provider>
+                      </CityOfficialContext.Provider>
+                    </SetCityCityOfficialContext.Provider>
+                  </DepartmentContext.Provider>
+                </SetDepartmentContext.Provider>
+              </CategoriesContext.Provider>
+            </SetCategoryContext.Provider>
+          </TagsContext.Provider>
+        </SetTagsContext.Provider>
+      </DestinationIDContext.Provider>
+    </SetDestinationIDContext.Provider>
   );
 };
 

@@ -59,23 +59,27 @@ const NewsContainer = ({ id }: NewsContProps) => {
 
   return (
     <div className="grid grid-cols-1">
-      {modifiedNews.map((newsItem: News, index: number) => (
-        <Link key={newsItem.id} to={`/news/${newsItem.id}`}>
-          <div className="overflow-hidden border-b border-b-black">
-            <p className="mt-2 text-gray-600">{formatDate(newsItem.date)}</p>
-            <h3 className="mb-2 text-xl font-semibold">
-              {newsItem.title.rendered}
-            </h3>
-            {images[index] && (
-              <img
-                src={images[index] || ""}
-                alt={newsItem.title.rendered}
-                className="w-full h-full mb-4 rounded-xl"
-              />
-            )}
-          </div>
-        </Link>
-      ))}
+      {modifiedNews.length > 0 ? (
+        modifiedNews.map((newsItem: News, index: number) => (
+          <Link key={newsItem.id} to={`/news/${newsItem.id}`}>
+            <div className="px-5 overflow-hidden border-b border-b-black">
+              <p className="mt-2 text-gray-600">{formatDate(newsItem.date)}</p>
+              <h3 className="mb-2 text-xl font-semibold">
+                {newsItem.title.rendered}
+              </h3>
+              {images[index] && (
+                <img
+                  src={images[index] || ""}
+                  alt={newsItem.title.rendered}
+                  className="w-full h-full mb-4 rounded-xl"
+                />
+              )}
+            </div>
+          </Link>
+        ))
+      ) : (
+        <p>hi</p>
+      )}
     </div>
   );
 };

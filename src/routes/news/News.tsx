@@ -130,9 +130,7 @@ const News = () => {
                   </div>
                 )}
               </div>
-              <div className="p-2">
-                {selectedTag && <NewsContainer id={selectedTag.id} />}
-              </div>
+              <div>{selectedTag && <NewsContainer id={selectedTag.id} />}</div>
             </div>
           </div>
           <div className="hidden col-span-1 px-4 pt-4 border-t border-black sm:hidden md:block lg:block">
