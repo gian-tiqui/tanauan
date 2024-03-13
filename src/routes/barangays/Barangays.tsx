@@ -1,5 +1,5 @@
-import Divider from "../home/components/Divider";
 import brgyLogo from "../../assets/brgy-logos.png";
+import asd from "../../assets/asd.png";
 
 interface BarangayInterface {
   name: string;
@@ -93,8 +93,11 @@ const barangays: BarangayInterface[] = [
 const Barangays = () => {
   return (
     <div className="container max-h-full px-20 mx-auto">
-      <Divider text="Cities in Tanauan" />
-      <img src={brgyLogo} alt="Baranggay Logo" className="h-screen mx-auto" />
+      <div className="flex items-center justify-between">
+        <img src={asd} alt="" className="mx-auto h-72 w-72 " />
+        <img src={brgyLogo} alt="Baranggay Logo" className="h-screen mx-auto" />
+        <img src={asd} alt="" className="mx-auto h-72 w-72 " />
+      </div>
       <div className="flex flex-wrap justify-center gap-4 p-5 mx-auto">
         {barangays.map((city, index) => (
           <div

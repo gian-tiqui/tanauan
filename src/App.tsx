@@ -1,7 +1,6 @@
 import Navbar from "./components/Navbar/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./routes/home/Home";
-import Tourism from "./routes/tourism/Tourism";
 import {
   Dispatch,
   MouseEventHandler,
@@ -38,6 +37,8 @@ import SignIn from "./routes/auth/sign-in/SignIn";
 import SignUp from "./routes/auth/sign-up/SignUp";
 import ScrollToTop from "./components/ScrollToTop";
 import CityHighlight from "./routes/city-highlight/CityHighlight";
+import Destinations from "./routes/tourism/destinations/Destinations";
+import History from "./routes/tourism/history/History";
 
 interface RouteMapping {
   path: string;
@@ -66,8 +67,8 @@ const routeMaps: RouteMapping[] = [
     element: <Barangays />,
   },
   {
-    path: "/tourism",
-    element: <Tourism />,
+    path: "/destinations",
+    element: <Destinations />,
   },
   {
     path: "/news",
@@ -133,6 +134,10 @@ const routeMaps: RouteMapping[] = [
     path: "/city-highlight/:id",
     element: <CityHighlight />,
   },
+  {
+    path: "/history",
+    element: <History />,
+  },
 ];
 
 function App() {
@@ -162,7 +167,6 @@ function App() {
             <PreventContextMenu.Provider value={preventContextMenu}>
               <Router>
                 <ScrollToTop />
-
                 {showHeader && <Navbar />}
                 <ToastContainer />
                 <div className="relative">
