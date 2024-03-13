@@ -35,9 +35,10 @@ import ContextContainer from "./context-container/ContextContainer";
 import footerBg from "./assets/footer-bg.png";
 import SignIn from "./routes/auth/sign-in/SignIn";
 import SignUp from "./routes/auth/sign-up/SignUp";
-import ScrollToTop from "./components/ScrollToTop";
+import ScrollToTop from "./components/scroll-to-top/ScrollToTop";
 import Destinations from "./routes/tourism/destinations/Destinations";
 import History from "./routes/tourism/history/History";
+import EmergencyApp from "./routes/emergency-app/EmergencyApp";
 
 interface RouteMapping {
   path: string;
@@ -132,6 +133,10 @@ const routeMaps: RouteMapping[] = [
   {
     path: "/history",
     element: <History />,
+  },
+  {
+    path: "/emergency-application",
+    element: <EmergencyApp />,
   },
 ];
 

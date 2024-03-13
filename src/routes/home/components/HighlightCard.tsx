@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { SetDestinationIDContext } from "../../../context-container/ContextContainer";
 
+import { FaEye } from "react-icons/fa";
+
 const HighlightCard: React.FC<CityInterface> = ({
   featured_media,
   title,
@@ -11,6 +13,7 @@ const HighlightCard: React.FC<CityInterface> = ({
 }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageURI, setImageURI] = useState<string | undefined>(undefined);
+  const [darkHover, setDarkHover] = useState<boolean>(false); // Rename dark to darkHover
   const setDestinationID = useContext(SetDestinationIDContext);
   const navigate = useNavigate();
 
@@ -43,7 +46,7 @@ const HighlightCard: React.FC<CityInterface> = ({
 
   return (
     <div
-      className="relative w-auto overflow-hidden border rounded-lg shadow h-52"
+      className="relative w-auto overflow-hidden border rounded-lg shadow h-52 hover:cursor-pointer"
       style={{
         backgroundImage: `url(${imageURI})`,
         backgroundSize: "cover",
@@ -51,7 +54,15 @@ const HighlightCard: React.FC<CityInterface> = ({
         paddingBottom: "60%",
       }}
       onClick={handleCardClicked}
+      onMouseEnter={() => setDarkHover(true)}
+      onMouseLeave={() => setDarkHover(false)}
     >
+      {darkHover && (
+        <div className="absolute inset-0 flex items-center justify-center bg-black opacity-50">
+          <FaEye className="w-auto h-10 text-white" />
+        </div>
+      )}
+
       {imageURI && (
         <img
           src={imageURI}
@@ -67,6 +78,7 @@ const HighlightCard: React.FC<CityInterface> = ({
           am loading
         </div>
       )}
+
       <div className="absolute bottom-0 left-0 right-0 p-2 bg-black bg-opacity-50">
         <p className="font-bold text-white truncate text-md sm:text-md md:text-lg">
           {title.rendered}

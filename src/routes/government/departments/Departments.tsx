@@ -4,7 +4,6 @@ import {
   DepartmentContext,
   SetDepartmentContext,
 } from "../../../context-container/ContextContainer";
-import { Link } from "react-router-dom";
 
 export interface DepartmentsInterface {
   id: number;
@@ -21,6 +20,8 @@ const Departments = () => {
   const departments = useContext(DepartmentContext);
   const setDepartments = useContext(SetDepartmentContext);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [selectedDepartment, setSelectedDepartment] =
+    useState<DepartmentsInterface>(departments[0]);
 
   console.log(windowWidth);
 
@@ -57,18 +58,27 @@ const Departments = () => {
     fetchDepartments();
   }, [departments.length, setDepartments]);
 
+  const setDepartmentContent = (department: DepartmentsInterface) => {
+    setSelectedDepartment(department);
+  };
+
   return (
     <div className="container px-3 mx-auto">
-      <div className="flex flex-wrap justify-center">
-        {departments.map((department) => (
-          <Link
-            to={department.link}
-            key={department.id}
-            className="px-4 py-2 m-2 bg-gray-200 rounded-md hover:bg-gray-300"
-          >
-            {department.title.rendered}
-          </Link>
-        ))}
+      <div className="grid grid-cols-2">
+        <div className="grid">
+          {departments.map((department) => (
+            <button
+              onClick={() => setDepartmentContent(department)}
+              key={department.id}
+              className="px-4 py-2 m-2 bg-gray-200 rounded-md hover:bg-gray-300"
+            >
+              {department.title.rendered}
+            </button>
+          ))}
+        </div>
+        <div>
+          <pre>{JSON.stringify(selectedDepartment, null, 2)}</pre>
+        </div>
       </div>
     </div>
   );

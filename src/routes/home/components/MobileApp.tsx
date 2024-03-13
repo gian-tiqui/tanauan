@@ -1,81 +1,103 @@
-import { imageURI } from "../../../large-strings-folder/Strings";
+import { Link } from "react-router-dom";
+import mobileApp from "../../../assets/mobile-app.png";
+import sMobileApp from "../../../assets/16.png";
+import LogoDivider from "./LogoDivider";
 
 const MobileApp = () => {
   return (
-    <div className="flex flex-col px-3 my-12 sm:my-16 sm:mx-2 md:mx-3 lg:mx-3 md:px-0 lg:px-0 sm:px-0 lg:my-32">
-      <div className="mx-auto">
-        <h1 className="mb-10 font-bold text-md text-start text-slate-900 sm:text-lg md:text-xl lg:text-2xl">
-          Emergency Alert System and Mobile Application
-        </h1>
-      </div>
-      <div className="flex justify-center">
-        <div className="overflow-hidden bg-white border rounded-lg shadow-lg md:grid md:grid-cols-2 sm:grid sm:grid-cols-2">
-          <div
-            className="relative bg-center bg-cover md:w-auto md:h-full h-60 sm:h-72"
-            style={{
-              backgroundImage: imageURI,
-            }}
-          ></div>
-          <div className="flex flex-col justify-between p-4 md:p-6">
-            <div>
-              <p className="mb-4 text-lg font-bold md:text-xl">
-                Tanauan 911 App: Tulong sa Emergencies!
-              </p>
-              <ul className="text-sm md:text-base">
-                <li className="mb-2">
-                  <p>
-                    - Report emergencies: Fire, medical, police, even disasters
-                    - all in one app.
-                  </p>
-                </li>
-                <li className="mb-2">
-                  <p>
-                    - Get help fast: Real-time location tracking means
-                    responders reach you quickly.
-                  </p>
-                </li>
-                <li className="mb-2">
-                  <p>
-                    - Share photos: Show what's happening with pictures and
-                    videos.
-                  </p>
-                </li>
-                <li className="mb-2">
-                  <p>- Stay informed: Get safety updates and weather alerts.</p>
-                </li>
-              </ul>
-              <p className="mt-4 text-sm md:text-base">
-                Download the Tanauan 911 App (SENYAS) for free on Google Play!
+    <>
+      <LogoDivider />
+      <div className="relative my-20 overflow-hidden">
+        <div className="pt-16 pb-80 sm:pb-40 sm:pt-24 lg:pb-48 lg:pt-40">
+          <div className="relative px-4 mx-auto max-w-7xl sm:static sm:px-6 lg:px-8">
+            <div className="sm:max-w-lg">
+              <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+                The City of Tanuan's Mobile App is here
+              </h1>
+              <p className="mt-4 text-xl text-gray-500">
+                The City of Tanauan's Mobile is now available and ready to use
+                for the safety and security of the people of the City.
               </p>
             </div>
-            <div className="flex flex-col justify-center mt-6 sm:flex-row">
-              <a
-                href="https://play.google.com/store/games?hl=en&gl=US"
-                className="flex items-center justify-center px-3 py-1 mb-2 text-xs text-white bg-black border rounded sm:text-sm md:text-md sm:mr-2 sm:mb-0"
-              >
-                <img
-                  src="https://cdn-icons-png.flaticon.com/128/6124/6124997.png"
-                  alt="Google Play Icon"
-                  className="w-6 h-6 mr-2"
-                />
-                Google Play
-              </a>
-              <a
-                href="https://tanauancity.gov.ph/tanauan-911-app/"
-                className="flex items-center justify-center px-3 py-1 mb-2 text-xs text-white bg-black border rounded sm:text-sm md:text-md sm:mb-0"
-              >
-                <img
-                  src="https://cdn-icons-png.flaticon.com/128/888/888846.png"
-                  alt="Browse Icon"
-                  className="w-6 h-6 mr-2"
-                />
-                Browse
-              </a>
+            <div>
+              <div className="mt-10">
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none lg:absolute lg:inset-y-0 lg:mx-auto lg:w-full lg:max-w-7xl"
+                >
+                  <div className="absolute transform sm:left-1/2 sm:top-0 sm:translate-x-8 lg:left-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-8">
+                    <div className="flex items-center space-x-6 lg:space-x-8">
+                      <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+                        <div className="h-64 overflow-hidden rounded-lg w-44 sm:opacity-0 lg:opacity-100">
+                          <img
+                            src={sMobileApp}
+                            alt=""
+                            className="object-cover object-center w-full h-full"
+                          />
+                        </div>
+                        <div className="h-64 overflow-hidden rounded-lg w-44">
+                          <img
+                            src={sMobileApp}
+                            alt=""
+                            className="object-cover object-center w-full h-full"
+                          />
+                        </div>
+                      </div>
+                      <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+                        <div className="h-64 overflow-hidden rounded-lg w-44">
+                          <img
+                            src={sMobileApp}
+                            alt=""
+                            className="object-cover object-center w-full h-full"
+                          />
+                        </div>
+                        <div className="h-64 overflow-hidden rounded-lg w-44">
+                          <img
+                            src={mobileApp}
+                            alt=""
+                            className="object-cover object-center w-full h-full"
+                          />
+                        </div>
+                        <div className="h-64 overflow-hidden rounded-lg w-44">
+                          <img
+                            src={sMobileApp}
+                            alt=""
+                            className="object-cover object-center w-full h-full"
+                          />
+                        </div>
+                      </div>
+                      <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+                        <div className="h-64 overflow-hidden rounded-lg w-44">
+                          <img
+                            src={sMobileApp}
+                            alt=""
+                            className="object-cover object-center w-full h-full"
+                          />
+                        </div>
+                        <div className="h-64 overflow-hidden rounded-lg w-44">
+                          <img
+                            src={sMobileApp}
+                            alt=""
+                            className="object-cover object-center w-full h-full"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <Link
+                  to="/emergency-application"
+                  className="inline-block px-8 py-3 font-medium text-center text-white bg-blue-900 border border-transparent rounded-md hover:bg-blue-700"
+                >
+                  View Application
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

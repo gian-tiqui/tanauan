@@ -8,12 +8,12 @@ interface TrendsProps {
 
 const TrendsForYou = ({ tags, setSelectedTag }: TrendsProps) => {
   return (
-    <div className="grid gap-1 px-2 text-sm text-black">
+    <div className="grid gap-1 text-sm text-black">
       {tags.slice(0, 4).map((tag) => (
         <div
           key={tag.id}
           onClick={() => setSelectedTag(tag)}
-          className="cursor-pointer"
+          className="px-4 py-1 cursor-pointer hover:bg-gray-200"
         >
           <p className="font-bold">{tag.name}</p>
           <p>{tag.count} tags</p>
