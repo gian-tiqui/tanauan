@@ -12,6 +12,7 @@ import {
   CityOfficialContext,
   SetCityCityOfficialContext,
 } from "../../../context-container/ContextContainer";
+import daBg from "../../../assets/services-bg.png";
 
 export interface CityOfficialInterface {
   id: number;
@@ -65,7 +66,10 @@ const CityOfficials = () => {
             alt="Logo"
           />
         </div>
-        <div className="p-4 mx-auto shadow-xl max-w-64 md:rounded-e-lg lg:rounded-e-lg md:mx-0 lg:mx-0">
+        <div
+          className="p-4 mx-auto shadow-xl max-w-64 md:rounded-e-lg lg:rounded-e-lg md:mx-0 lg:mx-0"
+          style={{ backgroundImage: `url(${daBg})` }}
+        >
           <p>
             Bilang Ama ng bawat Tanaueno, nais kong pakingan ang saloobin ng
             ating mga kababayan, kaya ang karatulang ating ilalagay sa ating

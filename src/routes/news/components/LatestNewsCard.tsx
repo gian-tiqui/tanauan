@@ -12,7 +12,7 @@ const LatestNewsCard: React.FC<News> = ({ title, date, id }) => {
   };
 
   return (
-    <Link className="grid p-2 cursor-pointer" to={`/news/${id}`}>
+    <Link className="grid p-1 text-sm cursor-pointer" to={`/news/${id}`}>
       <p className="font-extrabold truncate">{title.rendered}</p>
       <p>{formatDate(date)}</p>
     </Link>
