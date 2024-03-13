@@ -176,6 +176,27 @@ const Navbar = () => {
             <div className="relative">
               <button
                 className="flex items-center mx-5 my-auto text-sm font-bold text-white hover:text-yellow-500"
+                onClick={() => handleToggleDropdown("businessDropdown")}
+              >
+                BUSINESS
+                <MdOutlineKeyboardArrowDown className="ml-1" />
+              </button>
+              {dropdownOpen === "businessDropdown" && (
+                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44">
+                  <Link
+                    to={"/tanauan-e-services"}
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    onClick={handleCloseDropdown}
+                  >
+                    E-Services
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            <div className="relative">
+              <button
+                className="flex items-center mx-5 my-auto text-sm font-bold text-white hover:text-yellow-500"
                 onClick={() =>
                   handleToggleDropdown("transparencyReportDropdown")
                 }
@@ -229,12 +250,34 @@ const Navbar = () => {
                 </div>
               )}
             </div>
-            <Link
-              to={"/tourism"}
-              className="flex items-center mx-5 my-auto text-sm font-bold text-white hover:text-yellow-500"
-            >
-              TOURISM
-            </Link>
+
+            <div className="relative">
+              <button
+                className="flex items-center mx-5 my-auto text-sm font-bold text-white hover:text-yellow-500"
+                onClick={() => handleToggleDropdown("tourismDropdown")}
+              >
+                TOURISM
+                <MdOutlineKeyboardArrowDown className="ml-1" />
+              </button>
+              {dropdownOpen === "tourismDropdown" && (
+                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44">
+                  <Link
+                    to={"/history"}
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    onClick={handleCloseDropdown}
+                  >
+                    History
+                  </Link>
+                  <Link
+                    to={"/destinations"}
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    onClick={handleCloseDropdown}
+                  >
+                    Destination
+                  </Link>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -261,7 +304,7 @@ const Navbar = () => {
 
       {sidebarOpen && (
         <animated.div
-          className="fixed inset-y-0 left-0 z-50 bg-white w-44 md:hidden lg:hidden"
+          className="fixed inset-y-0 left-0 z-50 bg-white w-52 lg:hidden"
           style={sidebarAnimation}
         >
           <div className="flex flex-col justify-center gap-3">
@@ -405,6 +448,7 @@ const Navbar = () => {
                 }
               >
                 Transparency Report
+                <MdOutlineKeyboardArrowDown className="ml-1" />
               </button>
               {dropdownOpen === "transparencyReportDropdownMobile" && (
                 <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44">

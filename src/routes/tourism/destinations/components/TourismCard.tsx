@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { CityInterface } from "../../home/components/CityHighlights";
+import { CityInterface } from "../../../home/components/CityHighlights";
 import axios from "axios";
 
 const TourismCard: React.FC<CityInterface> = ({ featured_media, title }) => {

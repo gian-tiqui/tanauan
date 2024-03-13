@@ -67,39 +67,44 @@ const Footer = () => {
           <div className="flex gap-24 mt-6">
             <ul className="mt-5 text-black sm:text-sm md:text-lg">
               <li>
-                <Link to="/">Goverment</Link>
+                <Link to="/barangays">Barangays</Link>
               </li>
               <li>
-                <Link to="/">City Transactions</Link>
+                <Link to="/tanauan-e-services">Tanauan E-Services</Link>
               </li>
               <li>
-                <Link to="/">Business</Link>
+                <Link to="/csdw-services">CSDW Services</Link>
               </li>
               <li>
-                <Link to="/">Transparency Report</Link>
+                <Link to="/pwd-id-and-services">PWD ID and Services</Link>
               </li>
               <li>
-                <Link to="/">News & Events</Link>
+                <Link to="/senior-citizen-id-and-benefits">
+                  Senior Citizen ID and Benefits
+                </Link>
               </li>
               <li>
-                <Link to="/">Departments</Link>
+                <Link to="/city-officials">City Officials</Link>
               </li>
             </ul>
             <ul className="mt-5 text-black sm:text-sm md:text-lg">
               <li>
-                <Link to="/">Departments</Link>
+                <Link to="/departments">Departments</Link>
               </li>
               <li>
-                <Link to="/">Online Services</Link>
+                <Link to="/mission-vision">Mission Vision</Link>
               </li>
               <li>
-                <Link to="/">Careers</Link>
+                <Link to="/news">News</Link>
               </li>
               <li>
-                <Link to="/">Tourism</Link>
+                <Link to="/assesors">Assesors</Link>
               </li>
               <li>
-                <Link to="/">The City</Link>
+                <Link to="/bids-and-awards">Bids and Awards</Link>
+              </li>
+              <li>
+                <Link to="/full-disclosure-report">Full Disclosure Report</Link>
               </li>
             </ul>
           </div>
@@ -108,13 +113,13 @@ const Footer = () => {
       <hr className="mt-12" />
       <div className="flex justify-center bg-red-700">
         <Link to="/" className="my-1 text-sm text-white sm:text-sm md:text-lg">
-          Talisay - Tanauan Rd, Tanauan, 4232 Batangas | Maps
+          Talisay - Tanauan Rd, Tanauan, 4232 Batangas
         </Link>
       </div>
       <hr />
       <div className="flex justify-center">
         <Link to="/" className="my-3 text-sm text-black sm:text-sm md:text-lg">
-          TANAUAN CITY GOVERMENT© 2022 All Rights Reserved
+          CITY INFORMATION OFFICE © 2022 All Rights Reserved
         </Link>
       </div>
     </div>

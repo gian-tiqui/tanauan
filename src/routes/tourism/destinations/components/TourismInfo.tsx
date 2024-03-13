@@ -1,5 +1,5 @@
 import React from "react";
-import { CityInterface } from "../../home/components/CityHighlights";
+import { CityInterface } from "../../../home/components/CityHighlights";
 
 const TourismInfo: React.FC<CityInterface> = ({ content, title }) => {
   const extractLastParagraph = (htmlContent: string): string | null => {

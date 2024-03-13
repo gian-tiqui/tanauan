@@ -24,7 +24,7 @@ const Home = () => {
         <Divider text="More news" />
       </div>
       <div data-aos="fade-up" id="public-services">
-        <PublicServices />
+        <PublicServices showText={true} />
       </div>
       <div data-aos="fade-up" id="mobile-app">
         <MobileApp />
