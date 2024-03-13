@@ -70,7 +70,7 @@ const NewsContainer = ({ id }: NewsContProps) => {
               <img
                 src={images[index] || ""}
                 alt={newsItem.title.rendered}
-                className="w-auto mb-4 h-96 rounded-xl"
+                className="w-full h-full mb-4 rounded-xl"
               />
             )}
           </div>
