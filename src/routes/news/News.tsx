@@ -92,7 +92,7 @@ const News = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3">
           <div className="md:col-span-2 lg:col-span-2">
             <div className="h-full border-t border-l border-r border-l-black border-t-black border-r-black">
-              <div className="fixed flex flex-wrap justify-start gap-2 p-2 border-b border-black lg:w-[841px] bg-white opacity-95">
+              <div className="hidden fixed flex-wrap justify-start gap-2 p-2 border-b border-black lg:w-[841px] bg-white opacity-95">
                 {tags.length !== 0 ? (
                   tags.slice(0, 3).map((tag) => (
                     <button
