@@ -181,7 +181,7 @@ function App() {
                   </Routes>
                   <div
                     onClick={toastIt}
-                    className="fixed w-40 h-40 bottom-2 right-2"
+                    className="fixed z-10 w-40 h-40 bottom-2 right-2"
                   >
                     <Lottie animationData={profile} />
                   </div>

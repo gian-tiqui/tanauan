@@ -3,6 +3,7 @@ import { FaFilePdf } from "react-icons/fa";
 import { SetShowFooterContext, SetShowHeaderContext } from "../../../App";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/logo.png";
+import { BiChevronRight } from "react-icons/bi";
 
 interface FileInterface {
   name: string;
@@ -17,7 +18,7 @@ interface FullDisclosureReportInterface {
 const Documents = () => {
   const data: FullDisclosureReportInterface[] = [
     {
-      quarter: "FIRST",
+      quarter: "FIRST QUARTER",
       files: [
         {
           name: "20% Component of the IRA Utilization (IRAU)",
@@ -62,7 +63,7 @@ const Documents = () => {
       ],
     },
     {
-      quarter: "SECOND",
+      quarter: "SECOND QUARTER",
       files: [
         {
           name: "20% Component of the IRA Utilization (IRAU)",
@@ -107,7 +108,7 @@ const Documents = () => {
       ],
     },
     {
-      quarter: "THIRD",
+      quarter: "THIRD QUARTER",
       files: [
         {
           name: "20% Component of the IRA Utilization (IRAU)",
@@ -152,7 +153,7 @@ const Documents = () => {
       ],
     },
     {
-      quarter: "FOURTH",
+      quarter: "FOURTH QUARTER",
       files: [
         {
           name: "20% Component of the IRA Utilization (IRAU)",
@@ -756,6 +757,51 @@ const Documents = () => {
         },
       ],
     },
+    {
+      quarter: "FDR",
+      files: [
+        {
+          name: "20% Component of the IRA Utilization (IRAU)",
+          files:
+            "https://tanauancity.gov.ph/wp-content/uploads/2022/10/Unliquidated-Cash-Advances-UCA-4.pdf",
+        },
+        {
+          name: "70% LDRRM Utilization Fund (LDRRMFU)",
+          files:
+            "https://tanauancity.gov.ph/wp-content/uploads/2022/10/Unliquidated-Cash-Advances-UCA-4.pdf",
+        },
+        {
+          name: "Bid Results on Civil Works, Goods & Services, Consulting Services",
+          files:
+            "https://tanauancity.gov.ph/wp-content/uploads/2022/10/Unliquidated-Cash-Advances-UCA-4.pdf",
+        },
+        {
+          name: "Human Resource Complement (ManCom)",
+          files:
+            "https://tanauancity.gov.ph/wp-content/uploads/2022/10/Unliquidated-Cash-Advances-UCA-4.pdf",
+        },
+        {
+          name: "Quarterly Statement of Cash Flow (QSCF)",
+          files:
+            "https://tanauancity.gov.ph/wp-content/uploads/2022/10/Unliquidated-Cash-Advances-UCA-4.pdf",
+        },
+        {
+          name: "SEF Utilization Fund (SEF)",
+          files:
+            "https://tanauancity.gov.ph/wp-content/uploads/2022/10/Unliquidated-Cash-Advances-UCA-4.pdf",
+        },
+        {
+          name: "Trust Fund Utilization (PDAF)",
+          files:
+            "https://tanauancity.gov.ph/wp-content/uploads/2022/10/Unliquidated-Cash-Advances-UCA-4.pdf",
+        },
+        {
+          name: "Unliquidated Cash Advances (UCA)",
+          files:
+            "https://tanauancity.gov.ph/wp-content/uploads/2022/10/Unliquidated-Cash-Advances-UCA-4.pdf",
+        },
+      ],
+    },
   ];
 
   const data2022: FullDisclosureReportInterface[] = [
@@ -899,6 +945,164 @@ const Documents = () => {
         },
       ],
     },
+    {
+      quarter: "NOTICE OF AWARDS",
+      files: [
+        {
+          name: "Supply and Delivery of Rice and Sticker Provision of Welfare Goods Assistance for the poor families affected",
+          files:
+            "https://tanauancity.gov.ph/wp-content/uploads/2020/07/Supply-and-Delivery-of-Rice-and-Sticker-Provision-of-Welfare-Goods-Assistance-for-the-poor-families-affected.pdf",
+        },
+        {
+          name: "Supply and Delivery of Medical & Laboratory Supplies for CHO",
+          files:
+            "https://tanauancity.gov.ph/wp-content/uploads/2020/07/Supply-and-Delivery-of-Medical-Laboratory-Supplies-for-CHO.pdf",
+        },
+        {
+          name: "Supply and Delivery of Dump Truck",
+          files:
+            "https://tanauancity.gov.ph/wp-content/uploads/2020/07/Supply-and-Delivery-of-Dump-Truck.pdf",
+        },
+        {
+          name: "Supply and Delivery of Drugs and Medicines for Sambat and Pagaspas Birthing Homes",
+          files:
+            "https://tanauancity.gov.ph/wp-content/uploads/2020/07/Supply-and-Delivery-of-Drugs-and-Medicines-ofr-Sambat-and-Pagaspas-Birthing-Homes.pdf",
+        },
+        {
+          name: "Supply and Delivery of Backhoe Loader",
+          files:
+            "https://tanauancity.gov.ph/wp-content/uploads/2020/07/Supply-and-delivery-of-Backhoe-Loader.pdf",
+        },
+        {
+          name: "Supply and Delivery of Assorted Groceries in Christmas Design",
+          files:
+            "https://tanauancity.gov.ph/wp-content/uploads/2020/07/Supply-and-Delivery-of-Assorted-Groceries-in-Christmas-Design.pdf",
+        },
+        {
+          name: "Supply and Delivery of Armchair for Various School",
+          files:
+            "https://tanauancity.gov.ph/wp-content/uploads/2020/07/Supply-and-Delivery-of-Armchair-for-Various-School.pdf",
+        },
+      ],
+    },
+    {
+      quarter: "BIDS NOTICE TO PROCEED",
+      files: [
+        {
+          name: "Supply and Delivery of Armchair for Various Schools",
+          files:
+            "https://tanauancity.gov.ph/wp-content/uploads/2020/07/Supply-and-Delivery-of-Armchair-for-Various-Schools.pdf",
+        },
+        {
+          name: "Supply and Delivery of Assorted Groceries in Christmas Design",
+          files:
+            "https://tanauancity.gov.ph/wp-content/uploads/2020/07/Supply-and-Delivery-of-Assorted-Groceries-in-Christmas-Design-1.pdf",
+        },
+        {
+          name: "Supply and Delivery of Drugs and Medicines for Sambat and Pagaspas Birthing Homes",
+          files:
+            "https://tanauancity.gov.ph/wp-content/uploads/2020/07/Supply-and-Delivery-of-Drugs-and-Medicines-for-Sambat-and-Pagaspas-Birthing-Homes.pdf",
+        },
+        {
+          name: "Supply and Delivery of Dump Truck",
+          files:
+            "https://tanauancity.gov.ph/wp-content/uploads/2020/07/Supply-and-Delivery-of-Dump-Truck-1.pdf",
+        },
+        {
+          name: "Supply and Delivery of Laboratory Supplies for CHO",
+          files:
+            "https://tanauancity.gov.ph/wp-content/uploads/2020/07/Supply-and-Delivery-of-Laboratory-Supplies-for-CHO.pdf",
+        },
+        {
+          name: "Supply and Delivery of Rice and Sticker provision of welfare goods assistance for the poor families affected",
+          files:
+            "https://tanauancity.gov.ph/wp-content/uploads/2020/07/Supply-and-Delivery-of-Rice-and-Sticker-provision-of-welfare-goods-assistance-for-the-poor-families-affected.pdf",
+        },
+      ],
+    },
+    {
+      quarter: "BIDS BAC",
+      files: [
+        {
+          name: "Supply and Delivery of Armchair for Various School",
+          files:
+            "https://tanauancity.gov.ph/wp-content/uploads/2020/07/Supply-and-Delivery-of-Armchair-for-Various-School-1.pdf",
+        },
+        {
+          name: "Supply and Delivery of Assorted Groceries in Christmas Design",
+          files:
+            "https://tanauancity.gov.ph/wp-content/uploads/2020/07/Supply-and-Delivery-of-Assorted-Groceries-in-Christmas-Design-2.pdf",
+        },
+        {
+          name: "Supply and Delivery of Drugs and Medicines ofr Sambat and Pagaspas Birthing Homes",
+          files:
+            "https://tanauancity.gov.ph/wp-content/uploads/2020/07/Supply-and-Delivery-of-Drugs-and-Medicines-ofr-Sambat-and-Pagaspas-Birthing-Homes-1.pdf",
+        },
+        {
+          name: "Supply and Delivery of Dump Truck",
+          files:
+            "https://tanauancity.gov.ph/wp-content/uploads/2020/07/Supply-and-Delivery-of-Dump-Truck-2.pdf",
+        },
+        {
+          name: "Supply and Delivery of Medical & Laboratory Supplies for CHO",
+          files:
+            "https://tanauancity.gov.ph/wp-content/uploads/2020/07/Supply-and-Delivery-of-Medical-Laboratory-Supplies-for-CHO-1.pdf",
+        },
+        {
+          name: "Supply and Delivery of Rice and Sticker Provision of Welfare Goods Assistance for the poor families affected",
+          files:
+            "https://tanauancity.gov.ph/wp-content/uploads/2020/07/Supply-and-Delivery-of-Rice-and-Sticker-Provision-of-Welfare-Goods-Assistance-for-the-poor-families-affected-1.pdf",
+        },
+      ],
+    },
+  ];
+
+  const data2023: FullDisclosureReportInterface[] = [
+    {
+      quarter: "FDR",
+      files: [
+        {
+          name: "20% Component of the IRA Utilization (IRAU)",
+          files:
+            "https://tanauancity.gov.ph/wp-content/uploads/2020/07/20-IRA-Utilization-1Q-2023.pdf",
+        },
+        {
+          name: "LDRRM Utilization Fund (LDRRMFU)",
+          files:
+            "https://tanauancity.gov.ph/wp-content/uploads/2020/07/LDRRMF-1Q-2023.pdf",
+        },
+        {
+          name: "Bid Results on Civil Works, Goods & Services, Consulting Services",
+          files:
+            "https://tanauancity.gov.ph/wp-content/uploads/2020/07/BID-RESULTS-1Q-2023.pdf",
+        },
+        {
+          name: "Human Resource Complement (ManCom)",
+          files:
+            "https://tanauancity.gov.ph/wp-content/uploads/2020/07/HUMAN-RESOURCE-COMPLEMENT-1Q-2013.pdf",
+        },
+        {
+          name: "Quarterly Statement of Cash Flow (QSCF)",
+          files:
+            "https://tanauancity.gov.ph/wp-content/uploads/2020/07/CASH-FLOW-1Q-2023.pdf",
+        },
+        {
+          name: "SEF Utilization Fund (SEF)",
+          files:
+            "https://tanauancity.gov.ph/wp-content/uploads/2020/07/SEF-1Q-2023.pdf",
+        },
+        {
+          name: "Trust Fund Utilization (PDAF)",
+          files:
+            "https://tanauancity.gov.ph/wp-content/uploads/2020/07/PDAF-1Q-2023.pdf",
+        },
+        {
+          name: "Unliquidated Cash Advances (UCA)",
+          files:
+            "https://tanauancity.gov.ph/wp-content/uploads/2020/07/UNLIQUIDATED-CASH-ADVANCES-1Q-2023.pdf",
+        },
+      ],
+    },
   ];
 
   const setShowHeader = useContext(SetShowHeaderContext);
@@ -919,37 +1123,58 @@ const Documents = () => {
 
   return (
     <div className="container">
-      <div className="grid grid-cols-5">
-        <div className="col-span-1">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+        <div className="col-span-1 p-4">
           <Link to={"/"}>
             <img src={logo} alt="Tanauan" className="w-auto h-16" />
           </Link>
-          <p>2021</p>
-          <ul>
-            {data.map((item, index) => (
-              <li
-                key={index}
-                onClick={() => setSelectedQuarter(item)}
-                className="cursor-pointer"
-              >
-                {item.quarter} QUARTER
-              </li>
-            ))}
-          </ul>
-          <p>2022</p>
-          <ul>
-            {data2022.map((item, index) => (
-              <li
-                key={index}
-                onClick={() => setSelectedQuarter(item)}
-                className="cursor-pointer"
-              >
-                {item.quarter} QUARTER
-              </li>
-            ))}
-          </ul>
+          <div className="mb-4">
+            <p className="mb-2 text-lg font-semibold">2021</p>
+            <ul>
+              {data.map((item, index) => (
+                <li
+                  key={index}
+                  onClick={() => setSelectedQuarter(item)}
+                  className="flex items-center cursor-pointer"
+                >
+                  <BiChevronRight className="mr-2" />
+                  {item.quarter}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="mb-4">
+            <p className="mb-2 text-lg font-semibold">2021</p>
+            <ul>
+              {data2022.map((item, index) => (
+                <li
+                  key={index}
+                  onClick={() => setSelectedQuarter(item)}
+                  className="flex items-center cursor-pointer"
+                >
+                  <BiChevronRight className="mr-2" />
+                  {item.quarter}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="mb-4">
+            <p className="mb-2 text-lg font-semibold">2021</p>
+            <ul>
+              {data2023.map((item, index) => (
+                <li
+                  key={index}
+                  onClick={() => setSelectedQuarter(item)}
+                  className="flex items-center cursor-pointer"
+                >
+                  <BiChevronRight className="mr-2" />
+                  {item.quarter}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-        <div className="grid h-screen col-span-3 gap-4 p-4 overflow-auto bg-gray-100 rounded-t-xl">
+        <div className="grid h-screen col-span-3 gap-4 p-4 overflow-auto bg-gray-100 sm:col-span-2 lg:col-span-3 rounded-t-xl">
           {selectedQuarter.files.map((file, index) => (
             <a
               key={index}
@@ -964,7 +1189,7 @@ const Documents = () => {
             </a>
           ))}
         </div>
-        <div className="grid col-span-1 gap-4 p-4 overflow-auto">
+        <div className="grid col-span-1 gap-4 p-4 overflow-auto sm:col-span-1 lg:col-span-1">
           <Link to={"/"}>go home pls</Link>
         </div>
       </div>
