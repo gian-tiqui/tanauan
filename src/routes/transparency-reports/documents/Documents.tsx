@@ -14,7 +14,7 @@ interface FullDisclosureReportInterface {
   files: FileInterface[];
 }
 
-const FullDisclosureReport = () => {
+const Documents = () => {
   const data: FullDisclosureReportInterface[] = [
     {
       quarter: "FIRST",
@@ -286,4 +286,4 @@ const FullDisclosureReport = () => {
   );
 };
 
-export default FullDisclosureReport;
+export default Documents;

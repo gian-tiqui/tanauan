@@ -24,9 +24,7 @@ import CSDWServices from "./routes/city-transactions/csdw-services/CSDWServices"
 import SeniorCitizenIdAndBenefits from "./routes/city-transactions/senior-citizen-id-and-benefits/SeniorCitizenIdAndBenefits";
 import PwdIdAndServices from "./routes/city-transactions/pwd-id-and-services/PwdIdAndServices";
 import TanauanEServices from "./routes/business/tanauan-e-services/TanauanEServices";
-import BidsAndAwards from "./routes/transparency-reports/bids-and-awards/BidsAndAwards";
 import Assesors from "./routes/transparency-reports/assesors/Assesors";
-import FullDisclosureReport from "./routes/transparency-reports/full-disclosure-report/FullDisclosureReport";
 import JobFair from "./routes/careers/job-fair/JobFair";
 import Aos from "aos";
 import "aos/dist/aos.css";
@@ -40,6 +38,7 @@ import Destinations from "./routes/tourism/destinations/Destinations";
 import History from "./routes/tourism/history/History";
 import EmergencyApp from "./routes/emergency-app/EmergencyApp";
 import CityOfficials2 from "./routes/government/city-officials/CityOfficials2";
+import Documents from "./routes/transparency-reports/documents/Documents";
 
 interface RouteMapping {
   path: string;
@@ -108,16 +107,12 @@ const routeMaps: RouteMapping[] = [
     element: <TanauanEServices />,
   },
   {
-    path: "/bids-and-awards",
-    element: <BidsAndAwards />,
-  },
-  {
     path: "/assesors",
     element: <Assesors />,
   },
   {
-    path: "/full-disclosure-report",
-    element: <FullDisclosureReport />,
+    path: "/documents",
+    element: <Documents />,
   },
   {
     path: "/job-fair",
