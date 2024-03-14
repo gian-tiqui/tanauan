@@ -39,6 +39,7 @@ import History from "./routes/tourism/history/History";
 import EmergencyApp from "./routes/emergency-app/EmergencyApp";
 import CityOfficials2 from "./routes/government/city-officials/CityOfficials2";
 import Documents from "./routes/transparency-reports/documents/Documents";
+import NotFound from "./routes/not-found/NotFound";
 
 interface RouteMapping {
   path: string;
@@ -138,6 +139,10 @@ const routeMaps: RouteMapping[] = [
     path: "/city-officials-2",
     element: <CityOfficials2 />,
   },
+  {
+    path: "*",
+    element: <NotFound />,
+  },
 ];
 
 function App() {
@@ -179,6 +184,7 @@ function App() {
                       />
                     ))}
                   </Routes>
+
                   <div
                     onClick={toastIt}
                     className="fixed z-10 w-40 h-40 bottom-2 right-2"

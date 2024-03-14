@@ -51,15 +51,10 @@ const CityOfficials2 = () => {
 
   if (loading) return <div>Loading...</div>;
 
+  console.log(MAYOR_IMAGE_URI);
+
   return (
     <div className="container px-3 py-20 mx-auto">
-      <div>
-        <img
-          src={MAYOR_IMAGE_URI}
-          alt=""
-          className="w-auto mx-auto my-20 rounded-lg h-96"
-        />
-      </div>
       <div className="flex flex-wrap items-center justify-center space-x-6 justify-cente lg:space-x-8 md:flex-wrap sm:flex-wrap lg:no-wrap">
         <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
           <div className="w-64 overflow-hidden rounded-lg h-96 sm:opacity-0 lg:opacity-100">
