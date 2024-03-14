@@ -221,11 +221,11 @@ const Navbar = () => {
                   onMouseLeave={handleCloseDropdown}
                 >
                   <Link
-                    to={"/bids-and-awards"}
+                    to={"/documents"}
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     onClick={handleCloseDropdown}
                   >
-                    BIDS and Awards
+                    Documents
                   </Link>
                   <Link
                     to={"/assesors"}
@@ -233,13 +233,6 @@ const Navbar = () => {
                     onClick={handleCloseDropdown}
                   >
                     Assesor's
-                  </Link>
-                  <Link
-                    to={"/full-disclosure-report"}
-                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-                    onClick={handleCloseDropdown}
-                  >
-                    Full Disclosure Report
                   </Link>
                 </div>
               )}
@@ -463,11 +456,11 @@ const Navbar = () => {
               {dropdownOpen === "transparencyReportDropdownMobile" && (
                 <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44">
                   <Link
-                    to={"/bids-and-awards"}
+                    to={"/documents"}
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     onClick={handleCloseDropdown}
                   >
-                    BIDS and Awards
+                    Documents
                   </Link>
                   <Link
                     to={"/assesors"}
@@ -475,13 +468,6 @@ const Navbar = () => {
                     onClick={handleCloseDropdown}
                   >
                     Assesor's
-                  </Link>
-                  <Link
-                    to={"/full-disclosure-report"}
-                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-                    onClick={handleCloseDropdown}
-                  >
-                    Full Disclosure Report
                   </Link>
                 </div>
               )}
