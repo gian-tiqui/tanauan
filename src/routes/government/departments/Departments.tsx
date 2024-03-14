@@ -19,8 +19,23 @@ export const DATA_PER_PAGE = 11;
 const Departments = () => {
   const departments = useContext(DepartmentContext);
   const setDepartments = useContext(SetDepartmentContext);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [selectedDepartment, setSelectedDepartment] =
     useState<DepartmentsInterface>(departments[0]);
+
+  console.log(windowWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     const fetchDepartments = async () => {
@@ -49,52 +64,20 @@ const Departments = () => {
 
   return (
     <div className="container px-3 mx-auto">
-      <div className="grid grid-cols-2 gap-4">
-        <ul className="list-none">
+      <div className="grid grid-cols-2">
+        <div className="grid">
           {departments.map((department) => (
-            <li
+            <button
               onClick={() => setDepartmentContent(department)}
               key={department.id}
-              className="px-4 py-2 m-2 cursor-pointer hover:bg-red-100 hover:text-red-700"
+              className="px-4 py-2 m-2 bg-gray-200 rounded-md hover:bg-gray-300"
             >
               {department.title.rendered}
-            </li>
+            </button>
           ))}
-        </ul>
-        <div className="p-4 bg-white rounded-md shadow-sm">
-          <h3 className="mb-2 font-bold text-red-700">
-            Selected Department Details
-          </h3>
-          <div className="grid grid-cols-1 gap-2">
-            <div className="text-gray-600">Department Title:</div>
-            <div className="font-medium">
-              {selectedDepartment.title.rendered}
-            </div>
-            <div className="text-gray-600">Link:</div>
-            <a
-              href={selectedDepartment.link}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="text-red-500 hover:underline"
-            >
-              {selectedDepartment.link}
-            </a>
-            <div className="text-gray-600">Date:</div>
-            <div>{selectedDepartment.date}</div>
-            {/* Conditionally display content if available */}
-            {selectedDepartment.content.rendered && (
-              <>
-                <div className="text-gray-600">Content:</div>
-                {selectedDepartment.content.rendered !== "" && (
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: selectedDepartment.content.rendered,
-                    }}
-                  />
-                )}
-              </>
-            )}
-          </div>
+        </div>
+        <div>
+          <pre>{JSON.stringify(selectedDepartment, null, 2)}</pre>
         </div>
       </div>
     </div>
