@@ -12,7 +12,6 @@ import {
   SetCityCityOfficialContext,
 } from "../../../context-container/ContextContainer";
 import daBg from "../../../assets/services-bg.png";
-
 export interface CityOfficialInterface {
   id: number;
   title: { rendered: string };
