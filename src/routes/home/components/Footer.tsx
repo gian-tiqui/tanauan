@@ -4,19 +4,15 @@ import footerBg from "../../../assets/footer-bg.png";
 const Footer = () => {
   return (
     <div
-      style={{
-        backgroundImage: `url(${footerBg})`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
-      }}
+      className="bg-center bg-cover"
+      style={{ backgroundImage: `url(${footerBg})` }}
     >
-      <div className="h-8 bg-red-700 "></div>
-      <div className="md:flex lg:flex">
+      <div className="h-8 bg-red-700"></div>
+      <div className="flex flex-col md:flex-row lg:flex-row">
         <div className="flex-1 pt-7 pl-7">
           <p className="font-bold text-black text-md">STAY CONNECTED</p>
-          <div className="flex gap-24 mt-6">
-            <ul className="mt-5 text-sm text-white sm:text-base md:text-lg">
+          <div className="flex gap-4 mt-6 sm:gap-6 md:gap-8">
+            <ul className="flex">
               <li className="mb-2">
                 <a
                   href="https://www.facebook.com/TanauanCityGovernment/"
@@ -26,7 +22,8 @@ const Footer = () => {
                 >
                   <img
                     src="https://cdn-icons-png.flaticon.com/128/145/145802.png"
-                    style={{ height: 50, width: 50 }}
+                    alt="Facebook"
+                    className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14"
                   />
                 </a>
               </li>
@@ -34,7 +31,8 @@ const Footer = () => {
                 <a href="/" className="underline hover:text-blue-500">
                   <img
                     src="https://cdn-icons-png.flaticon.com/128/3670/3670151.png"
-                    style={{ height: 50, width: 50 }}
+                    alt="Twitter"
+                    className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14"
                   />
                 </a>
               </li>
@@ -42,7 +40,8 @@ const Footer = () => {
                 <a href="/" className="underline hover:text-blue-500">
                   <img
                     src="https://cdn-icons-png.flaticon.com/128/3955/3955024.png"
-                    style={{ height: 50, width: 50 }}
+                    alt="Instagram"
+                    className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14"
                   />
                 </a>
               </li>
@@ -55,7 +54,8 @@ const Footer = () => {
                 >
                   <img
                     src="https://cdn-icons-png.flaticon.com/128/3670/3670147.png"
-                    style={{ height: 50, width: 50 }}
+                    alt="YouTube"
+                    className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14"
                   />
                 </a>
               </li>
@@ -64,8 +64,8 @@ const Footer = () => {
         </div>
         <div className="flex-1 pt-7 pl-7">
           <p className="font-bold text-black text-md">LINKS</p>
-          <div className="flex gap-24 mt-6">
-            <ul className="mt-5 text-black sm:text-sm md:text-lg">
+          <div className="flex gap-4 mt-6 sm:gap-6 md:gap-8">
+            <ul className="flex flex-col">
               <li>
                 <Link to="/" className="hover:text-red-800">
                   Home
@@ -105,7 +105,7 @@ const Footer = () => {
                 </Link>
               </li>
             </ul>
-            <ul className="mt-5 text-black sm:text-sm md:text-lg">
+            <ul className="flex flex-col">
               <li>
                 <Link to="/departments" className="hover:text-red-800">
                   Departments
@@ -143,7 +143,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <hr className="mt-12" />
+      <hr className="mt-6 sm:mt-8 md:mt-10" />
       <div className="flex justify-center bg-red-700">
         <Link to="/" className="my-1 text-sm text-white sm:text-sm md:text-lg">
           Talisay - Tanauan Rd, Tanauan, 4232 Batangas
