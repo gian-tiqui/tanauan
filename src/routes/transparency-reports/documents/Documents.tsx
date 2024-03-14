@@ -1124,56 +1124,69 @@ const Documents = () => {
   return (
     <div className="container">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-5">
-        <div className="col-span-1 p-4">
-          <Link to={"/"}>
-            <img src={logo} alt="Tanauan" className="w-auto h-16" />
+        <div className="flex flex-col w-full h-screen px-2 overflow-auto text-black bg-white shadow-2xl">
+          {" "}
+          <Link to="/">
+            <img
+              src={logo}
+              alt="Tanauan"
+              className="w-auto h-20 mx-auto mt-5 mb-10"
+            />
           </Link>
-          <div className="mb-4">
-            <p className="mb-2 text-lg font-semibold">2021</p>
-            <ul>
-              {data.map((item, index) => (
-                <li
-                  key={index}
-                  onClick={() => setSelectedQuarter(item)}
-                  className="flex items-center cursor-pointer"
-                >
-                  <BiChevronRight className="mr-2" />
-                  {item.quarter}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="mb-4">
-            <p className="mb-2 text-lg font-semibold">2021</p>
-            <ul>
-              {data2022.map((item, index) => (
-                <li
-                  key={index}
-                  onClick={() => setSelectedQuarter(item)}
-                  className="flex items-center cursor-pointer"
-                >
-                  <BiChevronRight className="mr-2" />
-                  {item.quarter}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="mb-4">
-            <p className="mb-2 text-lg font-semibold">2021</p>
-            <ul>
-              {data2023.map((item, index) => (
-                <li
-                  key={index}
-                  onClick={() => setSelectedQuarter(item)}
-                  className="flex items-center cursor-pointer"
-                >
-                  <BiChevronRight className="mr-2" />
-                  {item.quarter}
-                </li>
-              ))}
-            </ul>
+          <div className="flex flex-col space-y-4">
+            {" "}
+            <div className="flex items-center pb-2 border-b border-gray-700">
+              {" "}
+              <p className="text-lg font-extrabold">2021</p>
+              <ul className="pl-2 ml-4 list-none">
+                {" "}
+                {data.map((item, index) => (
+                  <li
+                    key={index}
+                    onClick={() => setSelectedQuarter(item)}
+                    className="flex font-semibold text-black transition duration-200 cursor-pointer hover:text-gray-700"
+                  >
+                    <BiChevronRight className="mr-2 text-black" />{" "}
+                    {item.quarter}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="flex items-center pb-2 border-b border-gray-700">
+              {" "}
+              <p className="text-lg font-extrabold">2022</p>
+              <ul className="pl-2 ml-4 list-none">
+                {data2022.map((item, index) => (
+                  <li
+                    key={index}
+                    onClick={() => setSelectedQuarter(item)}
+                    className="flex font-semibold text-black transition duration-200 cursor-pointer hover:text-gray-700"
+                  >
+                    <BiChevronRight className="mr-2 " />
+                    {item.quarter}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="flex items-center pb-2 border-b border-gray-700">
+              {" "}
+              <p className="text-lg font-extrabold">2023</p>
+              <ul className="pl-2 ml-4 list-none">
+                {data2023.map((item, index) => (
+                  <li
+                    key={index}
+                    onClick={() => setSelectedQuarter(item)}
+                    className="flex font-semibold text-black transition duration-200 cursor-pointer hover:text-gray-700"
+                  >
+                    <BiChevronRight className="mr-2" />
+                    {item.quarter}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
+
         <div className="grid h-screen col-span-3 gap-4 p-4 overflow-auto bg-gray-100 sm:col-span-2 lg:col-span-3 rounded-t-xl">
           {selectedQuarter.files.map((file, index) => (
             <a
@@ -1189,8 +1202,72 @@ const Documents = () => {
             </a>
           ))}
         </div>
-        <div className="grid col-span-1 gap-4 p-4 overflow-auto sm:col-span-1 lg:col-span-1">
-          <Link to={"/"}>go home pls</Link>
+        <div className="grid col-span-1 overflow-auto md:p-4 lg:p-4 sm:col-span-1 lg:col-span-1">
+          <div className="p-4 bg-white rounded-lg shadow-xl">
+            <p className="font-extrabold">Links</p>
+            <ul className="mt-5 font-bold">
+              <li>
+                <Link className="hover:text-gray-700" to={"/"}>
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link className="hover:text-gray-700" to={"/"}>
+                  Barangays
+                </Link>
+              </li>
+              <li>
+                <Link className="hover:text-gray-700" to={"/"}>
+                  CSDW Services
+                </Link>
+              </li>
+              <li>
+                <Link className="hover:text-gray-700" to={"/"}>
+                  PWD ID and Services
+                </Link>
+              </li>
+              <li>
+                <Link className="hover:text-gray-700" to={"/"}>
+                  Sr. Citizen ID and Benefits
+                </Link>
+              </li>
+              <li>
+                <Link className="hover:text-gray-700" to={"/"}>
+                  City Officials
+                </Link>
+              </li>
+              <li>
+                <Link className="hover:text-gray-700" to={"/"}>
+                  Departments
+                </Link>
+              </li>
+              <li>
+                <Link className="hover:text-gray-700" to={"/"}>
+                  Mission and Vision
+                </Link>
+              </li>
+              <li>
+                <Link className="hover:text-gray-700" to={"/"}>
+                  News
+                </Link>
+              </li>
+              <li>
+                <Link className="hover:text-gray-700" to={"/"}>
+                  Assessors
+                </Link>
+              </li>
+              <li>
+                <Link className="hover:text-gray-700" to={"/"}>
+                  Bids and Awards
+                </Link>
+              </li>
+              <li>
+                <Link className="hover:text-gray-700" to={"/"}>
+                  Full Disclosure Report
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
