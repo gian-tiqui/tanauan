@@ -1266,17 +1266,20 @@ const Documents = () => {
                 </Link>
               </li>
               <li>
-                <Link className="hover:text-gray-200" to={"/"}>
+                <Link className="hover:text-gray-200" to={"/barangays"}>
                   Barangays
                 </Link>
               </li>
               <li>
-                <Link className="hover:text-gray-200" to={"/"}>
+                <Link className="hover:text-gray-200" to={"/csdw-services"}>
                   CSDW Services
                 </Link>
               </li>
               <li>
-                <Link className="hover:text-gray-200" to={"/"}>
+                <Link
+                  className="hover:text-gray-200"
+                  to={"/pwd-id-and-services"}
+                >
                   PWD ID and Services
                 </Link>
               </li>
@@ -1286,38 +1289,38 @@ const Documents = () => {
                 </Link>
               </li>
               <li>
-                <Link className="hover:text-gray-200" to={"/"}>
+                <Link className="hover:text-gray-200" to={"/city-officials"}>
                   City Officials
                 </Link>
               </li>
               <li>
-                <Link className="hover:text-gray-200" to={"/"}>
+                <Link className="hover:text-gray-200" to={"/departments"}>
                   Departments
                 </Link>
               </li>
               <li>
-                <Link className="hover:text-gray-200" to={"/"}>
+                <Link className="hover:text-gray-200" to={"/mission-vision"}>
                   Mission and Vision
                 </Link>
               </li>
               <li>
-                <Link className="hover:text-gray-200" to={"/"}>
+                <Link className="hover:text-gray-200" to={"/news"}>
                   News
                 </Link>
               </li>
               <li>
-                <Link className="hover:text-gray-200" to={"/"}>
+                <Link className="hover:text-gray-200" to={"/assessors"}>
                   Assessors
                 </Link>
               </li>
               <li>
-                <Link className="hover:text-gray-200" to={"/"}>
-                  Bids and Awards
+                <Link className="hover:text-gray-200" to={"/documents"}>
+                  Documents
                 </Link>
               </li>
               <li>
-                <Link className="hover:text-gray-200" to={"/"}>
-                  Full Disclosure Report
+                <Link className="hover:text-gray-200" to={"/destinations"}>
+                  Destinations
                 </Link>
               </li>
             </ul>

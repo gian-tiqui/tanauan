@@ -16,6 +16,40 @@ export interface DepartmentsInterface {
 
 export const DATA_PER_PAGE = 11;
 
+const DepartmentCard: React.FC<DepartmentsInterface> = ({
+  title,
+  content,
+  date,
+}) => {
+  const formatDate = (dateString: string): string => {
+    const formattedDate = new Date(dateString).toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    });
+    return formattedDate;
+  };
+
+  return (
+    <div className="grid h-full p-10">
+      <div>
+        {title && title.rendered && (
+          <p className="text-3xl font-bold text-center">{title.rendered}</p>
+        )}
+        {date && (
+          <p className="mt-3 text-center text-gray-900">{formatDate(date)}</p>
+        )}
+      </div>
+      {content && content.rendered && (
+        <div
+          className="mx-auto"
+          dangerouslySetInnerHTML={{ __html: content.rendered }}
+        ></div>
+      )}
+    </div>
+  );
+};
+
 const Departments = () => {
   const departments = useContext(DepartmentContext);
   const setDepartments = useContext(SetDepartmentContext);
@@ -63,21 +97,24 @@ const Departments = () => {
   };
 
   return (
-    <div className="container px-3 mx-auto">
-      <div className="grid grid-cols-2">
-        <div className="grid">
-          {departments.map((department) => (
-            <button
-              onClick={() => setDepartmentContent(department)}
-              key={department.id}
-              className="px-4 py-2 m-2 bg-gray-200 rounded-md hover:bg-gray-300"
-            >
-              {department.title.rendered}
-            </button>
-          ))}
+    <div className="container px-10 py-10 mx-auto">
+      <div className="grid sm:grid-cols-1 md:grid-cols-4">
+        <div className="col-span-1 shadow-xl rounded-xl">
+          <p className="ml-3 text-2xl font-bold">Departments</p>
+          <ul>
+            {departments.map((department) => (
+              <li
+                onClick={() => setDepartmentContent(department)}
+                key={department.id}
+                className="px-2 py-1 m-2 text-sm rounded-md hover:bg-gray-200"
+              >
+                {department.title && department.title.rendered}
+              </li>
+            ))}
+          </ul>
         </div>
-        <div>
-          <pre>{JSON.stringify(selectedDepartment, null, 2)}</pre>
+        <div className="col-span:1 sm:col-span-3">
+          <DepartmentCard {...selectedDepartment} />
         </div>
       </div>
     </div>

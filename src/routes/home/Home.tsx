@@ -4,7 +4,6 @@ import MobileApp from "./components/MobileApp";
 import PublicServices from "./components/PublicServices";
 import StatusUpdates from "./components/StatusUpdates";
 import CityHighlights from "./components/CityHighlights";
-import LogoDivider from "./components/LogoDivider";
 import Cgtv from "./components/CGTV";
 import VideoHeader from "./components/VideoHeader";
 
@@ -28,9 +27,6 @@ const Home = () => {
       </div>
       <div data-aos="fade-up" id="mobile-app">
         <MobileApp />
-      </div>
-      <div data-aos="fade-up" id="logo-divider">
-        <LogoDivider />
       </div>
       <div data-aos="fade-up" id="cgtv">
         <Cgtv />

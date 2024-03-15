@@ -55,89 +55,30 @@ const CityOfficials2 = () => {
   console.log(MAYOR_IMAGE_URI);
 
   return (
-    <div className="container px-3 pb-20 mx-auto">
-      <Divider text="City Officials" />
-      <div className="flex flex-wrap items-center justify-center mt-20 space-x-6 justify-cente lg:space-x-8 md:flex-wrap sm:flex-wrap lg:no-wrap ">
-        <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
-          <div className="w-64 overflow-hidden rounded-lg h-96 sm:opacity-0 lg:opacity-100">
-            <img
-              src={officialImages[0]}
-              alt=""
-              className="object-cover object-center w-full h-full"
-            />
-          </div>
-          <div className="w-64 overflow-hidden rounded-lg h-96">
-            <img
-              src={officialImages[1]}
-              alt=""
-              className="object-cover object-center w-full h-full"
-            />
-          </div>
-        </div>
-        <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
-          <div className="w-64 overflow-hidden rounded-lg h-96">
-            <img
-              src={officialImages[2]}
-              alt=""
-              className="object-cover object-center w-full h-full"
-            />
-          </div>
-          <div className="w-64 overflow-hidden rounded-lg h-96">
-            <img
-              src={officialImages[3]}
-              alt=""
-              className="object-cover object-center w-full h-full"
-            />
-          </div>
-          <div className="w-64 overflow-hidden rounded-lg h-96">
-            <img
-              src={officialImages[4]}
-              alt=""
-              className="object-cover object-center w-full h-full"
-            />
-          </div>
-        </div>
-        <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
-          <div className="w-64 overflow-hidden rounded-lg h-96">
-            <img
-              src={officialImages[5]}
-              alt=""
-              className="object-cover object-center w-full h-full"
-            />
-          </div>
-          <div className="w-64 overflow-hidden rounded-lg h-96">
-            <img
-              src={officialImages[6]}
-              alt=""
-              className="object-cover object-center w-full h-full"
-            />
-          </div>
-        </div>
-        <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
-          <div className="w-64 overflow-hidden rounded-lg h-96">
-            <img
-              src={officialImages[7]}
-              alt=""
-              className="object-cover object-center w-full h-full"
-            />
-          </div>
-          <div className="w-64 overflow-hidden rounded-lg h-96">
-            <img
-              src={officialImages[8]}
-              alt=""
-              className="object-cover object-center w-full h-full"
-            />
-          </div>
-          <div className="w-64 overflow-hidden rounded-lg h-96">
-            <img
-              src={officialImages[9]}
-              alt=""
-              className="object-cover object-center w-full h-full"
-            />
-          </div>
+    officialImages.length > 0 && (
+      <div className="container px-3 pb-20 mx-auto">
+        <Divider text="City Officials" />
+
+        <div className="flex flex-wrap items-center justify-center mt-20 space-x-6 justify-cente lg:space-x-8 md:flex-wrap sm:flex-wrap lg:no-wrap ">
+          {officialImages.map((image, index) => (
+            <div
+              key={index}
+              className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8"
+            >
+              {image && (
+                <div className="w-64 overflow-hidden rounded-lg h-96">
+                  <img
+                    src={image}
+                    alt=""
+                    className="object-cover object-center w-full h-full"
+                  />
+                </div>
+              )}
+            </div>
+          ))}
         </div>
       </div>
-    </div>
+    )
   );
 };
 
