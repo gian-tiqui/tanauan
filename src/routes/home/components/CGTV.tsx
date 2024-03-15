@@ -78,7 +78,7 @@ const Cgtv = () => {
   const cgtvRef = useRef(videos);
 
   return (
-    <div>
+    <div className="pt-20">
       <div className="hidden sm:hidden md:block lg:block sm:px-14 md:px-24 lg:px-40">
         <div className="my-24 sm:my-24 md:my-14 lg:my-20 sm:mx-2 md:mx-3">
           <div className="container flex flex-col justify-center mx-auto rounded-lg shadow-xl md:flex-row md:items-stretch h-96">

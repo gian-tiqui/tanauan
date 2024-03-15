@@ -105,6 +105,10 @@ const DestinationSelector = ({ category }: { category: string }) => {
               <Swiper
                 spaceBetween={15}
                 slidesPerView={3}
+                autoplay={{
+                  delay: 1400,
+                  disableOnInteraction: false,
+                }}
                 modules={[Autoplay, Pagination, Navigation]}
                 loop={true}
                 className="px-3 mt-3"
