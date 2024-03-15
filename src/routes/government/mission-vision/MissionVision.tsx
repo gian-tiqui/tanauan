@@ -3,7 +3,7 @@ import servicesBg from "../../../assets/services-bg.png";
 const MissionVision = () => {
   return (
     <>
-      <div className="grid h-full gap-20 pt-20 pb-20">
+      <div className="grid h-full gap-20 pt-20 pb-20 text-justify">
         <div
           className="gap-20 p-10 mx-auto bg-center bg-no-repeat bg-cover rounded-md shadow-xl"
           style={{
@@ -42,7 +42,7 @@ const MissionVision = () => {
           </div>
           <div className="max-w-lg mx-auto mt-20 mb-20">
             <p className="text-3xl font-extrabold text-center">VISION</p>
-            <p className="mt-10 text-lg font-bold">
+            <p className="mt-10 text-lg font-bold text-center">
               TANAUAN CITY 2025: A Progressive and Ecologically Balanced City
             </p>
           </div>
