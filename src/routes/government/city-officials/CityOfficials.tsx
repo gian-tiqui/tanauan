@@ -1,17 +1,15 @@
 import { useContext, useEffect } from "react";
 import { PreventContextMenu } from "../../../App";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/bundle";
 import axios from "axios";
-import CityOfficialCard from "./components/CityOfficialCard";
 import Divider from "../../home/components/Divider";
 import {
   CityOfficialContext,
   SetCityCityOfficialContext,
 } from "../../../context-container/ContextContainer";
 import daBg from "../../../assets/services-bg.png";
+import { useNavigate } from "react-router-dom";
 export interface CityOfficialInterface {
   id: number;
   title: { rendered: string };
@@ -30,6 +28,7 @@ const CityOfficials = () => {
   const cityOfficials = useContext(CityOfficialContext);
   const setCityOfficials = useContext(SetCityCityOfficialContext);
   const preventContextMenu = useContext(PreventContextMenu);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchOfficials = async () => {
@@ -48,9 +47,13 @@ const CityOfficials = () => {
     fetchOfficials();
   }, [cityOfficials.length, setCityOfficials]);
 
+  const handleNavigate = () => {
+    navigate("/city-officials-2");
+  };
+
   return (
-    <div>
-      <Divider text="City Officials" />
+    <div onClick={handleNavigate}>
+      <Divider text="Tanauan Mayor" />
       <div
         data-aos="fade-up"
         className="grid grid-cols-1 mt-20 md:flex md:justify-center md:mt-10 lg:flex lg:justify-center lg:mt-10"
@@ -77,41 +80,6 @@ const CityOfficials = () => {
           </p>
         </div>
       </div>
-
-      <Swiper
-        data-aos="fade-up"
-        spaceBetween={15}
-        slidesPerView={3}
-        autoplay={{
-          delay: 2000,
-          disableOnInteraction: false,
-        }}
-        modules={[Autoplay, Pagination, Navigation]}
-        className="hidden p-10 mt-10 sm:hidden md:block lg:block mySwiper sm:mx-5 md:mx-5 lg:mx-44"
-      >
-        {cityOfficials.map((cityOfficial, cIndex) => (
-          <SwiperSlide key={cIndex}>
-            <CityOfficialCard {...cityOfficial} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-
-      <Swiper
-        spaceBetween={15}
-        slidesPerView={1}
-        autoplay={{
-          delay: 2000,
-          disableOnInteraction: false,
-        }}
-        modules={[Autoplay, Pagination, Navigation]}
-        className="block p-10 mt-10 sm:block md:hidden lg:hidden mySwiper sm:mx-5 md:mx-5 lg:mx-44"
-      >
-        {cityOfficials.map((cityOfficial, cIndex) => (
-          <SwiperSlide key={cIndex}>
-            <CityOfficialCard {...cityOfficial} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
     </div>
   );
 };

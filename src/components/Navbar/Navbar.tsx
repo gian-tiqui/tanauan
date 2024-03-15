@@ -350,7 +350,10 @@ const Navbar = () => {
                 <MdOutlineKeyboardArrowDown className="ml-1" />
               </button>
               {dropdownOpen === "cityDropdownMobile" && (
-                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44">
+                <div
+                  data-aos="flip-down"
+                  className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44"
+                >
                   <Link
                     to={"/news"}
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
@@ -377,7 +380,10 @@ const Navbar = () => {
                 <MdOutlineKeyboardArrowDown className="ml-1" />
               </button>
               {dropdownOpen === "governmentDropdownMobile" && (
-                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44">
+                <div
+                  data-aos="flip-down"
+                  className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44"
+                >
                   <Link
                     to={"/mission-vision"}
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
@@ -411,7 +417,10 @@ const Navbar = () => {
                 <MdOutlineKeyboardArrowDown className="ml-1" />
               </button>
               {dropdownOpen === "servicesDropdownMobile" && (
-                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44">
+                <div
+                  data-aos="flip-down"
+                  className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44"
+                >
                   <Link
                     to={"/tanauan-e-services"}
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
@@ -454,7 +463,10 @@ const Navbar = () => {
                 <MdOutlineKeyboardArrowDown className="ml-1" />
               </button>
               {dropdownOpen === "transparencyReportDropdownMobile" && (
-                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44">
+                <div
+                  data-aos="flip-down"
+                  className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44"
+                >
                   <Link
                     to={"/documents"}
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
@@ -481,7 +493,10 @@ const Navbar = () => {
                 <MdOutlineKeyboardArrowDown className="ml-1" />
               </button>
               {dropdownOpen === "careersDropdownMobile" && (
-                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44">
+                <div
+                  data-aos="flip-down"
+                  className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44"
+                >
                   <Link
                     to={"/job-fair"}
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
@@ -494,14 +509,17 @@ const Navbar = () => {
             </div>
             <div className="relative">
               <button
-                className="flex items-center mx-5 my-auto text-sm font-bold text-red-800 hover:text-yellow-500"
+                className="flex items-center mx-5 my-auto text-sm font-bold text-red-800"
                 onClick={() => handleToggleDropdown("tourismDropdownMobile")}
               >
                 Tourism
                 <MdOutlineKeyboardArrowDown className="ml-1" />
               </button>
               {dropdownOpen === "tourismDropdownMobile" && (
-                <div className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44">
+                <div
+                  data-aos="flip-down"
+                  className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44"
+                >
                   <Link
                     to={"/history"}
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"

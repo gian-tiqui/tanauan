@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import mobileApp from "../../../assets/mobile-app.png";
-import sMobileApp from "../../../assets/16.png";
+import mobileApp from "../../../assets/red-art-bg.png";
+import sMobileApp from "../../../assets/red-art-bg.png";
 import LogoDivider from "./LogoDivider";
 
 const MobileApp = () => {

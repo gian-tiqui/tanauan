@@ -67,7 +67,7 @@ const DestinationSelector = ({ category }: { category: string }) => {
   }, [cities.length, setCities]);
 
   return (
-    <div className="container mx-auto mt-10 ">
+    <div className="container pt-5 mx-auto">
       <h1 className="font-bold text-center sm:text-lg md:text-2xl lg:text-2xl text-slate-900">
         {category === "natural-site" ? "Natural Sites" : "Cultural Sites"}
       </h1>
@@ -75,11 +75,7 @@ const DestinationSelector = ({ category }: { category: string }) => {
         {loading ? (
           <div>
             <div className="hidden sm:hidden md:block lg:block">
-              <Swiper
-                spaceBetween={15}
-                slidesPerView={3}
-                className="p-10 mt-10 sm:mx-5 md:mx-5 lg:mx-44"
-              >
+              <Swiper spaceBetween={15} slidesPerView={3} className="">
                 <SwiperSlide>
                   <CityCardSkeleton />
                 </SwiperSlide>
@@ -95,7 +91,7 @@ const DestinationSelector = ({ category }: { category: string }) => {
               <Swiper
                 spaceBetween={15}
                 slidesPerView={1}
-                className="p-10 mt-10 sm:mx-5 md:mx-5 lg:mx-44"
+                className="sm:mx-5 md:mx-5 lg:mx-44"
               >
                 <SwiperSlide>
                   <CityCardSkeleton />
@@ -111,7 +107,7 @@ const DestinationSelector = ({ category }: { category: string }) => {
                 slidesPerView={3}
                 modules={[Autoplay, Pagination, Navigation]}
                 loop={true}
-                className="mx-5 mt-10 sm:mx-5 md:mx-5 lg:mx-20"
+                className="px-3 mt-3"
               >
                 {categorizeCities(cities).map((c, index) => (
                   <SwiperSlide key={index}>
@@ -126,7 +122,7 @@ const DestinationSelector = ({ category }: { category: string }) => {
                 slidesPerView={1}
                 modules={[Pagination, Navigation]}
                 loop={true}
-                className="mx-5 mt-10 sm:mx-5 md:mx-5 lg:mx-20"
+                className="px-3"
               >
                 {cities.map((c, index) => (
                   <SwiperSlide key={index}>

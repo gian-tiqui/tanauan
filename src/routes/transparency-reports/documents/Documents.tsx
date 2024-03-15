@@ -3,6 +3,7 @@ import { FaFilePdf } from "react-icons/fa";
 import { SetShowFooterContext, SetShowHeaderContext } from "../../../App";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/logo.png";
+import bg from "../../../assets/red-art-bg.png";
 import { BiChevronRight } from "react-icons/bi";
 
 interface FileInterface {
@@ -758,7 +759,7 @@ const Documents = () => {
       ],
     },
     {
-      quarter: "FDR",
+      quarter: "FULL DISCLOSURE REPORT",
       files: [
         {
           name: "20% Component of the IRA Utilization (IRAU)",
@@ -1059,7 +1060,7 @@ const Documents = () => {
 
   const data2023: FullDisclosureReportInterface[] = [
     {
-      quarter: "FDR",
+      quarter: "Full Disclosure Report",
       files: [
         {
           name: "20% Component of the IRA Utilization (IRAU)",
@@ -1121,26 +1122,47 @@ const Documents = () => {
   const [selectedQuarter, setSelectedQuarter] =
     useState<FullDisclosureReportInterface>(data[0]);
 
+  const filterFiles = (
+    dataset: FullDisclosureReportInterface[],
+    bids: boolean = true
+  ) => {
+    const quarters = [
+      "FIRST QUARTER",
+      "SECOND QUARTER",
+      "THIRD QUARTER",
+      "FOURTH QUARTER",
+    ];
+    const filteredDataset = dataset.filter((item) => {
+      return bids
+        ? quarters.includes(item.quarter)
+        : !quarters.includes(item.quarter);
+    });
+
+    return filteredDataset;
+  };
+
   return (
     <div className="container">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-5">
-        <div className="flex flex-col w-full h-screen px-2 overflow-auto text-black bg-white shadow-2xl">
-          {" "}
-          <Link to="/">
-            <img
-              src={logo}
-              alt="Tanauan"
-              className="w-auto h-20 mx-auto mt-5 mb-10"
-            />
-          </Link>
-          <div className="flex flex-col space-y-4">
-            {" "}
+        <div className="flex flex-col w-full h-screen overflow-auto text-black bg-white shadow-2xl">
+          <div
+            className="bg-center bg-no-repeat bg-cover"
+            style={{ backgroundImage: `url(${bg})` }}
+          >
+            <Link to="/">
+              <img
+                src={logo}
+                alt="Tanauan"
+                className="w-auto h-20 mx-auto mt-5 mb-10 "
+              />
+            </Link>
+          </div>
+          <div className="flex flex-col pt-5 mx-2 space-y-4">
+            <p className="text-lg font-extrabold">BIDS AND AWARDS</p>{" "}
             <div className="flex items-center pb-2 border-b border-gray-700">
-              {" "}
               <p className="text-lg font-extrabold">2021</p>
               <ul className="pl-2 ml-4 list-none">
-                {" "}
-                {data.map((item, index) => (
+                {filterFiles(data, false).map((item, index) => (
                   <li
                     key={index}
                     onClick={() => setSelectedQuarter(item)}
@@ -1153,10 +1175,9 @@ const Documents = () => {
               </ul>
             </div>
             <div className="flex items-center pb-2 border-b border-gray-700">
-              {" "}
               <p className="text-lg font-extrabold">2022</p>
               <ul className="pl-2 ml-4 list-none">
-                {data2022.map((item, index) => (
+                {filterFiles(data2022, false).map((item, index) => (
                   <li
                     key={index}
                     onClick={() => setSelectedQuarter(item)}
@@ -1168,11 +1189,41 @@ const Documents = () => {
                 ))}
               </ul>
             </div>
+            <p className="text-lg font-extrabold">FULL DISCLOSURE REPORT</p>{" "}
             <div className="flex items-center pb-2 border-b border-gray-700">
-              {" "}
+              <p className="text-lg font-extrabold">2021</p>
+              <ul className="pl-2 ml-4 list-none">
+                {filterFiles(data).map((item, index) => (
+                  <li
+                    key={index}
+                    onClick={() => setSelectedQuarter(item)}
+                    className="flex font-semibold text-black transition duration-200 cursor-pointer hover:text-gray-700"
+                  >
+                    <BiChevronRight className="mr-2" />
+                    {item.quarter}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="flex items-center pb-2 border-b border-gray-700">
+              <p className="text-lg font-extrabold">2022</p>
+              <ul className="pl-2 ml-4 list-none">
+                {filterFiles(data2022).map((item, index) => (
+                  <li
+                    key={index}
+                    onClick={() => setSelectedQuarter(item)}
+                    className="flex font-semibold text-black transition duration-200 cursor-pointer hover:text-gray-700"
+                  >
+                    <BiChevronRight className="mr-2" />
+                    {item.quarter}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="flex items-center pb-2 border-b border-gray-700">
               <p className="text-lg font-extrabold">2023</p>
               <ul className="pl-2 ml-4 list-none">
-                {data2023.map((item, index) => (
+                {filterFiles(data2023).map((item, index) => (
                   <li
                     key={index}
                     onClick={() => setSelectedQuarter(item)}
@@ -1203,66 +1254,69 @@ const Documents = () => {
           ))}
         </div>
         <div className="grid col-span-1 overflow-auto md:p-4 lg:p-4 sm:col-span-1 lg:col-span-1">
-          <div className="p-4 bg-white rounded-lg shadow-xl">
-            <p className="font-extrabold">Links</p>
-            <ul className="mt-5 font-bold">
+          <div
+            className="p-4 bg-center bg-no-repeat rounded-lg shadow-xl bg-coverrounded-lg "
+            style={{ backgroundImage: `url(${bg})` }}
+          >
+            <p className="font-extrabold text-white">Links</p>
+            <ul className="mt-5 font-bold text-white">
               <li>
-                <Link className="hover:text-gray-700" to={"/"}>
+                <Link className="hover:text-gray-200" to={"/"}>
                   Home
                 </Link>
               </li>
               <li>
-                <Link className="hover:text-gray-700" to={"/"}>
+                <Link className="hover:text-gray-200" to={"/"}>
                   Barangays
                 </Link>
               </li>
               <li>
-                <Link className="hover:text-gray-700" to={"/"}>
+                <Link className="hover:text-gray-200" to={"/"}>
                   CSDW Services
                 </Link>
               </li>
               <li>
-                <Link className="hover:text-gray-700" to={"/"}>
+                <Link className="hover:text-gray-200" to={"/"}>
                   PWD ID and Services
                 </Link>
               </li>
               <li>
-                <Link className="hover:text-gray-700" to={"/"}>
+                <Link className="hover:text-gray-200" to={"/"}>
                   Sr. Citizen ID and Benefits
                 </Link>
               </li>
               <li>
-                <Link className="hover:text-gray-700" to={"/"}>
+                <Link className="hover:text-gray-200" to={"/"}>
                   City Officials
                 </Link>
               </li>
               <li>
-                <Link className="hover:text-gray-700" to={"/"}>
+                <Link className="hover:text-gray-200" to={"/"}>
                   Departments
                 </Link>
               </li>
               <li>
-                <Link className="hover:text-gray-700" to={"/"}>
+                <Link className="hover:text-gray-200" to={"/"}>
                   Mission and Vision
                 </Link>
               </li>
               <li>
-                <Link className="hover:text-gray-700" to={"/"}>
+                <Link className="hover:text-gray-200" to={"/"}>
                   News
                 </Link>
               </li>
               <li>
-                <Link className="hover:text-gray-700" to={"/"}>
+                <Link className="hover:text-gray-200" to={"/"}>
                   Assessors
                 </Link>
               </li>
               <li>
-                <Link className="hover:text-gray-700" to={"/"}>
+                <Link className="hover:text-gray-200" to={"/"}>
                   Bids and Awards
                 </Link>
               </li>
               <li>
-                <Link className="hover:text-gray-700" to={"/"}>
+                <Link className="hover:text-gray-200" to={"/"}>
                   Full Disclosure Report
                 </Link>
               </li>
