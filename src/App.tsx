@@ -10,9 +10,9 @@ import {
   useEffect,
   useState,
 } from "react";
-import Lottie from "lottie-react";
-import profile from "./assets/profile.json";
-import { toast, ToastContainer } from "react-toastify";
+// import Lottie from "lottie-react";
+// import profile from "./assets/profile.json";
+// import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import NewsArticle from "./routes/news-article/NewsArticle";
 import News from "./routes/news/News";
@@ -157,9 +157,9 @@ function App() {
     e.preventDefault();
   };
 
-  const toastIt = () => {
-    toast("hi", { type: "info" });
-  };
+  // const toastIt = () => {
+  //   toast("hi", { type: "info" });
+  // };
 
   return (
     <div
@@ -173,7 +173,7 @@ function App() {
               <Router>
                 <ScrollToTop />
                 {showHeader && <Navbar />}
-                <ToastContainer />
+                {/* <ToastContainer /> */}
                 <div className="relative">
                   <Routes>
                     {routeMaps.map((routeMap, index) => (
@@ -185,12 +185,12 @@ function App() {
                     ))}
                   </Routes>
 
-                  <div
+                  {/* <div
                     onClick={toastIt}
                     className="fixed z-10 w-40 h-40 bottom-2 right-2"
                   >
                     <Lottie animationData={profile} />
-                  </div>
+                  </div> */}
                 </div>
 
                 {showFooter && <Footer />}
