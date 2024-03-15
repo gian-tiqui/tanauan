@@ -3,6 +3,27 @@ interface SeniorIdRequirementsProps {
   items: string[];
 }
 
+interface CentenarianRequirementsProps {
+  title: string;
+  items: string[];
+}
+
+const CentenarianRequirements = ({
+  title,
+  items,
+}: CentenarianRequirementsProps) => (
+  <div className="w-full">
+    <div className="p-4 rounded-md h-50">
+      <h2 className="mb-4 text-xl font-semibold text-center">{title}</h2>
+      <ul className="pl-4 list-disc">
+        {items.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
+    </div>
+  </div>
+);
+
 const SeniorIdRequirements = ({ title, items }: SeniorIdRequirementsProps) => (
   <div className="w-full">
     <div className="p-4 border rounded-md h-80 bg-slate-200">
@@ -15,7 +36,7 @@ const SeniorIdRequirements = ({ title, items }: SeniorIdRequirementsProps) => (
     </div>
   </div>
 );
-//KAHITANO
+
 const SeniorCitizenIdAndBenefits = () => {
   const commonRequirements = [
     "REGISTRATION FORM SIGNED BY THE SENIOR CITIZENS PRESIDENT",
@@ -39,26 +60,6 @@ const SeniorCitizenIdAndBenefits = () => {
       ],
     },
   ];
-
-  interface CentenarianRequirementsProps {
-    title: string;
-    items: string[];
-  }
-  const CentenarianRequirements = ({
-    title,
-    items,
-  }: CentenarianRequirementsProps) => (
-    <div className="w-full">
-      <div className="p-4 rounded-md h-50">
-        <h2 className="mb-4 text-xl font-semibold text-center">{title}</h2>
-        <ul className="pl-4 list-disc">
-          {items.map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  );
 
   const centenarianRequirements = [
     "SENIOR CITIZEN ID (PHOTO COPY)",
