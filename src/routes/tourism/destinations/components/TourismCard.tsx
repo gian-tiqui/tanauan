@@ -69,7 +69,7 @@ const TourismCard: React.FC<CityInterface> = ({
           <h2 className="text-lg font-bold">{title.rendered}</h2>
         </div>
         <div className="flex-grow p-2 overflow-y-auto bg-gray-100 rounded-b-lg">
-          <p className="text-sm text-gray-700">{lastParagraph}</p>
+          <p className="text-sm text-justify text-gray-700">{lastParagraph}</p>
         </div>
       </div>
     </div>
