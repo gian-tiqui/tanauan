@@ -51,7 +51,7 @@ const History = () => {
               >
                 <p className="text-lg font-extrabold">{section.heading}</p>
                 {section.details.map((detail, detailIndex) => (
-                  <p key={detailIndex} className="mt-3 font-bold text-justify">
+                  <p key={detailIndex} className="mt-3 text-justify">
                     {detail}
                   </p>
                 ))}
