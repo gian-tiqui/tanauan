@@ -1,4 +1,9 @@
-const SeniorIdRequirements = ({ title, items }) => (
+interface SeniorIdRequirementsProps {
+  title: string;
+  items: string[];
+}
+
+const SeniorIdRequirements = ({ title, items }: SeniorIdRequirementsProps) => (
   <div className="w-full">
     <div className="p-4 border rounded-md h-80 bg-slate-200">
       <h2 className="mb-4 text-xl font-semibold text-center">{title}</h2>
@@ -35,7 +40,14 @@ const SeniorCitizenIdAndBenefits = () => {
     },
   ];
 
-  const CentenarianRequirements = ({ title, items }) => (
+  interface CentenarianRequirementsProps {
+    title: string;
+    items: string[];
+  }
+  const CentenarianRequirements = ({
+    title,
+    items,
+  }: CentenarianRequirementsProps) => (
     <div className="w-full">
       <div className="p-4 rounded-md h-50">
         <h2 className="mb-4 text-xl font-semibold text-center">{title}</h2>
