@@ -106,7 +106,7 @@ const Departments = () => {
               <li
                 onClick={() => setDepartmentContent(department)}
                 key={department.id}
-                className="px-2 py-1 m-2 text-sm rounded-md hover:bg-gray-200"
+                className="px-2 py-1 m-2 text-sm rounded-md cursor-pointer hover:bg-gray-200"
               >
                 {department.title && department.title.rendered}
               </li>
