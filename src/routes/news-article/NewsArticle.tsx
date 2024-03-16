@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { NewsContext } from "../../context-container/ContextContainer";
 import { News } from "../home/components/NewsCarousel";
+import LatestNewsContainer from "../news/components/LatestNewsContainer";
 
 const NewsArticle = () => {
   const { id } = useParams<{ id: string }>();
@@ -83,9 +84,7 @@ const NewsArticle = () => {
   };
 
   return (
-    <div className="flex justify-center py-10">
-      <Link to={`/news/${prevNews?.id}`}>{prevNews?.title.rendered}</Link>
-      <Link to={`/news/${nextNews?.id}`}>{prevNews?.title.rendered}</Link>
+    <div className="flex justify-center gap-5 py-10">
       <div className="max-w-xl bg-white rounded-md shadow-md">
         <div className="px-6 py-8">
           {image && (
@@ -115,6 +114,26 @@ const NewsArticle = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="flex flex-col gap-3 w-72">
+        <div className="py-4 bg-white shadow-lg sm:w-64 md:w-72 lg:w-96 rounded-2xl">
+          <p className="mb-3 ml-4 text-lg font-bold">Latest News</p>
+          <LatestNewsContainer />
+        </div>
+        {prevNews && (
+          <Link to={`/news/${prevNews?.id}`}>
+            <div className="py-4 bg-white shadow-lg sm:w-64 md:w-72 lg:w-96 rounded-2xl">
+              <p className="mx-3 truncate">{prevNews?.title.rendered}</p>
+            </div>
+          </Link>
+        )}
+        {nextNews && (
+          <Link to={`/news/${nextNews?.id}`}>
+            <div className="py-4 bg-white shadow-lg sm:w-64 md:w-72 lg:w-96 rounded-2xl">
+              <p className="mx-3 truncate">{nextNews?.title.rendered}</p>
+            </div>
+          </Link>
+        )}
       </div>
     </div>
   );
