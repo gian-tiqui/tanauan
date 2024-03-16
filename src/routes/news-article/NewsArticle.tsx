@@ -1,24 +1,38 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-
-interface Post {
-  title: { rendered: string };
-  content: { rendered: string };
-  date: string;
-  featured_media: number;
-}
+import { useContext, useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import { NewsContext } from "../../context-container/ContextContainer";
+import { News } from "../home/components/NewsCarousel";
 
 const NewsArticle = () => {
   const { id } = useParams<{ id: string }>();
-  const [newsData, setNewsData] = useState<Post | null>(null);
+  const [newsData, setNewsData] = useState<News | null>(null);
   const [loading, setLoading] = useState(true);
   const [image, setImage] = useState<string | null>(null);
+  const [prevNews, setPrevNews] = useState<News | null>(null);
+  const [nextNews, setNextNews] = useState<News | null>(null);
+  const news = useContext(NewsContext);
+
+  useEffect(() => {
+    const currNewsId = id;
+    const currentIndex = news.findIndex(
+      (item) => item.id.toString() === currNewsId
+    );
+
+    const prevIndex = currentIndex > 0 ? currentIndex - 1 : null;
+    const nextIndex = currentIndex < news.length - 1 ? currentIndex + 1 : null;
+
+    const prev = prevIndex !== null ? news[prevIndex] : null;
+    const next = nextIndex !== null ? news[nextIndex] : null;
+
+    setPrevNews(prev);
+    setNextNews(next);
+  }, [id, news]);
 
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const response = await axios.get<Post>(
+        const response = await axios.get<News>(
           `https://tanauancity.gov.ph/wp-json/wp/v2/posts/${id}`
         );
 
@@ -70,6 +84,8 @@ const NewsArticle = () => {
 
   return (
     <div className="flex justify-center py-10">
+      <Link to={`/news/${prevNews?.id}`}>{prevNews?.title.rendered}</Link>
+      <Link to={`/news/${nextNews?.id}`}>{prevNews?.title.rendered}</Link>
       <div className="max-w-xl bg-white rounded-md shadow-md">
         <div className="px-6 py-8">
           {image && (
