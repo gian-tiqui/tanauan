@@ -7,8 +7,8 @@ const MobileApp = () => {
   return (
     <>
       <LogoDivider />
-      <div className="relative my-20 overflow-hidden">
-        <div className="pt-16 pb-80 sm:pb-40 sm:pt-24 lg:pb-48 lg:pt-40">
+      <div className="relative mt-20 overflow-hidden md:my-20">
+        <div className="pt-16 sm:pb-40 sm:pt-24 lg:pb-48 lg:pt-40">
           <div className="relative px-4 mx-auto max-w-7xl sm:static sm:px-6 lg:px-8">
             <div className="sm:max-w-lg">
               <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
@@ -18,8 +18,14 @@ const MobileApp = () => {
                 The City of Tanauan's Mobile is now available and ready to use
                 for the safety and security of the people of the City.
               </p>
+              <Link
+                to="/emergency-application"
+                className="inline-block px-8 py-3 mt-5 font-medium text-center text-white bg-blue-900 border border-transparent rounded-md hover:bg-blue-700"
+              >
+                View Application
+              </Link>
             </div>
-            <div>
+            <div className="hidden md:block">
               <div className="mt-10">
                 <div
                   aria-hidden="true"
@@ -85,13 +91,15 @@ const MobileApp = () => {
                     </div>
                   </div>
                 </div>
-
-                <Link
-                  to="/emergency-application"
-                  className="inline-block px-8 py-3 font-medium text-center text-white bg-blue-900 border border-transparent rounded-md hover:bg-blue-700"
-                >
-                  View Application
-                </Link>
+              </div>
+            </div>
+            <div className="flex items-center justify-center h-96 md:hidden">
+              <div className="h-64 overflow-hidden rounded-lg w-44">
+                <img
+                  src={mobileApp}
+                  alt=""
+                  className="object-cover object-center w-full h-full"
+                />
               </div>
             </div>
           </div>

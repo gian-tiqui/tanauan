@@ -237,7 +237,7 @@ const Navbar = () => {
                 </div>
               )}
             </div>
-            <div className="relative">
+            {/* <div className="relative">
               <button
                 className="flex items-center mx-5 my-auto text-sm font-bold text-white hover:text-yellow-500"
                 onMouseEnter={() => handleToggleDropdown("careersDropdown")}
@@ -262,7 +262,7 @@ const Navbar = () => {
                   </Link>
                 </div>
               )}
-            </div>
+            </div> */}
             <div className="relative">
               <button
                 className="flex items-center mx-5 my-auto text-sm font-bold text-white hover:text-yellow-500"
@@ -484,7 +484,7 @@ const Navbar = () => {
                 </div>
               )}
             </div>
-            <div className="relative">
+            {/* <div className="relative">
               <button
                 className="flex items-center ml-5 font-bold text-red-800 text-md"
                 onClick={() => handleToggleDropdown("careersDropdownMobile")}
@@ -506,7 +506,7 @@ const Navbar = () => {
                   </Link>
                 </div>
               )}
-            </div>
+            </div> */}
             <div className="relative">
               <button
                 className="flex items-center mx-5 my-auto text-sm font-bold text-red-800"

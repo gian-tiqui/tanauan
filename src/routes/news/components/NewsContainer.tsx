@@ -5,6 +5,7 @@ import { News } from "../../home/components/NewsCarousel";
 import { Link } from "react-router-dom";
 import Lottie from "lottie-react";
 import loadinG from "../../../assets/news-loading.json";
+import { ExitNewsContext } from "../../../App";
 
 interface NewsContProps {
   id: number;
@@ -14,6 +15,8 @@ const NewsContainer = ({ id }: NewsContProps) => {
   const news = useContext(NewsContext);
   const [modifiedNews, setModifiedNews] = useState<News[]>([]);
   const [loading, setLoading] = useState(true);
+  const [images, setImages] = useState<(string | null)[]>([]);
+  const setShowExit = useContext(ExitNewsContext);
 
   useEffect(() => {
     const fetchNews = async () => {
@@ -44,8 +47,6 @@ const NewsContainer = ({ id }: NewsContProps) => {
     fetchNews();
   }, [id, news]);
 
-  const [images, setImages] = useState<(string | null)[]>([]);
-
   const formatDate = (dateString: string): string => {
     const formattedDate = new Date(dateString).toLocaleDateString("en-US", {
       month: "short",
@@ -54,6 +55,14 @@ const NewsContainer = ({ id }: NewsContProps) => {
     });
     return formattedDate;
   };
+
+  useEffect(() => {
+    setShowExit(true);
+
+    return () => {
+      setShowExit(false);
+    };
+  }, [setShowExit]);
 
   if (loading) {
     return (
@@ -70,7 +79,7 @@ const NewsContainer = ({ id }: NewsContProps) => {
           <Link key={newsItem.id} to={`/news/${newsItem.id}`}>
             <div className="px-5 overflow-hidden border-b border-b-black">
               <p className="mt-2 text-gray-600">{formatDate(newsItem.date)}</p>
-              <h3 className="mb-2 text-xl font-semibold">
+              <h3 className="mb-2 text-xl font-semibold text-justify">
                 {newsItem.title.rendered}
               </h3>
               {images[index] && (

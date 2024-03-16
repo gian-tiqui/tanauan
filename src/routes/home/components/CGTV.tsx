@@ -159,7 +159,7 @@ const Cgtv = () => {
               slidesPerView={2}
               direction="vertical"
               modules={[Pagination]}
-              className="h-32 px-3 mySwipe"
+              className="h-32 px-3"
             >
               {cgtvRef.current.map((video, index) => (
                 <SwiperSlide key={index}>

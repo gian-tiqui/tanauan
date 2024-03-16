@@ -72,6 +72,10 @@ const Departments = () => {
   }, []);
 
   useEffect(() => {
+    setSelectedDepartment(departments[0]);
+  }, [departments]);
+
+  useEffect(() => {
     const fetchDepartments = async () => {
       try {
         if (departments.length === 0) {
@@ -100,7 +104,7 @@ const Departments = () => {
     <div className="container px-10 py-10 mx-auto">
       <div className="grid sm:grid-cols-1 md:grid-cols-4">
         <div className="col-span-1 shadow-xl rounded-xl">
-          <p className="ml-3 text-2xl font-bold">Departments</p>
+          <p className="mt-5 ml-3 text-2xl font-bold">Departments</p>
           <ul>
             {departments.map((department) => (
               <li
