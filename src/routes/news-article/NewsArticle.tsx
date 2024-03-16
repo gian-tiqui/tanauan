@@ -69,8 +69,8 @@ const NewsArticle = () => {
   };
 
   return (
-    <div className="flex justify-center">
-      <div className="max-w-lg bg-white rounded-md shadow-md">
+    <div className="flex justify-center py-10">
+      <div className="max-w-xl bg-white rounded-md shadow-md">
         <div className="px-6 py-8">
           {image && (
             <div className="mb-6">

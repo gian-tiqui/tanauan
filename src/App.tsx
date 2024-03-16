@@ -1,5 +1,5 @@
 import Navbar from "./components/Navbar/Navbar";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./routes/home/Home";
 import {
   Dispatch,
@@ -8,11 +8,9 @@ import {
   SetStateAction,
   createContext,
   useEffect,
+  useRef,
   useState,
 } from "react";
-// import Lottie from "lottie-react";
-// import profile from "./assets/profile.json";
-// import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import NewsArticle from "./routes/news-article/NewsArticle";
 import News from "./routes/news/News";
@@ -37,9 +35,11 @@ import ScrollToTop from "./components/scroll-to-top/ScrollToTop";
 import Destinations from "./routes/tourism/destinations/Destinations";
 import History from "./routes/tourism/history/History";
 import EmergencyApp from "./routes/emergency-app/EmergencyApp";
-import CityOfficials2 from "./routes/government/city-officials/CityOfficials2";
 import Documents from "./routes/transparency-reports/documents/Documents";
 import NotFound from "./routes/not-found/NotFound";
+import { BiMessageAlt, BiSend } from "react-icons/bi";
+import { CgClose } from "react-icons/cg";
+import { FieldValues, useForm } from "react-hook-form";
 
 interface RouteMapping {
   path: string;
@@ -135,19 +135,57 @@ const routeMaps: RouteMapping[] = [
     path: "/emergency-application",
     element: <EmergencyApp />,
   },
-  {
-    path: "/city-officials-2",
-    element: <CityOfficials2 />,
-  },
+
   {
     path: "*",
     element: <NotFound />,
   },
 ];
 
-function App() {
+const MessageContainer = ({ message }: { message: string }) => {
+  return (
+    <p className="p-2 text-sm text-justify bg-gray-100 rounded-md max-w-52">
+      {message}
+    </p>
+  );
+};
+
+const UserMessageContainer = ({ message }: UserChatInterface) => {
+  return (
+    <p className="self-end p-2 mt-2 mr-5 text-sm bg-gray-100 rounded-md">
+      {message}
+    </p>
+  );
+};
+
+interface UserChatInterface {
+  message: string;
+  timestamp: Date;
+}
+
+const App = () => {
   const [showFooter, setShowFooter] = useState<boolean>(true);
   const [showHeader, setShowHeader] = useState<boolean>(true);
+  const [chatExtended, setChatExtended] = useState<boolean>(false);
+  const [userChats, setUserChats] = useState<UserChatInterface[]>([]);
+  const { handleSubmit, register, reset } = useForm();
+  const chatContainerRef = useRef<HTMLDivElement>(null);
+
+  const appendChat = (data: FieldValues) => {
+    const newChat: UserChatInterface = {
+      message: data.message,
+      timestamp: new Date(),
+    };
+    setUserChats((prevChats) => [...prevChats, newChat]);
+    reset();
+  };
+
+  useEffect(() => {
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTop =
+        chatContainerRef.current.scrollHeight;
+    }
+  }, [userChats]);
 
   useEffect(() => {
     Aos.init();
@@ -156,10 +194,6 @@ function App() {
   const preventContextMenu: MouseEventHandler<HTMLImageElement> = (e) => {
     e.preventDefault();
   };
-
-  // const toastIt = () => {
-  //   toast("hi", { type: "info" });
-  // };
 
   return (
     <div
@@ -173,7 +207,6 @@ function App() {
               <Router>
                 <ScrollToTop />
                 {showHeader && <Navbar />}
-                {/* <ToastContainer /> */}
                 <div className="relative">
                   <Routes>
                     {routeMaps.map((routeMap, index) => (
@@ -185,12 +218,75 @@ function App() {
                     ))}
                   </Routes>
 
-                  {/* <div
-                    onClick={toastIt}
-                    className="fixed z-10 w-40 h-40 bottom-2 right-2"
+                  <div
+                    className={`fixed bottom-0 z-10 w-72 bg-white shadow-xl cursor-pointer rounded-t-xl right-5`}
                   >
-                    <Lottie animationData={profile} />
-                  </div> */}
+                    <div>
+                      <div
+                        className={`flex items-center justify-between p-1 border-t border-s border-e rounded-t-xl ${
+                          chatExtended
+                            ? "border-b bg-gray-100 hover:bg-white"
+                            : "hover:bg-gray-100"
+                        }`}
+                        onClick={() => setChatExtended((prevVal) => !prevVal)}
+                      >
+                        <div className="flex items-center">
+                          <BiMessageAlt className="ml-3" />
+                          <p className="ml-2">Support</p>
+                        </div>
+                        {chatExtended && (
+                          <CgClose className="mr-2 hover:text-gray-600" />
+                        )}
+                      </div>
+                      <div
+                        className={`flex flex-col justify-between ${
+                          chatExtended ? "h-52" : "hidden"
+                        } p-2`}
+                      >
+                        <div
+                          ref={chatContainerRef}
+                          className="pb-3 overflow-auto"
+                        >
+                          <MessageContainer
+                            message="Welcome to City Government of Tanauan's Website! How
+                          can we help you?"
+                          />
+                          <div className="flex flex-col justify-center mt-5">
+                            <ul className="p-0 mx-10 mb-5 list-none border rounded-lg">
+                              <li className="flex items-center px-2 py-1 border-b rounded-t-lg hover:bg-gray-200">
+                                <Link to={"/tanauan-e-services"}>Services</Link>
+                              </li>
+                              <li className="flex items-center px-2 py-1 border-b hover:bg-gray-200">
+                                <Link to={"/news"}>News</Link>
+                              </li>
+                              <li className="flex items-center px-2 py-1 border-b hover:bg-gray-200">
+                                <Link to={"/destinations"}>Places</Link>
+                              </li>
+                              <li className="flex items-center px-2 py-1 rounded-b-lg hover:bg-gray-200">
+                                <Link to={"/documents"}>Documents</Link>
+                              </li>
+                            </ul>
+                            {userChats.map((chat, key) => (
+                              <UserMessageContainer key={key} {...chat} />
+                            ))}
+                          </div>
+                        </div>
+                        <form onSubmit={handleSubmit(appendChat)}>
+                          <div className="flex items-center justify-between">
+                            <input
+                              autoComplete="off"
+                              {...register("message")}
+                              className="w-full px-2 mr-2 bg-gray-100 rounded-lg focus:outline-none"
+                              placeholder="Enter your chat here"
+                            />
+                            <button type="submit">
+                              <BiSend className="w-auto h-5 mr-2" />
+                            </button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 {showFooter && <Footer />}
@@ -201,6 +297,6 @@ function App() {
       </ContextContainer>
     </div>
   );
-}
+};
 
 export default App;

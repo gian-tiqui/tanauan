@@ -83,14 +83,16 @@ const CityOfficials = () => {
     <div>
       <Divider text="Tanauan City's Government Officials" />
       <div className="flex items-center justify-center p-20">
-        <img
-          src={MAYOR_IMAGE_URI}
-          alt="hi"
-          className="w-auto h-96 rounded-xl"
-        />
+        <div className="p-2 shadow-xl rounded-xl">
+          <img
+            src={MAYOR_IMAGE_URI}
+            alt="hi"
+            className="w-auto rounded-lg h-96"
+          />
+        </div>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-2">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3">
         {cityOfficials.map((cityOfficial, index) => (
           <CityOfficialCard key={index} {...cityOfficial} />
         ))}
