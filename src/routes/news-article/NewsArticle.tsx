@@ -4,6 +4,8 @@ import { Link, useParams } from "react-router-dom";
 import { NewsContext } from "../../context-container/ContextContainer";
 import { News } from "../home/components/NewsCarousel";
 import LatestNewsContainer from "../news/components/LatestNewsContainer";
+import Lottie from "lottie-react";
+import loadingAnimation from "../../assets/news-loading.json";
 
 const NewsArticle = () => {
   const { id } = useParams<{ id: string }>();
@@ -71,7 +73,11 @@ const NewsArticle = () => {
   };
 
   if (loading || !newsData) {
-    return <p>Loading...</p>;
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <Lottie animationData={loadingAnimation} className="w-auto h-52" />
+      </div>
+    );
   }
 
   const formatDate = (dateString: string): string => {
