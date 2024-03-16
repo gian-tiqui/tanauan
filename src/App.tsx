@@ -35,7 +35,6 @@ import ScrollToTop from "./components/scroll-to-top/ScrollToTop";
 import Destinations from "./routes/tourism/destinations/Destinations";
 import History from "./routes/tourism/history/History";
 import EmergencyApp from "./routes/emergency-app/EmergencyApp";
-import CityOfficials2 from "./routes/government/city-officials/CityOfficials2";
 import Documents from "./routes/transparency-reports/documents/Documents";
 import NotFound from "./routes/not-found/NotFound";
 import { BiMessageAlt, BiSend } from "react-icons/bi";
@@ -136,10 +135,7 @@ const routeMaps: RouteMapping[] = [
     path: "/emergency-application",
     element: <EmergencyApp />,
   },
-  {
-    path: "/city-officials-2",
-    element: <CityOfficials2 />,
-  },
+
   {
     path: "*",
     element: <NotFound />,

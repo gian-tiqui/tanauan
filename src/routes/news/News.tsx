@@ -135,14 +135,6 @@ const News = () => {
           </div>
           <div className="hidden col-span-1 px-4 pt-4 border-t border-black sm:hidden md:block lg:block">
             <div className="fixed grid gap-2">
-              <div className="p-2 bg-white shadow-lg sm:w-64 md:w-72 lg:w-96 rounded-2xl">
-                <Link
-                  to={"/"}
-                  className="px-5 py-1 text-white bg-red-800 rounded-lg"
-                >
-                  Home
-                </Link>
-              </div>
               <div className="py-4 bg-white shadow-lg sm:w-64 md:w-72 lg:w-96 rounded-2xl">
                 <p className="mb-3 ml-4 text-lg font-bold">Latest News</p>
                 <LatestNewsContainer />
@@ -150,6 +142,13 @@ const News = () => {
               <div className="py-4 bg-white shadow-lg sm:w-64 md:w-72 lg:w-96 rounded-2xl">
                 <p className="pl-4 mb-3 text-lg font-bold">Trends for you</p>
                 <TrendsForYou tags={tags} setSelectedTag={setSelectedTag} />
+              </div>
+              <div className="p-2 bg-white shadow-lg sm:w-64 md:w-72 lg:w-96 rounded-2xl">
+                <Link to={"/"} className="">
+                  <div className="w-full px-5 py-1 text-white bg-red-800 rounded-lg">
+                    <p className="font-bold text-center">Exit News</p>
+                  </div>
+                </Link>
               </div>
             </div>
           </div>

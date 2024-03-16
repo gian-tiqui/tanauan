@@ -3,6 +3,8 @@ import { NewsContext } from "../../../context-container/ContextContainer";
 import axios from "axios";
 import { News } from "../../home/components/NewsCarousel";
 import { Link } from "react-router-dom";
+import Lottie from "lottie-react";
+import loadinG from "../../../assets/news-loading.json";
 
 interface NewsContProps {
   id: number;
@@ -54,7 +56,11 @@ const NewsContainer = ({ id }: NewsContProps) => {
   };
 
   if (loading) {
-    return <p>Loading...</p>;
+    return (
+      <div className="flex items-center justify-center h-screen px-5 overflow-hidden border-b border-b-black">
+        <Lottie animationData={loadinG} className="w-auto h-96" />
+      </div>
+    );
   }
 
   return (
@@ -78,7 +84,9 @@ const NewsContainer = ({ id }: NewsContProps) => {
           </Link>
         ))
       ) : (
-        <p>hi</p>
+        <div className="flex flex-col items-center justify-center h-screen px-5 overflow-hidden border-b border-b-black">
+          <Lottie animationData={loadinG} className="w-auto h-96" />
+        </div>
       )}
     </div>
   );
