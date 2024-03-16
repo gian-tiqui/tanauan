@@ -90,9 +90,12 @@ const NewsArticle = () => {
   };
 
   return (
-    <div className="flex justify-center gap-5 py-10">
+    <div className="grid gap-5 py-10 md:flex md:justify-center">
       <div className="max-w-xl bg-white rounded-md shadow-md">
         <div className="px-6 py-8">
+          <h2 className="mb-2 text-2xl font-semibold">
+            {newsData.title.rendered}
+          </h2>
           {image && (
             <div className="mb-6">
               <img
@@ -102,44 +105,49 @@ const NewsArticle = () => {
               />
             </div>
           )}
-          <h2 className="mb-2 text-2xl font-semibold">
-            {newsData.title.rendered}
-          </h2>
           <p className="mb-4 text-sm text-gray-600">
             Published on {formatDate(newsData.date)}
           </p>
           <div className="text-base text-gray-700">
             <div>
-              {extractStrings(newsData.content.rendered).map(
-                (string: string, index: number) => (
-                  <p key={index} className="text-sm text-gray-800">
-                    {string}
-                  </p>
-                )
-              )}
+              <p className="text-sm text-justify text-gray-800">
+                {extractStrings(newsData.content.rendered).join(" ")}
+              </p>
             </div>
           </div>
         </div>
       </div>
-      <div className="flex flex-col gap-3 w-72">
+      <div className="flex-col mx-auto md:mx-0 w-72">
         <div className="py-4 bg-white shadow-lg sm:w-64 md:w-72 lg:w-96 rounded-2xl">
           <p className="mb-3 ml-4 text-lg font-bold">Latest News</p>
           <LatestNewsContainer />
         </div>
         {prevNews && (
           <Link to={`/news/${prevNews?.id}`}>
-            <div className="py-4 bg-white shadow-lg sm:w-64 md:w-72 lg:w-96 rounded-2xl">
-              <p className="mx-3 truncate">{prevNews?.title.rendered}</p>
+            <div className="py-4 mt-2 bg-white shadow-lg cursor-pointer sm:w-64 md:w-72 lg:w-96 rounded-xl hover:bg-gray-100">
+              <p className="mx-3 truncate">
+                <strong>Previous News: </strong> Previous:{" "}
+                {prevNews?.title.rendered}
+              </p>
             </div>
           </Link>
         )}
         {nextNews && (
           <Link to={`/news/${nextNews?.id}`}>
-            <div className="py-4 bg-white shadow-lg sm:w-64 md:w-72 lg:w-96 rounded-2xl">
-              <p className="mx-3 truncate">{nextNews?.title.rendered}</p>
+            <div className="py-4 mt-2 bg-white shadow-lg cursor-pointer sm:w-64 md:w-72 lg:w-96 rounded-xl hover:bg-gray-100">
+              <p className="mx-3 truncate">
+                <strong>Next News: </strong> {nextNews?.title.rendered}
+              </p>
             </div>
           </Link>
         )}
+        <div className="p-2 mt-2 bg-white shadow-lg sm:w-64 md:w-72 lg:w-96 rounded-2xl">
+          <Link to={"/"} className="">
+            <div className="w-full px-5 py-1 text-white bg-red-800 rounded-lg">
+              <p className="font-bold text-center">Exit News Article</p>
+            </div>
+          </Link>
+        </div>
       </div>
     </div>
   );
