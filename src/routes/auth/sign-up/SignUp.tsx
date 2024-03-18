@@ -1,83 +1,55 @@
-import { useContext, useEffect } from "react";
-import { SetShowHeaderContext } from "../../../App";
-import townBg from "../../../assets/services-bg.png";
-import { Link, useNavigate } from "react-router-dom";
-import { BiExit } from "react-icons/bi";
+import { useContext, useEffect, useState } from "react";
+import { SetShowFooterContext, SetShowHeaderContext } from "../../../App";
+import { useNavigate } from "react-router-dom";
+import Lottie from "lottie-react";
+import animation from "../../../assets/page-fix.json";
 
 const SignUp = () => {
   const setShowHeader = useContext(SetShowHeaderContext);
+  const setShowFooter = useContext(SetShowFooterContext);
+  const [countdown, setCountdown] = useState<number>(5);
   const navigate = useNavigate();
 
   useEffect(() => {
     setShowHeader(false);
+    setShowFooter(false);
 
     return () => {
       setShowHeader(true);
+      setShowFooter(true);
     };
-  }, [setShowHeader]);
+  }, [setShowHeader, setShowFooter]);
 
-  const handleSignUpClicked = () => {
-    navigate("/sign-in");
-  };
+  useEffect(() => {
+    if (countdown === 0) {
+      navigate("/");
+    }
+
+    setTimeout(() => {
+      setCountdown(countdown - 1);
+    }, 1000);
+  }, [countdown, navigate]);
 
   return (
-    <div className="flex items-center justify-center h-screen">
-      <div
-        className="p-8 bg-center bg-no-repeat bg-cover rounded-lg shadow-lg px-14"
-        style={{ backgroundImage: `url(${townBg})` }}
-      >
-        <div className="flex justify-between">
-          <h2 className="mb-4 text-2xl font-semibold">Sign Up</h2>
-          <Link to={"/tanauan-e-services"}>
-            <BiExit style={{ height: 30, width: 30 }} className="rotate-180" />
-          </Link>
+    <>
+      <main className="grid min-h-full px-6 py-24 bg-white place-items-center sm:py-32 lg:px-8">
+        <div className="text-center">
+          <Lottie
+            animationData={animation}
+            className="w-40 h-40 mx-auto text-center"
+          />
+          <h1 className="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+            Page not available
+          </h1>
+          <p className="mt-6 text-base leading-7 text-gray-600">
+            Sorry, Gian is busy right now 😔
+          </p>
+          <div className="flex items-center justify-center mt-10 gap-x-6">
+            <p>Redirecting you back to home page in {countdown}...</p>
+          </div>
         </div>
-        <form>
-          <div className="mb-4">
-            <label
-              htmlFor="email"
-              className="block mb-2 font-semibold text-gray-700"
-            >
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              className="px-3 py-2 border rounded-lg shadow-sm w-72 focus:outline-none focus:border-blue-700"
-            />
-          </div>
-          <div className="mb-1">
-            <label
-              htmlFor="password"
-              className="block mb-2 font-semibold text-gray-700"
-            >
-              Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              className="w-full px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:border-blue-500"
-            />
-          </div>
-
-          <button
-            type="submit"
-            className="w-full px-4 py-2 font-bold text-white transition duration-300 bg-blue-900 rounded-lg hover:bg-blue-800"
-          >
-            Sign Up
-          </button>
-
-          <button
-            onClick={handleSignUpClicked}
-            className="w-full px-4 py-2 mt-2 font-bold text-blue-800 transition duration-300 bg-white border border-blue-800 rounded-lg"
-          >
-            Sign In
-          </button>
-        </form>
-      </div>
-    </div>
+      </main>
+    </>
   );
 };
 
