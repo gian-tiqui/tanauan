@@ -122,26 +122,35 @@ const NewsArticle = () => {
           <p className="mb-3 ml-4 text-lg font-bold">Latest News</p>
           <LatestNewsContainer />
         </div>
-        {prevNews && (
-          <Link to={`/news/${prevNews?.id}`}>
-            <div className="py-4 mt-2 bg-white shadow-lg cursor-pointer sm:w-64 md:w-72 lg:w-96 rounded-xl hover:bg-gray-100">
-              <p className="mx-3 truncate">
-                <strong>Previous News: </strong> Previous:{" "}
-                {prevNews?.title.rendered}
-              </p>
-            </div>
-          </Link>
-        )}
-        {nextNews && (
-          <Link to={`/news/${nextNews?.id}`}>
-            <div className="py-4 mt-2 bg-white shadow-lg cursor-pointer sm:w-64 md:w-72 lg:w-96 rounded-xl hover:bg-gray-100">
-              <p className="mx-3 truncate">
-                <strong>Next News: </strong> {nextNews?.title.rendered}
-              </p>
-            </div>
-          </Link>
-        )}
-        <div className="p-2 mt-2 bg-white shadow-lg sm:w-64 md:w-72 lg:w-96 rounded-2xl">
+
+        <div className="flex justify-between py-2 border-t-4 border-b-4 mt-7 w-96 border-t-red-800 border-b-red-800">
+          <div>
+            {prevNews && (
+              <Link to={`/news/${prevNews?.id}`}>
+                <div className="w-48 p-4 cursor-pointer hover:bg-gray-100">
+                  <p className="text-red-800 truncate">
+                    <strong>Previous News: </strong>
+                  </p>
+                  <p>Previous: {prevNews?.title.rendered}</p>
+                </div>
+              </Link>
+            )}
+          </div>
+          <div>
+            {nextNews && (
+              <Link to={`/news/${prevNews?.id}`}>
+                <div className="w-48 p-4 cursor-pointer hover:bg-gray-100">
+                  <p className="text-red-800 truncate">
+                    <strong>Next News: </strong>
+                  </p>
+                  <p>Previous: {nextNews?.title.rendered}</p>
+                </div>
+              </Link>
+            )}
+          </div>
+        </div>
+
+        <div className="p-2 mt-4 bg-white shadow-lg sm:w-64 md:w-72 lg:w-96 rounded-2xl">
           <Link to={"/"} className="">
             <div className="w-full px-5 py-1 text-white bg-red-800 rounded-lg">
               <p className="font-bold text-center">Exit News Article</p>
