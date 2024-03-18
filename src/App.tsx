@@ -40,6 +40,7 @@ import NotFound from "./routes/not-found/NotFound";
 import { BiExit, BiMessageAlt, BiSend } from "react-icons/bi";
 import { CgClose } from "react-icons/cg";
 import { FieldValues, useForm } from "react-hook-form";
+import DestinationIndiv from "./routes/single-destination/DestinationIndiv";
 
 interface RouteMapping {
   path: string;
@@ -143,6 +144,10 @@ const routeMaps: RouteMapping[] = [
   {
     path: "*",
     element: <NotFound />,
+  },
+  {
+    path: "/destinations/:id",
+    element: <DestinationIndiv />,
   },
 ];
 

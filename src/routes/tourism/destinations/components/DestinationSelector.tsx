@@ -107,7 +107,6 @@ const DestinationSelector = ({ category }: { category: string }) => {
                   disableOnInteraction: false,
                 }}
                 modules={[Autoplay, Pagination, Navigation]}
-                loop={true}
                 className="px-3 mt-3"
               >
                 {categorizeCities(cities).map((c, index) => (
@@ -122,7 +121,6 @@ const DestinationSelector = ({ category }: { category: string }) => {
                 spaceBetween={15}
                 slidesPerView={1}
                 modules={[Pagination, Navigation]}
-                loop={true}
                 className="px-3"
               >
                 {cities.map((c, index) => (
