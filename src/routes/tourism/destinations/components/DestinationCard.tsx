@@ -1,8 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CityInterface } from "../../../home/components/CityHighlights";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { SetDestinationIDContext } from "../../../../context-container/ContextContainer";
 
 import { FaEye } from "react-icons/fa";
 
@@ -13,8 +12,7 @@ const DestinationCard: React.FC<CityInterface> = ({
 }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageURI, setImageURI] = useState<string | undefined>(undefined);
-  const [darkHover, setDarkHover] = useState<boolean>(false); // Rename dark to darkHover
-  const setDestinationID = useContext(SetDestinationIDContext);
+  const [darkHover, setDarkHover] = useState<boolean>(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -39,13 +37,12 @@ const DestinationCard: React.FC<CityInterface> = ({
     setImageLoaded(true);
   };
 
-  const handleCardClicked = () => {
-    setDestinationID(id);
-    navigate("/destinations");
+  const handleSelfClicked = (id: number) => {
+    navigate(`/destinations/${id}`);
   };
 
   return (
-    <div>
+    <div className="cursor-pointer" onClick={() => handleSelfClicked(id)}>
       <div>
         <p className="font-bold text-white truncate text-md sm:text-md md:text-lg">
           {title.rendered}
@@ -56,7 +53,6 @@ const DestinationCard: React.FC<CityInterface> = ({
       </div>
       <div
         className="relative w-auto overflow-hidden bg-center bg-no-repeat shadow h-72 hover:cursor-pointer"
-        onClick={handleCardClicked}
         onMouseEnter={() => setDarkHover(true)}
         onMouseLeave={() => setDarkHover(false)}
       >
