@@ -176,13 +176,13 @@ const Navbar = () => {
                   >
                     E-Services
                   </Link>
-                  <Link
+                  {/* <Link
                     to={"/csdw-services"}
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     onClick={handleCloseDropdown}
                   >
                     CSDW Services
-                  </Link>
+                  </Link> */}
                   <Link
                     to={"/senior-citizen-id-and-benefits"}
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
@@ -428,13 +428,13 @@ const Navbar = () => {
                   >
                     Tanauan E-Services
                   </Link>
-                  <Link
+                  {/* <Link
                     to={"/csdw-services"}
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     onClick={handleCloseDropdown}
                   >
                     CSDW Services
-                  </Link>
+                  </Link> */}
                   <Link
                     to={"/senior-citizen-id-and-benefits"}
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
