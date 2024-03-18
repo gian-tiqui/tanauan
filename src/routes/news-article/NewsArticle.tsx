@@ -131,7 +131,9 @@ const NewsArticle = () => {
                   <p className="text-red-800 truncate">
                     <strong>Previous News: </strong>
                   </p>
-                  <p>Previous: {prevNews?.title.rendered}</p>
+                  <p className="text-justify">
+                    Previous: {prevNews?.title.rendered}
+                  </p>
                 </div>
               </Link>
             )}
@@ -143,7 +145,7 @@ const NewsArticle = () => {
                   <p className="text-red-800 truncate">
                     <strong>Next News: </strong>
                   </p>
-                  <p>Previous: {nextNews?.title.rendered}</p>
+                  <p className="text-justify">{nextNews?.title.rendered}</p>
                 </div>
               </Link>
             )}

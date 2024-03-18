@@ -47,12 +47,6 @@ const HighlightCard: React.FC<CityInterface> = ({
   return (
     <div
       className="relative w-auto overflow-hidden border rounded-lg shadow h-52 hover:cursor-pointer"
-      style={{
-        backgroundImage: `url(${imageURI})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        paddingBottom: "60%",
-      }}
       onClick={handleCardClicked}
       onMouseEnter={() => setDarkHover(true)}
       onMouseLeave={() => setDarkHover(false)}

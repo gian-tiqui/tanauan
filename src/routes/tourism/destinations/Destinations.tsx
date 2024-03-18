@@ -108,7 +108,7 @@ const Destinations: React.FC = () => {
         </div>
       </div>
 
-      <div className="container mx-auto bg-white w-[1000px] rounded-md shadow-2xl">
+      <div className="container mx-auto bg-white  md:w-[1000px] rounded-md shadow-2xl">
         <div>
           <DestinationSelector category="natural-site" />
         </div>
