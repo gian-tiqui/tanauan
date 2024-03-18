@@ -92,21 +92,22 @@ const Destinations: React.FC = () => {
 
   return (
     <div
-      className="h-[630px] bg-center bg-no-repeat bg-cover"
+      className="h-[1000px] md:h-[630px] bg-center bg-no-repeat bg-cover"
       style={{ backgroundImage: `url(${tanauanImg})` }}
     >
       <Navbar />
-      <div className="container grid grid-cols-2 mb-16 pt-28 pl-36">
-        <div className="pt-14">
+      <div className="container grid grid-cols-1 mb-16 md:grid-cols-2 pt-28 md:pt-20 md:pl-36">
+        <div className="text-center pt-14 md:text-left">
           <p className="mb-4 text-5xl font-extrabold text-white">Explore</p>
           <p className="mb-4 text-5xl text-white">Your amazing city</p>
           <p className="text-5xl font-semibold text-white">Tanauan City</p>
           <p className="text-xl text-white">Batangas</p>
         </div>
-        <div>
+        <div className="md:pl-4">
           <DestinationSelectorV2 />
         </div>
       </div>
+
       <div className="container mx-auto bg-white w-[1000px] rounded-md shadow-2xl">
         <div>
           <DestinationSelector category="natural-site" />
