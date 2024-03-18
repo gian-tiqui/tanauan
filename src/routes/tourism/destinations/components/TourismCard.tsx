@@ -46,7 +46,7 @@ const TourismCard: React.FC<CityInterface> = ({
   };
 
   return (
-    <div className="relative flex flex-col w-full h-full overflow-hidden bg-white border rounded-md shadow-md">
+    <div className="relative flex flex-col w-full h-full overflow-hidden">
       <div className="flex-shrink-0">
         {imageURI && (
           <img

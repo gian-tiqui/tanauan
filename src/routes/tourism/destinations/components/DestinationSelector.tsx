@@ -67,15 +67,12 @@ const DestinationSelector = ({ category }: { category: string }) => {
   }, [cities.length, setCities]);
 
   return (
-    <div className="container pt-5 mx-auto">
-      <h1 className="font-bold text-center sm:text-lg md:text-2xl lg:text-2xl text-slate-900">
-        {category === "natural-site" ? "Natural Sites" : "Cultural Sites"}
-      </h1>
+    <div className="container mx-auto">
       <div>
         {loading ? (
           <div>
             <div className="hidden sm:hidden md:block lg:block">
-              <Swiper spaceBetween={15} slidesPerView={3} className="">
+              <Swiper spaceBetween={0} slidesPerView={3} className="">
                 <SwiperSlide>
                   <CityCardSkeleton />
                 </SwiperSlide>
@@ -103,7 +100,7 @@ const DestinationSelector = ({ category }: { category: string }) => {
           <>
             <div className="hidden sm:block md:block lg:block">
               <Swiper
-                spaceBetween={15}
+                spaceBetween={0}
                 slidesPerView={3}
                 autoplay={{
                   delay: 1400,
