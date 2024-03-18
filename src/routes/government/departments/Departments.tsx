@@ -14,6 +14,8 @@ export interface DepartmentsInterface {
   featured_media: number;
 }
 
+//  ADD LOADING MECHS HERE WHEN FETCH FAILS
+
 export const DATA_PER_PAGE = 11;
 
 const DepartmentCard: React.FC<DepartmentsInterface> = ({

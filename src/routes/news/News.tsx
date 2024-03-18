@@ -10,6 +10,8 @@ import TrendsForYou from "./components/TrendsForYou";
 import { SetShowFooterContext, SetShowHeaderContext } from "../../App";
 import { Link } from "react-router-dom";
 
+//  ADD LOADING MECHS HERE WHEN FETCH FAILS
+
 const TAGS_ENDPOINT =
   "https://tanauancity.gov.ph/wp-json/wp/v2/tagss?per_page=100";
 
