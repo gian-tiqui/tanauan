@@ -11,7 +11,6 @@ import {
   useRef,
   useState,
 } from "react";
-import "react-toastify/dist/ReactToastify.css";
 import NewsArticle from "./routes/news-article/NewsArticle";
 import News from "./routes/news/News";
 import Barangays from "./routes/barangays/Barangays";

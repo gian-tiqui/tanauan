@@ -29,6 +29,7 @@ const CITY_OFFICIAL_URI = "https://tanauancity.gov.ph/wp-json/wp/v2/team";
 
 const CityOfficialCard: React.FC<CityOfficialInterface> = ({
   featured_media,
+  title,
 }) => {
   const [image, setImage] = useState<string>("");
 
@@ -52,7 +53,11 @@ const CityOfficialCard: React.FC<CityOfficialInterface> = ({
   return (
     <div className="flex items-center justify-center p-20">
       <div className="p-2 shadow-xl rounded-xl">
-        <img src={image} alt="hi" className="w-auto rounded-lg h-96" />
+        <img
+          src={image}
+          alt={title.rendered}
+          className="w-auto rounded-lg h-96"
+        />
       </div>
     </div>
   );

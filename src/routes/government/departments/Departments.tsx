@@ -4,6 +4,8 @@ import {
   DepartmentContext,
   SetDepartmentContext,
 } from "../../../context-container/ContextContainer";
+import Lottie from "lottie-react";
+import loadingAnim from "../../../assets/news-loading.json";
 
 export interface DepartmentsInterface {
   id: number;
@@ -108,15 +110,19 @@ const Departments = () => {
         <div className="col-span-1 shadow-xl rounded-xl">
           <p className="mt-5 ml-3 text-2xl font-bold">Departments</p>
           <ul>
-            {departments.map((department) => (
-              <li
-                onClick={() => setDepartmentContent(department)}
-                key={department.id}
-                className="px-2 py-1 m-2 text-sm rounded-md cursor-pointer hover:bg-gray-200"
-              >
-                {department.title && department.title.rendered}
-              </li>
-            ))}
+            {departments ? (
+              departments.map((department) => (
+                <li
+                  onClick={() => setDepartmentContent(department)}
+                  key={department.id}
+                  className="px-2 py-1 m-2 text-sm rounded-md cursor-pointer hover:bg-gray-200"
+                >
+                  {department.title && department.title.rendered}
+                </li>
+              ))
+            ) : (
+              <Lottie animationData={loadingAnim} className="h-52 w-52" />
+            )}
           </ul>
         </div>
         <div className="col-span:1 sm:col-span-3">
