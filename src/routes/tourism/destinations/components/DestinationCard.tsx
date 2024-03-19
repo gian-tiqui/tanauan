@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import { FaEye } from "react-icons/fa";
+import CityCardSkeleton from "../../../home/components/CityCardSkeleton";
 
 const DestinationCard: React.FC<CityInterface> = ({
   featured_media,
@@ -72,11 +73,7 @@ const DestinationCard: React.FC<CityInterface> = ({
             onLoad={handleImageLoad}
           />
         )}
-        {!imageLoaded && (
-          <div className="absolute inset-0 flex items-center justify-center bg-gray-300">
-            am loading
-          </div>
-        )}
+        {!imageLoaded && <CityCardSkeleton />}
       </div>
     </div>
   );
