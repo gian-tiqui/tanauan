@@ -16,8 +16,6 @@ export interface DepartmentsInterface {
   featured_media: number;
 }
 
-//  ADD LOADING MECHS HERE WHEN FETCH FAILS
-
 export const DATA_PER_PAGE = 11;
 
 const DepartmentCard: React.FC<DepartmentsInterface> = ({
@@ -110,7 +108,7 @@ const Departments = () => {
         <div className="col-span-1 shadow-xl rounded-xl">
           <p className="mt-5 ml-3 text-2xl font-bold">Departments</p>
           <ul>
-            {departments ? (
+            {departments !== null ? (
               departments.map((department) => (
                 <li
                   onClick={() => setDepartmentContent(department)}
