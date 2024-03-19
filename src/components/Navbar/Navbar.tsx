@@ -54,7 +54,7 @@ const Navbar = () => {
               <div>
                 <img
                   src={logo}
-                  className="mt-10 mb-5 h-36 w-36"
+                  className="h-24 mt-10 mb-5 w-36"
                   onContextMenu={preventContextMenu}
                   draggable="false"
                   alt="Logo"

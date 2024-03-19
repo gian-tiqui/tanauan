@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "author": "Michael Gian M. Tiqui",
   "scripts": {
     "dev": "vite --port 5175",
     "build": "tsc && vite build",
