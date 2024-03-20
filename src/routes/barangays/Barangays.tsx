@@ -1,5 +1,4 @@
 import brgyLogo from "../../assets/brgy-logos.png";
-import asd from "../../assets/asd.png";
 
 interface BarangayInterface {
   name: string;
