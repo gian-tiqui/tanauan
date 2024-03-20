@@ -1,4 +1,4 @@
-import Navbar from "./components/navbar/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./routes/home/Home";
 import {
