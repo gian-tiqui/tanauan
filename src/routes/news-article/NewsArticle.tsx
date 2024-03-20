@@ -140,7 +140,7 @@ const NewsArticle = () => {
           </div>
           <div>
             {nextNews && (
-              <Link to={`/news/${prevNews?.id}`}>
+              <Link to={`/news/${nextNews?.id}`}>
                 <div className="w-48 p-4 cursor-pointer hover:bg-gray-100">
                   <p className="text-red-800 truncate">
                     <strong>Next News: </strong>
