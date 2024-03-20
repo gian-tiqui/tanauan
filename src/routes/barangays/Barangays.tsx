@@ -94,9 +94,11 @@ const Barangays = () => {
   return (
     <div className="container max-h-full px-20 mx-auto">
       <div className="flex items-center justify-between">
-        <img src={asd} alt="" className="mx-auto h-72 w-72 " />
-        <img src={brgyLogo} alt="Baranggay Logo" className="h-screen mx-auto" />
-        <img src={asd} alt="" className="mx-auto h-72 w-72 " />
+        <img
+          src={brgyLogo}
+          alt="Baranggay Logo"
+          className="object-cover w-full h-auto mx-auto sm:max-w-md md:max-w-lg lg:max-w-xl"
+        />
       </div>
       <div className="flex flex-wrap justify-center gap-4 p-5 mx-auto">
         {barangays.map((city, index) => (
