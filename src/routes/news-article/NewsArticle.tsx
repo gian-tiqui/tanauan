@@ -152,7 +152,7 @@ const NewsArticle = () => {
           </div>
         </div>
 
-        <div className="p-2 mt-4 bg-white shadow-lg sm:w-64 md:w-72 lg:w-96 rounded-2xl">
+        <div className="mt-4 bg-white shadow-lg sm:w-64 md:w-72 lg:w-96 rounded-2xl">
           <Link to={"/"} className="">
             <div className="w-full px-5 py-1 text-white bg-red-800 rounded-lg">
               <p className="font-bold text-center">Exit News Article</p>
