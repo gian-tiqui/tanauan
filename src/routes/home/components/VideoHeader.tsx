@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import vid from "../../../assets/video24.mp4";
+import vid from "../../../assets/video25.mp4";
 
 const VideoHeader = () => {
   const vidRef = useRef(null);

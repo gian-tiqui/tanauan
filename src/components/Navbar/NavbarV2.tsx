@@ -137,6 +137,28 @@ const NavbarV2 = () => {
   const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
   const preventContextMenu = useContext(PreventContextMenu);
   const inputRef = useRef<HTMLInputElement>(null);
+  const [currTime, setCurrTime] = useState<string>(
+    new Date().toLocaleTimeString()
+  );
+  const [currDate, setCurrDate] = useState<string>(
+    new Date().toLocaleDateString()
+  );
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrTime(new Date().toLocaleTimeString());
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrDate(new Date().toLocaleDateString());
+    }, 24000);
+
+    return () => clearInterval(interval);
+  });
 
   const handleToggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -167,6 +189,36 @@ const NavbarV2 = () => {
     };
   }, []);
 
+  function formatDate(dateString: string): string {
+    const parts = dateString.split("/");
+
+    const date = new Date(
+      parseInt(parts[2]),
+      parseInt(parts[1]) - 1,
+      parseInt(parts[0])
+    );
+
+    const monthNames: string[] = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    const formattedDate = `${
+      monthNames[date.getMonth()]
+    } ${date.getDate()}, ${date.getFullYear()}`;
+
+    return formattedDate;
+  }
+
   return (
     <nav className="bg-white">
       <div className="hidden sm:relative md:relative lg:relative sm:hidden md:block lg:block">
@@ -187,12 +239,12 @@ const NavbarV2 = () => {
             <h2 className="text-2xl font-bold text-center text-red-700">
               CITY GOVERNMENT OF TANAUAN
             </h2>
-            <p className="mb-8 text-center text-md">
+            <p className="mb-3 text-center text-md">
               Talisay - Tanauan Rd, Tanauan, 4232 Batangas
             </p>
           </div>
         </div>
-        <div className="flex justify-center py-3 bg-red-700">
+        <div className="flex items-center justify-center py-1 bg-red-700">
           <div className="flex justify-between">
             {navData.map((data, index) =>
               data.dropdown === null ? (
@@ -238,6 +290,12 @@ const NavbarV2 = () => {
                 </div>
               )
             )}
+          </div>
+          <div className="h-5 mr-3 border border-white"></div>
+          <div className="flex p-2 text-white rounded-md w-72">
+            <p className="text-center">
+              {formatDate(currDate)} {currTime}
+            </p>
           </div>
         </div>
       </div>
