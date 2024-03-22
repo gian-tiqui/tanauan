@@ -1,4 +1,3 @@
-import Navbar from "./components/Navbar/Navbar";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./routes/home/Home";
 import {
@@ -40,6 +39,7 @@ import { BiExit, BiMessageAlt, BiSend } from "react-icons/bi";
 import { CgClose } from "react-icons/cg";
 import { FieldValues, useForm } from "react-hook-form";
 import DestinationIndiv from "./routes/single-destination/DestinationIndiv";
+import NavbarV2 from "./components/Navbar/NavbarV2";
 
 interface RouteMapping {
   path: string;
@@ -216,7 +216,7 @@ const App = () => {
               <PreventContextMenu.Provider value={preventContextMenu}>
                 <Router>
                   <ScrollToTop />
-                  {showHeader && <Navbar />}
+                  {showHeader && <NavbarV2 />}
                   <div className="relative">
                     <Routes>
                       {routeMaps.map((routeMap, index) => (
