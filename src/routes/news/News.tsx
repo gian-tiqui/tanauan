@@ -10,8 +10,6 @@ import TrendsForYou from "./components/TrendsForYou";
 import { SetShowFooterContext, SetShowHeaderContext } from "../../App";
 import { Link } from "react-router-dom";
 
-//  ADD LOADING MECHS HERE WHEN FETCH FAILS
-
 const TAGS_ENDPOINT =
   "https://tanauancity.gov.ph/wp-json/wp/v2/tagss?per_page=100";
 
@@ -53,7 +51,20 @@ const News = () => {
     setSelectedTag(tags[0]);
   }, [tags]);
 
+  const toggleDropdown = () => {
+    setShowDropdown(!showDropdown);
+  };
+
   useEffect(() => {
+    /*
+
+      HELLO DEVELOPER! 👋 
+      
+      If you happen to stumble into this file and you encounter issues, please contact me, Michael Gian Tiqui
+      you can find me on Facebook. That's all, see youuuu~
+
+    */
+
     setShowFooter(false);
     const fetchTags = async () => {
       try {
@@ -82,10 +93,6 @@ const News = () => {
 
   const handleTagsClicked = (tag: TagsInterface) => {
     setSelectedTag(tag);
-  };
-
-  const toggleDropdown = () => {
-    setShowDropdown(!showDropdown);
   };
 
   return (
@@ -145,7 +152,7 @@ const News = () => {
                 <p className="pl-4 mb-3 text-lg font-bold">Trends for you</p>
                 <TrendsForYou tags={tags} setSelectedTag={setSelectedTag} />
               </div>
-              <div className="bg-white shadow-lg  sm:w-64 md:w-72 lg:w-96 rounded-2xl">
+              <div className="bg-white shadow-lg sm:w-64 md:w-72 lg:w-96 rounded-2xl">
                 <Link to={"/"} className="">
                   <div className="w-full px-5 py-1 text-white bg-red-800 rounded-lg">
                     <p className="font-bold text-center">Exit News</p>

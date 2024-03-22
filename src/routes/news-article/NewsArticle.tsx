@@ -143,7 +143,7 @@ const NewsArticle = () => {
           <div className="flex justify-end">
             <button
               onClick={handleShareArticle}
-              className="p-1 mb-2 border-2 border-black rounded-full hover:bg-gray-100"
+              className="p-1 mb-6 border-2 border-black rounded-full hover:bg-gray-200"
             >
               <BiShare className="w-6 h-6" />
             </button>
