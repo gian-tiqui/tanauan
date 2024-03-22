@@ -176,13 +176,6 @@ const Navbar = () => {
                   >
                     E-Services
                   </Link>
-                  {/* <Link
-                    to={"/csdw-services"}
-                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-                    onClick={handleCloseDropdown}
-                  >
-                    CSDW Services
-                  </Link> */}
                   <Link
                     to={"/senior-citizen-id-and-benefits"}
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
@@ -237,32 +230,6 @@ const Navbar = () => {
                 </div>
               )}
             </div>
-            {/* <div className="relative">
-              <button
-                className="flex items-center mx-5 my-auto text-sm font-bold text-white hover:text-yellow-500"
-                onMouseEnter={() => handleToggleDropdown("careersDropdown")}
-                onMouseLeave={handleCloseDropdown}
-              >
-                CAREERS
-                <MdOutlineKeyboardArrowDown className="ml-1" />
-              </button>
-              {dropdownOpen === "careersDropdown" && (
-                <div
-                  data-aos="flip-down"
-                  className="absolute z-10 py-2 bg-white rounded-md shadow-md w-44"
-                  onMouseEnter={() => handleToggleDropdown("careersDropdown")}
-                  onMouseLeave={handleCloseDropdown}
-                >
-                  <Link
-                    to={"/job-fair"}
-                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-                    onClick={handleCloseDropdown}
-                  >
-                    Job Fair
-                  </Link>
-                </div>
-              )}
-            </div> */}
             <div className="relative">
               <button
                 className="flex items-center mx-5 my-auto text-sm font-bold text-white hover:text-yellow-500"
@@ -428,13 +395,6 @@ const Navbar = () => {
                   >
                     Tanauan E-Services
                   </Link>
-                  {/* <Link
-                    to={"/csdw-services"}
-                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-                    onClick={handleCloseDropdown}
-                  >
-                    CSDW Services
-                  </Link> */}
                   <Link
                     to={"/senior-citizen-id-and-benefits"}
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
@@ -484,29 +444,6 @@ const Navbar = () => {
                 </div>
               )}
             </div>
-            {/* <div className="relative">
-              <button
-                className="flex items-center ml-5 font-bold text-red-800 text-md"
-                onClick={() => handleToggleDropdown("careersDropdownMobile")}
-              >
-                Careers
-                <MdOutlineKeyboardArrowDown className="ml-1" />
-              </button>
-              {dropdownOpen === "careersDropdownMobile" && (
-                <div
-                  data-aos="flip-down"
-                  className="absolute z-10 py-2 mt-2 bg-white rounded-md shadow-md w-44"
-                >
-                  <Link
-                    to={"/job-fair"}
-                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-                    onClick={handleCloseDropdown}
-                  >
-                    Job Fair
-                  </Link>
-                </div>
-              )}
-            </div> */}
             <div className="relative">
               <button
                 className="flex items-center mx-5 my-auto text-sm font-bold text-red-800"

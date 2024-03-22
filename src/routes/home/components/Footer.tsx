@@ -82,11 +82,6 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/csdw-services" className="hover:text-red-800">
-                  CSDW Services
-                </Link>
-              </li>
-              <li>
                 <Link to="/pwd-id-and-services" className="hover:text-red-800">
                   PWD ID and Services
                 </Link>
@@ -107,11 +102,6 @@ const Footer = () => {
             </ul>
             <ul className="flex flex-col">
               <li>
-                <Link to="/departments" className="hover:text-red-800">
-                  Departments
-                </Link>
-              </li>
-              <li>
                 <Link to="/mission-vision" className="hover:text-red-800">
                   Mission Vision
                 </Link>
@@ -127,16 +117,8 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/bids-and-awards" className="hover:text-red-800">
-                  Bids and Awards
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/full-disclosure-report"
-                  className="hover:text-red-800"
-                >
-                  Full Disclosure Report
+                <Link to="/documents" className="hover:text-red-800">
+                  Documents
                 </Link>
               </li>
             </ul>
