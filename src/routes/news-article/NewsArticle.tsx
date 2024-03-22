@@ -6,6 +6,8 @@ import { News } from "../home/components/NewsCarousel";
 import LatestNewsContainer from "../news/components/LatestNewsContainer";
 import Lottie from "lottie-react";
 import loadingAnimation from "../../assets/news-loading.json";
+import { BiShare } from "react-icons/bi";
+import Modal from "../../components/modal/Modal";
 
 const NewsArticle = () => {
   const { id } = useParams<{ id: string }>();
@@ -14,6 +16,7 @@ const NewsArticle = () => {
   const [image, setImage] = useState<string | null>(null);
   const [prevNews, setPrevNews] = useState<News | null>(null);
   const [nextNews, setNextNews] = useState<News | null>(null);
+  const [open, setOpen] = useState<boolean>(false);
   const news = useContext(NewsContext);
 
   useEffect(() => {
@@ -89,10 +92,62 @@ const NewsArticle = () => {
     return formattedDate;
   };
 
+  const handleShareFacebook = () => {
+    const url = encodeURIComponent(window.location.href);
+    const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+    window.open(facebookShareUrl, "_blank");
+  };
+
+  const handleShareTwitter = () => {
+    const url = encodeURIComponent(window.location.href);
+    const text = newsData.title.rendered;
+    const twitterShareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${text}`;
+    window.open(twitterShareUrl, "_blank");
+  };
+
+  const handleSharePinterest = () => {
+    const url = encodeURIComponent(window.location.href);
+    const imageUrl = "";
+    const description = newsData.title.rendered;
+    const pinterestShareUrl = `https://www.pinterest.com/pin/create/button/?url=${url}&media=${imageUrl}&description=${description}`;
+    window.open(pinterestShareUrl, "_blank");
+  };
+
+  const handleShareLinkedIn = () => {
+    const url = encodeURIComponent(window.location.href);
+    const linkedInShareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${url}`;
+    window.open(linkedInShareUrl, "_blank");
+  };
+
+  const handleShareArticle = () => {
+    onClose();
+  };
+
+  const onClose = () => {
+    setOpen((prevVal) => !prevVal);
+  };
+
   return (
     <div className="grid gap-5 py-10 md:flex md:justify-center">
+      <Modal
+        handleShareFacebook={handleShareFacebook}
+        handleShareLinkedIn={handleShareLinkedIn}
+        handleSharePinterest={handleSharePinterest}
+        handleShareTwitter={handleShareTwitter}
+        open={open}
+        onClose={onClose}
+        selfURL={encodeURIComponent(window.location.href)}
+      />
       <div className="max-w-xl bg-white rounded-md shadow-md">
         <div className="px-6 py-8">
+          <div className="flex justify-end">
+            <button
+              onClick={handleShareArticle}
+              className="p-1 mb-2 border-2 border-black rounded-full hover:bg-gray-100"
+            >
+              <BiShare className="w-6 h-6" />
+            </button>
+          </div>
           <h2 className="mb-2 text-2xl font-semibold">
             {newsData.title.rendered}
           </h2>
@@ -123,7 +178,7 @@ const NewsArticle = () => {
           <LatestNewsContainer />
         </div>
 
-        <div className="flex justify-between py-2 border-t-4 border-b-4 mt-7 w-96 border-t-red-800 border-b-red-800">
+        <div className="grid grid-cols-1 py-2 border-t-4 border-b-4 md:flex md:justify-between mt-7 md:w-96 border-t-red-800 border-b-red-800">
           <div>
             {prevNews && (
               <Link to={`/news/${prevNews?.id}`}>
