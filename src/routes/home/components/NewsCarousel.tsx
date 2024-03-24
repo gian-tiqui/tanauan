@@ -23,8 +23,6 @@ export interface News {
   tagss: number[];
 }
 
-const DATA_PER_PAGE = 50;
-
 const NewsCarousel = () => {
   const [loading, setLoading] = useState(true);
   const news = useContext(NewsContext);
@@ -32,6 +30,8 @@ const NewsCarousel = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      const DATA_PER_PAGE = 100;
+
       try {
         const NEWS_ENDPOINT = `https://tanauancity.gov.ph/wp-json/wp/v2/posts?per_page=${DATA_PER_PAGE}`;
 
@@ -63,6 +63,48 @@ const NewsCarousel = () => {
 
     fetchData();
   }, [news.length, setNews]);
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const DATA_PER_PAGE = 100;
+  //       const totalPosts = 100; // 2820 POSTS
+  //       const totalPages = Math.ceil(totalPosts / DATA_PER_PAGE);
+  //       const allPosts = [];
+
+  //       for (let page = 1; page <= totalPages; page++) {
+  //         const offset = (page - 1) * DATA_PER_PAGE;
+  //         const NEWS_ENDPOINT = `https://tanauancity.gov.ph/wp-json/wp/v2/posts?per_page=${DATA_PER_PAGE}&offset=${offset}`;
+  //         const response: AxiosResponse<News[]> = await axios.get(
+  //           NEWS_ENDPOINT
+  //         );
+  //         const data = response.data;
+
+  //         const modifiedData = data.map((ns) => ({
+  //           categories: ns.categories,
+  //           content: ns.content,
+  //           date: ns.date,
+  //           featured_media: ns.featured_media,
+  //           id: ns.id,
+  //           link: `/news/${ns.id}`,
+  //           tagss: ns.tagss,
+  //           title: ns.title,
+  //         }));
+
+  //         allPosts.push(...modifiedData);
+  //       }
+
+  //       setNews(allPosts);
+  //       setLoading(false);
+  //     } catch (error) {
+  //       console.error("Error fetching data:", error);
+  //     }
+  //   };
+
+  //   if (news.length === 0) {
+  //     fetchData();
+  //   }
+  // }, [news.length, setNews]);
 
   return (
     <div className="container px-4 mx-auto">

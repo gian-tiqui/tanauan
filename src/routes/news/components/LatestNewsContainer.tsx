@@ -1,8 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import {
-  NewsContext,
-  SetNewsContext,
-} from "../../../context-container/ContextContainer";
+import { NewsContext } from "../../../context-container/ContextContainer";
 import axios, { AxiosResponse } from "axios";
 import { News } from "../../home/components/NewsCarousel";
 import LatestNewsCard from "./LatestNewsCard";
@@ -11,7 +8,6 @@ const DATA_PER_PAGE = 20;
 
 const LatestNewsContainer = () => {
   const latestNews = useContext(NewsContext);
-  const setNews = useContext(SetNewsContext);
   const [mLatestNews, setMLatestNews] = useState<News[]>([]);
 
   useEffect(() => {
@@ -25,8 +21,6 @@ const LatestNewsContainer = () => {
               NEWS_ENDPOINT
             );
             const data = response.data;
-
-            setNews(data);
 
             const MAX_NEWS = 10;
             const temp: News[] = [];
@@ -53,7 +47,7 @@ const LatestNewsContainer = () => {
     };
 
     fetchLatestNews();
-  }, [latestNews.length, setNews, latestNews]);
+  }, [latestNews.length, latestNews]);
 
   return (
     <>

@@ -4,6 +4,7 @@ import { PreventContextMenu } from "../../App";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import logo from "../../assets/tanauan_logo.png";
 import { BiExit } from "react-icons/bi";
+import { animated, useSpring } from "@react-spring/web";
 
 interface DropDownItem {
   name: string;
@@ -143,6 +144,13 @@ const NavbarV2 = () => {
   const [currDate, setCurrDate] = useState<string>(
     new Date().toLocaleDateString()
   );
+  const sidebarAnimation = useSpring({
+    transform: sidebarOpen ? "translateX(0)" : "translateX(-100%)",
+    config: { tension: 1000, friction: 30 },
+    from: { transform: "translateX(-100%)" },
+    to: { transform: "translateX(0)" },
+    reverse: !sidebarOpen,
+  });
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -162,6 +170,7 @@ const NavbarV2 = () => {
 
   const handleToggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
+    setDropdownOpen(null);
   };
 
   const handleToggleDropdown = (dropdownId: string) => {
@@ -170,6 +179,7 @@ const NavbarV2 = () => {
 
   const handleCloseDropdown = () => {
     setDropdownOpen(null);
+    setSidebarOpen(false);
   };
 
   useEffect(() => {
@@ -299,7 +309,6 @@ const NavbarV2 = () => {
           </div>
         </div>
       </div>
-
       <div className="block sm:block md:hidden lg:hidden">
         <div className="flex justify-between flex-1 py-2">
           <div className="flex items-center flex-1">
@@ -320,78 +329,76 @@ const NavbarV2 = () => {
         </div>
       </div>
 
-      {sidebarOpen && (
-        <div className="fixed inset-y-0 left-0 z-50 bg-white w-52 lg:hidden">
-          <div className="flex flex-col justify-center gap-3">
-            <div className="flex items-center py-2 bg-white">
-              <img src={logo} className="w-16 h-13" alt="Logo" />
-              <h2 className="text-sm font-bold">TANAUAN</h2>
-            </div>
-            <div
-              className="flex justify-end mt-3"
-              onClick={handleToggleSidebar}
-            >
-              <p className="w-auto px-2 mr-4">
-                <BiExit className="w-auto h-6 text-red-800 rotate-180" />
-              </p>
-            </div>
-            {navData.map((data, index) =>
-              data.dropdown === null ? (
-                <Link
-                  key={index}
-                  to={data.link || "/"}
-                  className="ml-5 font-bold text-red-800 text-md"
+      <animated.div
+        className="fixed inset-y-0 left-0 z-50 transition-all bg-white w-52 lg:hidden"
+        style={sidebarAnimation}
+      >
+        <div className="flex flex-col justify-center gap-3">
+          <div className="flex items-center py-2 bg-white">
+            <img src={logo} className="w-16 h-13" alt="Logo" />
+            <h2 className="text-sm font-bold">TANAUAN</h2>
+          </div>
+          <div className="flex justify-end mt-3" onClick={handleToggleSidebar}>
+            <p className="w-auto px-2 mr-4">
+              <BiExit className="w-auto h-6 text-red-800 rotate-180" />
+            </p>
+          </div>
+          {navData.map((data, index) =>
+            data.dropdown === null ? (
+              <Link
+                key={index}
+                to={data.link || "/"}
+                className="ml-5 font-bold text-red-800 text-md"
+              >
+                {data.name
+                  .toLowerCase()
+                  .replace(/\b\w/g, (letter) => letter.toUpperCase())}
+              </Link>
+            ) : (
+              <div key={index} className="relative">
+                <button
+                  className="flex items-center ml-5 font-bold text-red-800 text-md"
+                  onClick={() =>
+                    handleToggleDropdown(data.dropdown![0].id + "Mobile")
+                  }
                 >
                   {data.name
                     .toLowerCase()
                     .replace(/\b\w/g, (letter) => letter.toUpperCase())}
-                </Link>
-              ) : (
-                <div key={index} className="relative">
-                  <button
-                    className="flex items-center ml-5 font-bold text-red-800 text-md"
-                    onClick={() =>
-                      handleToggleDropdown(data.dropdown![0].id + "Mobile")
+                  <MdOutlineKeyboardArrowDown />
+                </button>
+                {dropdownOpen === data.dropdown![0].id + "Mobile" && (
+                  <div
+                    data-aos="flip-down"
+                    className="absolute z-10 py-2 bg-white rounded-md shadow-md w-52"
+                    onMouseEnter={() =>
+                      handleToggleDropdown(data.dropdown![0].id)
                     }
+                    onMouseLeave={handleCloseDropdown}
                   >
-                    {data.name
-                      .toLowerCase()
-                      .replace(/\b\w/g, (letter) => letter.toUpperCase())}
-                    <MdOutlineKeyboardArrowDown />
-                  </button>
-                  {dropdownOpen === data.dropdown![0].id + "Mobile" && (
-                    <div
-                      data-aos="flip-down"
-                      className="absolute z-10 py-2 bg-white rounded-md shadow-md w-52"
-                      onMouseEnter={() =>
-                        handleToggleDropdown(data.dropdown![0].id)
-                      }
-                      onMouseLeave={handleCloseDropdown}
-                    >
-                      {data.dropdown![0].items.map((item, index) => (
-                        <Link
-                          key={index}
-                          to={item.link}
-                          className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-                          onClick={handleCloseDropdown}
-                        >
-                          {item.name}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              )
-            )}
-          </div>
+                    {data.dropdown![0].items.map((item, index) => (
+                      <Link
+                        key={index}
+                        to={item.link}
+                        className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                        onClick={handleCloseDropdown}
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )
+          )}
         </div>
-      )}
+      </animated.div>
 
       {sidebarOpen && (
-        <div
+        <animated.div
           className="fixed inset-0 z-40 w-screen h-screen bg-black opacity-70"
           onClick={handleToggleSidebar}
-        ></div>
+        ></animated.div>
       )}
     </nav>
   );
