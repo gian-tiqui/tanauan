@@ -94,7 +94,7 @@ const NewsArticle = () => {
 
   const handleShareFacebook = () => {
     const url = encodeURIComponent(window.location.href);
-    const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+    const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}&picture=${image}`;
     window.open(facebookShareUrl, "_blank");
   };
 
