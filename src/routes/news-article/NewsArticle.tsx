@@ -9,7 +9,6 @@ import loadingAnimation from "../../assets/news-loading.json";
 import { BiShare } from "react-icons/bi";
 import Modal from "../../components/modal/Modal";
 import { Helmet } from "react-helmet";
-import { FacebookShareButton } from "react-share";
 
 const NewsArticle = () => {
   const { id } = useParams<{ id: string }>();
@@ -161,9 +160,6 @@ const NewsArticle = () => {
         selfURL={encodeURIComponent(window.location.href)}
       />
       <div className="max-w-xl bg-white rounded-md shadow-md">
-        <FacebookShareButton url={window.location.href}>
-          <i className="fab fa-facebook-f"></i> Share on Facebook
-        </FacebookShareButton>
         <div className="px-6 py-8">
           <div className="flex justify-end">
             <button
