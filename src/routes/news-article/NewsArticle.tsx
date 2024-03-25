@@ -96,11 +96,7 @@ const NewsArticle = () => {
   const handleShareFacebook = () => {
     const url = encodeURIComponent(window.location.href);
     const imageUrl = encodeURIComponent(image || "");
-    const title = encodeURIComponent(newsData.title.rendered);
-    const description = encodeURIComponent(
-      extractStrings(newsData.content.rendered).join(" ")
-    );
-    const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}&picture=${imageUrl}&title=${title}&description=${description}`;
+    const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}&picture=${imageUrl}`;
     window.open(facebookShareUrl, "_blank");
   };
 
