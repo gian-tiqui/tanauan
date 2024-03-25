@@ -8,6 +8,7 @@ import Lottie from "lottie-react";
 import loadingAnimation from "../../assets/news-loading.json";
 import { BiShare } from "react-icons/bi";
 import Modal from "../../components/modal/Modal";
+import { Helmet } from "react-helmet";
 
 const NewsArticle = () => {
   const { id } = useParams<{ id: string }>();
@@ -130,6 +131,11 @@ const NewsArticle = () => {
 
   return (
     <div className="grid gap-5 py-10 md:flex md:justify-center">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>{newsData.title.rendered}</title>
+        <link rel="canonical" href={window.location.href} />
+      </Helmet>
       <Modal
         handleShareFacebook={handleShareFacebook}
         handleShareLinkedIn={handleShareLinkedIn}
