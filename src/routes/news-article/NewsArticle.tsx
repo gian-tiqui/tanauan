@@ -96,7 +96,11 @@ const NewsArticle = () => {
   const handleShareFacebook = () => {
     const url = encodeURIComponent(window.location.href);
     const imageUrl = encodeURIComponent(image || "");
-    const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}&picture=${imageUrl}`;
+    const title = encodeURIComponent(newsData.title.rendered);
+    const description = encodeURIComponent(
+      extractStrings(newsData.content.rendered).join(" ")
+    );
+    const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}&picture=${imageUrl}&title=${title}&description=${description}`;
     window.open(facebookShareUrl, "_blank");
   };
 
@@ -132,9 +136,19 @@ const NewsArticle = () => {
   return (
     <div className="grid gap-5 py-10 md:flex md:justify-center">
       <Helmet>
-        <meta charSet="utf-8" />
         <title>{newsData.title.rendered}</title>
-        <link rel="canonical" href={window.location.href} />
+        <meta
+          name="description"
+          content={extractStrings(newsData.content.rendered).join(" ")}
+        />
+        <meta property="og:title" content={newsData.title.rendered} />
+        <meta
+          property="og:description"
+          content={extractStrings(newsData.content.rendered).join(" ")}
+        />
+        <meta property="og:image" content={image || ""} />
+        <meta property="og:url" content={window.location.href} />
+        <meta property="og:type" content="article" />
       </Helmet>
       <Modal
         handleShareFacebook={handleShareFacebook}
