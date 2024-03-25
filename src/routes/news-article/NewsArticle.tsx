@@ -136,19 +136,14 @@ const NewsArticle = () => {
   return (
     <div className="grid gap-5 py-10 md:flex md:justify-center">
       <Helmet>
-        <title>{newsData.title.rendered}</title>
-        <meta
-          name="description"
-          content={extractStrings(newsData.content.rendered).join(" ")}
-        />
+        <meta property="og:url" content={window.location.href} />
+        <meta property="og:type" content="article" />
         <meta property="og:title" content={newsData.title.rendered} />
         <meta
           property="og:description"
           content={extractStrings(newsData.content.rendered).join(" ")}
         />
-        <meta property="og:image" content={image || ""} />
-        <meta property="og:url" content={window.location.href} />
-        <meta property="og:type" content="article" />
+        <meta property="og:image" content={image ? image : ""} />
       </Helmet>
       <Modal
         handleShareFacebook={handleShareFacebook}
