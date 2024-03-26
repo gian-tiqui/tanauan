@@ -50,12 +50,6 @@ export const SetDestinationIDContext = createContext<
   Dispatch<SetStateAction<number>>
 >(() => {});
 
-// export const NewsDataContext = createContext<News | null>(null);
-
-// export const SetNewsDataContext = createContext<Dispatch<SetStateAction<News>>>(
-//   () => {}
-// );
-
 const ContextContainer = ({ children }: ContextContainerProps) => {
   const [news, setNews] = useState<News[]>([]);
   const [cities, setCities] = useState<CityInterface[]>([]);
@@ -64,7 +58,6 @@ const ContextContainer = ({ children }: ContextContainerProps) => {
   const [categories, setCategories] = useState<CategoryInterface[]>([]);
   const [tags, setTags] = useState<TagsInterface[]>([]);
   const [destinationID, setDestinationID] = useState<number>(0);
-  // const [newsData, setNewsData] = useState<News | null>(null);
 
   return (
     <SetDestinationIDContext.Provider value={setDestinationID}>
