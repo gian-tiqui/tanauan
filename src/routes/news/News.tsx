@@ -1,6 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import LatestNewsContainer from "./components/LatestNewsContainer";
 import {
+  NewsContext,
+  SetNewsContext,
   SetTagsContext,
   TagsContext,
 } from "../../context-container/ContextContainer";
@@ -9,6 +11,7 @@ import NewsContainer from "./components/NewsContainer";
 import TrendsForYou from "./components/TrendsForYou";
 import { SetShowFooterContext, SetShowHeaderContext } from "../../App";
 import { Link } from "react-router-dom";
+import { News as NewsInterface } from "../home/components/NewsCarousel";
 
 const TAGS_ENDPOINT =
   "https://tanauancity.gov.ph/wp-json/wp/v2/tagss?per_page=100";
@@ -38,6 +41,8 @@ const News = () => {
   const [selectedTag, setSelectedTag] = useState<TagsInterface>(tags[0]);
   const setShowFooter = useContext(SetShowFooterContext);
   const setShowHeader = useContext(SetShowHeaderContext);
+  const news = useContext(NewsContext);
+  const setNews = useContext(SetNewsContext);
 
   useEffect(() => {
     setShowHeader(false);
@@ -94,6 +99,41 @@ const News = () => {
   const handleTagsClicked = (tag: TagsInterface) => {
     setSelectedTag(tag);
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const DATA_PER_PAGE = 100;
+
+      try {
+        const NEWS_ENDPOINT = `https://tanauancity.gov.ph/wp-json/wp/v2/posts?per_page=${DATA_PER_PAGE}`;
+
+        if (news.length === 0) {
+          const response: AxiosResponse<NewsInterface[]> = await axios.get(
+            NEWS_ENDPOINT
+          );
+
+          const data = response.data;
+
+          const modifiedData: NewsInterface[] = data.map((ns) => ({
+            categories: ns.categories,
+            content: ns.content,
+            date: ns.date,
+            featured_media: ns.featured_media,
+            id: ns.id,
+            link: `/news/${ns.id}`,
+            tagss: ns.tagss,
+            title: ns.title,
+          }));
+
+          setNews(modifiedData);
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, [news, setNews]);
 
   return (
     <div className="h-screen">
