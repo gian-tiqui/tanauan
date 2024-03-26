@@ -6,6 +6,7 @@ import { FaFacebook } from "react-icons/fa";
 import { LiaLinkedin } from "react-icons/lia";
 import { LuLink } from "react-icons/lu";
 import { PiPinterestLogo } from "react-icons/pi";
+import { Bounce, toast } from "react-toastify";
 
 interface ModalProps {
   handleShareFacebook: () => void;
@@ -34,6 +35,17 @@ const Modal: React.FC<ModalProps> = ({
     };
     document.addEventListener("copy", listener);
     document.execCommand("copy");
+    toast.success("Text-copied", {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    });
   };
 
   return (
@@ -84,15 +96,12 @@ const Modal: React.FC<ModalProps> = ({
               <LiaLinkedin className="w-7 h-7" />
             </button>
           </div>
-          <div>
+          <div className="cursor-pointer" onClick={handleCopyLink}>
             <p className="mb-2 ml-1 text-sm">Or copy link</p>
             <div className="flex items-center p-2 border rounded-lg">
               <LuLink className="mr-2 h-7 w-7" />
               <p className="truncate">{selfURL}</p>
-              <BiCopy
-                className="h-7 w-7 hover:bg-gray-50"
-                onClick={handleCopyLink}
-              />
+              <BiCopy className="h-7 w-7 hover:bg-gray-50" />
             </div>
           </div>
         </div>

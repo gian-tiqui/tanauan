@@ -192,7 +192,7 @@ const NewsArticle = () => {
         handleShareTwitter={handleShareTwitter}
         open={open}
         onClose={onClose}
-        selfURL={encodeURIComponent(window.location.href)}
+        selfURL={window.location.href}
       />
       <div className="max-w-xl bg-white rounded-md shadow-md">
         <div className="px-6 py-8">
