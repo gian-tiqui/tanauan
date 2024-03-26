@@ -1,12 +1,19 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { CityContext } from "../../context-container/ContextContainer";
+import {
+  CityContext,
+  SetCityContext,
+} from "../../context-container/ContextContainer";
 import { SetShowFooterContext, SetShowHeaderContext } from "../../App";
-import axios from "axios";
-import { CityInterface } from "../home/components/CityHighlights";
+import axios, { AxiosResponse } from "axios";
+import {
+  CITIES_ENDPOINT,
+  CityInterface,
+} from "../home/components/CityHighlights";
 
 const DestinationIndiv = () => {
   const cities = useContext(CityContext);
+  const setCities = useContext(SetCityContext);
   const { id } = useParams();
   const setShowHeader = useContext(SetShowHeaderContext);
   const setShowFooter = useContext(SetShowFooterContext);
@@ -15,6 +22,33 @@ const DestinationIndiv = () => {
   const [prevPlace, setPrevPlace] = useState<CityInterface | null>(null);
 
   const city = cities.find((city) => city.id.toString() === id);
+
+  useEffect(() => {
+    const fetchCities = async () => {
+      try {
+        if (cities.length === 0) {
+          const response: AxiosResponse<CityInterface[]> = await axios.get(
+            CITIES_ENDPOINT
+          );
+
+          const data: CityInterface[] = response.data.map((item) => ({
+            title: item.title,
+            content: item.content,
+            date: item.date,
+            featured_media: item.featured_media,
+            id: item.id,
+            link: `/city-highlight/${item.id}`,
+          }));
+
+          setCities(data);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchCities();
+  }, [cities.length, cities, setCities]);
 
   useEffect(() => {
     const getImage = async () => {
