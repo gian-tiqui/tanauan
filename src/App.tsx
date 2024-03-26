@@ -35,7 +35,7 @@ import History from "./routes/tourism/history/History";
 import EmergencyApp from "./routes/emergency-app/EmergencyApp";
 import Documents from "./routes/transparency-reports/documents/Documents";
 import NotFound from "./routes/not-found/NotFound";
-import { BiExit, BiMessageAlt, BiSend } from "react-icons/bi";
+import { BiExit, BiMessage, BiMessageAlt, BiSend } from "react-icons/bi";
 import { CgClose } from "react-icons/cg";
 import { FieldValues, useForm } from "react-hook-form";
 import DestinationIndiv from "./routes/single-destination/DestinationIndiv";
@@ -237,74 +237,85 @@ const App = () => {
                       </Link>
                     )}
 
-                    <div className="fixed bottom-0 z-10 bg-white shadow-xl cursor-pointer w-72 rounded-t-xl right-5">
-                      <div>
+                    <div className="fixed bottom-0 z-10 flex justify-end cursor-pointer w-72 rounded-t-xl right-5">
+                      {chatExtended ? (
+                        <div>
+                          <div
+                            className={`flex items-center justify-between bg-white p-1 border-t border-s border-e rounded-t-xl ${
+                              chatExtended
+                                ? "border-b bg-gray-100 hover:bg-white"
+                                : "hover:bg-gray-100"
+                            }`}
+                            onClick={() =>
+                              setChatExtended((prevVal) => !prevVal)
+                            }
+                          >
+                            <div className="flex items-center">
+                              <BiMessageAlt className="ml-3" />
+                              <p className="ml-2">Support</p>
+                            </div>
+                            {chatExtended && (
+                              <CgClose className="mr-2 hover:text-gray-600" />
+                            )}
+                          </div>
+                          <div
+                            className={`flex flex-col justify-between bg-white border-s border-e w-72 ${
+                              chatExtended ? "h-52" : "hidden"
+                            } p-2`}
+                          >
+                            <div
+                              ref={chatContainerRef}
+                              className="pb-3 overflow-auto"
+                            >
+                              <MessageContainer
+                                message="Welcome to City Government of Tanauan's Website! How
+                          can we help you?"
+                              />
+                              <div className="flex flex-col justify-center mt-5">
+                                <ul className="p-0 mx-10 mb-5 list-none border rounded-lg">
+                                  <li className="flex items-center px-2 py-1 border-b rounded-t-lg hover:bg-gray-200">
+                                    <Link to={"/tanauan-e-services"}>
+                                      Services
+                                    </Link>
+                                  </li>
+                                  <li className="flex items-center px-2 py-1 border-b hover:bg-gray-200">
+                                    <Link to={"/news"}>News</Link>
+                                  </li>
+                                  <li className="flex items-center px-2 py-1 border-b hover:bg-gray-200">
+                                    <Link to={"/destinations"}>Places</Link>
+                                  </li>
+                                  <li className="flex items-center px-2 py-1 rounded-b-lg hover:bg-gray-200">
+                                    <Link to={"/documents"}>Documents</Link>
+                                  </li>
+                                </ul>
+                                {userChats.map((chat, key) => (
+                                  <UserMessageContainer key={key} {...chat} />
+                                ))}
+                              </div>
+                            </div>
+                            <form onSubmit={handleSubmit(appendChat)}>
+                              <div className="flex items-center justify-between">
+                                <input
+                                  autoComplete="off"
+                                  {...register("message")}
+                                  className="w-full px-2 mr-2 bg-gray-100 rounded-lg focus:outline-none"
+                                  placeholder="Enter your chat here"
+                                />
+                                <button type="submit">
+                                  <BiSend className="w-auto h-5 mr-2" />
+                                </button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      ) : (
                         <div
-                          className={`flex items-center justify-between p-1 border-t border-s border-e rounded-t-xl ${
-                            chatExtended
-                              ? "border-b bg-gray-100 hover:bg-white"
-                              : "hover:bg-gray-100"
-                          }`}
+                          className="flex items-center justify-center mb-5 bg-white border border-black rounded-full w-14 h-14 hover:bg-gray-200"
                           onClick={() => setChatExtended((prevVal) => !prevVal)}
                         >
-                          <div className="flex items-center">
-                            <BiMessageAlt className="ml-3" />
-                            <p className="ml-2">Support</p>
-                          </div>
-                          {chatExtended && (
-                            <CgClose className="mr-2 hover:text-gray-600" />
-                          )}
+                          <BiMessage className="w-7 h-7" />
                         </div>
-                        <div
-                          className={`flex flex-col justify-between ${
-                            chatExtended ? "h-52" : "hidden"
-                          } p-2`}
-                        >
-                          <div
-                            ref={chatContainerRef}
-                            className="pb-3 overflow-auto"
-                          >
-                            <MessageContainer
-                              message="Welcome to City Government of Tanauan's Website! How
-                          can we help you?"
-                            />
-                            <div className="flex flex-col justify-center mt-5">
-                              <ul className="p-0 mx-10 mb-5 list-none border rounded-lg">
-                                <li className="flex items-center px-2 py-1 border-b rounded-t-lg hover:bg-gray-200">
-                                  <Link to={"/tanauan-e-services"}>
-                                    Services
-                                  </Link>
-                                </li>
-                                <li className="flex items-center px-2 py-1 border-b hover:bg-gray-200">
-                                  <Link to={"/news"}>News</Link>
-                                </li>
-                                <li className="flex items-center px-2 py-1 border-b hover:bg-gray-200">
-                                  <Link to={"/destinations"}>Places</Link>
-                                </li>
-                                <li className="flex items-center px-2 py-1 rounded-b-lg hover:bg-gray-200">
-                                  <Link to={"/documents"}>Documents</Link>
-                                </li>
-                              </ul>
-                              {userChats.map((chat, key) => (
-                                <UserMessageContainer key={key} {...chat} />
-                              ))}
-                            </div>
-                          </div>
-                          <form onSubmit={handleSubmit(appendChat)}>
-                            <div className="flex items-center justify-between">
-                              <input
-                                autoComplete="off"
-                                {...register("message")}
-                                className="w-full px-2 mr-2 bg-gray-100 rounded-lg focus:outline-none"
-                                placeholder="Enter your chat here"
-                              />
-                              <button type="submit">
-                                <BiSend className="w-auto h-5 mr-2" />
-                              </button>
-                            </div>
-                          </form>
-                        </div>
-                      </div>
+                      )}
                     </div>
                   </div>
 
