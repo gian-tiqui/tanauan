@@ -1,7 +1,10 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { NewsContext } from "../../context-container/ContextContainer";
+import {
+  NewsContext,
+  SetNewsContext,
+} from "../../context-container/ContextContainer";
 import { News } from "../home/components/NewsCarousel";
 import LatestNewsContainer from "../news/components/LatestNewsContainer";
 import Lottie from "lottie-react";
@@ -19,6 +22,7 @@ const NewsArticle = () => {
   const [nextNews, setNextNews] = useState<News | null>(null);
   const [open, setOpen] = useState<boolean>(false);
   const news = useContext(NewsContext);
+  const setNews = useContext(SetNewsContext);
 
   useEffect(() => {
     const currNewsId = id;
@@ -35,6 +39,42 @@ const NewsArticle = () => {
     setPrevNews(prev);
     setNextNews(next);
   }, [id, news]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const DATA_PER_PAGE = 100;
+
+      try {
+        const NEWS_ENDPOINT = `https://tanauancity.gov.ph/wp-json/wp/v2/posts?per_page=${DATA_PER_PAGE}`;
+
+        if (news.length === 0) {
+          const response: AxiosResponse<News[]> = await axios.get(
+            NEWS_ENDPOINT
+          );
+
+          const data = response.data;
+
+          const modifiedData: News[] = data.map((ns) => ({
+            categories: ns.categories,
+            content: ns.content,
+            date: ns.date,
+            featured_media: ns.featured_media,
+            id: ns.id,
+            link: `/news/${ns.id}`,
+            tagss: ns.tagss,
+            title: ns.title,
+          }));
+
+          setNews(modifiedData);
+        }
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, [news, setNews]);
 
   useEffect(() => {
     const fetchNews = async () => {
