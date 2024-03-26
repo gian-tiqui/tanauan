@@ -1,10 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import { FaFilePdf } from "react-icons/fa";
 import { SetShowFooterContext, SetShowHeaderContext } from "../../../App";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../../assets/logo.png";
 import bg from "../../../assets/red-art-bg.png";
 import { BiChevronRight } from "react-icons/bi";
+import { MdExitToApp } from "react-icons/md";
 
 interface FileInterface {
   name: string;
@@ -1108,6 +1109,11 @@ const Documents = () => {
 
   const setShowHeader = useContext(SetShowHeaderContext);
   const setShowFooter = useContext(SetShowFooterContext);
+  const navigate = useNavigate();
+
+  const handleNavigateHome = () => {
+    navigate("/");
+  };
 
   useEffect(() => {
     setShowHeader(false);
@@ -1236,9 +1242,18 @@ const Documents = () => {
               </ul>
             </div>
           </div>
+          <div className="flex flex-col items-center justify-center h-32 p-3 border">
+            <div
+              className="flex items-center gap-1 mt-2 cursor-pointer"
+              onClick={handleNavigateHome}
+            >
+              <MdExitToApp className="w-6 h-6 rotate-180" />
+              <p className="text-lg font-bold">Exit</p>
+            </div>
+          </div>
         </div>
 
-        <div className="grid h-screen col-span-3 gap-4 p-4 overflow-auto bg-gray-100 sm:col-span-2 lg:col-span-3 rounded-t-xl">
+        <div className="grid h-screen col-span-3 gap-4 p-4 overflow-auto bg-gray-100 sm:col-span-2 lg:col-span-4 rounded-t-xl">
           {selectedQuarter.files.map((file, index) => (
             <a
               key={index}
