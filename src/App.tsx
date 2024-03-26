@@ -42,6 +42,8 @@ import DestinationIndiv from "./routes/single-destination/DestinationIndiv";
 import NavbarV2 from "./components/Navbar/NavbarV2";
 import chatIcon from "./assets/chat-lottie.json";
 import Lottie from "lottie-react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 interface RouteMapping {
   path: string;
@@ -218,6 +220,7 @@ const App = () => {
         ></div>
       )}
       <ContextContainer>
+        <ToastContainer />
         <SetShowHeaderContext.Provider value={setShowHeader}>
           <SetShowFooterContext.Provider value={setShowFooter}>
             <ExitNewsContext.Provider value={setShowExit}>
