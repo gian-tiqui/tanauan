@@ -35,11 +35,13 @@ import History from "./routes/tourism/history/History";
 import EmergencyApp from "./routes/emergency-app/EmergencyApp";
 import Documents from "./routes/transparency-reports/documents/Documents";
 import NotFound from "./routes/not-found/NotFound";
-import { BiExit, BiMessage, BiMessageAlt, BiSend } from "react-icons/bi";
+import { BiExit, BiMessageAlt, BiSend } from "react-icons/bi";
 import { CgClose } from "react-icons/cg";
 import { FieldValues, useForm } from "react-hook-form";
 import DestinationIndiv from "./routes/single-destination/DestinationIndiv";
 import NavbarV2 from "./components/Navbar/NavbarV2";
+import chatIcon from "./assets/chat-lottie.json";
+import Lottie from "lottie-react";
 
 interface RouteMapping {
   path: string;
@@ -209,6 +211,12 @@ const App = () => {
       className="bg-center bg-no-repeat bg-cover"
       style={{ backgroundImage: `url(${footerBg})` }}
     >
+      {chatExtended && (
+        <div
+          className="fixed inset-0 z-40 w-screen h-screen"
+          onClick={() => setChatExtended((prevVal) => !prevVal)}
+        ></div>
+      )}
       <ContextContainer>
         <SetShowHeaderContext.Provider value={setShowHeader}>
           <SetShowFooterContext.Provider value={setShowFooter}>
@@ -313,7 +321,10 @@ const App = () => {
                           className="flex items-center justify-center mb-5 bg-white border border-black rounded-full w-14 h-14 hover:bg-gray-200"
                           onClick={() => setChatExtended((prevVal) => !prevVal)}
                         >
-                          <BiMessage className="w-7 h-7" />
+                          <Lottie
+                            animationData={chatIcon}
+                            className="w-7 h-7"
+                          />
                         </div>
                       )}
                     </div>

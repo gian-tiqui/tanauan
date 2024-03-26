@@ -1144,7 +1144,7 @@ const Documents = () => {
   return (
     <div className="container">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-5">
-        <div className="flex flex-col w-full h-screen overflow-auto text-black bg-white shadow-2xl">
+        <div className="flex flex-col w-full h-screen text-black bg-white shadow-2xl">
           <div
             className="bg-center bg-no-repeat bg-cover"
             style={{ backgroundImage: `url(${bg})` }}
@@ -1157,7 +1157,7 @@ const Documents = () => {
               />
             </Link>
           </div>
-          <div className="flex flex-col pt-5 mx-2 space-y-4">
+          <div className="flex flex-col pt-5 mx-2 space-y-4 overflow-auto">
             <p className="text-lg font-extrabold">BIDS AND AWARDS</p>{" "}
             <div className="flex items-center pb-2 border-b border-gray-700">
               <p className="text-lg font-extrabold">2021</p>
@@ -1252,79 +1252,6 @@ const Documents = () => {
               </div>
             </a>
           ))}
-        </div>
-        <div className="grid col-span-1 overflow-auto md:p-4 lg:p-4 sm:col-span-1 lg:col-span-1">
-          <div
-            className="p-4 bg-center bg-no-repeat rounded-lg shadow-xl bg-coverrounded-lg "
-            style={{ backgroundImage: `url(${bg})` }}
-          >
-            <p className="font-extrabold text-white">Links</p>
-            <ul className="mt-5 font-bold text-white">
-              <li>
-                <Link className="hover:text-gray-200" to={"/"}>
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link className="hover:text-gray-200" to={"/barangays"}>
-                  Barangays
-                </Link>
-              </li>
-              <li>
-                <Link className="hover:text-gray-200" to={"/csdw-services"}>
-                  CSDW Services
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="hover:text-gray-200"
-                  to={"/pwd-id-and-services"}
-                >
-                  PWD ID and Services
-                </Link>
-              </li>
-              <li>
-                <Link className="hover:text-gray-200" to={"/"}>
-                  Sr. Citizen ID and Benefits
-                </Link>
-              </li>
-              <li>
-                <Link className="hover:text-gray-200" to={"/city-officials"}>
-                  City Officials
-                </Link>
-              </li>
-              <li>
-                <Link className="hover:text-gray-200" to={"/departments"}>
-                  Departments
-                </Link>
-              </li>
-              <li>
-                <Link className="hover:text-gray-200" to={"/mission-vision"}>
-                  Mission and Vision
-                </Link>
-              </li>
-              <li>
-                <Link className="hover:text-gray-200" to={"/news"}>
-                  News
-                </Link>
-              </li>
-              <li>
-                <Link className="hover:text-gray-200" to={"/assessors"}>
-                  Assessors
-                </Link>
-              </li>
-              <li>
-                <Link className="hover:text-gray-200" to={"/documents"}>
-                  Documents
-                </Link>
-              </li>
-              <li>
-                <Link className="hover:text-gray-200" to={"/destinations"}>
-                  Destinations
-                </Link>
-              </li>
-            </ul>
-          </div>
         </div>
       </div>
     </div>
