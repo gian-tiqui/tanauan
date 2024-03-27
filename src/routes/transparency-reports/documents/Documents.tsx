@@ -1149,7 +1149,7 @@ const Documents = () => {
 
   return (
     <div className="container">
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+      <div className="grid grid-cols-1 md:gap-4 sm:grid-cols-3 lg:grid-cols-5">
         <div className="flex flex-col w-full h-screen text-black bg-white shadow-2xl">
           <div
             className="bg-center bg-no-repeat bg-cover"
@@ -1159,7 +1159,7 @@ const Documents = () => {
               <img
                 src={logo}
                 alt="Tanauan"
-                className="w-auto h-20 mx-auto mt-5 mb-10 "
+                className="w-auto h-20 mx-auto mt-5 mb-10"
               />
             </Link>
           </div>
