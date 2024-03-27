@@ -3,6 +3,7 @@ import { SetShowFooterContext, SetShowHeaderContext } from "../../../App";
 import { useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
 import animation from "../../../assets/page-fix.json";
+import { BiExit } from "react-icons/bi";
 
 const SignUp = () => {
   const setShowHeader = useContext(SetShowHeaderContext);
@@ -19,6 +20,10 @@ const SignUp = () => {
       setShowFooter(true);
     };
   }, [setShowHeader, setShowFooter]);
+
+  const navigateHome = () => {
+    navigate("/");
+  };
 
   useEffect(() => {
     if (countdown === 0) {
@@ -46,6 +51,13 @@ const SignUp = () => {
           </p>
           <div className="flex items-center justify-center mt-10 gap-x-6">
             <p>Redirecting you back to home page in {countdown}...</p>
+          </div>
+          <div
+            onClick={navigateHome}
+            className="flex items-center justify-center w-32 h-8 gap-2 mx-auto mt-5 text-white bg-red-800 rounded-md cursor-pointer hover:bg-red-700"
+          >
+            <BiExit className="w-5 h-5 rotate-180" />
+            <p>Exit</p>
           </div>
         </div>
       </main>
