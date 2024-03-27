@@ -10,11 +10,13 @@ const VideoHeader = () => {
         autoPlay
         ref={vidRef}
         muted
+        controlsList="nodownload"
         className="object-cover w-full"
         style={{ height: "508px" }}
       >
         <source src={vid} type="video/mp4" />
       </video>
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-auto"></div>
     </div>
   );
 };
