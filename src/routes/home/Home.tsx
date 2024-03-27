@@ -6,8 +6,20 @@ import StatusUpdates from "./components/StatusUpdates";
 import CityHighlights from "./components/CityHighlights";
 import Cgtv from "./components/CGTV";
 import VideoHeader from "./components/VideoHeader";
+import { useContext, useEffect } from "react";
+import { SetShowChatContext } from "../../App";
 
 const Home = () => {
+  const setShowChat = useContext(SetShowChatContext);
+
+  useEffect(() => {
+    setShowChat(true);
+
+    return () => {
+      setShowChat(false);
+    };
+  }, [setShowChat]);
+
   return (
     <div className="relative w-full h-full">
       <div id="video-header">
