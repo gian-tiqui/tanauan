@@ -176,6 +176,7 @@ const NewsArticle = () => {
   return (
     <div className="grid gap-5 py-10 md:flex md:justify-center">
       <Helmet>
+        <title>{newsData.title.rendered}</title>
         <meta property="og:url" content={window.location.href} />
         <meta property="og:type" content="article" />
         <meta property="og:title" content={newsData.title.rendered} />
