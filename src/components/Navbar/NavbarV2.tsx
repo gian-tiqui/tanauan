@@ -6,8 +6,6 @@ import logo from "../../assets/tanauan_logo.png";
 import { BiExit } from "react-icons/bi";
 import { animated, useSpring } from "@react-spring/web";
 
-// ????
-
 interface DropDownItem {
   name: string;
   link: string;
