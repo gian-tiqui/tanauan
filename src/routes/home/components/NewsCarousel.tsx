@@ -67,7 +67,7 @@ const NewsCarousel = () => {
   // useEffect(() => {
   //   const fetchData = async () => {
   //     try {
-  //       const DATA_PER_PAGE = 100;
+  //
   //       const totalPosts = 100; // 2820 POSTS
   //       const totalPages = Math.ceil(totalPosts / DATA_PER_PAGE);
   //       const allPosts = [];
