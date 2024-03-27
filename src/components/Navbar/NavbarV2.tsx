@@ -5,6 +5,7 @@ import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import logo from "../../assets/tanauan_logo.png";
 import { BiExit } from "react-icons/bi";
 import { animated, useSpring } from "@react-spring/web";
+import { CgMenu } from "react-icons/cg";
 
 interface DropDownItem {
   name: string;
@@ -313,19 +314,20 @@ const NavbarV2 = () => {
         <div className="flex justify-between flex-1 py-2">
           <div className="flex items-center flex-1">
             <img src={logo} className="w-16 h-13" alt="Logo" />
-            <h2 className="text-sm font-bold">TANAUAN</h2>
+            <h2 className="ml-3 text-sm font-bold">TANAUAN</h2>
           </div>
 
-          <div
-            className="flex items-center justify-end flex-1"
-            onClick={handleToggleSidebar}
-          >
-            <img
+          {!sidebarOpen && (
+            <div
+              className="flex items-center justify-end flex-1"
               onClick={handleToggleSidebar}
-              src="https://cdn-icons-png.flaticon.com/128/4254/4254068.png"
-              className="w-10 h-8 px-2 py-1 mr-8 font-bold text-red-800 border border-black rounded"
-            ></img>
-          </div>
+            >
+              <CgMenu
+                onClick={handleToggleSidebar}
+                className="w-10 h-8 px-2 py-1 mr-8 font-bold text-red-800 border border-black rounded"
+              />
+            </div>
+          )}
         </div>
       </div>
 
@@ -336,7 +338,7 @@ const NavbarV2 = () => {
         <div className="flex flex-col justify-center gap-3">
           <div className="flex items-center py-2 bg-white">
             <img src={logo} className="w-16 h-13" alt="Logo" />
-            <h2 className="text-sm font-bold">TANAUAN</h2>
+            <h2 className="ml-3 text-sm font-bold">TANAUAN</h2>
           </div>
           <div className="flex justify-end mt-3" onClick={handleToggleSidebar}>
             <p className="w-auto px-2 mr-4">
@@ -376,7 +378,7 @@ const NavbarV2 = () => {
                       <Link
                         key={index}
                         to={item.link}
-                        className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                        className="block px-4 py-2 text-black hover:bg-gray-200"
                         onClick={handleCloseDropdown}
                       >
                         {item.name}
