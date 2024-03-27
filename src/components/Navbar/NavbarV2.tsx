@@ -373,10 +373,6 @@ const NavbarV2 = () => {
                   <div
                     data-aos="flip-down"
                     className="absolute z-10 py-2 bg-white rounded-md shadow-md w-52"
-                    onMouseEnter={() =>
-                      handleToggleDropdown(data.dropdown![0].id)
-                    }
-                    onMouseLeave={handleCloseDropdown}
                   >
                     {data.dropdown![0].items.map((item, index) => (
                       <Link
