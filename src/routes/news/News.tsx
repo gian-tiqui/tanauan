@@ -11,7 +11,10 @@ import NewsContainer from "./components/NewsContainer";
 import TrendsForYou from "./components/TrendsForYou";
 import { SetShowFooterContext, SetShowHeaderContext } from "../../App";
 import { Link } from "react-router-dom";
-import { News as NewsInterface } from "../home/components/NewsCarousel";
+import {
+  DATA_PER_PAGE,
+  News as NewsInterface,
+} from "../home/components/NewsCarousel";
 
 const TAGS_ENDPOINT =
   "https://tanauancity.gov.ph/wp-json/wp/v2/tagss?per_page=100";
@@ -102,8 +105,6 @@ const News = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const DATA_PER_PAGE = 100;
-
       try {
         const NEWS_ENDPOINT = `https://tanauancity.gov.ph/wp-json/wp/v2/posts?per_page=${DATA_PER_PAGE}`;
 

@@ -23,6 +23,8 @@ export interface News {
   tagss: number[];
 }
 
+export const DATA_PER_PAGE = 50;
+
 const NewsCarousel = () => {
   const [loading, setLoading] = useState(true);
   const news = useContext(NewsContext);
@@ -30,8 +32,6 @@ const NewsCarousel = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const DATA_PER_PAGE = 100;
-
       try {
         const NEWS_ENDPOINT = `https://tanauancity.gov.ph/wp-json/wp/v2/posts?per_page=${DATA_PER_PAGE}`;
 
