@@ -3,7 +3,7 @@ import PublicServices from "../../home/components/PublicServices";
 
 const TanauanEServices = () => {
   return (
-    <div className="mb-20">
+    <div className="p-3 mb-20 md:p-0">
       <h1 className="mx-auto mt-24 text-4xl font-extrabold text-center text-red-800 max-w-96">
         The City's Modern Public Service
       </h1>
