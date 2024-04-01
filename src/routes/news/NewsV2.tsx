@@ -56,15 +56,6 @@ const NewsV2 = () => {
   }, [tags]);
 
   useEffect(() => {
-    /*
-
-      HELLO DEVELOPER! 👋 
-      
-      If you happen to stumble into this file and you encounter issues, please contact me, Michael Gian Tiqui
-      you can find me on Facebook. That's all, see youuuu~
-
-    */
-
     setShowFooter(false);
     const fetchTags = async () => {
       try {
