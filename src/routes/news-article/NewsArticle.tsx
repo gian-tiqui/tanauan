@@ -3,7 +3,6 @@ import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import {
   NewsContext,
-  SetNewsArticleContext,
   SetNewsContext,
 } from "../../context-container/ContextContainer";
 import { News } from "../home/components/NewsCarousel";
@@ -12,6 +11,7 @@ import Lottie from "lottie-react";
 import loadingAnimation from "../../assets/news-loading.json";
 import { BiShare } from "react-icons/bi";
 import Modal from "../../components/modal/Modal";
+import { Helmet } from "react-helmet";
 
 const NewsArticle = () => {
   const { id } = useParams<{ id: string }>();
@@ -23,7 +23,6 @@ const NewsArticle = () => {
   const [open, setOpen] = useState<boolean>(false);
   const news = useContext(NewsContext);
   const setNews = useContext(SetNewsContext);
-  const setNewsArticle = useContext(SetNewsArticleContext);
 
   useEffect(() => {
     const currNewsId = id;
@@ -86,7 +85,6 @@ const NewsArticle = () => {
 
         const data = response.data;
         setNewsData(data);
-        setNewsArticle(data);
 
         if (data.featured_media) {
           const mediaResponse = await axios.get(
@@ -103,7 +101,7 @@ const NewsArticle = () => {
     };
 
     fetchNews();
-  }, [id, setNewsArticle]);
+  }, [id]);
 
   const extractStrings = (htmlContent: string): string[] => {
     const divElements = new DOMParser()
@@ -177,6 +175,17 @@ const NewsArticle = () => {
 
   return (
     <div className="grid gap-5 py-10 md:flex md:justify-center">
+      <Helmet>
+        <title>{newsData.title.rendered}</title>
+        <meta property="og:url" content={window.location.href} />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={newsData.title.rendered} />
+        <meta
+          property="og:description"
+          content={extractStrings(newsData.content.rendered).join(" ")}
+        />
+        <meta property="og:image" content={image ? image : ""} />
+      </Helmet>
       <Modal
         handleShareFacebook={handleShareFacebook}
         handleShareLinkedIn={handleShareLinkedIn}
