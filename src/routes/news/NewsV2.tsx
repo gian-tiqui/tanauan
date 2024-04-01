@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-import LatestNewsContainer from "./components/LatestNewsContainer";
 import {
   NewsContext,
   SetNewsContext,
@@ -8,9 +7,7 @@ import {
 } from "../../context-container/ContextContainer";
 import axios, { AxiosResponse } from "axios";
 import NewsContainer from "./components/NewsContainer";
-import TrendsForYou from "./components/TrendsForYou";
 import { SetShowFooterContext, SetShowHeaderContext } from "../../App";
-import { Link } from "react-router-dom";
 import {
   DATA_PER_PAGE,
   News as NewsInterface,
@@ -129,31 +126,23 @@ const NewsV2 = () => {
 
   return (
     <div className="h-screen">
-      <div className="container px-3 mx-auto sm:px-5 md:px-7 lg:px-32">
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3">
-          <div className="md:col-span-2 lg:col-span-2">
-            <div className="h-full border-t border-l border-r border-l-black border-t-black border-r-black">
-              <div>{selectedTag && <NewsContainer id={selectedTag.id} />}</div>
-            </div>
+      <nav>
+        <div className="grid grid-cols-3 bg-white shadow-2xl h-11">
+          <div>block 1</div>
+          <div>block 2</div>
+          <div>block 3</div>
+        </div>
+      </nav>
+      <div className="container">
+        <div className="grid grid-cols-1 md:grid-cols-5 lg:grid-cols-5">
+          <div className="h-screen overflow-auto">
+            <div>{selectedTag && <NewsContainer id={selectedTag.id} />}</div>
           </div>
-          <div className="hidden col-span-1 px-4 pt-4 border-t border-black sm:hidden md:block lg:block">
-            <div className="fixed grid gap-2">
-              <div className="py-4 bg-white shadow-lg sm:w-64 md:w-72 lg:w-96 rounded-2xl">
-                <p className="mb-3 ml-4 text-lg font-bold">Latest News</p>
-                <LatestNewsContainer />
-              </div>
-              <div className="py-4 bg-white shadow-lg sm:w-64 md:w-72 lg:w-96 rounded-2xl">
-                <p className="pl-4 mb-3 text-lg font-bold">Trends for you</p>
-                <TrendsForYou tags={tags} setSelectedTag={setSelectedTag} />
-              </div>
-              <div className="bg-white shadow-lg sm:w-64 md:w-72 lg:w-96 rounded-2xl">
-                <Link to={"/"} className="">
-                  <div className="w-full px-5 py-1 text-white bg-red-800 rounded-lg">
-                    <p className="font-bold text-center">Exit News</p>
-                  </div>
-                </Link>
-              </div>
-            </div>
+          <div className="h-full col-span-3">
+            <div>{selectedTag && <NewsContainer id={selectedTag.id} />}</div>
+          </div>
+          <div className="h-screen overflow-auto">
+            <div>{selectedTag && <NewsContainer id={selectedTag.id} />}</div>
           </div>
         </div>
       </div>
