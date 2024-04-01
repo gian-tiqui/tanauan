@@ -6,6 +6,7 @@ import {
   ReactNode,
   SetStateAction,
   createContext,
+  useContext,
   useEffect,
   useRef,
   useState,
@@ -25,7 +26,10 @@ import JobFair from "./routes/careers/job-fair/JobFair";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import Footer from "./routes/home/components/Footer";
-import ContextContainer from "./context-container/ContextContainer";
+import ContextContainer, {
+  ImageContext,
+  NewsArticleContext,
+} from "./context-container/ContextContainer";
 import footerBg from "./assets/footer-bg.png";
 import SignIn from "./routes/auth/sign-in/SignIn";
 import SignUp from "./routes/auth/sign-up/SignUp";
@@ -44,6 +48,7 @@ import chatIcon from "./assets/chat-lottie.json";
 import Lottie from "lottie-react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Helmet } from "react-helmet";
 
 interface RouteMapping {
   path: string;
@@ -188,6 +193,8 @@ const App = () => {
   const { handleSubmit, register, reset } = useForm();
   const chatContainerRef = useRef<HTMLDivElement>(null);
   const [showChat, setShowChat] = useState<boolean>(false);
+  const newsArticle = useContext(NewsArticleContext);
+  const image = useContext(ImageContext);
 
   const appendChat = (data: FieldValues) => {
     const newChat: UserChatInterface = {
@@ -213,11 +220,37 @@ const App = () => {
     e.preventDefault();
   };
 
+  const extractStrings = (htmlContent: string): string[] => {
+    const divElements = new DOMParser()
+      .parseFromString(htmlContent, "text/html")
+      .querySelectorAll(".x11i5rnm div");
+    const strings: string[] = [];
+    divElements.forEach((element) => {
+      if (element.textContent) {
+        strings.push(element.textContent.trim());
+      }
+    });
+    return strings;
+  };
+
   return (
     <div
       className="bg-center bg-no-repeat bg-cover"
       style={{ backgroundImage: `url(${footerBg})` }}
     >
+      {newsArticle && (
+        <Helmet>
+          <title>{newsArticle.title.rendered}</title>
+          <meta property="og:url" content={window.location.href} />
+          <meta property="og:type" content="article" />
+          <meta property="og:title" content={newsArticle.title.rendered} />
+          <meta
+            property="og:description"
+            content={extractStrings(newsArticle.content.rendered).join(" ")}
+          />
+          <meta property="og:image" content={image ? image : ""} />
+        </Helmet>
+      )}
       {chatExtended && (
         <div
           className="fixed inset-0 z-10 w-screen h-screen"
