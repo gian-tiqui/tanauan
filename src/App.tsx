@@ -44,6 +44,7 @@ import chatIcon from "./assets/chat-lottie.json";
 import Lottie from "lottie-react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import NewsV2 from "./routes/news/NewsV2";
 
 interface RouteMapping {
   path: string;
@@ -155,6 +156,10 @@ const routeMaps: RouteMapping[] = [
   {
     path: "/destinations/:id",
     element: <DestinationIndiv />,
+  },
+  {
+    path: "/news-v2",
+    element: <NewsV2 />,
   },
 ];
 
